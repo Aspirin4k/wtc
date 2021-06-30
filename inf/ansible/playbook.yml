@@ -1,0 +1,24 @@
+-
+  hosts: master1
+  become: true
+  tasks:
+    -
+      name: Install dependencies
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+      vars:
+        packages:
+          - ruby
+    -
+      name: Install code deploy agent
+      command: "{{ item }}"
+      warn: false
+      with_items:
+        - wget -P /tmp https://aws-codedeploy-eu-west-1.s3.amazonaws.com/latest/install
+        - chmod +x /tmp/install
+        - /tmp/install auto
+    -
+      name: Create folders for releases
+      command: mkdir -p /home/ubuntu/app/prod
