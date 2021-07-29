@@ -12,6 +12,7 @@
         packages:
           - ruby
           - nginx
+          - openjdk-11-jre-headless
     -
       name: Install code deploy agent
       command: "{{ item }}"
@@ -21,4 +22,17 @@
         - /tmp/install auto
     -
       name: Create folders for releases
-      command: mkdir -p /home/ubuntu/app/prod
+      file:
+        path: '/home/ubuntu/app/prod/{{ item }}'
+        state: directory
+      loop:
+        - blue
+        - green
+        - deploy
+    -
+      name: Copy environment variables
+      copy:
+        src: .env
+        dest: /home/ubuntu/app/prod
+        owner: root
+        group: root

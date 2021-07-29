@@ -10,12 +10,13 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn install
+      - mvn install -P api
   post_build:
     commands:
       - echo Build completed on `date`
 
 artifacts:
   files:
-    - target/wtc-backend-1.0-SNAPSHOT.jar
+    - target/wtc-backend-1.0.jar
     - appspec.yml
+    - post_deploy.sh

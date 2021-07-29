@@ -1,6 +1,14 @@
 version: 0.0
 os: linux
+file_exists_behavior: OVERWRITE
 files:
   -
     source: /target
-    destination: /home/ubuntu/app/prod
+    destination: /home/ubuntu/app/prod/deploy
+
+hooks:
+  AfterInstall:
+    -
+      location: post_deploy.sh
+      timeout: 300
+      runas: root
