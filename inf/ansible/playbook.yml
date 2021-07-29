@@ -11,6 +11,7 @@
       vars:
         packages:
           - ruby
+          - nginx
     -
       name: Install code deploy agent
       command: "{{ item }}"
