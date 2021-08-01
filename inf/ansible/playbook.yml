@@ -14,12 +14,19 @@
           - nginx
           - openjdk-11-jre-headless
     -
+      name: Download Code deploy agent
+      get_url:
+        url: https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install
+        dest: /tmp
+        mode: +x
+    -
       name: Install code deploy agent
-      command: "{{ item }}"
-      with_items:
-        - wget -P /tmp https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install
-        - chmod +x /tmp/install
-        - /tmp/install auto
+      command: /tmp/install auto
+    -
+      name: Install cert bot
+      snap:
+        name: certbot
+        classic: yes
     -
       name: Create folders for releases
       file:
@@ -34,5 +41,19 @@
       copy:
         src: .env
         dest: /home/ubuntu/app/prod
+        owner: root
+        group: root
+    -
+      name: Copy Nginx configuration
+      copy:
+        src: ../nginx/default
+        dest: /etc/nginx/sites-enabled
+        owner: root
+        group: root
+    -
+      name: Copy Services
+      copy:
+        src: ../service/green-wtc.service
+        dest: /etc/systemd/system
         owner: root
         group: root

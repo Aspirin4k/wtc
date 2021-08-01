@@ -5,7 +5,6 @@ current_release_file="${app_directory}/current_release"
 deploy_directory="${app_directory}/deploy"
 blue_release="blue"
 green_release="green"
-binary_name="wtc-backend-1.0.jar"
 
 if [[ ! -f "$current_release_file" ]]; then
   echo "$blue_release" > "$current_release_file"
@@ -19,16 +18,13 @@ else
 fi
 
 target_directory="${app_directory}/${test_release}"
+target_service="${test_release}-wtc.service"
 
-pkill -f "$test_release"
+# stop previous release
+systemctl stop "$target_service"
 rm -rf "${target_directory}/*"
+
+# start new release
 cp -R "${deploy_directory}/." "${target_directory}"
-
-if [[ "$target_release" = "$blue_release" ]]; then
-  server_port="8080"
-else
-  server_port="8081"
-fi
-
 export $(cat "${app_directory}/.env" | xargs)
-exec -a "$target_release" java -jar "${target_directory}/${binary_name}" --server_port="$server_port"
+systemctl start "$target_service"

@@ -1,0 +1,16 @@
+[Unit]
+Description=When They Cry: green release
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=java -jar /home/ubuntu/app/prod/green/wtc-backend-1.0.jar
+
+Environment=SERVER_PORT=8081
+
+[Install]
+WantedBy=multi-user.target
