@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "watch": ["dist-dev/*","dist-dev/**/*"],
+  "ignore": ["dist-dev/static/*", "dist-dev/static/**/*"]
+}

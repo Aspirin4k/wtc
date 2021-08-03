@@ -1,0 +1,51 @@
+{
+  "name": "wtc-site-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=14.15.3"
+  },
+  "scripts": {
+    "client:build": "webpack --config ./webpack/webpack.config.js",
+    "client:build-dev": "webpack --config ./webpack/webpack.config.dev.js",
+    "server:build": "webpack --config ./webpack/webpack.config.server.js",
+    "server:build-dev": "webpack --watch --config ./webpack/webpack.config.server.dev.js",
+    "server:serve": "nodemon --config ./nodemon.json ./dist-dev/server.js",
+    "start-dev": "npm run client:build-dev && npm-run-all --parallel server:build-dev server:serve",
+    "build": "npm run client:build && npm run server:build",
+    "start": "node ./dist/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.21.1",
+    "axios-express-proxy": "1.1.0",
+    "ejs": "3.1.5",
+    "express": "4.17.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-router-dom": "5.2.0",
+    "react-transition-group": "4.4.1",
+    "serve-favicon": "2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "@babel/preset-react": "7.12.10",
+    "babel-loader": "8.2.2",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "7.0.0",
+    "css-loader": "5.0.1",
+    "mini-css-extract-plugin": "1.3.3",
+    "nodemon": "2.0.6",
+    "npm-run-all": "4.1.5",
+    "sass": "1.30.0",
+    "sass-loader": "10.1.0",
+    "webpack": "5.11.0",
+    "webpack-cli": "4.2.0",
+    "webpack-dev-middleware": "4.0.2",
+    "webpack-hot-middleware": "2.25.0",
+    "webpack-manifest-plugin": "3.0.0",
+    "webpack-node-externals": "2.5.2"
+  }
+}
