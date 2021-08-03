@@ -1,9 +1,7 @@
-server {
-    location /test/api {
-        proxy_pass http://localhost:8081/;
-    }
+location /test/api {
+    proxy_pass http://localhost:8081/;
+}
 
-    location /api {
-        proxy_pass http://localhost:8080/;
-    }
+location /api {
+    proxy_pass http://localhost:8080/;
 }

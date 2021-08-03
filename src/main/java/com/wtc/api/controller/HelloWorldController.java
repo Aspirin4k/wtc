@@ -16,6 +16,6 @@ public class HelloWorldController {
     public ResponseEntity<Map<String, String>> hello() {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(Collections.singletonMap("hello", "world-test"));
+                .body(Collections.singletonMap("hello", "world-test-stage"));
     }
 }
