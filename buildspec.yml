@@ -20,3 +20,4 @@ artifacts:
     - target/wtc-backend-1.0.jar
     - appspec.yml
     - post_deploy.sh
+    - swap_release.sh

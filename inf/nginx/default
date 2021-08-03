@@ -1,8 +1,4 @@
 server {
-    location /api {
-        proxy_pass http://localhost:8081/;
-    }
-
     server_name whentheycry.ru; # managed by Certbot
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot

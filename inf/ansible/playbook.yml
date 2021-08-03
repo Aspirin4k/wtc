@@ -36,6 +36,7 @@
         - blue
         - green
         - deploy
+        - nginx
     -
       name: Copy environment variables
       copy:
@@ -51,9 +52,22 @@
         owner: root
         group: root
     -
+      name: Copy Nginx blue-green configuration
+      copy:
+        src: '../nginx/{{ item }}'
+        dest: /home/ubuntu/app/prod/nginx
+        owner: root
+        group: root
+      loop:
+        - blue
+        - green
+    -
       name: Copy Services
       copy:
-        src: ../service/green-wtc.service
+        src: '../service/{{ item }}-wtc.service'
         dest: /etc/systemd/system
         owner: root
         group: root
+      loop:
+        - blue
+        - green
