@@ -1,8 +1,9 @@
 #!/bin/bash
 
+deploy_release=${DEPLOY_RELEASE_VERSION:-deploy}
 app_directory="/home/ubuntu/app/prod"
 current_release_file="${app_directory}/current_release"
-deploy_directory="${app_directory}/deploy"
+deploy_directory="${app_directory}/${deploy_release}"
 blue_release="blue"
 green_release="green"
 

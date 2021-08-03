@@ -13,5 +13,8 @@ else
 fi
 
 target_nginx_conf="${app_directory}/nginx/${target_release}"
-ln -s "${target_nginx_conf}" /etc/nginx/conf.d
+ln -s "${target_nginx_conf}" /etc/nginx/conf.d/release
 service nginx reload
+
+echo "$target_release" > "$current_release_file"
+DEPLOY_RELEASE_VERSION="${target_release}" sh /home/ubuntu/app/prod/post_deploy.sh

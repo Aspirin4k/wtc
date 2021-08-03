@@ -8,6 +8,9 @@ files:
   -
     source: swap_release.sh
     destination: /home/ubuntu/app/prod
+  -
+    source: post_deploy.sh
+    destination: /home/ubuntu/app/prod
 
 hooks:
   AfterInstall:
