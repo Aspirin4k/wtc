@@ -17,4 +17,4 @@ http://127.0.0.1:8080/hello
 The following must be done manually after ansible execution:
 - configuration of HTTPS (Requesting certificate) for Nginx
 ### release
-To deploy version from test to prod use swap_release.sh
+To deploy version from test to prod use `swap_release.sh`

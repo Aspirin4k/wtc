@@ -40,10 +40,13 @@
     -
       name: Copy environment variables
       copy:
-        src: .env
-        dest: /home/ubuntu/app/prod
+        src: '{{ item }}'
+        dest: /home/ubuntu/app/env
         owner: root
         group: root
+      loop:
+        - .env
+        - .env_test
     -
       name: Copy Nginx configuration
       copy:

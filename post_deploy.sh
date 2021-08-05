@@ -27,5 +27,4 @@ rm -rf "${target_directory}/*"
 
 # start new release
 cp -R "${deploy_directory}/." "${target_directory}"
-export $(cat "${app_directory}/.env" | xargs)
 systemctl start "$target_service"
