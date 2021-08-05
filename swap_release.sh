@@ -22,7 +22,7 @@ ln -sf "${target_nginx_conf}" /etc/nginx/conf.d/release
 target_env="${env_directory}/.env_${target_release}"
 ln -sf "${env_directory}/.env" "${target_env}"
 systemctl daemon-reload
-systemctl restart "wtc-${target_release}.service"
+systemctl restart "${target_release}-wtc.service"
 # expect server to start in 15 seconds
 sleep 15
 
@@ -37,4 +37,4 @@ DEPLOY_RELEASE_VERSION="${target_release}" bash /home/ubuntu/app/prod/post_deplo
 current_env="${env_directory}/.env_${current_release}"
 ln -sf "${env_directory}/.env_test" "${current_env}"
 systemctl daemon-reload
-systemctl restart "wtc-${current_release}.service"
+systemctl restart "${current_release}-wtc.service"
