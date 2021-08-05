@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "posts.communities")
+@Table(schema = "posts", name = "communities")
 public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

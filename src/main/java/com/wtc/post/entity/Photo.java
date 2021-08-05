@@ -1,9 +1,11 @@
 package com.wtc.post.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "posts.photos")
+@Table(schema = "posts", name = "photos")
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +26,7 @@ public class Photo {
         this.id = id;
     }
 
+    @JsonIgnore
     public Post getPost() {
         return post;
     }

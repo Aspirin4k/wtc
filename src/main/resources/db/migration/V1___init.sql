@@ -8,6 +8,7 @@ CREATE TABLE `posts`.`communities` (
 CREATE TABLE `posts`.`posts` (
     `post_id` INT UNSIGNED NOT NULL,
     `community_id` INT UNSIGNED NOT NULL,
+    `title` VARCHAR(255) NOT NULL,
     `content` TEXT NOT NULL,
     `date_published` INT UNSIGNED NOT NULL,
     PRIMARY KEY (`post_id`)
