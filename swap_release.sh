@@ -24,7 +24,7 @@ ln -sf "${env_directory}/.env" "${target_env}"
 systemctl daemon-reload
 systemctl restart "${target_release}-wtc.service"
 # expect server to start in 15 seconds
-sleep 15
+sleep 30
 
 # apply reverse proxy changes
 service nginx reload
