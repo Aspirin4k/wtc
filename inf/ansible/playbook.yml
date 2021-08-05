@@ -40,7 +40,7 @@
     -
       name: Copy environment variables
       copy:
-        src: '{{ item }}'
+        src: './{{ item }}'
         dest: /home/ubuntu/app/env
         owner: root
         group: root

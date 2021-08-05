@@ -3,7 +3,7 @@
 app_directory="/home/ubuntu/app"
 prod_directory="${app_directory}/prod"
 env_directory="${app_directory}/env"
-current_release_file="${app_directory}/current_release"
+current_release_file="${prod_directory}/current_release"
 blue_release="blue"
 green_release="green"
 
