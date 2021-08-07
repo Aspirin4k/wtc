@@ -9,7 +9,7 @@ class Pages extends Component {
             {
                 (new Array(pages_count || 0)).fill(null).map((val, index) => {
                     return <span key={index} className="page-ref">
-                      <Link to={`/page/${index}`}>
+                      <Link to={`/page/${index + 1}`}>
                         {index + 1}
                       </Link>
                     </span>;

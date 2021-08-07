@@ -2,6 +2,14 @@ location /test/api {
     proxy_pass http://localhost:8081/;
 }
 
+location /test {
+    proxy_pass http://localhost:3001/;
+}
+
 location /api {
     proxy_pass http://localhost:8080/;
+}
+
+location / {
+    proxy_pass http://localhost:3000/;
 }

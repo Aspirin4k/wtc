@@ -37,6 +37,9 @@
         - green
         - deploy
         - nginx
+        - f-blue
+        - f-green
+        - f-deploy
     -
       name: Copy environment variables
       copy:
@@ -67,10 +70,31 @@
     -
       name: Copy Services
       copy:
-        src: '../service/{{ item }}-wtc.service'
+        src: '../service/{{ item }}.service'
         dest: /etc/systemd/system
         owner: root
         group: root
       loop:
-        - blue
-        - green
+        - blue-wtc
+        - blue-wtc-f
+        - green-wtc
+        - green-wtc-f
+    -
+      name: Download nvm
+      get_url:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+        dest: /tmp
+        mode: +x
+    -
+      name: Install nvm
+      command: bash /tmp/install.sh
+    -
+      name: Install NodeJS 14
+      shell: "{{ item }}"
+      with_items:
+        - export NVM_DIR="$HOME/.nvm"
+        - '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+        - '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
+        - nvm install 14
+      args:
+        executable: /bin/bash

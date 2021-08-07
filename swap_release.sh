@@ -23,6 +23,7 @@ target_env="${env_directory}/.env_${target_release}"
 ln -sf "${env_directory}/.env" "${target_env}"
 systemctl daemon-reload
 systemctl restart "${target_release}-wtc.service"
+systemctl restart "${target_release}-wtc-f.service"
 # expect server to start in 15 seconds
 sleep 30
 
@@ -38,3 +39,4 @@ current_env="${env_directory}/.env_${current_release}"
 ln -sf "${env_directory}/.env_test" "${current_env}"
 systemctl daemon-reload
 systemctl restart "${current_release}-wtc.service"
+systemctl restart "${current_release}-wtc-f.service"

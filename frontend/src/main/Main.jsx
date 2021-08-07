@@ -7,12 +7,13 @@ import {withAPI} from "../api/api";
 
 class MainClass extends Component {
     render() {
-        const { titles, pages_count } = this.props;
+        const { items, total } = this.props;
+        const pages_count = Math.floor(total / 50) + 1;
 
         return <Fragment>
             <Pages pages_count={pages_count} />
             {
-                (titles || []).map((title, index) => {
+                (items || []).map((title, index) => {
                     return <CSSTransition
                         in={true}
                         key={title.id}
@@ -24,7 +25,7 @@ class MainClass extends Component {
                         <Title
                             title={title}
                             isFirst={index === 0}
-                            isLast={index === titles.length - 1}
+                            isLast={index === items.length - 1}
                         />
                     </CSSTransition>
                 })
@@ -34,4 +35,4 @@ class MainClass extends Component {
     }
 }
 
-export const Main = withAPI({url: (props) => `/page/${props.match.params.num}`})(MainClass);
+export const Main = withAPI({url: (props) => `/post/${props.match.params.num}`})(MainClass);

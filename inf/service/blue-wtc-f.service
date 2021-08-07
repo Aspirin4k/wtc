@@ -1,0 +1,17 @@
+[Unit]
+Description=When They Cry: blue release frontend
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=node /home/ubuntu/app/prod/f-blue/server.js
+
+Environment=SERVER_PORT=3000
+EnvironmentFile=/home/ubuntu/app/env/.env_blue
+
+[Install]
+WantedBy=multi-user.target

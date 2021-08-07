@@ -4,6 +4,7 @@ phases:
   install:
     runtime-versions:
       java: corretto11
+      nodejs: 14
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -11,6 +12,7 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn install -P api
+      - cd frontend && npm i && npm build cd ..
   post_build:
     commands:
       - echo Build completed on `date`
@@ -18,6 +20,7 @@ phases:
 artifacts:
   files:
     - target/wtc-backend-1.0.jar
+    - frontend/dist
     - appspec.yml
     - post_deploy.sh
     - swap_release.sh

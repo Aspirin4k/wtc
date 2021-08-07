@@ -38,7 +38,7 @@ class App extends Component {
                     <Route path='/page/:num' component={Main} />
                     <Route path='/post/:num' component={Post} />
                     <Route path='/'>
-                        <Redirect to='/page/0' />
+                        <Redirect to='/page/1' />
                     </Route>
                 </Switch>
             </div>
