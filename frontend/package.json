@@ -8,7 +8,7 @@
   "scripts": {
     "client:build": "webpack --config ./webpack/webpack.config.js",
     "client:build-dev": "webpack --config ./webpack/webpack.config.dev.js",
-    "server:build": "webpack --config ./webpack/webpack.config.server.js",
+    "server:build": "webpack --config ./webpack/webpack.config.server.js && cp -r node_modules dist",
     "server:build-dev": "webpack --watch --config ./webpack/webpack.config.server.dev.js",
     "server:serve": "nodemon --config ./nodemon.json ./dist-dev/server.js",
     "start-dev": "npm run client:build-dev && npm-run-all --parallel server:build-dev server:serve",
