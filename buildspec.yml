@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn install -P api
-      - cd frontend && npm i && npm build && cd ..
+      - cd frontend && npm i && npm run build && cd ..
   post_build:
     commands:
       - echo Build completed on `date`
