@@ -20,7 +20,7 @@ phases:
 artifacts:
   files:
     - target/wtc-backend-1.0.jar
-    - frontend/dist
+    - frontend/dist/**/*
     - appspec.yml
     - post_deploy.sh
     - swap_release.sh
