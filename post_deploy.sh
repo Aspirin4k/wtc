@@ -15,9 +15,9 @@ fi
 current_release=$(cat "$current_release_file")
 
 target_directory="${app_directory}/${current_release}"
-target_directory_f="${app_directory}/f-${test_release}"
+target_directory_f="${app_directory}/f-${current_release}"
 target_service="${current_release}-wtc.service"
-target_service_f="${test_release}-wtc-f.service"
+target_service_f="${current_release}-wtc-f.service"
 
 # stop current release
 systemctl stop "$target_service"
