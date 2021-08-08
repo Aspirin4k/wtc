@@ -1,7 +1,7 @@
 package com.wtc.api.controller;
 
-import com.wtc.post.entity.Post;
-import com.wtc.post.repository.PostRepository;
+import com.wtc.entity.Post;
+import com.wtc.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +17,7 @@ public class PostsController {
 
     @GetMapping("/{page_num}")
     public Iterable<Post> list(@PathVariable("page_num") int pageNum) {
-        Pageable request = PageRequest.of(pageNum - 1, this.PAGE_SIZE, Sort.by("id").ascending());
+        Pageable request = PageRequest.of(pageNum - 1, this.PAGE_SIZE, Sort.by("datePublished").descending());
         return this.repository.findAll(request);
     }
 }

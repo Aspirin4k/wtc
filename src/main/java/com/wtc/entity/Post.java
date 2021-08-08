@@ -1,15 +1,20 @@
-package com.wtc.post.entity;
+package com.wtc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wtc.utils.Strings;
+import com.wtc.vk.Constants;
+import com.wtc.vk.dto.post.Attachment;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(schema = "posts", name = "posts")
 public class Post {
+    public static final Integer TITLE_LENGTH = 90;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_id")
     private Integer id;
     private String title;
@@ -19,8 +24,29 @@ public class Post {
     private String content;
     @Column(name = "date_published")
     private int datePublished;
-    @OneToMany(mappedBy = "post", cascade = {CascadeType.PERSIST})
-    private Set<Photo> photos;
+    @OneToMany(mappedBy = "post", cascade = {CascadeType.ALL})
+    private List<Photo> photos;
+
+    public static Post fromWebPost(com.wtc.vk.dto.post.Post webPost, Community community) {
+        Post dbPost = new Post();
+        dbPost.setId(webPost.getId());
+        dbPost.setContent(Strings.escape(webPost.getText()));
+        dbPost.setTitle(Strings.cutByWords(dbPost.getContent(), Post.TITLE_LENGTH));
+        dbPost.setDatePublished(webPost.getDate());
+        dbPost.setCommunity(community);
+
+        ArrayList<Photo> photos = new ArrayList<>();
+        if (null != webPost.getAttachments()) {
+            for (Attachment attachment : webPost.getAttachments()) {
+                if (attachment.getType().equals(Constants.ATTACHMENT_TYPE_PHOTO)) {
+                    photos.add(Photo.fromWebAttachment(attachment.getPhoto(), dbPost));
+                }
+            }
+        }
+        dbPost.setPhotos(photos);
+
+        return dbPost;
+    }
 
     public Integer getId() {
         return id;
@@ -63,11 +89,11 @@ public class Post {
         this.datePublished = datePublished;
     }
 
-    public Set<Photo> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(Set<Photo> photos) {
+    public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
 }

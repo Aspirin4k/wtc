@@ -10,6 +10,10 @@ location /api {
     proxy_pass http://localhost:8081/;
 }
 
+location = /favicon.ico {
+    alias /home/ubuntu/app/prod/f-green/static/icon/favicon.ico;
+}
+
 location / {
     proxy_pass http://localhost:3001/;
 }

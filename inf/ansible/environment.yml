@@ -1,0 +1,13 @@
+-
+  hosts: master1
+  become: true
+  tasks:
+    - name: Copy environment variables
+      copy:
+        src: './{{ item }}'
+        dest: /home/ubuntu/app/env
+        owner: root
+        group: root
+      loop:
+        - .env
+        - .env_test

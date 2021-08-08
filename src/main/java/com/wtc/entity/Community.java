@@ -1,4 +1,4 @@
-package com.wtc.post.entity;
+package com.wtc.entity;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -7,18 +7,17 @@ import java.util.Set;
 @Table(schema = "posts", name = "communities")
 public class Community {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "community_id")
-    private int community;
+    private int id;
     @OneToMany(mappedBy = "community")
     private Set<Post> posts;
 
-    public int getCommunity() {
-        return community;
+    public int getId() {
+        return id;
     }
 
-    public void setCommunity(int community) {
-        this.community = community;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Set<Post> getPosts() {

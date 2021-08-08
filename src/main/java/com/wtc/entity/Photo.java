@@ -1,4 +1,4 @@
-package com.wtc.post.entity;
+package com.wtc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(schema = "posts", name = "photos")
 public class Photo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "photo_id")
     private int id;
     @ManyToOne
@@ -17,6 +16,16 @@ public class Photo {
     private String urlLarge;
     private String urlMedium;
     private String urlSmall;
+
+    public static Photo fromWebAttachment(com.wtc.vk.dto.post.Photo webPhoto, Post dbPost) {
+        Photo dbPhoto = new Photo();
+        dbPhoto.setId(webPhoto.getId());
+        dbPhoto.setUrlLarge(webPhoto.getPhoto_1280());
+        dbPhoto.setUrlMedium(webPhoto.getPhoto_604());
+        dbPhoto.setUrlSmall(webPhoto.getPhoto_75());
+        dbPhoto.setPost(dbPost);
+        return dbPhoto;
+    }
 
     public int getId() {
         return id;
