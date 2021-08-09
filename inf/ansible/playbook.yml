@@ -37,6 +37,7 @@
         - green
         - deploy
         - nginx
+        - cron
         - f-blue
         - f-green
         - f-deploy
@@ -85,17 +86,3 @@
         url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
         dest: /tmp
         mode: +x
-    -
-      name: Install nvm
-      command: bash /tmp/install.sh
-    -
-      name: Install NodeJS 14
-      shell: "{{ item }}"
-      with_items:
-        - export NVM_DIR="$HOME/.nvm"
-        - '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-        - '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
-        - nvm install 14.17.4
-        - ln -sf /home/ubuntu/.nvm/versions/node/v14.17.4/bin/node /usr/local/bin/node
-      args:
-        executable: /bin/bash

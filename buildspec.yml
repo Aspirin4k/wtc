@@ -12,6 +12,7 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn install -P api
+      - mvn install -P cli
       - cd frontend && npm i && npm run build && cd ..
   post_build:
     commands:
@@ -19,7 +20,8 @@ phases:
 
 artifacts:
   files:
-    - target/wtc-backend-1.0.jar
+    - target/wtc-backend-cli.jar
+    - target/wtc-backend-api.jar
     - frontend/dist/**/*
     - appspec.yml
     - post_deploy.sh

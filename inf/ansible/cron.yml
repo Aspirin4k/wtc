@@ -1,0 +1,14 @@
+-
+  hosts: master1
+  become: true
+  tasks:
+    -
+      name: Copy crons
+      copy:
+        src: ../crontab/cron
+        dest: /home/ubuntu/app/cron
+        owner: root
+        group: root
+    -
+      name: Start crons
+      shell: crontab /home/ubuntu/app/cron

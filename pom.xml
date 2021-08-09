@@ -92,6 +92,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>wtc-backend-${spring.profiles.active}</finalName>
     </build>
 
 </project>
