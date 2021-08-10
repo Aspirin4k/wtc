@@ -13,6 +13,7 @@
           - ruby
           - nginx
           - openjdk-11-jre-headless
+          - dos2unix
     -
       name: Download Code deploy agent
       get_url:

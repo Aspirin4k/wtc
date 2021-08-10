@@ -11,4 +11,8 @@
         group: root
     -
       name: Start crons
-      shell: crontab /home/ubuntu/app/cron
+      shell: '{{ item }}'
+      with_items:
+        - dos2unix /home/ubuntu/app/cron && crontab /home/ubuntu/app/cron
+        - echo PATH=$PATH > /etc/environment
+        - cat /home/ubuntu/app/env/.env >> /etc/environment

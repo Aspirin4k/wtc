@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-ExecStart=node /home/ubuntu/app/prod/f-green/server.js
+ExecStart=/home/ubuntu/.nvm/versions/node/v14.17.4/bin/node /home/ubuntu/app/prod/f-green/server.js
 
 Environment=SERVER_PORT=3001
 EnvironmentFile=/home/ubuntu/app/env/.env_green

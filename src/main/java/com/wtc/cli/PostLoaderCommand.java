@@ -72,9 +72,11 @@ public class PostLoaderCommand implements Command {
 
     private boolean savePosts(List<Post> posts, Community community, com.wtc.entity.Post lastPost) {
         ArrayList<com.wtc.entity.Post> dbPosts = new ArrayList<>();
+        boolean isNewPostsLeft = true;
         for (Post post : posts) {
             if (null != lastPost && lastPost.getId().equals(post.getId())) {
-                return false;
+                isNewPostsLeft = false;
+                break;
             }
 
             if (community.getId() == -post.getOwner_id() && null == post.getCopy_history()) {
@@ -83,6 +85,6 @@ public class PostLoaderCommand implements Command {
         }
 
         this.postRepository.saveAllAndFlush(dbPosts);
-        return true;
+        return isNewPostsLeft;
     }
 }
