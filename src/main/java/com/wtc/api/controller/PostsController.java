@@ -15,7 +15,7 @@ import javax.validation.constraints.Min;
 @RestController
 @RequestMapping(path = "/post")
 public class PostsController {
-    private final int PAGE_SIZE = 50;
+    private final int PAGE_SIZE = 15;
     @Autowired
     private PostRepository repository;
 
