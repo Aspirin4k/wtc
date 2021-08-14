@@ -8,7 +8,7 @@ import {withAPI} from "../api/api";
 class MainClass extends Component {
     render() {
         const { items, total } = this.props;
-        const pages_count = Math.floor(total / 50) + 1;
+        const pages_count = Math.floor(total / 15) + 1;
 
         return <Fragment>
             <div className={'page-main'}>
