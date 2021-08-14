@@ -10,7 +10,7 @@ class Title extends Component {
                 {
                     hasImage &&
                     <div className="title-post-preview">
-                        <img src={title.photos[0].urlLarge} className="title-post-preview-img"/>
+                        <img src={title.photos[0].urlMedium} className="title-post-preview-img"/>
                     </div>
                 }
                 <div className="title-post-info">
