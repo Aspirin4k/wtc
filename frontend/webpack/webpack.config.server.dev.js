@@ -15,7 +15,10 @@ module.exports = {
         path: path.resolve(__dirname, '../dist-dev'),
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
     },
     externals: [nodeExternals()],
     mode: 'development',
@@ -33,11 +36,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: ['react-hot-loader/webpack', 'babel-loader']
             },
             {
                 test: /\.s[ac]ss$/i,

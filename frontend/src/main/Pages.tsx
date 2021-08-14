@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Pages extends Component {
+interface PagesProps {
+    pages_count?: number
+}
+
+interface PagesState {
+}
+
+class Pages extends Component<PagesProps, PagesState> {
     render() {
         const { pages_count } = this.props;
 

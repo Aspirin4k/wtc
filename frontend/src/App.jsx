@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
 import {APIContext} from './api/api-context';
 import {Main} from './main/Main';
-import {Post} from './post/Post';
+import {Background} from "./ui/background/Background";
 
 class App extends Component {
     constructor(props) {
@@ -30,21 +30,24 @@ class App extends Component {
 
     render() {
         return <APIContext.Provider value={this.state}>
-            <div>
-                <a href='/'> DOMOI </a>
-            </div>
-            <div className='content'>
-                <Switch>
-                    <Route path='/page/:num' component={Main} />
-                    <Route path='/' component={Main} />
-                </Switch>
-            </div>
-            <div id='footer'>
-                &copy; Все права защищены СНГ сообществом ценителей работ
-                Рюкиси07
-                <p>
-                    Читать посты в формате <a href='/feed.xml'> RSS </a>
-                </p>
+            <Background page_url={'/background/hm_day.png'} />
+            <div className={'page'}>
+                <div>
+                    <a href='/'> DOMOI </a>
+                </div>
+                <div className='content'>
+                    <Switch>
+                        <Route path='/page/:num' component={Main} />
+                        <Route path='/' component={Main} />
+                    </Switch>
+                </div>
+                <div id='footer'>
+                    &copy; Все права защищены СНГ сообществом ценителей работ
+                    Рюкиси07
+                    <p>
+                        Читать посты в формате <a href='/feed.xml'> RSS </a>
+                    </p>
+                </div>
             </div>
         </APIContext.Provider>
     }

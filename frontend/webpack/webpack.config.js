@@ -13,7 +13,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
     },
     mode: 'production',
     plugins: [
@@ -33,7 +33,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'

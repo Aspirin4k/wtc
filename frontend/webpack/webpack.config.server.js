@@ -15,7 +15,7 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
     },
     externals: [nodeExternals()],
     mode: 'production',
@@ -32,7 +32,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'

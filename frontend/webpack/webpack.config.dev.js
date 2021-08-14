@@ -12,10 +12,13 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
     },
     mode: 'development',
-    devtool: 'eval-source-map',
+    devtool: 'inline-source-map',
     plugins: [
         new WebpackManifestPlugin(),
         new MiniCssExtractPlugin(),
@@ -28,11 +31,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: ['react-hot-loader/webpack', 'babel-loader']
             },
             {
                 test: /\.s[ac]ss$/i,
