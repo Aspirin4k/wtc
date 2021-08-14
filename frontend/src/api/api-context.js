@@ -4,6 +4,6 @@ export const APIContext = createContext({
     axios: null,
     fetches: [],
     fetch_results: {},
-    save: () => {},
+    save: (url, data) => {},
     saveFetch: () => {}
 });
