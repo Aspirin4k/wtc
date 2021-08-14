@@ -36,10 +36,7 @@ class App extends Component {
             <div className='content'>
                 <Switch>
                     <Route path='/page/:num' component={Main} />
-                    <Route path='/post/:num' component={Post} />
-                    <Route path='/'>
-                        <Redirect to='/page/1' />
-                    </Route>
+                    <Route path='/' component={Main} />
                 </Switch>
             </div>
             <div id='footer'>

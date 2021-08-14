@@ -35,4 +35,4 @@ class MainClass extends Component {
     }
 }
 
-export const Main = withAPI({url: (props) => `/post/${props.match.params.num}`})(MainClass);
+export const Main = withAPI({url: (props) => `/post/${props.match.params.num || 1}`})(MainClass);

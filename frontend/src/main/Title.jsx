@@ -5,7 +5,7 @@ class Title extends Component {
     render() {
         const { title, isFirst, isLast } = this.props;
         const hasImage = !!title.photos.length;
-        return <Link className={'title'} to={`/post/${title.vk_id}`}>
+        return <a className={'title'} target={'_blank'} href={`https://vk.com/wall-${title.communityId}_${title.id}`}>
             <div className={'title-post' + (isFirst ? ' title-post_first' : '') + (isLast ? ' title-post_last' : '')}>
                 {
                     hasImage &&
@@ -19,7 +19,7 @@ class Title extends Component {
                     <span className="title-post-info-shadow" />
                 </div>
             </div>
-        </Link>;
+        </a>;
     }
 }
 
