@@ -56,6 +56,10 @@ public class Post {
         this.id = id;
     }
 
+    public Integer getCommunityId() {
+        return this.getCommunity().getId();
+    }
+
     @JsonIgnore
     public Community getCommunity() {
         return community;
