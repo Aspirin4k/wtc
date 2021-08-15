@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import compression from 'compression';
 import express from 'express';
 import favicon from 'serve-favicon';
 import fs from 'fs';
@@ -16,8 +17,9 @@ const port = config.port;
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
-app.use(favicon(path.join(__dirname, 'static/icon/favicon.ico')))
+app.use(favicon(path.join(__dirname, 'static/icon/favicon.ico')));
 app.use(express.static(path.resolve(__dirname, 'static')));
+app.use(compression());
 
 if (DEV) {
     const webpack = require('webpack');
