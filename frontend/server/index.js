@@ -46,7 +46,7 @@ const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'static/mani
 const axiosInstance = axios.create({
     baseURL: config.api
 });
-app.get(['/', '/page/:num', '/post/:num'], (req, res) => {
+app.get(['/', '/page/:num'], (req, res) => {
 
     const routerContext = {};
     const fetches = [];

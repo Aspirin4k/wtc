@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import {Title} from "./Title";
-import {Pages} from "./Pages";
-import {withAPI} from "../api/api";
+import {Title} from "../Title/Title";
+import {Pages} from "../Pages";
+import {withAPI} from "../../api/api";
 
 class MainClass extends Component {
     render() {
@@ -12,7 +12,6 @@ class MainClass extends Component {
 
         return <Fragment>
             <div className={'page-main'}>
-                <Pages pages_count={pages_count} />
                 {
                     (items || []).map((title, index) => {
                         return <CSSTransition

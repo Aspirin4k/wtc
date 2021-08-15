@@ -11,15 +11,18 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 308px;
   overflow: hidden;
 
-  margin: 5px;
+  margin: 0.5rem 5px;
 
   background: #ffffff;
   border-radius: 4px;
 
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
+
+  &_long {
+    height: 308px;
+  }
 
   &_first {
     border-top-left-radius: 16px;

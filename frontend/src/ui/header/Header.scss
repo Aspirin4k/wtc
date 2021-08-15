@@ -1,0 +1,29 @@
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: $secondary-color;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__container {
+    height: 100%;
+    width: 100%;
+    max-width: $desktop-large-max-width;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &-logo {
+    height: 100%;
+
+    &-img {
+      height: 100%;
+    }
+  }
+}

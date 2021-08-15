@@ -1,9 +1,15 @@
+.page-background {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
 .page-background-image {
   position: fixed;
   min-height: 83vh;
   min-width: 100%;
   left: 0;
-  top: 0;
+  top: $header-height;
   z-index: 0;
 }
 
