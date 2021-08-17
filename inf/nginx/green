@@ -11,7 +11,7 @@ location /api {
 }
 
 location = /favicon.ico {
-    alias /home/ubuntu/app/prod/f-green/static/icon/favicon.ico;
+    alias /root/app/f-green/static/icon/favicon.ico;
 }
 
 location / {

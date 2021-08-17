@@ -25,4 +25,5 @@ artifacts:
     - frontend/dist/**/*
     - appspec.yml
     - post_deploy.sh
+    - post_deploy_bg.sh
     - swap_release.sh

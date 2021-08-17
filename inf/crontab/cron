@@ -1,1 +1,1 @@
-*/5 * * * * java -jar /home/ubuntu/app/prod/cron/wtc-backend-cli.jar POST_LOADER
+*/5 * * * * java -jar /root/app/prod/cron/wtc-backend-cli.jar POST_LOADER

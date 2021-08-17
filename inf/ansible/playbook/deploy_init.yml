@@ -1,0 +1,24 @@
+-
+  hosts: deploy
+  become: true
+  tasks:
+    -
+      name: Download Code hosts agent
+      get_url:
+        url: https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install
+        dest: /tmp
+        mode: +x
+    -
+      name: Install code hosts agent
+      command: /tmp/install auto
+    -
+      name: Copy deploy
+      copy:
+        src: '../deploy/{{ item }}'
+        dest: /home/ubuntu/ansible
+        owner: root
+        group: root
+      loop:
+        - hosts
+        - deploy_run.yml
+        - aws-key

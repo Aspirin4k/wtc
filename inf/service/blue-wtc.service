@@ -8,10 +8,10 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-ExecStart=java -jar /home/ubuntu/app/prod/blue/wtc-backend-api.jar
+ExecStart=java -jar /root/app/blue/wtc-backend-api.jar
 
 Environment=SERVER_PORT=8080
-EnvironmentFile=/home/ubuntu/app/env/.env_blue
+EnvironmentFile=/root/app/env/.env_blue
 
 [Install]
 WantedBy=multi-user.target

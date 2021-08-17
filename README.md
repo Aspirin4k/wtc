@@ -22,6 +22,5 @@ Pass desirable command as arguments. Available commands:
 ### first time deploy
 The following must be done manually after ansible execution:
 - configuration of HTTPS (Requesting certificate) for Nginx
-- install nvm and node 16
 ### release
 To deploy version from test to prod use `swap_release.sh`

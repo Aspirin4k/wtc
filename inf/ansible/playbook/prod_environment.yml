@@ -4,8 +4,8 @@
   tasks:
     - name: Copy environment variables
       copy:
-        src: './{{ item }}'
-        dest: /home/ubuntu/app/env
+        src: '../../environment/{{ item }}'
+        dest: '{{ working_directory }}/env'
         owner: root
         group: root
       loop:

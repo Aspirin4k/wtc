@@ -1,0 +1,30 @@
+-
+  hosts: deploy
+  become: true
+  tasks:
+    -
+      name: Delete old artifact
+      file:
+        state: absent
+        path: '{{ working_directory }}/{{ item }}'
+      loop:
+        - deploy
+        - f-deploy
+    -
+      name: Copy backend artifact
+      copy:
+        src: '/home/ubuntu/app/prod/{{ item }}'
+        dest: '{{ working_directory }}/{{ item }}'
+        owner: root
+        group: root
+      loop:
+        - deploy
+        - f-deploy
+        - post_deploy_bg.sh
+        - swap_release.sh
+    -
+      name: Execute post deploy
+      script:
+        script: '{{ working_directory }}/post_deploy_bg.sh'
+        args:
+          executable: bash

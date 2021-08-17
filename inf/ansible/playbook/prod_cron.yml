@@ -5,14 +5,14 @@
     -
       name: Copy crons
       copy:
-        src: ../crontab/cron
-        dest: /home/ubuntu/app/cron
+        src: ../../crontab/cron
+        dest: '{{ working_directory }}/cron'
         owner: root
         group: root
     -
       name: Start crons
       shell: '{{ item }}'
       with_items:
-        - dos2unix /home/ubuntu/app/cron && crontab /home/ubuntu/app/cron
+        - 'dos2unix {{ working_directory }}/cron && crontab {{ working_directory }}/cron'
         - echo PATH=$PATH > /etc/environment
-        - cat /home/ubuntu/app/env/.env >> /etc/environment
+        - 'cat {{ working_directory }}/env/.env >> /etc/environment'

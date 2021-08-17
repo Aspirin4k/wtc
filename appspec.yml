@@ -15,7 +15,7 @@ files:
     source: swap_release.sh
     destination: /home/ubuntu/app/prod
   -
-    source: post_deploy.sh
+    source: post_deploy_bg.sh
     destination: /home/ubuntu/app/prod
 
 hooks:

@@ -8,10 +8,10 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-ExecStart=/home/ubuntu/.nvm/versions/node/v14.17.4/bin/node /home/ubuntu/app/prod/f-blue/server.js
+ExecStart=node /root/app/prod/f-blue/server.js
 
 Environment=SERVER_PORT=3000
-EnvironmentFile=/home/ubuntu/app/env/.env_blue
+EnvironmentFile=/root/app/env/.env_blue
 
 [Install]
 WantedBy=multi-user.target
