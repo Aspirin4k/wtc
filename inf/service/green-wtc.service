@@ -7,8 +7,8 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=ubuntu
-ExecStart=java -jar /root/app/prod/green/wtc-backend-api.jar
+User=root
+ExecStart=java -jar /root/app/green/wtc-backend-api.jar
 
 Environment=SERVER_PORT=8081
 EnvironmentFile=/root/app/env/.env_green

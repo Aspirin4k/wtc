@@ -1,5 +1,8 @@
 #!/bin/bash
 # Deploy server
 
-#cd /home/ubuntu/ansible
-#ansible-playbook deploy_run.yml -i hosts
+tar -zcvf /home/ubuntu/app/prod/deploy.tar.gz -C /home/ubuntu/app/prod deploy
+tar -zcvf /home/ubuntu/app/prod/f-deploy.tar.gz -C /home/ubuntu/app/prod f-deploy
+
+cd /home/ubuntu/app/ansible
+ansible-playbook deploy_run.yml -i hosts

@@ -1,5 +1,5 @@
 -
-  hosts: deploy
+  hosts: prod
   become: true
   tasks:
     -
@@ -14,12 +14,12 @@
       name: Copy backend artifact
       copy:
         src: '/home/ubuntu/app/prod/{{ item }}'
-        dest: '{{ working_directory }}/{{ item }}'
+        dest: '{{ working_directory }}'
         owner: root
         group: root
       loop:
-        - deploy
-        - f-deploy
+        - deploy.tar.gz
+        - f-deploy.tar.gz
         - post_deploy_bg.sh
         - swap_release.sh
     -

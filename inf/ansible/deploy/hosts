@@ -1,5 +1,5 @@
 [prod:vars]
-ansible_ssh_private_key_file=/home/ubuntu/ansible/aws-key
+ansible_ssh_private_key_file=/home/ubuntu/app/ansible/aws-key
 ansible_user=root
 working_directory=/root/app
 

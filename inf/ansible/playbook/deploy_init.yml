@@ -3,6 +3,15 @@
   become: true
   tasks:
     -
+      name: Install dependencies
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+      vars:
+        packages:
+          - ansible
+    -
       name: Download Code hosts agent
       get_url:
         url: https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install
@@ -12,10 +21,19 @@
       name: Install code hosts agent
       command: /tmp/install auto
     -
+      name: Create folders for releases
+      file:
+        path: '/home/ubuntu/app/{{ item }}'
+        state: directory
+      loop:
+        - prod/deploy
+        - prod/f-deploy
+        - ansible
+    -
       name: Copy deploy
       copy:
         src: '../deploy/{{ item }}'
-        dest: /home/ubuntu/ansible
+        dest: /home/ubuntu/app/ansible
         owner: root
         group: root
       loop:

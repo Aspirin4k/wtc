@@ -1,7 +1,7 @@
 #!/bin/bash
 
-app_directory="/home/ubuntu/app"
-prod_directory="${app_directory}/prod"
+app_directory="/root/app"
+prod_directory="${app_directory}/"
 env_directory="${app_directory}/env"
 current_release_file="${prod_directory}/current_release"
 blue_release="blue"

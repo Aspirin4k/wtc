@@ -7,7 +7,7 @@ files:
     destination: /home/ubuntu/app/prod/deploy
   -
     source: /target/wtc-backend-cli.jar
-    destination: /home/ubuntu/app/prod/cron
+    destination: /home/ubuntu/app/prod/deploy
   -
     source: /frontend/dist
     destination: /home/ubuntu/app/prod/f-deploy

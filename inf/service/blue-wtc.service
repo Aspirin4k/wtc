@@ -7,7 +7,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=ubuntu
+User=root
 ExecStart=java -jar /root/app/blue/wtc-backend-api.jar
 
 Environment=SERVER_PORT=8080

@@ -7,8 +7,8 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=ubuntu
-ExecStart=node /root/app/prod/f-blue/server.js
+User=root
+ExecStart=/root/.nvm/versions/node/v14.17.5/bin/node /root/app/f-blue/server.js
 
 Environment=SERVER_PORT=3000
 EnvironmentFile=/root/app/env/.env_blue
