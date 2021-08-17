@@ -34,7 +34,7 @@ service nginx reload
 echo "$target_release" > "$current_release_file"
 
 # move previous release to test environment
-DEPLOY_RELEASE_VERSION="${target_release}" bash /home/ubuntu/app/prod/post_deploy.sh
+DEPLOY_RELEASE_VERSION="${target_release}" bash "${app_directory}/post_deploy_bg.sh"
 current_env="${env_directory}/.env_${current_release}"
 ln -sf "${env_directory}/.env_test" "${current_env}"
 systemctl daemon-reload

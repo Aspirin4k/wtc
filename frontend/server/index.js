@@ -13,7 +13,7 @@ import config from '../config/env.json';
 import { App } from '../src/App';
 
 const app = express();
-const port = config.port;
+const port = process.env.SERVER_PORT || config.port;
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
@@ -81,7 +81,9 @@ app.get(['/', '/page/:num'], (req, res) => {
 
             return res.render('index', {content, cache: fetch_results, manifest});
         }
-    )
+    ).catch((error) => {
+        return res.send(500, error);
+    })
 });
 app.get('*', (req, res) => {
     return Proxy(config.api + req.url, req, res);

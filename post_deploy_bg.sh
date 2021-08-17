@@ -9,8 +9,10 @@ deploy_directory_f="${app_directory}/f-${deploy_release}"
 blue_release="blue"
 green_release="green"
 
-tar -xvzf "${deploy_directory}.tar.gz"
-tar -xvzf "${deploy_directory_f}.tar.gz"
+if [[ "$deploy_release" = "deploy" ]]; then
+  tar -xvzf "${deploy_directory}.tar.gz"
+  tar -xvzf "${deploy_directory_f}.tar.gz"
+fi
 
 if [[ ! -f "$current_release_file" ]]; then
   echo "$blue_release" > "$current_release_file"
@@ -40,4 +42,6 @@ cp -R "${deploy_directory_f}/." "${target_directory_f}"
 systemctl start "$target_service"
 systemctl start "$target_service_f"
 
-cp "${deploy_directory}/wtc-backend-cli.jar" "{$app_directory}/cron/wtc-backend-cli.jar"
+if [[ "$deploy_release" = "deploy" ]]; then
+  cp "${deploy_directory}/wtc-backend-cli.jar" "${app_directory}/cron/wtc-backend-cli.jar"
+fi
