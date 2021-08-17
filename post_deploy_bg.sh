@@ -10,8 +10,8 @@ blue_release="blue"
 green_release="green"
 
 if [[ "$deploy_release" = "deploy" ]]; then
-  tar -xvzf "${deploy_directory}.tar.gz"
-  tar -xvzf "${deploy_directory_f}.tar.gz"
+  tar -xzf "${deploy_directory}.tar.gz"
+  tar -xzf "${deploy_directory_f}.tar.gz"
 fi
 
 if [[ ! -f "$current_release_file" ]]; then

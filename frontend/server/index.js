@@ -83,10 +83,10 @@ app.get(['/', '/page/:num'], (req, res) => {
                 return res.render('index', {content, cache: fetch_results, manifest});
             }
         ).catch((error) => {
-            return res.send(500, error);
+            return res.send(500, error.response && error.response.data || error);
         })
     } catch (e) {
-        return res.send(500, error);
+        return res.send(500, error.response && error.response.data || error);
     }
 });
 app.get('*', (req, res) => {
