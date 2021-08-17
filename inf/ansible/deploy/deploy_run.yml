@@ -24,7 +24,4 @@
         - swap_release.sh
     -
       name: Execute post deploy
-      script:
-        script: '{{ working_directory }}/post_deploy_bg.sh'
-        args:
-          executable: bash
+      command: 'bash {{ working_directory }}/post_deploy_bg.sh'
