@@ -40,3 +40,7 @@ ln -sf "${env_directory}/.env_test" "${current_env}"
 systemctl daemon-reload
 systemctl restart "${current_release}-wtc.service"
 systemctl restart "${current_release}-wtc-f.service"
+
+source "${app_directory}/notification.sh"
+notify_sticker
+notify_text 'New release was enabled for prod environment'

@@ -22,6 +22,7 @@
         - f-deploy.tar.gz
         - post_deploy_bg.sh
         - swap_release.sh
+        - notification.sh
     -
       name: Execute post deploy
       command: 'bash {{ working_directory }}/post_deploy_bg.sh'

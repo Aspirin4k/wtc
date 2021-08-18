@@ -17,6 +17,9 @@ files:
   -
     source: post_deploy_bg.sh
     destination: /home/ubuntu/app/prod
+  -
+    source: notification.sh
+    destination: /home/ubuntu/app/prod
 
 hooks:
   AfterInstall:
