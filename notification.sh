@@ -22,7 +22,7 @@ stickers=(
 
 function notify_sticker {
   sticker=${stickers[RANDOM % ${#stickers[@]}]}
-  curl --location --request POST "https://api.telegram.org/bot${telegram_token}/sendMessage" \
+  curl --location --request POST "https://api.telegram.org/bot${telegram_token}/sendSticker" \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode "sticker=${sticker}" \
         --data-urlencode "chat_id=${chat_id}"
