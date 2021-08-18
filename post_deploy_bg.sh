@@ -44,8 +44,8 @@ systemctl start "$target_service_f"
 
 if [[ "$deploy_release" = "deploy" ]]; then
   cp "${deploy_directory}/wtc-backend-cli.jar" "${app_directory}/cron/wtc-backend-cli.jar"
-fi
 
-source "${app_directory}/notification.sh"
-notify_sticker
-notify_text 'New release was deployed to test environment'
+  source "${app_directory}/notification.sh"
+  notify_sticker
+  notify_text 'New release was deployed to test environment'
+fi
