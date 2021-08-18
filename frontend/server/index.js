@@ -5,7 +5,6 @@ import express from 'express';
 import favicon from 'serve-favicon';
 import fs from 'fs';
 import path from 'path';
-import { Proxy } from 'axios-express-proxy';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
@@ -88,9 +87,6 @@ app.get(['/', '/page/:num'], (req, res) => {
     } catch (e) {
         return res.send(500, error.response && error.response.data || error);
     }
-});
-app.get('*', (req, res) => {
-    return Proxy(config.api + req.url, req, res);
 });
 
 app.listen(port, () => {
