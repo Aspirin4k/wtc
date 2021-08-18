@@ -1,5 +1,5 @@
 -
-  hosts: master1
+  hosts: prod
   become: true
   tasks:
     -
@@ -13,6 +13,6 @@
       name: Start crons
       shell: '{{ item }}'
       with_items:
-        - 'dos2unix {{ working_directory }}/cron && crontab {{ working_directory }}/cron'
+        - 'dos2unix {{ working_directory }}/cron/cron && crontab {{ working_directory }}/cron/cron'
         - echo PATH=$PATH > /etc/environment
         - 'cat {{ working_directory }}/env/.env >> /etc/environment'

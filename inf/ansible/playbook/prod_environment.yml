@@ -1,5 +1,5 @@
 -
-  hosts: master1
+  hosts: prod
   become: true
   tasks:
     - name: Copy environment variables
