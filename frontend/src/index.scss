@@ -47,6 +47,7 @@ a {
   max-width: $desktop-large-max-width;
   min-width: 40rem;
   height: 100%;
+  flex-grow: 1;
 }
 
 .content {
