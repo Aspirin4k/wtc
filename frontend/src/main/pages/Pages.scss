@@ -4,6 +4,8 @@
   justify-content: center;
 
   &__ref {
+    margin: 0 2px;
+
     & a, & span {
       box-sizing: border-box;
       display: block;

@@ -13,7 +13,6 @@ class Pages extends Component<PagesProps, PagesState> {
     render() {
         const { pages_count, current_page } = this.props;
 
-        // TODO: стили
         let pages;
         if (pages_count <= 5) {
             pages = Array.from({length: pages_count}, (_, i) => i + 1);
