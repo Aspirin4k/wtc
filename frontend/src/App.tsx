@@ -7,6 +7,7 @@ import {Background} from "./ui/background/Background";
 import {AxiosInstance} from "axios";
 import {Header} from "./ui/header/Header";
 import {Footer} from "./ui/footer/Footer";
+import {getStaticURL} from "./utils/static";
 
 interface AppProps {
     saveFetch: () => void
@@ -67,7 +68,7 @@ class App extends Component<AppProps, AppState> {
         const { background_image } = this;
 
         return <APIContext.Provider value={this.state}>
-            <Background page_url={`/background/${background_image}`} />
+            <Background page_url={getStaticURL(`/background/${background_image}`)} />
             <Header />
             <div className={'page'}>
                 <div className='content'>

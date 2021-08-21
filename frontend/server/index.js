@@ -10,9 +10,12 @@ import { renderToString } from 'react-dom/server';
 
 import config from '../config/env.json';
 import { App } from '../src/App';
+import {getStaticURL, initStaticPrefix} from "../src/utils/static";
 
 const app = express();
 const port = process.env.SERVER_PORT || config.port;
+const static_prefix = process.env.STATIC_PREFIX || config.static_prefix;
+initStaticPrefix(static_prefix);
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
@@ -42,6 +45,10 @@ if (DEV) {
 }
 
 const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'static/manifest.json')));
+Object.keys(manifest).forEach((key) => {
+    manifest[key] = getStaticURL(manifest[key]);
+});
+
 const axiosInstance = axios.create({
     baseURL: config.api
 });
@@ -79,7 +86,13 @@ app.get('*', (req, res) => {
                     </StaticRouter>
                 );
 
-                return res.render('index', {content, cache: fetch_results, manifest});
+                const cache = {
+                    fetch_results,
+                    static: {
+                        prefix: static_prefix
+                    }
+                };
+                return res.render('index', {content, cache, manifest});
             }
         ).catch((error) => {
             return res.send(500, error.response && error.response.data || error);

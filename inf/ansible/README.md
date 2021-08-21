@@ -20,3 +20,10 @@ Now setup deploy server with
 ```
 ansible-playbook playbook/deploy_init.yml -i hosts // whole deploy configuration
 ```
+
+## how to add new environment variables
+use ../environment/.env and ../environment/.env_test
+after this execute
+```
+ansible-playbook playbook/prod_environment.yml -i hosts
+```

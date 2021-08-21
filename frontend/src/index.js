@@ -14,7 +14,7 @@ const cache = window.cache || {};
 const wrapper = document.getElementById('application');
 ReactDOM.render(
     <BrowserRouter>
-        <App axios={axiosInstance} fetch_results={cache} />
+        <App axios={axiosInstance} fetch_results={cache.fetch_results || {}} />
     </BrowserRouter>,
     wrapper
 );
