@@ -1,0 +1,34 @@
+.page-pages {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  &__ref {
+    & a, & span {
+      box-sizing: border-box;
+      display: block;
+      padding: .5rem .75rem;
+      color: black;
+      border: 1px solid transparent;
+      border-radius: 3px;
+    }
+
+    & span {
+      cursor: default;
+    }
+
+    & a:hover {
+      transition: border ease .3s;
+      border: 1px solid black;
+    }
+
+    &_active {
+      background: #161b1d;
+      border-radius: 3px;
+
+      & a {
+        color: white;
+      }
+    }
+  }
+}
