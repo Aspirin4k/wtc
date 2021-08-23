@@ -1,6 +1,7 @@
 package com.wtc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wtc.vk.dto.post.PhotoSize;
 
 import javax.persistence.*;
 
@@ -20,9 +21,16 @@ public class Photo {
     public static Photo fromWebAttachment(com.wtc.vk.dto.post.Photo webPhoto, Post dbPost) {
         Photo dbPhoto = new Photo();
         dbPhoto.setId(webPhoto.getId());
-        dbPhoto.setUrlLarge(webPhoto.getPhoto_1280());
-        dbPhoto.setUrlMedium(webPhoto.getPhoto_604());
-        dbPhoto.setUrlSmall(webPhoto.getPhoto_75());
+
+        PhotoSize largePhoto = webPhoto.getSizes().getLargePhoto();
+        dbPhoto.setUrlLarge(null == largePhoto ? null : largePhoto.getUrl());
+
+        PhotoSize mediumPhoto = webPhoto.getSizes().getMediumPhoto();
+        dbPhoto.setUrlMedium(null == mediumPhoto ? null : mediumPhoto.getUrl());
+
+        PhotoSize smallPhoto = webPhoto.getSizes().getSmallPhoto();
+        dbPhoto.setUrlSmall(null == smallPhoto ? null : smallPhoto.getUrl());
+
         dbPhoto.setPost(dbPost);
         return dbPhoto;
     }
