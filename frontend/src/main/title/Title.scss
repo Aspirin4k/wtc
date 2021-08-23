@@ -20,8 +20,10 @@
 
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
 
-  &_long {
-    height: 308px;
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 5px;
   }
 
   &_first {
@@ -45,8 +47,17 @@
     width: 400px;
     overflow: hidden;
 
+    @include mobile {
+      width: 100%;
+    }
+
     &-img {
       height: 100%;
+
+      @include mobile {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -69,6 +80,10 @@
       margin-bottom: 10px;
       color: black;
       text-decoration: none;
+
+      @include mobile {
+        font-size: 1.6rem;
+      }
     }
 
     &-text {
@@ -80,21 +95,9 @@
       height: 100%;
       padding: 0;
       margin: 0;
-    }
 
-    &-shadow {
-      margin-top: auto;
-      position: relative;
-
-      &::before {
-        content: '';
-        display: block;
-        height: 35px;
-        width: 100%;
-        z-index: 20;
-        position: absolute;
-        background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1) 80%);
-        bottom: 0;
+      @include mobile {
+        font-size: 1.4rem;
       }
     }
   }

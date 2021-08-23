@@ -1,0 +1,20 @@
+$breakpoint-tablet: 640px;
+$breakpoint-small: 430px !default;
+
+@mixin tablet {
+  @media only screen and (min-width: $breakpoint-tablet) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: $breakpoint-tablet - 1) {
+    @content
+  }
+}
+
+@mixin extra-small {
+  @media only screen and (max-width: $breakpoint-small - 1) {
+    @content
+  }
+}
