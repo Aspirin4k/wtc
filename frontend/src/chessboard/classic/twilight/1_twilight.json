@@ -1,0 +1,940 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "t_dai_1": "/twilight/dai_1.png",
+      "black": "/background/black.jpg",
+      "b_dinner_1a_rain": "/background/mainbuilding/dinner_1a_rain.bmp",
+      "b_dinner_1b_rain": "/background/mainbuilding/dinner_1b_rain.bmp",
+      "b_1floor_s1a_rain": "/background/mainbuilding/1floor_s1a_rain.bmp",
+      "b_1floor_s1b_rain": "/background/mainbuilding/1floor_s1b_rain.bmp",
+      "b_1floor_s1c_rain": "/background/mainbuilding/1floor_s1c_rain.bmp",
+      "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+      "b_different_space_1b": "/background/metaworld/different_space_1b.bmp",
+      "b_different_space_1c": "/background/metaworld/different_space_1c.bmp",
+      "c_ushiromia_battler_ub_serious_a2": "/character/ushiromia_battler/ub_serious_a2.png",
+      "c_ushiromia_battler_ub_troubled_a2": "/character/ushiromia_battler/ub_troubled_a2.png",
+      "c_ushiromia_battler_cape_ubc_oh_a1": "/character/ushiromia_battler_cape/ubc_oh_a1.png",
+      "c_ushiromia_battler_cape_ubc_puzzled_a3": "/character/ushiromia_battler_cape/ubc_puzzled_a3.png",
+      "c_ushiromia_battler_cape_ubc_scowl_a1": "/character/ushiromia_battler_cape/ubc_scowl_a1.png",
+      "c_ushiromia_krauss_uk_serious_a1": "/character/ushiromia_krauss/uk_serious_a1.png",
+      "c_ushiromia_krauss_uk_serious_a2": "/character/ushiromia_krauss/uk_serious_a2.png",
+      "c_ushiromia_krauss_uk_worried_a1": "/character/ushiromia_krauss/uk_worried_a1.png",
+      "c_ushiromia_natsuhi_un_apathy_a1": "/character/ushiromia_natsuhi/un_apathy_a1.png",
+      "c_ushiromia_natsuhi_un_puzzled_a2": "/character/ushiromia_natsuhi/un_puzzled_a2.png",
+      "c_ushiromia_natsuhi_un_worried_a3": "/character/ushiromia_natsuhi/un_worried_a3.png",
+      "c_ushiromia_george_ug_serious_a2": "/character/ushiromia_george/ug_serious_a2.png",
+      "c_ushiromia_jessica_uj_crying_a2": "/character/ushiromia_jessica/uj_crying_a2.png",
+      "c_ushiromia_jessica_uj_puzzled_a1": "/character/ushiromia_jessica/uj_puzzled_a1.png",
+      "c_ushiromia_maria_um_evil_a1": "/character/ushiromia_maria/um_evil_a1.png",
+      "c_nanji_nan_troubled_a3": "/character/nanji/nan_troubled_a3.png",
+      "c_gohda_goh_troubled_a1": "/character/gohda/goh_troubled_a1.png",
+      "c_gohda_goh_troubled_a2": "/character/gohda/goh_troubled_a2.png",
+      "c_gohda_goh_troubled_a3": "/character/gohda/goh_troubled_a3.png",
+      "c_shannon_sha_puzzled_a1": "/character/shannon/sha_puzzled_a1.png",
+      "c_kanon_kan_puzzled_a2": "/character/kanon/kan_puzzled_a2.png",
+      "c_kumasawa_kum_troubled_a1": "/character/kumasawa/kum_troubled_a1.png",
+      "c_kumasawa_kum_puzzled_a1": "/character/kumasawa/kum_puzzled_a1.png",
+      "c_beatrice_bea_apathy_a1": "/character/beatrice/bea_apathy_a1.png",
+      "c_beatrice_bea_evil_a1": "/character/beatrice/bea_evil_a1.png",
+      "c_beatrice_bea_serious_a2": "/character/beatrice/bea_serious_a2.png",
+      "c_bernkastel_ber_apathy_a1": "/character/bernkastel/ber_apathy_a1.png",
+      "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png",
+      "c_lambdadelta_lam_evil_a1": "/character/lambdadelta/lam_evil_a1.png",
+      "c_lambdadelta_lam_indulgent_a3": "/character/lambdadelta/lam_indulgent_a3.png"
+    }
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_1"
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_dinner_1b_rain"
+      },
+      "text": {
+        "content": "The tragedy of the first twilight was discovered at 6:00 in the morning on the following day.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nGohda, who had woken up to get breakfast ready,",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " went to check on the adult siblings, who had remained in the dining hall since the previous night because of the family conference.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain"
+      },
+      "characters": {
+        "middle": {
+          "z-index": 1,
+          "url": "c_ushiromia_battler_ub_serious_a2"
+        }
+      },
+      "text": {
+        "content": "Tell us about when you discovered the crime.",
+        "character": "Battler",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1a_rain"
+      },
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_gohda_goh_troubled_a2"
+        },
+        "middle": null
+      },
+      "text": {
+        "content": "<purple>The dining hall was locked up.</purple>",
+        "character": "Gohda",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Of course, there is a lock on the doors to the dining hall, but they usually remained unlocked.",
+        "character": "Gohda",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " I knocked, but there was no answer...",
+        "character": "Gohda",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 2,
+          "url": "c_kumasawa_kum_troubled_a1"
+        }
+      },
+      "text": {
+        "content": "<purple>That's when I arrived.</purple>",
+        "character": "Kumasawa",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " I recommended that he try unlocking the door, just in case.",
+        "character": "Kumasawa",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_gohda_goh_troubled_a1"
+        }
+      },
+      "text": {
+        "content": "When <purple>I unlocked the door with a master key</purple>, a terrifying sight awaited me inside...",
+        "character": "Gohda",
+        "style": "add"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 2,
+          "url": "c_kumasawa_kum_puzzled_a1"
+        }
+      },
+      "text": {
+        "content": "<purple>Eva-sama, Hideyoshi-sama, Rudolf-sama, Kyrie-sama, Rosa-sama, and Genji-san,</purple>",
+        "character": "Kumasawa",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>six people in all, were lying there, covered in blood...</purple>",
+        "character": "Kumasawa",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1c_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "z-index": 1,
+          "url": "c_ushiromia_krauss_uk_serious_a2"
+        }
+      },
+      "text": {
+        "content": "A great tumult followed.",
+        "character": "Krauss",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>Everyone gathered in the dining hall.</purple>",
+        "character": "Krauss",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 2,
+          "url": "c_ushiromia_krauss_uk_serious_a2"
+        },
+        "right": {
+          "z-index": 1,
+          "url": "c_ushiromia_natsuhi_un_puzzled_a2"
+        }
+      },
+      "text": {
+        "content": "I don't want to remember it...",
+        "character": "Natsuhi",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " The sight of all the sobbing children crouched over the corpses of their own parents...",
+        "character": "Natsuhi",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain"
+      },
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_ushiromia_jessica_uj_crying_a2"
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "There was a chance they might've been alive still.",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ...Everyone was shaking them desperately.",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "z-index": 2,
+          "url": "c_shannon_sha_puzzled_a1"
+        }
+      },
+      "text": {
+        "content": "But it was no use...",
+        "character": "Shannon",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>Each of the children confirmed the deaths of their own parents...</purple>",
+        "character": "Shannon",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1a_rain"
+      },
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_kanon_kan_puzzled_a2"
+        },
+        "right": null
+      },
+      "text": {
+        "content": "<purple>Doctor Nanjo and I confirmed that Genji-sama was dead.</purple>",
+        "character": "Kanon",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "z-index": 2,
+          "url": "c_nanji_nan_troubled_a3"
+        }
+      },
+      "text": {
+        "content": "Such a gruesome way to be killed...",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>No one is going to mistakenly confirm a death, even those other than myself.</purple>",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 3,
+          "url": "c_ushiromia_maria_um_evil_a1"
+        }
+      },
+      "text": {
+        "content": "It looks like <purple>all of the victims died instantly.</purple>",
+        "character": "Maria",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ...Kihihihihi",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "z-index": 2,
+          "url": "c_ushiromia_krauss_uk_serious_a1"
+        },
+        "right": null
+      },
+      "text": {
+        "content": "<purple>After inspecting the interior of the dining hall, we determined that all of the doors and windows had been locked, making it closed room.</purple>",
+        "character": "Krauss",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "z-index": 3,
+          "url": "c_ushiromia_battler_ub_troubled_a2"
+        }
+      },
+      "text": {
+        "content": "And <purple>nothing suspicious was found inside the dining hall.</purple>",
+        "character": "Battler",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_ushiromia_george_ug_serious_a2"
+        }
+      },
+      "text": {
+        "content": "Of course, <purple>there was no one hiding in the dining hall either.</purple>",
+        "character": "George",
+        "style": "add"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 2,
+          "url": "c_ushiromia_krauss_uk_worried_a1"
+        }
+      },
+      "text": {
+        "content": "Naturally.",
+        "character": "Krauss",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " All of us are here right now.",
+        "character": "Krauss",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>It's clear that no one is hiding.</purple>",
+        "character": "Krauss",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1c_rain"
+      },
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_ushiromia_jessica_uj_puzzled_a1"
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "But Dad, if that's true, it doesn't make sense...",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Six people were killed, and the dining hall is a closed room!",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " How could someone have killed them and escaped?!",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "z-index": 2,
+          "url": "c_ushiromia_natsuhi_un_worried_a3"
+        }
+      },
+      "text": {
+        "content": "...I'd rather not think of it,",
+        "character": "Natsuhi",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " but perhaps the servants with their master keys are the most suspicious.",
+        "character": "Natsuhi",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "z-index": 3,
+          "url": "c_ushiromia_krauss_uk_serious_a1"
+        }
+      },
+      "text": {
+        "content": "They killed the six, then left and locked the door with their master keys.",
+        "character": "Krauss",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ...It is a logical theory.",
+        "character": "Krauss",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "z-index": 1,
+          "url": "c_gohda_goh_troubled_a3"
+        },
+        "right": null
+      },
+      "text": {
+        "content": "E-Eeek!",
+        "character": "Gohda",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Th-That's absurd!",
+        "character": "Gohda",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1b_rain"
+      },
+      "characters": {
+        "middle": null
+      },
+      "text": {
+        "content": "Since there was no chance of the culprit hiding inside the dining hall,",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": " it made sense to assume that the culprit locked the door after committing the murder and exiting the room.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\nIt was only natural that the servants, with their master keys, would fall under suspicious.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "And, sadly enough, none of the servants had an alibi.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nThen again, it wasn't only the servants.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " Everyone else lacked an alibi as well.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "right": {
+          "z-index": 2,
+          "url": "c_ushiromia_battler_cape_ubc_oh_a1"
+        }
+      },
+      "text": {
+        "content": "Is there any way to lock up from the outside without a master key?",
+        "character": "Battler",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_bernkastel_ber_apathy_a2"
+        }
+      },
+      "text": {
+        "content": "No, there isn't.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ......Hmm, that's not enough.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " I'll say it with the red truth.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": {
+        "left": null,
+        "right": null
+      },
+      "text": {
+        "content": "<red>All doors can only be locked or unlocked with a master key.</red>",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n<red>Of course, it is possible to lock or unlock the doors from inside the room even without a master key.</red>",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_lambdadelta_lam_indulgent_a3"
+        }
+      },
+      "text": {
+        "content": "There you have it.",
+        "character": "Lambdadelta",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Any other questions?",
+        "character": "Lambdadelta",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "z-index": 2,
+          "url": "c_beatrice_bea_serious_a2"
+        }
+      },
+      "text": {
+        "content": "Shouldn't there be keys to each individual room, in addition to the master keys?",
+        "character": "Beatrice",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b"
+      },
+      "characters": {
+        "left": null,
+        "right": {
+          "z-index": 2,
+          "url": "c_bernkastel_ber_apathy_a1"
+        }
+      },
+      "text": {
+        "content": "...Normally, those would exist.",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " However, they make the game more complicated, so I've eliminated them.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " Red truth.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>We'll consider master keys to be the only keys that exist.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_ushiromia_battler_cape_ubc_scowl_a1"
+        }
+      },
+      "text": {
+        "content": "In other words,",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " all of the locks that appear in this game can only be locked or unlocked by master keys.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": null,
+        "right": {
+          "z-index": 2,
+          "url": "c_lambdadelta_lam_evil_a1"
+        }
+      },
+      "text": {
+        "content": "That's what it means.",
+        "character": "Lambdadelta",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " It really is a simple game.",
+        "character": "Lambdadelta",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_beatrice_bea_apathy_a1"
+        }
+      },
+      "text": {
+        "content": "In that case, we should now check the number of master keys and who holds them.",
+        "character": "Beatrice",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1c"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "z-index": 1,
+          "url": "c_bernkastel_ber_apathy_a2"
+        },
+        "right": null
+      },
+      "text": {
+        "content": "<red>There are five master keys total.</red>",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>One is held by each of the five servants.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " The keys will be managed in a special way.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>The servants keep master keys on their person at all times, so it is impossible for them to be stolen, handed over, or used by any human other than themselves.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b"
+      },
+      "characters": {
+        "middle": null,
+        "right": {
+          "z-index": 2,
+          "url": "c_ushiromia_battler_cape_ubc_puzzled_a3"
+        }
+      },
+      "text": {
+        "content": "What the heck.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Now they're sounding less like keys and more like a fingerprinting system.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_beatrice_bea_evil_a1"
+        }
+      },
+      "text": {
+        "content": "That's an interesting metaphor.",
+        "character": "Beatrice",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ...In other words, in the world of this game, it isn't the master keys, but the five servants themselves that can lock or unlock doors.",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1a_rain"
+      },
+      "characters": {
+        "left": null,
+        "right": {
+          "z-index": 2,
+          "url": "c_ushiromia_krauss_uk_serious_a2"
+        }
+      },
+      "text": {
+        "content": "We tried to retrieve Genji-san's master key, but had no luck.",
+        "character": "Krauss",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
+          "url": "c_ushiromia_natsuhi_un_apathy_a1"
+        }
+      },
+      "text": {
+        "content": "To guard against trouble later on, <purple>we destroyed Genji's master key.</purple>",
+        "character": "Natsuhi",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "This was the crime of the first twilight.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": " The scene was the locked closed room of the dining hall.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\nNone of the servants holding master keys have alibis.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " Then again, no one else has an alibi either...",
+        "character": "narrator",
+        "style": "add"
+      }
+    }
+  ]
+}

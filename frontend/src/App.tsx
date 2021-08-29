@@ -7,6 +7,7 @@ import {Background} from "./ui/background/Background";
 import {AxiosInstance} from "axios";
 import {Header} from "./ui/header/Header";
 import {Footer} from "./ui/footer/Footer";
+import {ChessboardResolver} from "./chessboard/ChessboardResolver";
 import {getStaticURL} from "./utils/static";
 
 interface AppProps {
@@ -73,6 +74,7 @@ class App extends Component<AppProps, AppState> {
             <div className={'page'}>
                 <div className='content'>
                     <Switch>
+                        <Route path='/chessboard' component={ChessboardResolver} />
                         <Route path='/page/:num' component={Main} />
                         <Route path='/' component={Main} />
                     </Switch>
