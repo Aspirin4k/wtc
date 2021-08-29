@@ -74,7 +74,7 @@ class App extends Component<AppProps, AppState> {
             <div className={'page'}>
                 <div className='content'>
                     <Switch>
-                        <Route path='/chessboard' component={ChessboardResolver} />
+                        <Route path='/chessboard/' component={ChessboardResolver} />
                         <Route path='/page/:num' component={Main} />
                         <Route path='/' component={Main} />
                     </Switch>
