@@ -1,13 +1,16 @@
 interface ScreenState {
-    background: {
-        url: string
-    },
+    background: Background,
     characters: {
         left: Character | null,
         middle: Character | null,
         right: Character | null
     },
     text: Text
+}
+
+interface Background {
+    url: string,
+    effect: ("grayscale" | "rain")[]
 }
 
 interface Character {
@@ -23,9 +26,7 @@ interface Text {
 }
 
 interface Proceeding {
-    background?: {
-        url: string
-    },
+    background?: Background,
     characters?: {
         left?: Character | null,
         middle?: Character | null,

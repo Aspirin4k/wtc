@@ -77,10 +77,14 @@ class State {
 
         if (typeof proceeding.background !== 'undefined') {
             revert_proceeding.background = {
-                url: new_state.background.url
+                url: new_state.background.url,
+                effect: new_state.background.effect
             }
             new_state.background = {
-                url: proceeding.background.url
+                url: proceeding.background.url,
+                effect: typeof proceeding.background.effect === 'undefined'
+                    ? new_state.background.effect
+                    : proceeding.background.effect
             }
         }
 

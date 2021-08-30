@@ -15,6 +15,10 @@ class AssetResolver {
         return `/chessboard/classic${name}`;
     }
 
+    public getAudio(name: string): string {
+        return `/chessboard/sound${name}`;
+    }
+
     public getBackground(location: string, scene: string): string {
         return `/chessboard/classic/background/${location}/${scene}.bmp`;
     }

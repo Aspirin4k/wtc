@@ -9,6 +9,13 @@ export const CLASSIC_SCREEN_HEIGHT = 480;
 
 const FPS_50 = 1000 / 50;
 
+const EFFECT_GRAYSCALE = 'grayscale';
+const EFFECT_RAIN = 'rain';
+
+const EFFECT_MAP = {
+    grayscale: 'brightness(0.65) grayscale(1)'
+}
+
 class Renderer {
     private asset_manager: AssetManager;
     private text_render_token_calculator: RenderTokenCalculator;
@@ -55,8 +62,24 @@ class Renderer {
             context.filter = 'brightness(0.65)';
         }
 
+        // Кастомный эффект на сцене
+        background.effect.forEach((effect: string) => {
+            if (EFFECT_MAP[effect]) {
+                // TODO: складывать эффекты
+                context.filter = EFFECT_MAP[effect] || 'none';
+            }
+        })
+
         context.drawImage(asset_manager.getImage(background.url), 0, 0, canvas.width, canvas.height);
         this.renderCharacters(context, characters);
+
+        if (background.effect.includes(EFFECT_RAIN)) {
+            context.globalCompositeOperation = 'screen';
+            context.drawImage(asset_manager.getImage('e_rain'), 0, 0, canvas.width, canvas.height);
+            context.globalCompositeOperation = 'source-over';
+        }
+
+        context.filter = 'none';
         this.renderText(context, text);
     }
 
@@ -82,7 +105,6 @@ class Renderer {
             return;
         }
 
-        context.filter = 'none';
         context.shadowColor = '#000000';
         context.shadowOffsetX = 1;
         context.shadowOffsetY = 1;

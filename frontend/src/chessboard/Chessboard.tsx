@@ -48,6 +48,12 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
             resources_images[short_name] = this.asset_resolver.getResource(resources_images[short_name]);
         })
         this.asset_manager.loadImages(resources_images);
+
+        const resources_audio = twilight.resources.audio;
+        Object.keys(resources_audio).forEach((short_name) => {
+            resources_audio[short_name] = this.asset_resolver.getAudio(resources_audio[short_name]);
+        })
+        this.asset_manager.loadSound(resources_audio);
     }
 
 

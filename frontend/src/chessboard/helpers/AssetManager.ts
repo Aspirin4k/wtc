@@ -2,6 +2,7 @@ import {getStaticURL} from "../../utils/static";
 
 class AssetManager {
     private images: {[key: string]: HTMLImageElement} = {};
+    private audio: {[key: string]: HTMLAudioElement} = {};
     private event_listeners: (() => void)[] = [];
 
     private total_assets_to_load: number = 0;
@@ -28,8 +29,33 @@ class AssetManager {
         })
     }
 
+    public loadSound(urls: { [short_name: string ]: string }): void {
+        this.total_assets_to_load += Object.keys(urls).length;
+
+        Object.keys(urls).forEach((short_name) => {
+            const audio = new Audio(getStaticURL(urls[short_name]));
+
+            audio.addEventListener('canplaythrough', () => {
+                this.current_assets_loaded++;
+                if (this.current_assets_loaded === this.total_assets_to_load) {
+                    this.event_listeners.forEach((callback) => {
+                        callback();
+                    })
+                    this.event_listeners = [];
+                }
+            });
+
+            audio.loop = true;
+            this.audio[short_name] = audio;
+        })
+    }
+
     public getImage(url: string): HTMLImageElement {
-        return this.images[getStaticURL(url)];
+        return this.images[url];
+    }
+
+    public getAudio(url: string): HTMLAudioElement {
+        return this.audio[url];
     }
 
     public onLoad(callback: () => void): void {

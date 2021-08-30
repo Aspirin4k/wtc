@@ -4,6 +4,8 @@
     "images": {
       "t_dai_1": "/twilight/dai_1.png",
       "black": "/background/black.jpg",
+      "e_rain": "/background/effect/rain/stillrainfront.png",
+      "m_o1b_rain": "/background/mainbuilding/m_o1b_rain.bmp",
       "b_dinner_1a_rain": "/background/mainbuilding/dinner_1a_rain.bmp",
       "b_dinner_1b_rain": "/background/mainbuilding/dinner_1b_rain.bmp",
       "b_1floor_s1a_rain": "/background/mainbuilding/1floor_s1a_rain.bmp",
@@ -42,11 +44,16 @@
       "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png",
       "c_lambdadelta_lam_evil_a1": "/character/lambdadelta/lam_evil_a1.png",
       "c_lambdadelta_lam_indulgent_a3": "/character/lambdadelta/lam_indulgent_a3.png"
+    },
+    "audio": {
+      "a_rain": "/ambient/rain_2.wav",
+      "bgm_gc-28": "/bgm/gc-28.ogg"
     }
   },
   "scene": {
     "background": {
-      "url": "t_dai_1"
+      "url": "t_dai_1",
+      "effect": []
     },
     "characters": {
       "left": null,
@@ -60,7 +67,14 @@
   "proceeding": [
     {
       "background": {
-        "url": "b_dinner_1b_rain"
+        "url": "m_o1b_rain",
+        "effect": ["rain"]
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1b_rain",
+        "effect": []
       },
       "text": {
         "content": "The tragedy of the first twilight was discovered at 6:00 in the morning on the following day.",
@@ -533,7 +547,8 @@
     },
     {
       "background": {
-        "url": "b_dinner_1b_rain"
+        "url": "b_dinner_1b_rain",
+        "effect": ["grayscale"]
       },
       "characters": {
         "middle": null
@@ -581,7 +596,8 @@
     },
     {
       "background": {
-        "url": "b_different_space_1a"
+        "url": "b_different_space_1a",
+        "effect": []
       },
       "characters": {
         "right": {
@@ -909,6 +925,10 @@
       }
     },
     {
+      "background": {
+        "url": "b_dinner_1a_rain",
+        "effect": ["grayscale"]
+      },
       "text": {
         "content": "This was the crime of the first twilight.",
         "character": "narrator",

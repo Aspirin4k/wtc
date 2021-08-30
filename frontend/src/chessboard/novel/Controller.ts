@@ -2,6 +2,7 @@ import {State} from "./State";
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
+const KEY_ENTER = 'Enter';
 
 class Controller {
     private state: State;
@@ -29,6 +30,7 @@ class Controller {
 
     handleKeyDown(event: KeyboardEvent) {
         switch (event.key) {
+            case KEY_ENTER:
             case KEY_ARROW_RIGHT:
                 this.state.proceedNovel();
                 break;
