@@ -1,0 +1,271 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "t_dai_7": "/twilight/dai_7.png",
+      "black": "/background/black.jpg",
+      "b_blood": "/background/special/blood_1a.png",
+      "b_1floor_p1a_rain": "/background/guesthouse/1floor_p1a_rain.bmp",
+      "b_1floor_p1b_rain": "/background/guesthouse/1floor_p1b_rain.bmp",
+      "b_1floor_p1e": "/background/guesthouse/1floor_p1e.bmp",
+      "c_ushiromia_battler_ub_panicked_a2": "/character/ushiromia_battler/ub_panicked_a2.png",
+      "c_ushiromia_battler_ub_panicked_a3": "/character/ushiromia_battler/ub_panicked_a3.png",
+      "c_ushiromia_maria_um_troubled_a1": "/character/ushiromia_maria/um_troubled_a1.png",
+      "c_ushiromia_maria_um_puzzled_a1": "/character/ushiromia_maria/um_puzzled_a1.png",
+      "c_ushiromia_george_ug_anger_a2": "/character/ushiromia_george/ug_anger_a2.png",
+      "c_ushiromia_george_ug_troubled_a1k": "/character/ushiromia_george/ug_troubled_a1k.png",
+      "c_ushiromia_jessica_uj_puzzled_a1": "/character/ushiromia_jessica/uj_puzzled_a1.png",
+      "c_ushiromia_jessica_uj_anger_a3": "/character/ushiromia_jessica/uj_anger_a3.png"
+    },
+    "audio": {}
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_7",
+      "effect": []
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_blood"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_p1e"
+      },
+      "text": {
+        "content": "This time, Doctor Nanjo was killed.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nHe died in the entrance hall of the guesthouse.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " It was far too foolish of him to come here alone to check that everything was locked.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_p1b_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_jessica_uj_puzzled_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "<purple>H-He's dead...</purple>",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>He's been killed...!</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_george_ug_troubled_a1k",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Even I... can say for sure that <purple>this was an instant death</purple>...",
+        "character": "George",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_p1a_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_ushiromia_maria_um_troubled_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "<purple>Everything is locked up perfectly.</purple>",
+        "character": "Maria",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " How did it happen, if this is a closed room?",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_panicked_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "That means the culprit is one of us...!",
+        "character": "Battler",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_p1b_rain"
+      },
+      "characters": {
+        "left": null,
+        "right": {
+          "url": "c_ushiromia_jessica_uj_anger_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Impossible!",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Judging by the circumstances, <purple>Maria, Battler, George nii-san and I all couldn't have killed Doctor Nanjo!</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_george_ug_anger_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "In the first place, <purple>no one could kill Doctor Nanjo inside the guesthouse!</purple>",
+        "character": "George",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_battler_ub_panicked_a2",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "And look at this.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Simply put, <purple>this is proof that Doctor Nanjo didn't leave the guesthouse...!</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_ushiromia_maria_um_puzzled_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "That means no one could kill Doctor Nanjo, right?",
+        "character": "Maria",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " So how was he killed?",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "text": {
+        "content": "\nNo one could answer that innocent question.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": {
+        "middle": null
+      },
+      "text": {
+        "content": "This was the seventh twilight.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nOnce again, the crime scene was the closed room known as the guesthouse.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " Various bits of evidence made this crime seem even more impossible.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\nThen, the tragedy reached the eighth twilight, the final one.",
+        "character": "narrator",
+        "style": "add"
+      }
+    }
+  ]
+}

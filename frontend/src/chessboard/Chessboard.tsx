@@ -4,7 +4,7 @@ import {AssetManager} from "./helpers/AssetManager";
 import {AssetResolver} from "./helpers/AssetResolver";
 import {RenderTokenCalculator} from "./novel/text/RenderTokenCalculator";
 
-import twilight from "./classic/twilight/1_twilight.json";
+import twilight from "./classic/twilight/7_twilight.json";
 import {State} from "./novel/State";
 import {Controller} from "./novel/Controller";
 import {CLASSIC_SCREEN_HEIGHT, CLASSIC_SCREEN_WIDTH, Renderer} from "./novel/Renderer";

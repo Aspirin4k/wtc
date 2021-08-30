@@ -23,6 +23,9 @@ class AssetManager {
                     this.event_listeners = [];
                 }
             }
+            image.onerror = () => {
+                console.log('Failed to load: ' + short_name);
+            }
 
             image.src = getStaticURL(urls[short_name]);
             this.images[short_name] = image;
