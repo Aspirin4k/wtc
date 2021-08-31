@@ -1,4 +1,11 @@
-import {TEXT_COLOR_DEFAULT, TEXT_COLOR_PURPLE, TEXT_COLOR_RED, TEXT_FONT_SIZE, TEXT_WIDTH} from "./Constants";
+import {
+    TEXT_COLOR_BLUE,
+    TEXT_COLOR_DEFAULT,
+    TEXT_COLOR_PURPLE,
+    TEXT_COLOR_RED,
+    TEXT_FONT_SIZE,
+    TEXT_WIDTH
+} from "./Constants";
 
 interface TextTokenInterface {
     text: string;
@@ -50,7 +57,7 @@ class RenderTokenCalculator {
     private getTextBrokenToLines(context: CanvasRenderingContext2D, line: TextTokenInterface): TextTokenInterface[] {
         const result_lines = [];
         let colored_sublines = line.text
-            .split(/(<red>.*?<\/red>|<purple>.*?<\/purple>)/)
+            .split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/)
             .map((subline: string) => subline.trim())
             .filter((subline: string) => subline.length > 0);
 
@@ -67,6 +74,10 @@ class RenderTokenCalculator {
                 case colored_subline.match(/<purple>.*<\/purple>/) !== null:
                     colored_subline = colored_subline.substring(8, colored_subline.length - 9);
                     text_color = TEXT_COLOR_PURPLE;
+                    break;
+                case colored_subline.match(/<blue>.*<\/blue>/) !== null:
+                    colored_subline = colored_subline.substring(6, colored_subline.length - 7);
+                    text_color = TEXT_COLOR_BLUE;
                     break;
                 default:
                     text_color = TEXT_COLOR_DEFAULT;

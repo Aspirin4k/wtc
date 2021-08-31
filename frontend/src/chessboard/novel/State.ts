@@ -1,6 +1,6 @@
 import {Character, Proceeding, ScreenState} from "../ScreenStateInterface";
 
-import twilight from "../classic/twilight/8_twilight.json";
+import twilight from "../classic/twilight/2_twilight.json";
 import {AssetManager} from "../helpers/AssetManager";
 
 const CLASSIC_SPRITE_LEFT_X = -75;

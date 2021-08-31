@@ -1,0 +1,1095 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "black": "/background/black.jpg",
+      "t_dai_2": "/twilight/dai_2.png",
+      "e_rain": "/background/effect/rain/stillrainfront.png",
+      "b_blood": "/background/special/blood_1a.png",
+      "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+      "b_different_space_1b": "/background/metaworld/different_space_1b.bmp",
+      "b_different_space_1c": "/background/metaworld/different_space_1c.bmp",
+      "b_garden_o1a_rain": "/background/guesthouse/garden_o1a_rain.bmp",
+      "b_rose_g1a_rain": "/background/garden/rose_g1a_rain.bmp",
+      "m_o1a_rain": "/background/mainbuilding/m_o1a_rain.bmp",
+      "b_door1": "/background/mainbuilding/door1.bmp",
+      "b_dinner_1b_rain": "/background/mainbuilding/dinner_1b_rain.bmp",
+      "b_hall_2a_rain": "/background/mainbuilding/hall_2a_rain.bmp",
+      "b_hall_2b_rain": "/background/mainbuilding/hall_2b_rain.bmp",
+      "b_2floor_p1a_rain": "/background/mainbuilding/2floor_p1a_rain.bmp",
+      "b_1floor_s1b_rain": "/background/mainbuilding/1floor_s1b_rain.bmp",
+      "b_1floor_s1d_rain": "/background/mainbuilding/1floor_s1d_rain.bmp",
+      "b_natsuhi_room_2a_rain": "/background/mainbuilding/natsuhi_room_2a_rain.bmp",
+      "b_natsuhi_room_2b_rain": "/background/mainbuilding/natsuhi_room_2b_rain.bmp",
+      "b_natsuhi_room_2e_rain": "/background/mainbuilding/natsuhi_room_2e_rain.bmp",
+      "c_kumasawa_kum_puzzled_a1": "/character/kumasawa/kum_puzzled_a1.png",
+      "c_nanji_nan_serious_a1": "/character/nanji/nan_serious_a1.png",
+      "c_nanji_nan_serious_a2": "/character/nanji/nan_serious_a2.png",
+      "c_kanon_kan_troubled_a1": "/character/kanon/kan_troubled_a1.png",
+      "c_shannon_sha_puzzled_a1": "/character/shannon/sha_puzzled_a1.png",
+      "c_shannon_sha_serious_a3": "/character/shannon/sha_serious_a3.png",
+      "c_gohda_goh_anger_a1": "/character/gohda/goh_anger_a1.png",
+      "c_gohda_goh_troubled_a3": "/character/gohda/goh_troubled_a3.png",
+      "c_ushiromia_jessica_uj_anger_a1": "/character/ushiromia_jessica/uj_anger_a1.png",
+      "c_ushiromia_jessica_uj_crying_a1": "/character/ushiromia_jessica/uj_crying_a1.png",
+      "c_ushiromia_battler_ub_worried_a1": "/character/ushiromia_battler/ub_worried_a1.png",
+      "c_ushiromia_battler_ub_serious_a1": "/character/ushiromia_battler/ub_serious_a1.png",
+      "c_ushiromia_battler_cape_ubc_fearless_a1": "/character/ushiromia_battler_cape/ubc_fearless_a1.png",
+      "c_ushiromia_battler_cape_ubc_fearless_a3": "/character/ushiromia_battler_cape/ubc_fearless_a3.png",
+      "c_ushiromia_battler_cape_ubc_panicked_a1": "/character/ushiromia_battler_cape/ubc_panicked_a1.png",
+      "c_ushiromia_battler_cape_ubc_scowl_a3": "/character/ushiromia_battler_cape/ubc_scowl_a3.png",
+      "c_ushiromia_battler_cape_ubc_scowl_a4": "/character/ushiromia_battler_cape/ubc_scowl_a4.png",
+      "c_ushiromia_battler_cape_ubc_worried_a2": "/character/ushiromia_battler_cape/ubc_worried_a2.png",
+      "c_ushiromia_battler_cape_ubc_worried_a4": "/character/ushiromia_battler_cape/ubc_worried_a4.png",
+      "c_ushiromia_george_ug_serious_a3": "/character/ushiromia_george/ug_serious_a3.png",
+      "c_ushiromia_george_ug_serious_a5": "/character/ushiromia_george/ug_serious_a5.png",
+      "c_ushiromia_krauss_uk_serious_a2": "/character/ushiromia_krauss/uk_serious_a2.png",
+      "c_ushiromia_maria_um_evil_a1": "/character/ushiromia_maria/um_evil_a1.png",
+      "c_ushiromia_natsuhi_un_puzzled_a2": "/character/ushiromia_natsuhi/un_puzzled_a2.png",
+      "c_bernkastel_ber_apathy_a1": "/character/bernkastel/ber_apathy_a1.png",
+      "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png",
+      "c_bernkastel_ber_worried_a1": "/character/bernkastel/ber_worried_a1.png",
+      "c_lambdadelta_lam_evil_a2": "/character/lambdadelta/lam_evil_a2.png",
+      "c_beatrice_bea_displeasure_a1": "/character/beatrice/bea_displeasure_a1.png",
+      "c_beatrice_bea_fearless_a1": "/character/beatrice/bea_fearless_a1.png",
+      "c_beatrice_bea_fearless_a2": "/character/beatrice/bea_fearless_a2.png",
+      "c_beatrice_bea_serious_a1": "/character/beatrice/bea_serious_a1.png",
+      "c_beatrice_bea_serious_a2": "/character/beatrice/bea_serious_a2.png",
+      "c_beatrice_bea_serious_a5": "/character/beatrice/bea_serious_a5.png",
+      "c_beatrice_bea_serious_a6": "/character/beatrice/bea_serious_a6.png"
+    },
+    "audio": {}
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_2",
+      "effect": []
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_natsuhi_un_puzzled_a2",
+          "z-index": 1
+        },
+        "middle": {
+          "url": "c_ushiromia_krauss_uk_serious_a2",
+          "z-index": 2
+        },
+        "right": {
+          "url": "c_ushiromia_george_ug_serious_a3",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "Everyone returned to the parlor to discuss what should be done next.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThe phones were out, so they couldn't contact the police.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1d_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "Was the mysterious culprit hiding away somewhere, planning to attack their next victim at this very moment?",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nOr was the culprit in here with them, mentally sticking out their tongue and tasting their next prey?",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nNone of them had alibis, and any one of them could have been a culprit...",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "m_o1a_rain",
+        "effect": ["rain"]
+      },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_s1b_rain",
+        "effect": []
+      },
+      "text": {
+        "content": "However, that tense feeling didn't last long.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nBy midday, everyone got tired of arguing, and they decided to take a break.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_hall_2b_rain"
+      },
+      "text": {
+        "content": "Krauss and Natsuhi announced that they wanted to talk with each other alone and went up to the second floor.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThat was the beginning, and after that, everyone went their separate ways now and then, such as to head to the bathroom or gaze at the endless rain.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "text": {
+        "content": "However, no matter how much time passed, Krauss and Natsuhi were the only ones who didn't return.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nCalls were sent both to Krauss and Natsuhi's rooms using the extension phone line, but there was no answer.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nSomething might have happened.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_hall_2a_rain"
+      },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_2floor_p1a_rain"
+      }
+    },
+    {
+      "background": {
+        "url": "b_natsuhi_room_2a_rain"
+      }
+    },
+    {
+      "background": {
+        "url": "b_blood"
+      },
+      "text": {
+        "content": "Everyone headed to Krauss's and Natsuhi's rooms together, ...and in Natsuhi's room, they found Krauss and Natsuhi lying sprawled on the floor.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_natsuhi_room_2e_rain"
+      },
+      "characters": {
+        "middle": {
+          "url": "c_gohda_goh_anger_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "<purple>Madam's room was locked!</purple> It's just like the dining hall!",
+        "character": "Gohda",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_natsuhi_room_2b_rain"
+      },
+      "characters": {
+        "middle": null,
+        "right": {
+          "url": "c_shannon_sha_puzzled_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "After getting everyone's permission, <purple>I unlocked the door...</purple>",
+        "character": "Shannon",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_kanon_kan_troubled_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "<purple>Krauss-sama and Natsuhi-sama lay sprawled on the floor inside the room.</purple>",
+        "character": "Kanon",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_natsuhi_room_2a_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_worried_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "<purple>Doctor Nanjo checked their pulse.</purple>",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>Then, he announced that the two of them had died instantly.</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_nanji_nan_serious_a2",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Correct.",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>I confirmed both of their deaths.</purple>",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>There can be no doubt that they died instantly.</purple>",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_jessica_uj_anger_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "I searched all over the room, looking for a clue...!",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "In the end, <purple>I found that the windows and doors had all been locked, making it a closed room.</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_natsuhi_room_2b_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_kumasawa_kum_puzzled_a1",
+          "z-index": 2
+        },
+        "right": null
+      },
+      "text": {
+        "content": "Another closed room!",
+        "character": "Kumasawa",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " We servants all have master keys, so we'll be suspected again...!",
+        "character": "Kumasawa",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_gohda_goh_troubled_a3",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "B-But have no fear...!",
+        "characters": "Gohda",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " After Madam began to suspect us, we started keeping an eye on each other!",
+        "characters": "Gohda",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_shannon_sha_serious_a3",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "<purple>All of us servants were together the whole time.</purple>",
+        "character": "Shannon",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_kanon_kan_troubled_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "<purple>All of us servants can prove an alibi for all of the other servants.</purple>",
+        "character": "Kanon",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_ushiromia_battler_cape_ubc_fearless_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Now that's interesting.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " So, you're saying that this closed room is even more complete.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_bernkastel_ber_apathy_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "......In the case of the first closed room, no one had an alibi.",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " So, for this closed room, all of them have alibis.",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_beatrice_bea_displeasure_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "In this world, the servants themselves become living master keys.",
+        "character": "Beatrice",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Since those servants have perfect alibis, it was impossible to lock Natsuhi's room...",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_door1"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_ushiromia_george_ug_serious_a5",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "We decided to preserve the crime scene as it was.",
+        "character": "George",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_maria_um_evil_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "<purple>We put packing tape all over the outside of the doors and windows, sealing them!</purple>",
+        "character": "Maria",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_2floor_p1a_rain"
+      },
+      "characters": {
+        "left": null,
+        "right": {
+          "url": "c_ushiromia_jessica_uj_anger_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "I'm sure the culprit left some sort of clue in this room!",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>We made sure that no one would be able to enter or leave until the police arrived!</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1b_rain"
+      },
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_battler_ub_serious_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "Then, we did the same to the dining hall.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>We also sealed the dining hall in the same way.</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_o1a_rain",
+        "effect": ["rain"]
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_jessica_uj_crying_a1",
+          "z-index": 1
+        },
+        "middle": {
+          "url": "c_ushiromia_battler_ub_worried_a1",
+          "z-index": 2
+        },
+        "right": {
+          "url": "c_nanji_nan_serious_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "We reached the conclusion that the entire mansion itself should be preserved.",
+        "character": "Nanjo",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>We also sealed the mansion itself, and all of us took refuge in the guesthouse.</purple>",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b",
+        "effect": []
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_cape_ubc_scowl_a3",
+          "z-index": 1
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "They sealed the whole mansion?",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Packing tape on all the windows?",
+        "character": "Battler",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " They even used a ladder for the windows on the third floor?",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_bernkastel_ber_apathy_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "...The game would get complicated otherwise, so I've simplified it.",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>All of the windows had steel bars on them so it's impossible to enter or leave by them.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "Therefore, <red>we'll say that they can seal the whole mansion by sealing the two doors, the front one and the back one.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_cape_ubc_panicked_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Got it. That makes it easy.",
+        "character": "Battler",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": {
+          "url": "c_beatrice_bea_serious_a2",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "What do you think?",
+        "character": "Beatrice",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_battler_cape_ubc_worried_a4",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Actually killing the two people in Aunt Natsuhi's room would be easy.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Someone just had to knock and get them to open the door.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " However, they couldn't lock it afterwards.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_beatrice_bea_serious_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Only the servants can lock doors,",
+        "character": "Beatrice",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " but all of the servants have alibis.",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_battler_cape_ubc_worried_a2",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Unless the servants are all in together.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " More importantly, the first twilight has me suspicious.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_beatrice_bea_fearless_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "You think that one of the six who died in the dining hall was actually alive and committed the crime?",
+        "character": "Beatrice",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_ushiromia_battler_cape_ubc_fearless_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "It's because of Erika.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " I can't help but be suspicious when people are examining corpses.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_beatrice_bea_serious_a6",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "So, you think that one of the first six victims was alive?",
+        "character": "Beatice",
+        "style": "add"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_battler_cape_ubc_scowl_a4",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Yeah.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " And afterwards, they killed Krauss and Natsuhi.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " Then, they locked the door from the inside, hid inside the room, and found a good chance to escape.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_beatrice_bea_serious_a5",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Hmm, that theory does make logical sense.",
+        "character": "Beatice",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1c"
+      },
+      "characters": {
+        "middle": null,
+        "right": {
+          "url": "c_bernkastel_ber_worried_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "...I'll say it in red.",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>The culprit of the first twilight really did kill six people.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_beatrice_bea_fearless_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Then I'll take a shot with the blue truth.",
+        "character": "Beatrice",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Here is the true nature of this closed room.",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<blue>The culprit locked the door from the inside, then hid in Natsuhi's room.</blue>",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<blue>Then, after everyone left, they found an opportunity to escape.</blue>",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_bernkastel_ber_apathy_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "...Sure, I'll deny that in red.",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>The group sealed the room at the same time they left.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>No culprit joined the group as they left.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>Also, all of the seals on Natsuhi's room, the dining hall, and the mansion itself will not be broken.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": {
+          "url": "c_lambdadelta_lam_evil_a2",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "Heheheheheh.",
+        "character": "Lambdadelta",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " In other words, you can't use that trick where they hide under the bed and slip out later.",
+        "character": "Lambdadelta",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_battler_cape_ubc_fearless_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "...Interesting.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Nice going, Bernkastel.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_bernkastel_ber_worried_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "Thanks.",
+        "character": "Bernkastel",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_g1a_rain",
+        "effect": ["rain"]
+      },
+      "characters": {
+        "middle": null
+      },
+      "text": {
+        "content": "This was the crime of the second twilight.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\nThe scene was Natsuhi's room, a locked closed room.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThis time, all of the servants with master keys have alibis.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThe whole group, realizing the dangers of being inside the mansion, took shelter in the guesthouse...",
+        "character": "narrator",
+        "style": "add"
+      }
+    }
+  ]
+}
