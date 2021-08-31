@@ -84,7 +84,7 @@
     },
     {
       "text": {
-        "content": "\nGohda, who had woken up to get breakfast ready,",
+        "content": "\n\nGohda, who had woken up to get breakfast ready,",
         "character": "narrator",
         "style": "add"
       }
@@ -568,7 +568,7 @@
     },
     {
       "text": {
-        "content": "\nIt was only natural that the servants, with their master keys, would fall under suspicious.",
+        "content": "\n\nIt was only natural that the servants, with their master keys, would fall under suspicious.",
         "character": "narrator",
         "style": "add"
       }
@@ -582,7 +582,7 @@
     },
     {
       "text": {
-        "content": "\nThen again, it wasn't only the servants.",
+        "content": "\n\nThen again, it wasn't only the servants.",
         "character": "narrator",
         "style": "add"
       }
@@ -657,7 +657,7 @@
     },
     {
       "text": {
-        "content": "\n<red>Of course, it is possible to lock or unlock the doors from inside the room even without a master key.</red>",
+        "content": "\n\n<red>Of course, it is possible to lock or unlock the doors from inside the room even without a master key.</red>",
         "character": "narrator",
         "style": "add"
       }
@@ -944,7 +944,7 @@
     },
     {
       "text": {
-        "content": "\nNone of the servants holding master keys have alibis.",
+        "content": "\n\nNone of the servants holding master keys have alibis.",
         "character": "narrator",
         "style": "add"
       }

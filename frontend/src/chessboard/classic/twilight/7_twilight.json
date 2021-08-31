@@ -51,7 +51,7 @@
     },
     {
       "text": {
-        "content": "\nHe died in the entrance hall of the guesthouse.",
+        "content": "\n\nHe died in the entrance hall of the guesthouse.",
         "character": "narrator",
         "style": "add"
       }
@@ -228,7 +228,7 @@
     },
     {
       "text": {
-        "content": "\nNo one could answer that innocent question.",
+        "content": "\n\nNo one could answer that innocent question.",
         "character": "narrator",
         "style": "add"
       }
@@ -248,7 +248,7 @@
     },
     {
       "text": {
-        "content": "\nOnce again, the crime scene was the closed room known as the guesthouse.",
+        "content": "\n\nOnce again, the crime scene was the closed room known as the guesthouse.",
         "character": "narrator",
         "style": "add"
       }
@@ -262,7 +262,7 @@
     },
     {
       "text": {
-        "content": "\nThen, the tragedy reached the eighth twilight, the final one.",
+        "content": "\n\nThen, the tragedy reached the eighth twilight, the final one.",
         "character": "narrator",
         "style": "add"
       }

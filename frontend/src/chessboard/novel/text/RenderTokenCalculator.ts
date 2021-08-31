@@ -11,7 +11,8 @@ interface TextTokenInterface {
 class RenderTokenCalculator {
     public calculate(context: CanvasRenderingContext2D, text: string): TextTokenInterface[] {
         return text
-            .split("\n")
+            // Двойной перенос строки считаем за начало нового абзаца
+            .split("\n\n")
             .map((line: string, index: number): TextTokenInterface => ({
                 text: line,
                 color: TEXT_COLOR_DEFAULT,
@@ -19,6 +20,20 @@ class RenderTokenCalculator {
                 offset_x: 0,
                 line_num: 0
             }))
+            // Учитываем одинарные переносы строки
+            .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
+                const added_lines = line.text
+                    .split("\n")
+                    .map((subline) => ({
+                        text: subline,
+                        color: TEXT_COLOR_DEFAULT,
+                        offset_y: line.offset_y,
+                        offset_x: 0,
+                        line_num: 0
+                    }))
+                return [...result, ...added_lines];
+            }, [])
+            // Разбиваем на линии по ширине экрана с учетом цветов
             .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
                 const first_line_num = !!result.length ? result[result.length - 1].line_num + 1 : 0;
                 const added_lines = this.getTextBrokenToLines(context, line).map((line) => ({
@@ -60,6 +75,14 @@ class RenderTokenCalculator {
 
             const words = colored_subline.split(' ');
 
+            // Сценарий: в предыдущей линии влезли все слова в строку, однако
+            // новое слово из этой линии в оставшееся пространство не помещается
+            // Решение: перенос на новую строку
+            if (offset_x_current + context.measureText(words[0]).width > TEXT_WIDTH) {
+                line_num_current++;
+                offset_x_current = 0;
+            }
+
             // Хак: добавляет пробел перед цветным текстом
             // Но при этом нужно учитывать, что перед некоторыми символами пробел не нужен
             const last_character = result_lines.length && result_lines[result_lines.length - 1].text.length
@@ -68,14 +91,6 @@ class RenderTokenCalculator {
             let line_prefix = offset_x_current <= 0 || ['"'].includes(last_character) || (words.length === 1 && words[0] === '"')
                 ? ''
                 : ' ';
-
-            // Сценарий: в предыдущей линии влезли все слова в строку, однако
-            // новое слово из этой линии в оставшееся пространство не помещается
-            // Решение: перенос на новую строку
-            if (offset_x_current + context.measureText(words[0]).width > TEXT_WIDTH) {
-                line_num_current++;
-                offset_x_current = 0;
-            }
 
             words.forEach((word: string) => {
                 if (context.measureText(line_prefix + word).width > TEXT_WIDTH) {

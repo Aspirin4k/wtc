@@ -1,0 +1,312 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "t_dai_8": "/twilight/dai_8.png",
+      "e_rain": "/background/effect/rain/stillrainfront.png",
+      "b_garden_o1a_rain": "/background/guesthouse/garden_o1a_rain.bmp",
+      "b_rose_1a_rain": "/background/garden/rose_1a_rain.bmp",
+      "b_rose_1b_rain": "/background/garden/rose_1b_rain.bmp",
+      "c_ushiromia_battler_ub_crying_a2": "/character/ushiromia_battler/ub_crying_a2.png",
+      "c_ushiromia_battler_ub_shout_a1": "/character/ushiromia_battler/ub_shout_a1.png",
+      "c_ushiromia_maria_um_evil_a1": "/character/ushiromia_maria/um_evil_a1.png",
+      "c_ushiromia_maria_um_evil_a2": "/character/ushiromia_maria/um_evil_a2.png",
+      "c_ushiromia_george_ug_anger_a1": "/character/ushiromia_george/ug_anger_a1.png",
+      "c_ushiromia_george_ug_crying_a1k": "/character/ushiromia_george/ug_crying_a1k.png"
+    },
+    "audio": {}
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_8",
+      "effect": []
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_garden_o1a_rain",
+        "effect": ["rain"]
+      },
+      "text": {
+        "content": "By now, it was clear that holing up wouldn't keep them safe.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nJessica might have chosen anger as a way to numb her fear.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "She flew out of the guesthouse in a rage, searching for the culprit that surely hid somewhere outside.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nGeorge, Battler, and Maria hurriedly chased after her.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1b_rain"
+      },
+      "text": {
+        "content": "Then, outside the building, they found Jessica lying on the ground.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nIt was, as anyone could tell at a glance, a gruesome corpse...",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1a_rain"
+      },
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_george_ug_crying_a1k",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Poor Jessica-chan...",
+        "character": "George",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>She probably died instantly.</purple>",
+        "character": "George",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_maria_um_evil_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "<purple>There's no way anyone could live through this.</purple>",
+        "character": "Maria",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Kihihihihi.",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_battler_ub_shout_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "The three of us were together the whole time!",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>George-aniki, Maria and I couldn't have killed Jessica!</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1b_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_ushiromia_maria_um_evil_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Yeah.",
+        "character": "Maria",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>The three of us couldn't have killed Jessica.</purple>",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_george_ug_anger_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "As if Maria-chan could kill someone.",
+        "character": "George",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>Maria-chan couldn't kill anyone.</purple>",
+        "character": "George",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_maria_um_evil_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Kihihi, thanks.",
+        "character": "Maria",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>George onii-chan couldn't kill an adult.</purple>",
+        "character": "Maria",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>He could kill a kid though.</purple>",
+        "character": "Maria",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "Kihihihihihi",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_battler_ub_crying_a2",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "Ah, I don't understand it at all...!!",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " What the hell is going on here...?!!",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1a_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "This was the eighth twilight.",
+        "style": "replace",
+        "character": "narrator"
+      }
+    },
+    {
+      "text": {
+        "content": "\nThe crime scene was... outside.",
+        "style": "add",
+        "character": "narrator"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nHowever, the three who chased after Jessica have alibis.",
+        "style": "add",
+        "character": "narrator"
+      }
+    },
+    {
+      "text": {
+        "content": "\nGeorge, Battler, and Maria couldn't have killed Jessica.",
+        "style": "add",
+        "character": "narrator"
+      }
+    },
+    {
+      "text": {
+        "content": "So, is there really someone hiding on this island apart from the Ushiromia family...?",
+        "style": "replace",
+        "character": "narrator"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThe curtain is lowered on this tale, for now...",
+        "style": "add",
+        "character": "narrator"
+      }
+    }
+  ]
+}
