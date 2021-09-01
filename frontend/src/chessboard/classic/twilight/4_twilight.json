@@ -1,0 +1,470 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "t_dai_4": "/twilight/dai_4.png",
+      "e_rain": "/background/effect/rain/stillrainfront.png",
+      "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+      "b_different_space_1b": "/background/metaworld/different_space_1b.bmp",
+      "b_garden_o1b_rain": "/background/guesthouse/garden_o1b_rain.bmp",
+      "b_garden_r1a_rain": "/background/garden/garden_r1a_rain.bmp",
+      "b_garden_r1c_rain": "/background/garden/garden_r1c_rain.bmp",
+      "b_rose_1a_rain": "/background/garden/rose_1a_rain.bmp",
+      "b_rose_1b_rain": "/background/garden/rose_1b_rain.bmp",
+      "c_ushiromia_battler_ub_puzzled_a2": "/character/ushiromia_battler/ub_puzzled_a2.png",
+      "c_ushiromia_battler_ub_worried_a4": "/character/ushiromia_battler/ub_worried_a4.png",
+      "c_ushiromia_battler_cape_ubc_worried_a4": "/character/ushiromia_battler_cape/ubc_worried_a4.png",
+      "c_ushiromia_jessica_uj_crying_a2": "/character/ushiromia_jessica/uj_crying_a2.png",
+      "c_ushiromia_jessica_uj_worried_a1": "/character/ushiromia_jessica/uj_worried_a1.png",
+      "c_ushiromia_george_ug_crying_a1": "/character/ushiromia_george/ug_crying_a1.png",
+      "c_ushiromia_george_ug_crying_a2k": "/character/ushiromia_george/ug_crying_a2k.png",
+      "c_ushiromia_maria_um_apathy_a1": "/character/ushiromia_maria/um_apathy_a1.png",
+      "c_kumasawa_kum_troubled_a1": "/character/kumasawa/kum_troubled_a1.png",
+      "c_nanji_nan_serious_a2": "/character/nanji/nan_serious_a2.png",
+      "c_gohda_goh_troubled_a1": "/character/gohda/goh_troubled_a1.png",
+      "c_gohda_goh_troubled_a2": "/character/gohda/goh_troubled_a2.png",
+      "c_beatrice_bea_serious_a2": "/character/beatrice/bea_serious_a2.png",
+      "c_bernkastel_ber_apathy_a1": "/character/bernkastel/ber_apathy_a1.png",
+      "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png"
+    },
+    "audio": {}
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_4",
+      "effect": []
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_garden_o1b_rain",
+        "effect": ["rain"]
+      },
+      "text": {
+        "content": "All those who took refuge in the guesthouse decided to hole up in there until the typhoon passed.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThere, if everyone watched everyone else, they should be able to prevent further crimes both from inside and outside.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "However, they wouldn't be able to keep it up without any breaks until the typhoon passed.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nOnce again, their actions left a weak point open, and they were faced with yet another tragedy.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1b_rain"
+      },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_r1a_rain",
+        "effect": []
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_puzzled_a2",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Shannon-chan and Kanon-kun went outside on an errand and still haven't come back...!",
+        "character": "Battler",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_jessica_uj_crying_a2",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "George nii-san got upset, so <purple>we all went outside to look for them.</purple>",
+        "character": "Jessica",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_r1c_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_kumasawa_kum_troubled_a1",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "We found Shannon-chan lying there in the rose garden.",
+        "character": "Kumasawa",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Oh, poor, poor Shannon-chan...",
+        "character": "Kumasawa",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_george_ug_crying_a2k",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "I prayed she was still alive.",
+        "character": "George",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " However, <purple>I was forced to acknowledge that she was dead...</purple>",
+        "character": "George",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_nanji_nan_serious_a2",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "Of course, <purple>I also examined her and confirmed her death.</purple>",
+        "character": "Nanjo",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_r1a_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_gohda_goh_troubled_a2",
+          "z-index": 1
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "When the two of them left, we were busy checking the locks around the guesthouse.",
+        "character": "Gohda",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " So, <purple>not one of us has an alibi...!</purple>",
+        "character": "Gohda",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_george_ug_crying_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Me, kill her?!",
+        "character": "George",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " How could I have killed her?!!",
+        "character": "George",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_maria_um_apathy_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "That's right.",
+        "character": "Maria",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " George onii-chan couldn't kill her, uu-.",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_r1c_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_ushiromia_jessica_uj_worried_a1",
+          "z-index": 3
+        },
+        "right": null
+      },
+      "text": {
+        "content": "Later on, we learned that George nii-san alone had an alibi.",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>At they very least, George nii-san couldn't possibly have killed Shannon.</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_worried_a4",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "To turn it around,",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>...anyone other that George-aniki could have killed her.</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_gohda_goh_troubled_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "To prevent the culprit from using it for any mischief,",
+        "character": "Gohda",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": "<purple>we destroyed the master key Shannon-san had on the spot.</purple>",
+        "character": "Gohda",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1b"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_bernkastel_ber_apathy_a2",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "...Although Kanon's body was not found, ",
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " I must note <red>he was killed by the same culprit.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": "<red>Also, Kanon's master key is treated as being destroyed.</red>",
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "characters": {
+        "left": {
+          "url": "c_beatrice_bea_serious_a2",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "In other words,",
+        "character": "Beatrice",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " we can interpret this as Shannon and Kanon being killed, even though we're missing a corpse?",
+        "character": "Beatrice",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_bernkastel_ber_apathy_a1",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "That's right.",
+        "character": "Bernkastel",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_battler_cape_ubc_worried_a4",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "...Hmm.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Looks like the crimes are moving along.",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1a_rain",
+        "effect": ["rain"]
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "This was the crime of the fourth twilight.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThe scene was the rose garden.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\nThere were no locks or doors.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " It wasn't a closed room.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": " So, the master keys were no longer a factor.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThen, the pace of the crimes began to accelerate...",
+        "character": "narrator",
+        "style": "add"
+      }
+    }
+  ]
+}
