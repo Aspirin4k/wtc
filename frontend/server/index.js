@@ -15,6 +15,7 @@ import {getStaticURL, initStaticPrefix} from "../src/utils/static";
 const app = express();
 const port = process.env.SERVER_PORT || config.port;
 const static_prefix = process.env.STATIC_PREFIX || config.static_prefix;
+const environment = process.env.ENVIRONMENT || config.environment;
 initStaticPrefix(static_prefix);
 
 app.set('view engine', 'ejs');
@@ -53,6 +54,7 @@ const axiosInstance = axios.create({
     baseURL: config.api
 });
 app.get('*', (req, res) => {
+    res.set('x-environment', environment);
 
     try {
         const routerContext = {};
