@@ -1,0 +1,393 @@
+{
+  "mode": "classic",
+  "resources": {
+    "images": {
+      "t_dai_56": "/twilight/dai_56.png",
+      "e_rain": "/background/effect/rain/stillrainfront.png",
+      "b_garden_o1c_rain": "/background/guesthouse/garden_o1c_rain.bmp",
+      "b_1floor_p1e": "/background/guesthouse/1floor_p1e.bmp",
+      "b_1floor_r1a_rain": "/background/guesthouse/1floor_r1a_rain.bmp",
+      "b_1floor_r1b_rain": "/background/guesthouse/1floor_r1b_rain.bmp",
+      "c_nanji_nan_troubled_a3": "/character/nanji/nan_troubled_a3.png",
+      "c_nanji_nan_troubled_a4": "/character/nanji/nan_troubled_a4.png",
+      "c_ushiromia_jessica_uj_anger_a1": "/character/ushiromia_jessica/uj_anger_a1.png",
+      "c_ushiromia_jessica_uj_anger_a3": "/character/ushiromia_jessica/uj_anger_a3.png",
+      "c_ushiromia_jessica_uj_troubled_a3": "/character/ushiromia_jessica/uj_troubled_a3.png",
+      "c_ushiromia_battler_ub_panicked_a2": "/character/ushiromia_battler/ub_panicked_a2.png",
+      "c_ushiromia_battler_ub_panicked_a3": "/character/ushiromia_battler/ub_panicked_a3.png",
+      "c_ushiromia_battler_ub_serious_a3": "/character/ushiromia_battler/ub_serious_a3.png",
+      "c_ushiromia_george_ug_serious_a3": "/character/ushiromia_george/ug_serious_a3.png",
+      "c_ushiromia_maria_um_puzzled_a1": "/character/ushiromia_maria/um_puzzled_a1.png",
+      "c_ushiromia_maria_um_evil_a2": "/character/ushiromia_maria/um_evil_a2.png",
+      "black": "/background/black.jpg",
+      "blood": "/background/special/blood_1a.png",
+      "spiral_b": "/background/metaworld/different_spiral_1b.bmp"
+    },
+    "audio": {}
+  },
+  "scene": {
+    "background": {
+      "url": "t_dai_56",
+      "effect": []
+    },
+    "characters": {
+      "left": null,
+      "middle": null,
+      "right": null
+    },
+    "text": {
+      "content": null
+    }
+  },
+  "proceeding": [
+    {
+      "background": {
+        "url": "b_garden_o1c_rain",
+        "effect": ["rain"]
+      },
+      "text": {
+        "content": "Everyone took shelter in the guesthouse.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nThey carefully sealed all doors and windows, locking themselves in a closed room.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "However, several closed room murders had already occured.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nCould locking themselves in a closed room do anything more than invite another tragedy?",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_p1e",
+        "effect": []
+      },
+      "text": {
+        "content": "After arguing fiercely in the cousin room about finding the culprit, they decided that they should double-check Nanjo, Kumasawa, and Gohda's testimony.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "blood"
+      },
+      "text": {
+        "content": "And there, ...they learned that a tragedy had occured once more.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1a_rain"
+      },
+      "characters": {
+        "right": {
+          "url": "c_nanji_nan_troubled_a4",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "<purple>In both Gohda-san's and Kumasawa-san's cases, such wounds would have resulted in instant deaths</purple>, I believe.",
+        "character": "Nanjo",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Such a gruesome way to die...",
+        "character": "Nanjo",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_jessica_uj_anger_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Like hell they could survive with wounds like this...!",
+        "character": "Jessica",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " <purple>Gohda-san and Kumasawa-san are both dead!</purple>",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1b_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_panicked_a2",
+          "z-index": 1
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "Well, we have been busy, keeping a lookout and locking up and all that.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Once again, <purple>none of us has an alibi.</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_george_ug_serious_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "That's not true.",
+        "character": "George",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Look.",
+        "character": "George",
+        "style": "add",
+        "statement": "continue"
+      }
+    },
+    {
+      "text": {
+        "content": " ...If they were killed in that way, the culprit would definitely have gotten blood spatter on themselves.",
+        "character": "George",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_maria_um_puzzled_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "But Doctor Nanjo and all of the cousins have no blood spatter on them.",
+        "character": "Maria",
+        "style": "replace"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1a_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": {
+          "url": "c_ushiromia_jessica_uj_troubled_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "All of us...in other words, <purple>the four of cousins and Doctor Nanjo couldn't have killed Gohda-san or Kumasawa-san.</purple>",
+        "character": "Jessica",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_serious_a3",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "In that case, it's clear that the culprit is someone other than us.",
+        "character": "Battler",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1b_rain"
+      },
+      "characters": {
+        "left": null,
+        "middle": {
+          "url": "c_ushiromia_george_ug_serious_a3",
+          "z-index": 1
+        },
+        "right": null
+      },
+      "text": {
+        "content": "I guessed that someone might have snuck in, so I checked around, <purple>but the guesthouse was still completely locked up.</purple>",
+        "character": "George",
+        "style": "replace"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_nanji_nan_troubled_a3",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Perhaps the culprit has a master key after all...",
+        "character": "Nanjo",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1a_rain"
+      },
+      "characters": {
+        "left": {
+          "url": "c_ushiromia_battler_ub_panicked_a3",
+          "z-index": 1
+        },
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "That's impossible.",
+        "character": "Battler",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " <purple>No master keys exist anymore except the two keys on the two people who lie dead here.</purple>",
+        "character": "Battler",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "right": {
+          "url": "c_ushiromia_jessica_uj_anger_a1",
+          "z-index": 3
+        }
+      },
+      "text": {
+        "content": "Since the two master keys that exist are here inside the guesthouse,",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " ...that makes this guesthouse a perfect closed room...!",
+        "character": "Jessica",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "characters": {
+        "middle": {
+          "url": "c_ushiromia_maria_um_evil_a2",
+          "z-index": 2
+        }
+      },
+      "text": {
+        "content": "Well, since someone's dead, it obviously wasn't perfect.",
+        "character": "Maria",
+        "style": "replace",
+        "statement": "start"
+      }
+    },
+    {
+      "text": {
+        "content": " Kihihihihihihihihi...",
+        "character": "Maria",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": "This was the crime of the fifth and sixth twilights.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": " The scene was the closed room known as the guesthouse.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nGohda's and Kumasawa's master keys were also destroyed, meaning that all master keys have now been lost.",
+        "character": "narrator",
+        "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "spiral_b"
+      },
+      "text": {
+        "content": "Now, no one can break into this closed room guesthouse.",
+        "character": "narrator",
+        "style": "replace"
+      }
+    },
+    {
+      "text": {
+        "content": "\n\nAt least, that should have been the case...",
+        "character": "narrator",
+        "style": "add"
+      }
+    }
+  ]
+}

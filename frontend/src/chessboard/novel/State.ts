@@ -1,6 +1,6 @@
 import {Character, Proceeding, ScreenState} from "../ScreenStateInterface";
 
-import twilight from "../classic/twilight/4_twilight.json";
+import twilight from "../classic/twilight/5-6_twilight.json";
 import {AssetManager} from "../helpers/AssetManager";
 
 const CLASSIC_SPRITE_LEFT_X = -75;
@@ -57,6 +57,8 @@ class State {
      * Продвижение новелы вперед
      */
     public proceedNovel() {
+        // this.asset_manager.getAudio('a_rain').play();
+        // this.asset_manager.getAudio('bgm_gc-28').play();
         if (this.proceeding_current_num >= this.proceedings.length) {
             return;
         }

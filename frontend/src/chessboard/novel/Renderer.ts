@@ -3,6 +3,7 @@ import {State} from "./State";
 import {AssetManager} from "../helpers/AssetManager";
 import {TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET} from "./text/Constants";
 import {RenderTokenCalculator, TextTokenInterface} from "./text/RenderTokenCalculator";
+import { log } from "../../utils/logger";
 
 export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
@@ -43,11 +44,20 @@ class Renderer {
 
     public register(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
-        this.game_render_loop = setInterval(this.renderGameFrame.bind(this), FPS_50);
+        this.game_render_loop = setInterval(this.tryRenderGameFrame.bind(this), FPS_50);
     }
 
     public unregister() {
         clearInterval(this.game_render_loop);
+    }
+
+    tryRenderGameFrame() {
+        try {
+            this.renderGameFrame();
+        } catch (e) {
+            clearInterval(this.game_render_loop);
+            log(e);
+        }
     }
 
     renderGameFrame() {

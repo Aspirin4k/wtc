@@ -1,3 +1,4 @@
+import { log } from "../../utils/logger";
 import {getStaticURL} from "../../utils/static";
 
 class AssetManager {
@@ -16,6 +17,7 @@ class AssetManager {
 
             image.onload = () => {
                 this.current_assets_loaded++;
+                log('Loaded image: ' + short_name);
                 if (this.current_assets_loaded === this.total_assets_to_load) {
                     this.event_listeners.forEach((callback) => {
                         callback();
@@ -24,7 +26,7 @@ class AssetManager {
                 }
             }
             image.onerror = () => {
-                console.log('Failed to load: ' + short_name);
+                log('Failed to load: ' + short_name);
             }
 
             image.src = getStaticURL(urls[short_name]);
@@ -54,6 +56,10 @@ class AssetManager {
     }
 
     public getImage(url: string): HTMLImageElement {
+        if (!this.images[url]) {
+            throw new Error("Has no image asset for " + url);
+        }
+
         return this.images[url];
     }
 

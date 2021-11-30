@@ -97,7 +97,8 @@ app.get('*', (req, res) => {
         ).catch((error) => {
             return res.send(500, error.response && error.response.data || error);
         })
-    } catch (e) {
+    } catch (error) {
+        console.log(error);
         return res.send(500, error.response && error.response.data || error);
     }
 });

@@ -44,7 +44,12 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [
                     "style-loader",
-                    "css-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: false
+                        }
+                    },
                     "sass-loader",
                 ],
             }
