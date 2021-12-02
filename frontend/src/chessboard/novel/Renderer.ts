@@ -3,7 +3,7 @@ import {State} from "./State";
 import {AssetManager} from "../helpers/AssetManager";
 import {TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET} from "./text/Constants";
 import {RenderTokenCalculator, TextTokenInterface} from "./text/RenderTokenCalculator";
-import { log } from "../../utils/logger";
+import {LoggerFactory} from "../../logger/LoggerFactory";
 
 export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
@@ -56,7 +56,7 @@ class Renderer {
             this.renderGameFrame();
         } catch (e) {
             clearInterval(this.game_render_loop);
-            log(e);
+            LoggerFactory.getLogger().error('Render exception', {error: e});
         }
     }
 

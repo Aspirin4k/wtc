@@ -1,5 +1,5 @@
-import { log } from "../../utils/logger";
 import {getStaticURL} from "../../utils/static";
+import {LoggerFactory} from "../../logger/LoggerFactory";
 
 class AssetManager {
     private images: {[key: string]: HTMLImageElement} = {};
@@ -17,7 +17,7 @@ class AssetManager {
 
             image.onload = () => {
                 this.current_assets_loaded++;
-                log('Loaded image: ' + short_name);
+                LoggerFactory.getLogger().info('Loaded image: ' + short_name)
                 if (this.current_assets_loaded === this.total_assets_to_load) {
                     this.event_listeners.forEach((callback) => {
                         callback();
@@ -26,7 +26,7 @@ class AssetManager {
                 }
             }
             image.onerror = () => {
-                log('Failed to load: ' + short_name);
+                LoggerFactory.getLogger().error('Failed to load: ' + short_name)
             }
 
             image.src = getStaticURL(urls[short_name]);

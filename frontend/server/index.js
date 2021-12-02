@@ -11,11 +11,13 @@ import { renderToString } from 'react-dom/server';
 import config from '../config/env.json';
 import { App } from '../src/App';
 import {getStaticURL, initStaticPrefix} from "../src/utils/static";
+import {getConfigValue} from "../src/utils/config";
+import {LoggerFactory} from "../src/logger/LoggerFactory";
 
 const app = express();
-const port = process.env.SERVER_PORT || config.port;
-const static_prefix = process.env.STATIC_PREFIX || config.static_prefix;
-const environment = process.env.ENVIRONMENT || config.environment;
+const port = getConfigValue('server_port');
+const static_prefix = getConfigValue('static_prefix');
+const environment = getConfigValue('environment');
 initStaticPrefix(static_prefix);
 
 app.set('view engine', 'ejs');
@@ -106,6 +108,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Started server on port ${port}`);
-    console.log(config);
+    LoggerFactory.getLogger().info(`Started server on port ${port}`, config);
 });

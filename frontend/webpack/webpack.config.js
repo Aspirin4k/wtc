@@ -13,7 +13,10 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            'winston': false
+        }
     },
     mode: 'production',
     plugins: [
