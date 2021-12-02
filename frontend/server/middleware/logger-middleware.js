@@ -4,7 +4,7 @@ export const registerLoggerMiddleware = (app) => {
     app.use('*', (req, res, next) => {
         const context = {
             request: {
-                url: req.url,
+                url: req.originalUrl,
                 method: req.method,
                 params: req.params,
                 query: req.query

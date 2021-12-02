@@ -1,13 +1,13 @@
 location /test/api {
-    proxy_pass http://localhost:8080/;
+    proxy_pass http://localhost:8080;
 }
 
 location /test {
-    proxy_pass http://localhost:3000/;
+    proxy_pass http://localhost:3000;
 }
 
 location /api {
-    proxy_pass http://localhost:8081/;
+    proxy_pass http://localhost:8081;
 }
 
 location = /favicon.ico {
@@ -15,5 +15,5 @@ location = /favicon.ico {
 }
 
 location / {
-    proxy_pass http://localhost:3001/;
+    proxy_pass http://localhost:3001;
 }
