@@ -13,6 +13,7 @@ import { App } from '../src/App';
 import {getStaticURL, initStaticPrefix} from "../src/utils/static";
 import {getConfigValue} from "../src/utils/config";
 import {LoggerFactory} from "../src/logger/LoggerFactory";
+import {registerLoggerMiddleware} from "./middleware/logger-middleware";
 
 const app = express();
 const port = getConfigValue('server_port');
@@ -25,6 +26,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 app.use(favicon(path.join(__dirname, 'static/icon/favicon.ico')));
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(compression());
+registerLoggerMiddleware(app);
 
 if (DEV) {
     const webpack = require('webpack');
@@ -71,6 +73,7 @@ app.get('*', (req, res) => {
         );
 
         if (routerContext.url) {
+            LoggerFactory.getLogger().info('Redirect', {to: routerContext.url});
             return res.redirect(301, routerContext.url);
         }
 
