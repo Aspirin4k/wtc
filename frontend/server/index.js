@@ -61,11 +61,12 @@ app.get('*', (req, res) => {
     res.set('x-environment', environment);
 
     try {
+        const url = req.originalUrl;
         const routerContext = {};
         const fetches = [];
         renderToString(
             <StaticRouter
-                location={req.url}
+                location={url}
                 context={routerContext}
             >
                 <App axios={axiosInstance} saveFetch={(fetch) => {fetches.push(fetch)}} />
@@ -86,7 +87,7 @@ app.get('*', (req, res) => {
 
                 const content = renderToString(
                     <StaticRouter
-                        location={req.url}
+                        location={url}
                         context={routerContext}
                     >
                         <App axios={axiosInstance} fetch_results={fetch_results} />
