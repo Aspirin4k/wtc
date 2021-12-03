@@ -1,20 +1,10 @@
-import {isClient} from "./version";
-
-let staticPrefix: string;
-if (isClient()) {
-    // @ts-ignore
-    staticPrefix = (window.cache && window.cache.static && window.cache.static.prefix) || '';
-}
-
-const initStaticPrefix = (prefix: string): void => {
-    staticPrefix = prefix;
-}
+import {getConfigValue} from "./config";
 
 const getStaticURL = (url: string): string => {
+    const staticPrefix = getConfigValue('static_prefix');
     return `${staticPrefix}${url}`;
 }
 
 export {
-    initStaticPrefix,
     getStaticURL
 }

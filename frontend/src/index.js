@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { BrowserRouter } from "react-router-dom";
 
-import config from '../config/env.json';
 import { App } from "./App";
+import { getConfigValue } from "./utils/config";
 import './index.scss';
 
 const axiosInstance = axios.create({
-    baseURL: config.api
+    baseURL: getConfigValue('api_url')
 })
 const cache = window.cache || {};
 const wrapper = document.getElementById('application');
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={getConfigValue('static_prefix') || '/'}>
         <App axios={axiosInstance} fetch_results={cache.fetch_results || {}} />
     </BrowserRouter>,
     wrapper

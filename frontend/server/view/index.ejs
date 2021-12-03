@@ -25,6 +25,7 @@
 <div id="application"><%- content %></div>
 <script>
     window.cache = <%- JSON.stringify(cache) %>
+    window.config = <%- JSON.stringify(config) %>
 </script>
 <script type="text/javascript" src="<%= manifest['main.js'] %>"></script>
 </body>

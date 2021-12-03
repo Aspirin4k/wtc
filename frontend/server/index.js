@@ -8,18 +8,16 @@ import path from 'path';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
-import config from '../config/env.json';
 import { App } from '../src/App';
-import {getStaticURL, initStaticPrefix} from "../src/utils/static";
+import {getStaticURL} from "../src/utils/static";
 import {getConfigValue} from "../src/utils/config";
 import {LoggerFactory} from "../src/logger/LoggerFactory";
 import {registerLoggerMiddleware} from "./middleware/logger-middleware";
+import {getClientConfig} from "./config-client-processing";
 
 const app = express();
 const port = getConfigValue('server_port');
-const static_prefix = getConfigValue('static_prefix');
 const environment = getConfigValue('environment');
-initStaticPrefix(static_prefix);
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
@@ -55,7 +53,7 @@ Object.keys(manifest).forEach((key) => {
 });
 
 const axiosInstance = axios.create({
-    baseURL: config.api
+    baseURL: getConfigValue('api_url')
 });
 app.get('*', (req, res) => {
     res.set('x-environment', environment);
@@ -95,22 +93,21 @@ app.get('*', (req, res) => {
                 );
 
                 const cache = {
-                    fetch_results,
-                    static: {
-                        prefix: static_prefix
-                    }
+                    fetch_results
                 };
-                return res.render('index', {content, cache, manifest});
+                const clientConfig = getClientConfig();
+                return res.render('index', {content, cache, manifest, config: clientConfig});
             }
         ).catch((error) => {
-            return res.send(500, error.response && error.response.data || error);
+            LoggerFactory.getLogger().error('Server error', {error});
+            return res.status(500).send(error.response && error.response.data || error);
         })
     } catch (error) {
-        console.log(error);
-        return res.send(500, error.response && error.response.data || error);
+        LoggerFactory.getLogger().error('Server error', {error});
+        return res.status(500).send(error.response && error.response.data || error);
     }
 });
 
 app.listen(port, () => {
-    LoggerFactory.getLogger().info(`Started server on port ${port}`, config);
+    LoggerFactory.getLogger().info(`Started server on port ${port}`, getConfigValue('environment'));
 });
