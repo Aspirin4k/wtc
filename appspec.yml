@@ -12,6 +12,10 @@ files:
     source: /frontend/dist
     destination: /home/ubuntu/app/prod/f-deploy
   -
+    source: /backend/target/wtc-post-loader
+    destination: /home/ubuntu/app/prod/deploy
+
+  -
     source: swap_release.sh
     destination: /home/ubuntu/app/prod
   -
