@@ -4,7 +4,6 @@ phases:
   install:
     runtime-versions:
       java: corretto11
-      golang: 1.16
       nodejs: 14
   pre_build:
     commands:
@@ -15,7 +14,6 @@ phases:
       - mvn install -P api
       - mvn install -P cli
       - cd frontend && npm i && npm run build && cd ..
-      - cd backend && make && cd ..
   post_build:
     commands:
       - echo Build completed on `date`
@@ -25,7 +23,6 @@ artifacts:
     - target/wtc-backend-cli.jar
     - target/wtc-backend-api.jar
     - frontend/dist/**/*
-    - backend/target/wtc-post-loader
     - appspec.yml
     - post_deploy.sh
     - post_deploy_bg.sh
