@@ -1,0 +1,3 @@
+ALTER TABLE `posts`.`posts`
+    MODIFY `title` VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL,
+    MODIFY `content` TEXT CHARACTER SET utf8mb4;
