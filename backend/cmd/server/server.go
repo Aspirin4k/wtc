@@ -12,6 +12,9 @@ import (
 )
 
 func main() {
+	utils.FlagInit()
+	utils.FlagParse()
+
 	dbUrl := utils.GetEnv("MYSQL_DATABASE_URL", "tcp(127.0.0.1:3306)/posts")
 	dbUser := utils.GetEnv("MYSQL_DATABASE_USER", "root")
 	dbPassword := utils.GetEnv("MYSQL_DATABASE_PASSWORD", "root")
@@ -33,12 +36,13 @@ func main() {
 	postStorage := storage.NewPostStorage(db, photoStorage)
 	postController := controller.NewPostController(postStorage)
 
+	serverPort := utils.GetEnv("SERVER_PORT", "3001")
 	srv := &http.Server{
 		ReadTimeout:       1 * time.Second,
 		WriteTimeout:      5 * time.Second,
 		IdleTimeout:       30 * time.Second,
 		ReadHeaderTimeout: 2 * time.Second,
-		Addr:              ":3001",
+		Addr:              ":" + serverPort,
 		Handler:           middleware.HeadersMiddleware(postController),
 	}
 	srv.ListenAndServe()

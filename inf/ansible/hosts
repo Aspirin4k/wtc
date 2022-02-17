@@ -1,12 +1,12 @@
 [deploy:vars]
-ansible_ssh_private_key_file=/home/aspirin/rushakov.pem
+ansible_ssh_private_key_file=/Users/ro.ushakov/Documents/rushakov.pem
 ansible_user=ubuntu
 
 [deploy]
 18.191.222.78
 
 [prod:vars]
-ansible_ssh_private_key_file=/home/aspirin/rushakov.pem
+ansible_ssh_private_key_file=/Users/ro.ushakov/Documents/rushakov.pem
 ansible_user=root
 working_directory=/root/app
 

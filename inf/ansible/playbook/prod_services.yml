@@ -1,0 +1,15 @@
+-
+  hosts: prod
+  become: true
+  tasks:
+    - name: Copy Services
+      copy:
+        src: '../../service/{{ item }}.service'
+        dest: /etc/systemd/system
+        owner: root
+        group: root
+      loop:
+        - blue-wtc
+        - blue-wtc-f
+        - green-wtc
+        - green-wtc-f

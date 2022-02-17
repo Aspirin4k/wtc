@@ -12,6 +12,7 @@ const (
 	springDatasourceUrl      = "spring_datasource_url"
 	springDatasourceUsername = "spring_datasource_username"
 	springDatasourcePassword = "spring_datasource_password"
+	serverPort               = "server_port"
 )
 
 var (
@@ -34,6 +35,7 @@ func FlagInit() {
 	flags[springDatasourceUrl] = flag.String(springDatasourceUrl, "", "Database Url")
 	flags[springDatasourceUsername] = flag.String(springDatasourceUsername, "", "Database User")
 	flags[springDatasourcePassword] = flag.String(springDatasourcePassword, "", "Database Password")
+	flags[serverPort] = flag.String(serverPort, "", "Server Port")
 }
 
 func FlagParse() {
