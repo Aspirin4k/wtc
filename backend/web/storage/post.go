@@ -52,6 +52,18 @@ OFFSET ?`, limit, offset)
 	return results, nil
 }
 
+func (st *Post) GetPostsCount() (int, error) {
+	row := st.db.QueryRow("SELECT COUNT(post_id) FROM posts.posts")
+
+	count := 0
+	err := row.Scan(&count)
+	if err != nil {
+		return 0, err
+	}
+
+	return count, nil
+}
+
 func (st *Post) GetLastPost(communityId int) (*entity.Post, error) {
 	row := st.db.QueryRow(`
 SELECT post_id, title, content, date_published 

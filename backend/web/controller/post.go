@@ -7,6 +7,8 @@ import (
 	"regexp"
 	"strconv"
 
+	"whentheycry.ru/m/v2/web/entity"
+
 	_ "github.com/go-sql-driver/mysql"
 
 	"whentheycry.ru/m/v2/web/storage"
@@ -19,6 +21,12 @@ const (
 var (
 	pageIDregexp = regexp.MustCompile("^/post/(\\d+)$")
 )
+
+type GetPostsResponse struct {
+	Total   int            `json:"total"`
+	HasMore bool           `json:"has_more"`
+	Items   []*entity.Post `json:"items"`
+}
 
 type PostController struct {
 	postStorage *storage.Post
@@ -50,17 +58,33 @@ func (c *PostController) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	posts, err := c.postStorage.GetPosts(pageSize*(pageID-1), pageSize)
+	var response GetPostsResponse
+	total, err := c.postStorage.GetPostsCount()
 	if err != nil {
 		fmt.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	response.Total = total
+	response.HasMore = pageSize*pageID < total
 
-	response, err := json.Marshal(posts)
+	var posts []*entity.Post
+	if total > 0 {
+		posts, err = c.postStorage.GetPosts(pageSize*(pageID-1), pageSize)
+		if err != nil {
+			fmt.Println(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+	} else {
+		posts = make([]*entity.Post, 0)
+	}
+	response.Items = posts
+
+	responseJson, err := json.Marshal(response)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	w.Write(response)
+	w.Write(responseJson)
 }

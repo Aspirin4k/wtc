@@ -9,6 +9,6 @@ type Post struct {
 	CommunityID   int      `json:"-"`
 	Title         string   `json:"title"`
 	Content       string   `json:"content"`
-	DatePublished int      `json:"-"`
+	DatePublished int      `json:"datePublished"`
 	Photos        []*Photo `json:"photos"`
 }
