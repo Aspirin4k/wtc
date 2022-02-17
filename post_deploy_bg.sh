@@ -44,6 +44,7 @@ systemctl start "$target_service_f"
 
 if [[ "$deploy_release" = "deploy" ]]; then
   cp "${deploy_directory}/wtc-backend-cli.jar" "${app_directory}/cron/wtc-backend-cli.jar"
+  cp "${deploy_directory}/wtc-post-loader" "${app_directory}/cron/wtc-post-loader"
 
   source "${app_directory}/notification.sh"
   notify_sticker

@@ -14,6 +14,9 @@ files:
   -
     source: /backend/target/wtc-post-loader
     destination: /home/ubuntu/app/prod/deploy
+  -
+    source: /backend/target/wtc-server
+    destination: /home/ubuntu/app/prod/deploy
 
   -
     source: swap_release.sh

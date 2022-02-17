@@ -17,6 +17,46 @@ func NewPhotoStorage(db *sql.DB) *Photo {
 	}
 }
 
+func (st *Photo) FillPosts(posts []*entity.Post) error {
+	if len(posts) == 0 {
+		return nil
+	}
+
+	postsMap := make(map[int]*entity.Post, len(posts))
+	postsIDs := make([]interface{}, 0, len(posts))
+	for _, post := range posts {
+		postsMap[post.ID] = post
+		postsIDs = append(postsIDs, post.ID)
+
+		post.Photos = make([]*entity.Photo, 0, 5)
+	}
+
+	stmt, err := st.db.Prepare(`
+SELECT photo_id, post_id, url_large, url_medium, url_small 
+FROM posts.photos 
+WHERE post_id IN (?` + strings.Repeat(",?", len(posts)-1) + ")")
+	if err != nil {
+		return err
+	}
+
+	rows, err := stmt.Query(postsIDs...)
+	if err != nil {
+		return err
+	}
+
+	for rows.Next() {
+		var photo entity.Photo
+		err := rows.Scan(&photo.ID, &photo.PostID, &photo.UrlLarge, &photo.UrlMedium, &photo.UrlSmall)
+		if err != nil {
+			return err
+		}
+
+		postsMap[photo.PostID].Photos = append(postsMap[photo.PostID].Photos, &photo)
+	}
+
+	return nil
+}
+
 func (st *Photo) SaveTr(transaction *sql.Tx, photos []*entity.Photo) error {
 	if len(photos) == 0 {
 		return nil

@@ -42,6 +42,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer db.Close()
 
 	communityStorage := storage.NewCommunityStorage(db)
 	communityIds, err := communityStorage.GetCommunities()
@@ -134,11 +135,11 @@ func transformPhoto(vkAttachment *vk.Attachment, postId int) *entity.Photo {
 	for _, vkPhotoSize := range vkAttachment.Photo.Sizes {
 		switch vkPhotoSize.Type {
 		case "x":
-			photo.UrlMedium = vkPhotoSize.URL
+			photo.UrlMedium = &vkPhotoSize.URL
 		case "s":
-			photo.UrlSmall = vkPhotoSize.URL
+			photo.UrlSmall = &vkPhotoSize.URL
 		case "z":
-			photo.UrlLarge = vkPhotoSize.URL
+			photo.UrlLarge = &vkPhotoSize.URL
 		}
 	}
 	return &photo

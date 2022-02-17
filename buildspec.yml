@@ -15,7 +15,7 @@ phases:
       - mvn install -P api
       - mvn install -P cli
       - cd frontend && npm i && npm run build && cd ..
-      - cd backend && make && cd ..
+      - cd backend && make build && cd ..
   post_build:
     commands:
       - echo Build completed on `date`
@@ -26,6 +26,7 @@ artifacts:
     - target/wtc-backend-api.jar
     - frontend/dist/**/*
     - backend/target/wtc-post-loader
+    - backend/target/wtc-server
     - appspec.yml
     - post_deploy.sh
     - post_deploy_bg.sh

@@ -21,6 +21,37 @@ func NewPostStorage(db *sql.DB, photo *Photo) *Post {
 	}
 }
 
+func (st *Post) GetPosts(offset int, limit int) ([]*entity.Post, error) {
+	rows, err := st.db.Query(`
+SELECT post_id, title, content, date_published
+FROM posts.posts
+ORDER BY date_published DESC
+LIMIT ?
+OFFSET ?`, limit, offset)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+	results := make([]*entity.Post, 0, limit)
+	for rows.Next() {
+		var post entity.Post
+		err := rows.Scan(&post.ID, &post.Title, &post.Content, &post.DatePublished)
+		if err != nil {
+			return nil, err
+		}
+		post.Photos = make([]*entity.Photo, 0)
+
+		results = append(results, &post)
+	}
+
+	err = st.photo.FillPosts(results)
+	if err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
 func (st *Post) GetLastPost(communityId int) (*entity.Post, error) {
 	row := st.db.QueryRow(`
 SELECT post_id, title, content, date_published 
