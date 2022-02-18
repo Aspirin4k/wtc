@@ -12,8 +12,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn install -P api
-      - mvn install -P cli
       - cd frontend && npm i && npm run build && cd ..
       - cd backend && make build && cd ..
   post_build:

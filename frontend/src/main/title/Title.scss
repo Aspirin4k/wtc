@@ -9,7 +9,6 @@
 
 .title-post {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   overflow: hidden;
 
@@ -36,6 +35,15 @@
   &_last {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
+  }
+
+  &_vertical {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_horizontal {
+    flex-direction: row;
   }
 
   &-preview {
@@ -101,6 +109,10 @@
       }
     }
   }
+
+  .carousel {
+    margin-bottom: 15px;
+  }
 }
 
 .title-post:hover {
@@ -113,4 +125,10 @@
       transform: scale(1.05);
     }
   }
+}
+
+.title-post-source {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 15px;
 }

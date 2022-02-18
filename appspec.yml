@@ -3,12 +3,6 @@ os: linux
 file_exists_behavior: OVERWRITE
 files:
   -
-    source: /target/wtc-backend-api.jar
-    destination: /home/ubuntu/app/prod/deploy
-  -
-    source: /target/wtc-backend-cli.jar
-    destination: /home/ubuntu/app/prod/deploy
-  -
     source: /frontend/dist
     destination: /home/ubuntu/app/prod/f-deploy
   -

@@ -14,6 +14,7 @@ import {getConfigValue} from "../src/utils/config";
 import {LoggerFactory} from "../src/logger/LoggerFactory";
 import {registerLoggerMiddleware} from "./middleware/logger-middleware";
 import {getClientConfig} from "./config-client-processing";
+import { getProcessedError } from './error-handle';
 
 const app = express();
 const port = getConfigValue('server_port');
@@ -99,12 +100,14 @@ app.get('*', (req, res) => {
                 return res.render('index', {content, cache, manifest, config: clientConfig});
             }
         ).catch((error) => {
-            LoggerFactory.getLogger().error('Server error', {error});
-            return res.status(500).send(error.response && error.response.data || error);
+            const [errorObject, errorString] = getProcessedError(error);
+            LoggerFactory.getLogger().error('Server error', errorObject);
+            return res.status(500).send(errorString);
         })
     } catch (error) {
-        LoggerFactory.getLogger().error('Server error', {error});
-        return res.status(500).send(error.response && error.response.data || error);
+        const [errorObject, errorString] = getProcessedError(error);
+        LoggerFactory.getLogger().error('Server error', errorObject);
+        return res.status(500).send(errorString);
     }
 });
 
