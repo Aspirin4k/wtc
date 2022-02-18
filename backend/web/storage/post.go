@@ -23,7 +23,7 @@ func NewPostStorage(db *sql.DB, photo *Photo) *Post {
 
 func (st *Post) GetPosts(offset int, limit int) ([]*entity.Post, error) {
 	rows, err := st.db.Query(`
-SELECT post_id, title, content, date_published
+SELECT post_id, community_id, title, content, date_published
 FROM posts.posts
 ORDER BY date_published DESC
 LIMIT ?
@@ -36,7 +36,7 @@ OFFSET ?`, limit, offset)
 	results := make([]*entity.Post, 0, limit)
 	for rows.Next() {
 		var post entity.Post
-		err := rows.Scan(&post.ID, &post.Title, &post.Content, &post.DatePublished)
+		err := rows.Scan(&post.ID, &post.CommunityID, &post.Title, &post.Content, &post.DatePublished)
 		if err != nil {
 			return nil, err
 		}

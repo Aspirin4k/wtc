@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=java -jar /root/app/blue/wtc-backend-api.jar
+ExecStart=/root/app/blue/wtc-server
 
 Environment=SERVER_PORT=8080
 EnvironmentFile=/root/app/env/.env_blue
