@@ -1,6 +1,12 @@
 BINARY_DIRECTORY=./target
 BINARY_NAME=wtc
+
+# AWS CodeBuild has no git metadata
+ifndef CODEBUILD_RESOLVED_SOURCE_VERSION
 BINARY_VERSION = $(shell git log --format="%H" -n 1)
+else
+BINARY_VERSION = ${CODEBUILD_RESOLVED_SOURCE_VERSION}
+endif
 
 GO_LDFLAGS = "-X 'whentheycry.ru/m/v2/web.BuildVersion=$(BINARY_VERSION)'"
 

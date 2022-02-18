@@ -16,7 +16,6 @@ phases:
       - mvn install -P cli
       - cd frontend && npm i && npm run build && cd ..
       - cd backend && make build && cd ..
-      - git log --oneline -n 1 > changelog
   post_build:
     commands:
       - echo Build completed on `date`
@@ -33,4 +32,3 @@ artifacts:
     - post_deploy_bg.sh
     - swap_release.sh
     - notification.sh
-    - changelog
