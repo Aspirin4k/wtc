@@ -2,9 +2,11 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"sort"
 	"time"
 
+	"whentheycry.ru/m/v2/web"
 	"whentheycry.ru/m/v2/web/entity"
 	"whentheycry.ru/m/v2/web/storage"
 
@@ -19,6 +21,8 @@ const (
 )
 
 func main() {
+	fmt.Println("Running post-loader version: " + web.BuildVersion)
+
 	utils.FlagInit()
 	utils.FlagParse()
 

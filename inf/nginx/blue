@@ -1,16 +1,13 @@
-location /test/api {
-    rewrite ^/test/api(.*)$ $1 break;
-    proxy_pass http://localhost:8081;
+location /test/api/ {
+    proxy_pass http://localhost:8081/;
 }
 
-location /test {
-    rewrite ^/test(.*)$ $1 break;
-    proxy_pass http://localhost:3001;
+location /test/ {
+    proxy_pass http://localhost:3001/;
 }
 
-location /api {
-    rewrite ^/api(.*)$ $1 break;
-    proxy_pass http://localhost:8080;
+location /api/ {
+    proxy_pass http://localhost:8080/;
 }
 
 location = /favicon.ico {
@@ -18,5 +15,5 @@ location = /favicon.ico {
 }
 
 location / {
-    proxy_pass http://localhost:3000;
+    proxy_pass http://localhost:3000/;
 }

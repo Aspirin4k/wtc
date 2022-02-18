@@ -19,6 +19,7 @@ stickers=(
   "CAACAgIAAx0CXht-UQADEWEdNUY1lOEhUbA9QZqsc57qNiEgAAIQAANL-p8ZPhoDtXgNBfIgBA"
   "CAACAgIAAx0CXht-UQADEmEdNWk6ON5vuA6GwPhJEF_gyzs5AAIaAAOugHEMn4_ia-Nr0i8gBA"
 )
+commit_message=$(cat changelog)
 
 function notify_sticker {
   sticker=${stickers[RANDOM % ${#stickers[@]}]}
@@ -31,6 +32,6 @@ function notify_sticker {
 function notify_text {
   curl --location --request POST "https://api.telegram.org/bot${telegram_token}/sendMessage" \
         --header 'Content-Type: application/x-www-form-urlencoded' \
-        --data-urlencode "text=$1" \
+        --data-urlencode "text=$1\n${commit_message}" \
         --data-urlencode "chat_id=${chat_id}"
 }
