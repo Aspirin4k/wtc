@@ -12,8 +12,15 @@ func NewCommunityStorage(db *sql.DB) *Community {
 	}
 }
 
-func (st *Community) GetCommunities() ([]int, error) {
-	rows, err := st.db.Query("SELECT community_id FROM posts.communities")
+func (st *Community) GetCommunities(tr *sql.Tx) ([]int, error) {
+	var err error
+	var rows *sql.Rows
+	if tr == nil {
+		rows, err = st.db.Query("SELECT community_id FROM posts.communities")
+	} else {
+		rows, err = tr.Query("SELECT community_id FROM posts.communities")
+	}
+
 	if err != nil {
 		return nil, err
 	}

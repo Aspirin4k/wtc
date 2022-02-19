@@ -32,7 +32,7 @@ func (st *Photo) FillPosts(posts []*entity.Post) error {
 	}
 
 	stmt, err := st.db.Prepare(`
-SELECT photo_id, post_id, url_large, url_medium, url_small 
+SELECT photo_id, post_id, is_horizontal, url_large, url_medium, url_small 
 FROM posts.photos 
 WHERE post_id IN (?` + strings.Repeat(",?", len(posts)-1) + ")")
 	if err != nil {
@@ -46,7 +46,7 @@ WHERE post_id IN (?` + strings.Repeat(",?", len(posts)-1) + ")")
 
 	for rows.Next() {
 		var photo entity.Photo
-		err := rows.Scan(&photo.ID, &photo.PostID, &photo.UrlLarge, &photo.UrlMedium, &photo.UrlSmall)
+		err := rows.Scan(&photo.ID, &photo.PostID, &photo.IsHorizontal, &photo.UrlLarge, &photo.UrlMedium, &photo.UrlSmall)
 		if err != nil {
 			return err
 		}
@@ -62,15 +62,25 @@ func (st *Photo) SaveTr(transaction *sql.Tx, photos []*entity.Photo) error {
 		return nil
 	}
 
-	query := "INSERT INTO posts.photos(photo_id, post_id, url_large, url_medium, url_small) VALUES"
+	query := "INSERT INTO posts.photos(photo_id, post_id, is_horizontal, url_large, url_medium, url_small) VALUES"
 	sqlStrs := make([]string, 0, len(photos))
 	values := make([]interface{}, 0, 5*len(photos))
 	for _, photo := range photos {
-		sqlStrs = append(sqlStrs, "(?, ?, ?, ?, ?)")
-		values = append(values, photo.ID, photo.PostID, photo.UrlLarge, photo.UrlMedium, photo.UrlSmall)
+		sqlStrs = append(sqlStrs, "(?, ?, ?, ?, ?, ?)")
+		values = append(values, photo.ID, photo.PostID, photo.IsHorizontal, photo.UrlLarge, photo.UrlMedium, photo.UrlSmall)
 	}
 
 	query += strings.Join(sqlStrs, ",")
 	_, err := transaction.Exec(query, values...)
+	return err
+}
+
+func (st *Photo) Clear(tr *sql.Tx) error {
+	var err error
+	if tr == nil {
+		_, err = st.db.Exec("TRUNCATE posts.photos")
+	} else {
+		_, err = tr.Exec("TRUNCATE posts.photos")
+	}
 	return err
 }

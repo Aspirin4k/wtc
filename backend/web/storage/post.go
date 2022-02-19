@@ -64,12 +64,18 @@ func (st *Post) GetPostsCount() (int, error) {
 	return count, nil
 }
 
-func (st *Post) GetLastPost(communityId int) (*entity.Post, error) {
-	row := st.db.QueryRow(`
+func (st *Post) GetLastPost(communityId int, tr *sql.Tx) (*entity.Post, error) {
+	var row *sql.Row
+	query := `
 SELECT post_id, title, content, date_published 
 FROM posts.posts 
 WHERE community_id = ? 
-ORDER BY date_published DESC`, communityId)
+ORDER BY date_published DESC`
+	if tr != nil {
+		row = tr.QueryRow(query, communityId)
+	} else {
+		row = st.db.QueryRow(query, communityId)
+	}
 
 	var result entity.Post
 	err := row.Scan(&result.ID, &result.Title, &result.Content, &result.DatePublished)
@@ -84,12 +90,19 @@ ORDER BY date_published DESC`, communityId)
 	return &result, nil
 }
 
-func (st *Post) Save(posts []*entity.Post) error {
+func (st *Post) Save(posts []*entity.Post, extTr *sql.Tx) error {
 	if len(posts) == 0 {
 		return nil
 	}
 
-	transaction, err := st.db.Begin()
+	var err error
+	ownTr := extTr
+	// Если передана транзакция извне, то все действия выполняются в ее контексте
+	// и она не подтверждается/откатывается, т.к. за это ответственен код извне
+	// Иначе создается своя транзакция для атомарного накатывания постов и их фото
+	if ownTr == nil {
+		ownTr, err = st.db.Begin()
+	}
 	if err != nil {
 		return err
 	}
@@ -101,20 +114,35 @@ func (st *Post) Save(posts []*entity.Post) error {
 		sqlStrs = append(sqlStrs, "(?, ?, ?, ?, ?)")
 		values = append(values, post.ID, post.CommunityID, post.Title, post.Content, post.DatePublished)
 
-		err := st.photo.SaveTr(transaction, post.Photos)
+		err := st.photo.SaveTr(ownTr, post.Photos)
+		if err != nil && extTr == nil {
+			_ = ownTr.Rollback()
+		}
+
 		if err != nil {
-			_ = transaction.Rollback()
 			return err
 		}
 	}
 
 	query += strings.Join(sqlStrs, ",")
-	_, err = transaction.Exec(query, values...)
-	if err != nil {
-		_ = transaction.Rollback()
-	} else {
-		_ = transaction.Commit()
+	_, err = ownTr.Exec(query, values...)
+	if extTr == nil {
+		if err != nil {
+			_ = ownTr.Rollback()
+		} else {
+			_ = ownTr.Commit()
+		}
 	}
 
+	return err
+}
+
+func (st *Post) Clear(tr *sql.Tx) error {
+	var err error
+	if tr == nil {
+		_, err = st.db.Exec("TRUNCATE posts.posts")
+	} else {
+		_, err = tr.Exec("TRUNCATE posts.posts")
+	}
 	return err
 }

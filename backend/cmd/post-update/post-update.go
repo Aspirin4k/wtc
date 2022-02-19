@@ -4,12 +4,11 @@ import (
 	"fmt"
 
 	"whentheycry.ru/m/v2/web"
-
 	"whentheycry.ru/m/v2/web/utils"
 )
 
 func main() {
-	fmt.Println("Running post-loader version: " + web.BuildVersion)
+	fmt.Println("Running post-updater version: " + web.BuildVersion)
 
 	utils.FlagInit()
 	utils.FlagParse()
@@ -27,7 +26,7 @@ func main() {
 		panic(err)
 	}
 
-	err = synchronizer.SyncNewPosts(nil)
+	err = synchronizer.SyncAllPosts()
 	if err != nil {
 		panic(err)
 	}

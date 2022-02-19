@@ -10,6 +10,9 @@ endif
 
 GO_LDFLAGS = "-X 'whentheycry.ru/m/v2/web.BuildVersion=$(BINARY_VERSION)'"
 
+build-post-update:
+	go build -ldflags ${GO_LDFLAGS} -o ${BINARY_DIRECTORY}/${BINARY_NAME}-post-update ./cmd/post-update/post-update.go
+
 build-post-loader:
 	go build -ldflags ${GO_LDFLAGS} -o ${BINARY_DIRECTORY}/${BINARY_NAME}-post-loader ./cmd/post-loader/post-loader.go
 
