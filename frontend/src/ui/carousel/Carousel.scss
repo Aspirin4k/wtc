@@ -33,6 +33,10 @@
   opacity: 1;
 }
 
+.carousel-next:focus, .carousel-back:focus {
+  outline: none;
+}
+
 .carousel-next-icon {
   right: 0;
 }
