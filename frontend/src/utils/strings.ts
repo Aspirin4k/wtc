@@ -52,8 +52,8 @@ export const ReplaceMentions = (str: string): string => {
 
 export const ReplaceByTags = (str: string): string => {
   return str
+    .replace(/(&amp;#10;|\n)/g, '<br>')
     .replace(LinkRegexp, '<a target="_blank" href="$1">$1</a>')
-    .replace(/\n/g, '<br>')
 }
 
 export const EscapeHTML = (str: string): string => {

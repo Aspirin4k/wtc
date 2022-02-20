@@ -118,17 +118,18 @@
 .title-post:hover {
   transition: .2s ease box-shadow;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.28);
+}
 
-  .title-post-preview {
-    &-img {
-      transition: .2s ease transform;
-      transform: scale(1.05);
-    }
-  }
+.title-post-preview_horizontal {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .title-post-source {
   box-sizing: border-box;
   width: 100%;
   padding: 0 15px;
+  background-color: $background-color;
 }

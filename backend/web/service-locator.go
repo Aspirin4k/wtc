@@ -14,14 +14,14 @@ type ServiceLocator struct {
 	db *sql.DB
 
 	communityStorage *storage.Community
-	postStorage      *storage.Post
-	photoStorage     *storage.Photo
+	postStorage *storage.Post
+	photoStorage *storage.Photo
 
 	imageLoader *image.Loader
 
 	vkSynchronizer *vk.Synchronizer
-	vkClient       *vk.Client
-	vkTransformer  *vk.Transformer
+	vkClient *vk.Client
+	vkTransformer *vk.Transformer
 }
 
 func NewServiceLocator() *ServiceLocator {
