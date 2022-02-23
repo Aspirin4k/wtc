@@ -1,7 +1,7 @@
-import {Character, Proceeding, ScreenState} from "../ScreenStateInterface";
+import {Character, Proceeding, ScreenState} from "./ScreenStateInterface";
 
-import twilight from "../classic/twilight/5-6_twilight.json";
-import {AssetManager} from "../helpers/AssetManager";
+import twilight from "../../classic/twilight/5-6_twilight.json";
+import {AssetManager} from "../../helpers/AssetManager";
 
 const CLASSIC_SPRITE_LEFT_X = -75;
 const CLASSIC_SPRITE_RIGHT_X = 270;

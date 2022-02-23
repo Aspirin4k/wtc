@@ -1,15 +1,9 @@
 import React, {Component, RefObject} from "react";
 
-import {AssetManager} from "./helpers/AssetManager";
-import {AssetResolver} from "./helpers/AssetResolver";
-import {RenderTokenCalculator} from "./novel/text/RenderTokenCalculator";
-
-import twilight from "./classic/twilight/5-6_twilight.json";
-import {State} from "./novel/State";
-import {Controller} from "./novel/Controller";
-import {CLASSIC_SCREEN_HEIGHT, CLASSIC_SCREEN_WIDTH, Renderer} from "./novel/Renderer";
-
-const CHESSBOARD_MODE_CLASSIC = 1;
+import {CLASSIC_SCREEN_HEIGHT, CLASSIC_SCREEN_WIDTH} from "./scenes/novel/Renderer";
+import {SceneController} from "./scenes/SceneController";
+import {SceneRenderer} from "./scenes/SceneRenderer";
+import {SceneManager} from "./scenes/SceneManager";
 
 interface ChessboardProps {
 
@@ -21,48 +15,25 @@ interface ChessboardState {
 
 class Chessboard extends Component<ChessboardProps, ChessboardState> {
     private readonly canvas: RefObject<HTMLCanvasElement>;
-    private readonly asset_manager: AssetManager;
-    private asset_resolver: AssetResolver;
 
-    private controller: Controller;
-    private renderer: Renderer;
+    private readonly scene_manager: SceneManager;
+    private controller: SceneController;
+    private renderer: SceneRenderer;
 
     constructor(props: ChessboardProps) {
         super(props);
 
         this.canvas = React.createRef();
-        this.asset_resolver = new AssetResolver(CHESSBOARD_MODE_CLASSIC);
-        this.asset_manager = new AssetManager();
-        const text_render_token_calculator = new RenderTokenCalculator();
-        const game_state = new State(this.asset_manager);
 
-        this.controller = new Controller(game_state);
-        this.renderer = new Renderer(
-            game_state,
-            this.asset_manager,
-            text_render_token_calculator
-        );
-
-        const resources_images = twilight.resources.images;
-        Object.keys(resources_images).forEach((short_name) => {
-            resources_images[short_name] = this.asset_resolver.getResource(resources_images[short_name]);
-        })
-        this.asset_manager.loadImages(resources_images);
-
-        const resources_audio = twilight.resources.audio;
-        Object.keys(resources_audio).forEach((short_name) => {
-            resources_audio[short_name] = this.asset_resolver.getAudio(resources_audio[short_name]);
-        })
-        this.asset_manager.loadSound(resources_audio);
+        this.scene_manager = new SceneManager();
+        this.controller = new SceneController(this.scene_manager);
+        this.renderer = new SceneRenderer(this.scene_manager);
     }
 
-
-
     componentDidMount() {
-        this.asset_manager.onLoad(() => {
-            this.renderer.register(this.canvas.current);
-            this.controller.register(this.canvas.current);
-        })
+        this.scene_manager.initiate();
+        this.renderer.register(this.canvas.current);
+        this.controller.register(this.canvas.current);
     }
 
     componentWillUnmount() {

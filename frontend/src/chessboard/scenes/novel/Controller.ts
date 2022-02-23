@@ -1,10 +1,11 @@
 import {State} from "./State";
+import {ControllerInterface} from "../SceneInterface";
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
 const KEY_ENTER = 'Enter';
 
-class Controller {
+class Controller implements ControllerInterface {
     private state: State;
 
     public constructor(state: State) {
@@ -14,22 +15,12 @@ class Controller {
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
-    public register(canvas: HTMLCanvasElement) {
-        canvas.addEventListener('click', this.handleClick);
-        document.addEventListener('keydown', this.handleKeyDown);
-    }
-
-    public unregister(canvas: HTMLCanvasElement) {
-        canvas.removeEventListener('click', this.handleClick);
-        document.removeEventListener('keydown', this.handleKeyDown);
-    }
-
     handleClick() {
         this.state.proceedNovel();
     }
 
-    handleKeyDown(event: KeyboardEvent) {
-        switch (event.key) {
+    handleKeyDown(key: string): void {
+        switch (key) {
             case KEY_ENTER:
             case KEY_ARROW_RIGHT:
                 this.state.proceedNovel();

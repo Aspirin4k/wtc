@@ -1,14 +1,12 @@
-import {Character, Text} from "../ScreenStateInterface";
+import {Character, Text} from "./ScreenStateInterface";
 import {State} from "./State";
-import {AssetManager} from "../helpers/AssetManager";
+import {AssetManager} from "../../helpers/AssetManager";
 import {TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET} from "./text/Constants";
 import {RenderTokenCalculator, TextTokenInterface} from "./text/RenderTokenCalculator";
-import {LoggerFactory} from "../../logger/LoggerFactory";
+import {RendererInterface} from "../SceneInterface";
 
 export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
-
-const FPS_50 = 1000 / 50;
 
 const EFFECT_GRAYSCALE = 'grayscale';
 const EFFECT_RAIN = 'rain';
@@ -17,13 +15,10 @@ const EFFECT_MAP = {
     grayscale: 'brightness(0.65) grayscale(1)'
 }
 
-class Renderer {
+class Renderer implements RendererInterface {
     private asset_manager: AssetManager;
     private text_render_token_calculator: RenderTokenCalculator;
 
-    private canvas: HTMLCanvasElement;
-
-    private game_render_loop;
     private game_state: State;
 
     private cache_lines: TextTokenInterface[] = [];
@@ -42,26 +37,7 @@ class Renderer {
         });
     }
 
-    public register(canvas: HTMLCanvasElement) {
-        this.canvas = canvas;
-        this.game_render_loop = setInterval(this.tryRenderGameFrame.bind(this), FPS_50);
-    }
-
-    public unregister() {
-        clearInterval(this.game_render_loop);
-    }
-
-    tryRenderGameFrame() {
-        try {
-            this.renderGameFrame();
-        } catch (e) {
-            clearInterval(this.game_render_loop);
-            LoggerFactory.getLogger().error('Render exception', {error: e});
-        }
-    }
-
-    renderGameFrame() {
-        const canvas = this.canvas;
+    renderGameFrame(canvas: HTMLCanvasElement): void {
         const context = canvas.getContext('2d');
         const {game_state, asset_manager} = this;
         const screen_state = game_state.getCurrentScene();
