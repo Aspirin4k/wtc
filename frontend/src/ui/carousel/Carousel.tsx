@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 import { getClassName } from '../../utils/class-names';
 import { getStaticURL } from '../../utils/static';
 
@@ -11,12 +11,23 @@ interface CarouselState {
 }
 
 export class Carousel extends Component<CarouselProps, CarouselState> {
+  height: number | null = null;
+
   constructor(props) {
     super(props);
 
     this.state = {
       current: 0,
     }
+    this.initHeight = this.initHeight.bind(this);
+  }
+
+  initHeight(event: any): void {
+    if (null !== this.height) {
+      return;
+    }
+
+    this.height = event.target.height;
   }
 
   changeSlide(direction: number) {
@@ -32,7 +43,14 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
     this.setState({current});
   }
 
+  setSlide(slide: number) {
+    this.setState({
+      current: slide
+    })
+  }
+
   render() {
+    const { height } = this;
     const { images } = this.props;
     const { current } = this.state;
 
@@ -45,8 +63,12 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
         images.map(
           (image, index) => <img
             className={getClassName({'carousel-item': true, 'carousel-item_current': index === current})}
+            style={{
+              height: null === height ? 'auto' : (height + 'px')
+            }}
             key={image}
             src={image}
+            onLoad={this.initHeight}
           />
         )
       }
@@ -54,6 +76,11 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
         {
           images.map((image, index) => <div
             className={getClassName({'carousel-dots-dot': true, 'carousel-dots-dot_current': index === current})}
+            onClick={() => {
+              if (index !== current) {
+                this.setSlide(index);
+              }
+            }}
             key={image}
           />)
         }
