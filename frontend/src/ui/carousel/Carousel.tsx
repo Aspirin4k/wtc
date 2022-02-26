@@ -1,9 +1,13 @@
-import React, { Component, SyntheticEvent } from 'react';
+import React, { Component } from 'react';
 import { getClassName } from '../../utils/class-names';
 import { getStaticURL } from '../../utils/static';
+import { Image } from '../image/Image';
 
 interface CarouselProps {
-  images: string[],
+  images: {
+    previewUrl: string,
+    originalUrl: string | null,
+  }[],
 }
 
 interface CarouselState {
@@ -61,15 +65,16 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
       </div>
       {
         images.map(
-          (image, index) => <img
-            className={getClassName({'carousel-item': true, 'carousel-item_current': index === current})}
-            style={{
-              height: null === height ? 'auto' : (height + 'px')
-            }}
-            key={image}
-            src={image}
-            onLoad={this.initHeight}
-          />
+          (image, index) => {
+            return <Image
+              className={getClassName({ 'carousel-item': true, 'carousel-item_current': index === current })}
+              key={image.previewUrl}
+              onLoad={this.initHeight}
+              height={height}
+              originalUrl={image.originalUrl}
+              previewUrl={image.previewUrl}
+            />
+          }
         )
       }
       <div className={'carousel-dots'}>
@@ -81,7 +86,7 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
                 this.setSlide(index);
               }
             }}
-            key={image}
+            key={image.previewUrl}
           />)
         }
       </div>

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { getClassName } from '../../utils/class-names';
 import { Carousel } from '../../ui/carousel/Carousel';
 import { EscapeHTML, ReplaceByTags, ReplaceMentions, SubstrBySentences } from '../../utils/strings';
+import { Image } from '../../ui/image/Image';
 
 interface TitleLongProps {
     title: {
@@ -31,6 +32,7 @@ class Title extends Component<TitleLongProps, TitleLongState> {
         const hasOneHorizontalImage = title.photos.length == 1 && title.photos[0].isHorizontal;
         const url = `https://vk.com/wall-${title.communityId}_${title.id}`;
         const photo_url = hasImage && title.photos[0].urlMedium;
+        const photoOriginalUrl = hasImage && title.photos[0].urlLarge;
         const original_content = EscapeHTML(title.content);
 
         let header = '';
@@ -65,7 +67,7 @@ class Title extends Component<TitleLongProps, TitleLongState> {
             {
                 photo_url && !hasMultipleImages && !hasOneHorizontalImage &&
                 <div className="title-post-preview">
-                    <img src={photo_url} className="title-post-preview-img"/>
+                    <Image previewUrl={photo_url} originalUrl={photoOriginalUrl} className={'title-post-preview-img'} />
                 </div>
             }
             <div className="title-post-info">
@@ -76,12 +78,17 @@ class Title extends Component<TitleLongProps, TitleLongState> {
             {
                 photo_url && !hasMultipleImages && hasOneHorizontalImage &&
                 <div className="title-post-preview_horizontal">
-                    <img src={photo_url} className="title-post-preview-img"/>
+                    <Image previewUrl={photo_url} originalUrl={photoOriginalUrl} className={'title-post-preview-img'} />
                 </div>
             }
             {
                 hasMultipleImages &&
-                <Carousel images={title.photos.map((photo) => photo.urlMedium)} />
+                <Carousel images={title.photos.map((photo) => {
+                    return {
+                        previewUrl: photo.urlMedium,
+                        originalUrl: photo.urlLarge
+                    }
+                 })} />
             }
             { hasMultipleImages && <div className={'title-post-source'}><p><a href={url}>Источник</a></p></div> }
         </div>;
