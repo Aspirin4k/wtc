@@ -1,15 +1,8 @@
-import {Position, Size} from "./Interfaces";
+import { RenderingContext } from '../helpers/RenderingContext';
+import { Container } from './Container';
 
-export class SimpleWindow {
-    private position: Position;
-    private size: Size;
-
-    constructor(position: Position, size: Size) {
-        this.position = position;
-        this.size = size;
-    }
-
-    public render(context: CanvasRenderingContext2D): void {
-
+export class SimpleWindow extends Container {
+    public renderContainer(context: RenderingContext): void {
+        this.background(context, 'green');
     }
 }

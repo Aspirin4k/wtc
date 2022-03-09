@@ -4,6 +4,7 @@ import {AssetManager} from "../../helpers/AssetManager";
 import {TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET} from "./text/Constants";
 import {RenderTokenCalculator, TextTokenInterface} from "./text/RenderTokenCalculator";
 import {RendererInterface} from "../SceneInterface";
+import { RenderingContext } from '../../helpers/RenderingContext';
 
 export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
@@ -37,7 +38,7 @@ class Renderer implements RendererInterface {
         });
     }
 
-    renderGameFrame(canvas: HTMLCanvasElement): void {
+    renderGameFrame(rendering_context: RenderingContext, canvas: HTMLCanvasElement): void {
         const context = canvas.getContext('2d');
         const {game_state, asset_manager} = this;
         const screen_state = game_state.getCurrentScene();

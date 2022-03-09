@@ -1,9 +1,9 @@
-export interface Position {
+export interface ExactPosition {
     x: number,
     y: number,
 }
 
 export interface Size {
-    width: number,
-    height: number,
+    width?: number,
+    height?: number,
 }

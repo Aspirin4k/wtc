@@ -31,7 +31,7 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
     }
 
     componentDidMount() {
-        this.scene_manager.initiate();
+        this.scene_manager.initiate(this.canvas.current);
         this.renderer.register(this.canvas.current);
         this.controller.register(this.canvas.current);
     }

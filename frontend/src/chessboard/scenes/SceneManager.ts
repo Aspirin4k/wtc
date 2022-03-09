@@ -13,15 +13,16 @@ export class SceneManager {
     private readonly FIRST_SCENE = SCENE_DISCLAIMER;
     private readonly SCENE_FACTORY_MAP = {
         [SCENE_NOVEL]: () => createNovel(this.asset_manager, this.asset_resolver),
-        [SCENE_DISCLAIMER]: () => createDisclaimer(this),
+        [SCENE_DISCLAIMER]: () => createDisclaimer(this, this.canvas),
     };
     // TODO: подумоть как конфигурировать флоу
     private readonly SCENE_FLOW = {
         [SCENE_DISCLAIMER]: SCENE_NOVEL,
     }
 
-    private asset_manager: AssetManager;
-    private asset_resolver: AssetResolver;
+    private readonly asset_manager: AssetManager;
+    private readonly asset_resolver: AssetResolver;
+    private canvas: HTMLCanvasElement;
 
     private current_scene: SceneInterface = null;
     private current_scene_id: string = null;
@@ -32,7 +33,8 @@ export class SceneManager {
         this.asset_manager = new AssetManager();
     }
 
-    public initiate(): void {
+    public initiate(canvas: HTMLCanvasElement): void {
+        this.canvas = canvas;
         this.changeScene(this.FIRST_SCENE);
     }
 

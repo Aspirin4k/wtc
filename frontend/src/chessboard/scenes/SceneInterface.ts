@@ -1,10 +1,13 @@
+import { RenderingContext } from '../helpers/RenderingContext';
+import { ExactPosition } from '../ui/Interfaces';
+
 export interface ControllerInterface {
-    handleClick: () => void,
+    handleClick: (position: ExactPosition) => void,
     handleKeyDown: (key: string) => void,
 }
 
 export interface RendererInterface {
-    renderGameFrame: (canvas: HTMLCanvasElement) => void,
+    renderGameFrame: (rendering_context: RenderingContext, canvas: HTMLCanvasElement) => void,
 }
 
 export interface ResourceLoaderInterface {

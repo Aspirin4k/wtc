@@ -1,5 +1,6 @@
 import {State} from "./State";
 import {ControllerInterface} from "../SceneInterface";
+import { ExactPosition } from '../../ui/Interfaces';
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
@@ -15,7 +16,7 @@ class Controller implements ControllerInterface {
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
-    handleClick() {
+    handleClick(position: ExactPosition) {
         this.state.proceedNovel();
     }
 
