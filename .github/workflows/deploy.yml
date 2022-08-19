@@ -1,0 +1,27 @@
+name: Deploy
+
+concurrency: production
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build_backend:
+    name: Build backend
+    runs-on: self-hosted
+    steps:
+      - run: cd backend
+      - run: make build
+  build_frontend:
+    name: Build frontend
+    runs-on: self-hosted
+    steps:
+      - run: cd frontend
+      - run: npm i
+      - run: npm run build
+#  deploy:
+#    name: Deploy
+#    runs-on: self-hosted
+#    needs: [build_backend, build_frontend]

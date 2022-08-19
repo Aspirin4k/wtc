@@ -1,12 +1,10 @@
 # infrastructure
 ## schema
 At the current moment system consists of:
-* AWS
-  * CodePipeline + CodeBuild + CodeDeploy + GitHub integration
-  * DB instance
-  * Deploy server (free tier micro)
 * Hetzner
   * Prod server
+  * Github Runner
+  * DB instance
 
 ## how to start
 Prepare env for test and prod (`.env_test` and `.env` at `../environment`), then run:

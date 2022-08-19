@@ -9,6 +9,7 @@ mvn flyway:migrate
 ### first time deploy
 The following must be done manually after ansible execution:
 - configuration of HTTPS (Requesting certificate) for Nginx
+- setup github runner
 ### release
 To deploy version from test to prod use `swap_release.sh`
 * prod https://whentheycry.ru
