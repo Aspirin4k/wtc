@@ -20,8 +20,6 @@ phases:
 
 artifacts:
   files:
-    - target/wtc-backend-cli.jar
-    - target/wtc-backend-api.jar
     - frontend/dist/**/*
     - backend/target/wtc-post-loader
     - backend/target/wtc-server
