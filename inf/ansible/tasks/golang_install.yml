@@ -2,23 +2,28 @@
   file:
     state: directory
     mode: 'u=rwx,go=rx'
-    dest: ~/go-sdk
+    dest: /home/github/go-sdk
 
 - name: Download Go SDK
   get_url:
     url: 'https://storage.googleapis.com/golang/go1.19.linux-amd64.tar.gz'
-    dest: ~/go-sdk/go.tar.gz
+    dest: /home/github/go-sdk/go.tar.gz
     force: no
     validate_certs: yes
     mode: 'u=rw,go=r'
 
 - name: Unpack Go SDK
   unarchive:
-    src: ~/go-sdk/go.tar.gz
+    src: /home/github/go-sdk/go.tar.gz
     remote_src: yes
     dest: ~/go-sdk
 
 - name: Update PATH
   lineinfile:
-    path: ~/.bashrc
-    line: export PATH="$PATH:~/go-sdk/go/bin"
+    path: '~/{{ profile }}'
+    line: export PATH="$PATH:/home/github/go-sdk/go/bin"
+  loop_control:
+    loop_var: profile
+  loop:
+    - .bashrc
+    - .profile
