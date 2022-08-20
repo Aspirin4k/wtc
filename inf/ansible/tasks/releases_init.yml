@@ -1,0 +1,13 @@
+-
+  name: Create folders for releases
+  file:
+    path: '{{ working_directory }}/{{ item }}'
+    state: directory
+  loop:
+    - blue
+    - green
+    - nginx
+    - cron
+    - f-blue
+    - f-green
+    - env

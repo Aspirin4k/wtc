@@ -14,9 +14,9 @@ ansible-playbook playbook/prod_init.yml -i hosts // whole prod configuration
 After this you have to manually setup 
 [cert for nginx](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx) (sic!)
 
-Now setup deploy server with
+Now setup runner with
 ```
-ansible-playbook playbook/deploy_init.yml -i hosts // whole deploy configuration
+ansible-playbook playbook/runner_init.yml -i hosts // whole deploy configuration
 ```
 
 ## how to add new environment variables

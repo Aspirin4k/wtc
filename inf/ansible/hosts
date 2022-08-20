@@ -1,9 +1,9 @@
-[deploy:vars]
-ansible_ssh_private_key_file=/Users/ro.ushakov/Documents/rushakov.pem
-ansible_user=ubuntu
+[runner:vars]
+ansible_ssh_private_key_file=/Users/r.ushakov/GolandProjects/wtc/secrets/github
+ansible_user=github
 
-[deploy]
-18.191.222.78
+[runner]
+65.108.216.162
 
 [prod:vars]
 ansible_ssh_private_key_file=/Users/ro.ushakov/Documents/rushakov.pem

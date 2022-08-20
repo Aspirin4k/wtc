@@ -1,0 +1,10 @@
+-
+  name: Copy environment variables
+  copy:
+    src: '../../environment/{{ item }}'
+    dest: '{{ working_directory }}/env'
+    owner: root
+    group: root
+  loop:
+    - .env
+    - .env_test

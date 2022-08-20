@@ -1,0 +1,9 @@
+-
+  hosts: runner
+  tasks:
+    -
+      name: Init runner
+      include_tasks: '../tasks/{{ item }}.yml'
+      loop:
+        - node_install
+        - golang_install

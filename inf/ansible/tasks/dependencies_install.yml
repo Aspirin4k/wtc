@@ -1,0 +1,18 @@
+-
+  name: Install dependencies
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - ruby
+      - nginx
+      - openjdk-11-jre-headless
+      - dos2unix
+      - snapd
+-
+  name: Install cert bot
+  snap:
+    name: certbot
+    classic: yes

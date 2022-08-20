@@ -3,82 +3,12 @@
   become: true
   tasks:
     -
-      name: Install dependencies
-      apt:
-        name: "{{ packages }}"
-        state: present
-        update_cache: yes
-      vars:
-        packages:
-          - ruby
-          - nginx
-          - openjdk-11-jre-headless
-          - dos2unix
-          - snapd
-    -
-      name: Install cert bot
-      snap:
-        name: certbot
-        classic: yes
-    -
-      name: Create folders for releases
-      file:
-        path: '{{ working_directory }}/{{ item }}'
-        state: directory
+      name: Init prod
+      include_tasks: '../tasks/{{ item }}.yml'
       loop:
-        - blue
-        - green
-        - nginx
-        - cron
-        - f-blue
-        - f-green
-        - env
-    -
-      name: Copy environment variables
-      copy:
-        src: '../../environment/{{ item }}'
-        dest: '{{ working_directory }}/env'
-        owner: root
-        group: root
-      loop:
-        - .env
-        - .env_test
-    -
-      name: Copy Nginx configuration
-      copy:
-        src: ../../nginx/default
-        dest: /etc/nginx/sites-enabled
-        owner: root
-        group: root
-    -
-      name: Copy Nginx blue-green configuration
-      copy:
-        src: '../../nginx/{{ item }}'
-        dest: '{{ working_directory }}/nginx'
-        owner: root
-        group: root
-      loop:
-        - blue
-        - green
-    -
-      name: Copy Services
-      copy:
-        src: '../../service/{{ item }}.service'
-        dest: /etc/systemd/system
-        owner: root
-        group: root
-      loop:
-        - blue-wtc
-        - blue-wtc-f
-        - green-wtc
-        - green-wtc-f
-    -
-      name: Install nvm
-      shell: >
-        curl https://raw.githubusercontent.com/creationix/nvm/v0.38.0/install.sh | sh
-        creates=/home/{{ ansible_user_id }}/.nvm/nvm.sh
-    -
-      name: Install node and set version
-      shell: >
-        /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 14.17 && nvm alias default 14.17"
-        creates=/home/{{ ansible_user_id }}/.nvm/alias
+        - dependencies_install
+        - releases_init
+        - environment_copy
+        - nginx_config_copy
+        - services_config_copy
+        - node_install
