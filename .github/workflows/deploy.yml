@@ -8,19 +8,13 @@ on:
       - 'master'
 
 jobs:
-  build_backend:
-    name: Build backend
+  build:
+    name: Build
     runs-on: self-hosted
     steps:
-      - run: cd backend
-      - run: make build
-  build_frontend:
-    name: Build frontend
-    runs-on: self-hosted
-    steps:
-      - run: cd frontend
-      - run: npm i
-      - run: npm run build
+      - uses: actions/checkout@v3
+      - run: cd backend && make build && cd ..
+      - run: cd frontend && npm i && npm run build && cd ..
 #  deploy:
 #    name: Deploy
 #    runs-on: self-hosted
