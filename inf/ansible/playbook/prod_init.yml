@@ -6,7 +6,7 @@
       name: Init prod
       include_tasks: '../tasks/{{ item }}.yml'
       loop:
-        - dependencies_install
+        - prod_dependencies_install
         - releases_init
         - environment_copy
         - nginx_config_copy
