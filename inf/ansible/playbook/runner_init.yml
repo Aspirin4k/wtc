@@ -7,3 +7,8 @@
       loop:
         - node_install
         - golang_install
+    -
+      name: Copy env
+      copy:
+        src: '../../environment/.env_runner'
+        dest: ~/.env_runner

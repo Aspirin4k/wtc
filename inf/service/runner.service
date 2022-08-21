@@ -9,6 +9,7 @@ Restart=always
 RestartSec=1
 User=github
 ExecStart=/home/github/actions-runner/run.sh
+EnvironmentFile=/home/github/.env_runner
 
 [Install]
 WantedBy=multi-user.target
