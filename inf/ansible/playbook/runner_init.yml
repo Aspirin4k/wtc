@@ -12,3 +12,20 @@
       copy:
         src: '../../environment/.env_runner'
         dest: ~/.env_runner
+    - name: Create folders for releases
+      file:
+        path: ~/ansible
+        state: directory
+    -
+      name: Copy deploy SSH keys
+      copy:
+        src: '../../../secrets/runner-key'
+        dest: ~/ansible/
+    -
+      name: Copy ansible playbook
+      copy:
+        src: '../deploy/{{ item }}'
+        dest: ~/ansible/
+      loop:
+        - deploy_run.yml
+        - hosts

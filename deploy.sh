@@ -12,5 +12,4 @@ rm -rf backend/target
 tar -zcvf prod/deploy.tar.gz -C prod deploy
 tar -zcvf prod/f-deploy.tar.gz -C prod f-deploy
 
-#cd /home/ubuntu/app/ansible
-#ansible-playbook deploy_run.yml -i hosts
+ansible-playbook ~/ansible/deploy_run.yml -i hosts
