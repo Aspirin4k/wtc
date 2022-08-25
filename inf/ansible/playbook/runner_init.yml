@@ -21,6 +21,8 @@
       copy:
         src: '../../../secrets/runner-key'
         dest: ~/ansible/
+        owner: github
+        mode: 0600
     -
       name: Copy ansible playbook
       copy:

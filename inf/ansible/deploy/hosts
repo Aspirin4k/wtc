@@ -5,4 +5,4 @@ working_directory=/root/app
 host_key_checking = False
 
 [prod]
-65.21.251.49
+10.0.0.2
