@@ -13,7 +13,7 @@
     -
       name: Copy backend artifact
       copy:
-        src: '/home/ubuntu/app/prod/{{ item }}'
+        src: '{{ local_working_directory }}/prod/{{ item }}'
         dest: '{{ working_directory }}'
         owner: root
         group: root
