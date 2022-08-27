@@ -1,0 +1,9 @@
+-
+  hosts: prod
+  become: true
+  tasks:
+    -
+      name: Init prod
+      include_tasks: '../tasks/{{ item }}.yml'
+      loop:
+        - environment_copy

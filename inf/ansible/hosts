@@ -6,7 +6,7 @@ ansible_user=github
 65.108.216.162
 
 [prod:vars]
-ansible_ssh_private_key_file=/Users/ro.ushakov/Documents/rushakov.pem
+ansible_ssh_private_key_file=/Users/r.ushakov/GolandProjects/wtc/secrets/rushakov.pem
 ansible_user=root
 working_directory=/root/app
 
