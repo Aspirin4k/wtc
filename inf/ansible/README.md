@@ -25,3 +25,6 @@ after this execute
 ```
 ansible-playbook playbook/prod_environment.yml -i hosts
 ```
+
+also redeploy cron to apply environment variables
+to him too
