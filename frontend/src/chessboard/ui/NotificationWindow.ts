@@ -13,15 +13,17 @@ type NotificationWindowOptions = ElementOptions & {
 export class NotificationWindow extends SimpleWindow {
   constructor(canvas: HTMLCanvasElement, options: NotificationWindowOptions) {
     super(
-      canvas,
-      options,
+      {
+        ...options,
+        background: 'green'
+      },
       [
         new Label(
           canvas,
           {
             auto_position: {
               horizontal: 'center',
-              vertical: 'top',
+              vertical: 'top'
             },
             size: { width: options.size.width },
             text: options.text,

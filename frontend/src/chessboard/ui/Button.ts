@@ -14,8 +14,10 @@ export class Button extends Container {
 
   constructor(canvas: HTMLCanvasElement, options: ButtonOptions) {
     super(
-      canvas,
-      options,
+      {
+        ...options,
+        background: 'grey'
+      },
       [
         new Label(canvas, {
           auto_position: {
@@ -34,9 +36,5 @@ export class Button extends Container {
   protected onClickContainer(): boolean {
     this.on_click();
     return true;
-  }
-
-  protected renderContainer(context: RenderingContext): void {
-    this.background(context, 'white');
   }
 }

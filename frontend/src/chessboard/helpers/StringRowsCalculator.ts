@@ -17,7 +17,6 @@ type CalculationOptions = {
   size: {
     width: number,
     font: number,
-    line_height: number,
   }
 }
 
@@ -62,7 +61,7 @@ export const calculateRows = (context: CanvasRenderingContext2D, options: Calcul
       return [...result, ...added_lines];
     }, [])
     .map((line: TextTokenInterface) => {
-      line.offset.y = line.offset.y + line.line_num * options.size.line_height;
+      line.offset.y = line.offset.y + line.line_num * context.measureText('M').width;
       return line;
     });
 }

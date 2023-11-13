@@ -1,5 +1,6 @@
 import { RenderingContext } from '../helpers/RenderingContext';
 import { ExactPosition } from '../ui/Interfaces';
+import { LoadingState } from './loading/LoadingState';
 
 export interface ControllerInterface {
     handleClick: (position: ExactPosition) => void,
@@ -11,7 +12,8 @@ export interface RendererInterface {
 }
 
 export interface ResourceLoaderInterface {
-    load: () => Promise<void>,
+    getAssetsCount: () => Promise<number>,
+    load: (loading_state: LoadingState) => Promise<void>,
 }
 
 export interface SceneInterface {

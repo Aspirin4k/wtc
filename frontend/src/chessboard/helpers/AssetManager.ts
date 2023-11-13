@@ -17,7 +17,7 @@ class AssetManager {
 
     private assets_load_sessions = {};
 
-    public loadImages(urls: { [short_name: string]: string }): number {
+    public loadImages(urls: { [short_name: string]: string }, onSingleLoad?: () => void): number {
         const session_id = this.generateSessionID();
         this.initiateSession(session_id, Object.keys(urls).length);
 
@@ -27,6 +27,7 @@ class AssetManager {
             image.onload = () => {
                 this.assets_load_sessions[session_id].current_assets_loaded++;
                 LoggerFactory.getLogger().info('Loaded image: ' + short_name)
+                onSingleLoad && onSingleLoad();
                 if (this.isSessionCompleted(session_id)) {
                     this.notifyListeners(session_id);
                 }
@@ -43,7 +44,7 @@ class AssetManager {
         return session_id;
     }
 
-    public loadSound(urls: { [short_name: string ]: string }): number {
+    public loadSound(urls: { [short_name: string ]: string }, onSingleLoad?: () => void): number {
         const session_id = this.generateSessionID();
         this.initiateSession(session_id, Object.keys(urls).length);
 
@@ -52,6 +53,7 @@ class AssetManager {
 
             audio.addEventListener('canplaythrough', () => {
                 this.current_assets_loaded++;
+                onSingleLoad && onSingleLoad();
                 if (this.isSessionCompleted(session_id)) {
                     this.notifyListeners(session_id);
                 }

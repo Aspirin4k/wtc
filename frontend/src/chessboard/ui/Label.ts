@@ -11,13 +11,14 @@ type LabelOptions = ElementOptions & {
 }
 
 export class Label extends Element {
-  private font_size = 20;
+  private readonly font_size = 20;
   private readonly options: LabelOptions;
 
   private tokens: TextTokenInterface[] = [];
+  private line_height: number;
 
   constructor(canvas: HTMLCanvasElement, options: LabelOptions) {
-    super(canvas, options)
+    super(options)
     this.options = options;
     this.init(canvas.getContext('2d'));
   }
@@ -32,17 +33,17 @@ export class Label extends Element {
   }
 
   private init(context: CanvasRenderingContext2D): void {
+    this.line_height = context.measureText('M').width;
     this.tokens = calculateRows(
       context,
       {
         text: this.options.text,
         color: {
-          default: 'yellow'
+          default: 'white'
         },
         size: {
           width: this.size.width - 20,
-          font: this.font_size,
-          line_height: 24
+          font: this.font_size
         }
       }
     )
@@ -62,7 +63,10 @@ export class Label extends Element {
       return result;
     }, {})
 
-    const text_height = this.font_size * Object.keys(rows_widths).length;
+    // TODO: хз как это работает, оч сложно
+    const text_height = this.font_size * Object.keys(rows_widths).length
+     + Object.keys(rows_widths).length * this.line_height / 2;
+
     this.size = {
       width: max_width,
       height: text_height,
@@ -74,7 +78,6 @@ export class Label extends Element {
     this.tokens.forEach((token) => {
       switch (this.options.align_horizontal) {
         case 'left':
-          token.offset.x += 10;
           break;
         case 'center':
         default:
@@ -84,11 +87,11 @@ export class Label extends Element {
 
       switch (this.options.align_vertical) {
         case 'top':
-          token.offset.y = this.font_size + 6 + token.offset.y;
+          token.offset.y = this.font_size + token.offset.y;
           break;
         case 'middle':
         default:
-          token.offset.y = 1.3 * this.font_size + (this.size.height - text_height) / 2 + token.offset.y;
+          token.offset.y = this.font_size + (this.size.height - text_height) / 2 + token.offset.y;
           break;
       }
     })

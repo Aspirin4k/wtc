@@ -5,20 +5,54 @@ import { Element } from './Element';
 
 import type { ElementOptions } from './Element';
 
+type ContainerOptions = ElementOptions & {
+  background?: string
+}
+
 export class Container extends Element {
+  private readonly background?: string;
   private readonly children: Element[];
 
-  constructor(canvas: HTMLCanvasElement, options: ElementOptions, children: Element[] = []) {
-    super(canvas, options);
+  constructor(options: ContainerOptions, children: Element[] = []) {
+    super(options);
+    this.background = options.background;
     this.children = children;
     this.initChildren();
+  }
+
+  protected onClickElement(position: ExactPosition) {
+    if (this.onClickContainer()) {
+      return true;
+    }
+
+    const offsetPosition = {
+      x: position.x - this.getPosition().x,
+      y: position.y - this.getPosition().y
+    }
+    for (const child of this.children) {
+      if (child.onClick(offsetPosition)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   protected onClickContainer(): boolean {
     return false;
   }
 
+  protected renderElement(context: RenderingContext): void {
+    this.renderContainer(context);
+    this.children.forEach(
+      (child: Element) => child.render(context.withOffset(this.getPosition()))
+    );
+  }
+
   protected renderContainer(context: RenderingContext): void {
+    if (this.background) {
+      context.rectangle(this.position, this.size, this.background);
+    }
   }
 
   getSize(): Size {
@@ -32,38 +66,15 @@ export class Container extends Element {
           acc += child.getSize().height + 10;
         }
         return acc;
-      }, 10)
+      }, 0)
     }
 
     return this.size;
   }
 
-  setOffset(position: ExactPosition) {
-    if (position.y === 0 && position.x === 0) {
-      return;
-    }
-
-    super.setOffset(position);
-    this.initChildren();
-  }
-
-  protected onClickElement(position: ExactPosition) {
-    if (this.onClickContainer()) {
-      return true;
-    }
-
-    for (const child of this.children) {
-      if (child.onClick(position)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  protected renderElement(context: RenderingContext): void {
-    this.renderContainer(context);
-    this.children.forEach((child: Renderable) => child.render(context));
+  setPosition(position: ExactPosition): void {
+      super.setPosition(position);
+      this.initChildren();
   }
 
   private initChildren(): void {
@@ -71,21 +82,18 @@ export class Container extends Element {
       return;
     }
 
-    const exact_children = this.children.filter((child) => child.isExactPosition());
-    exact_children.forEach((child) => child.setOffset(this.position));
-
     const floating_children = this.children.filter((child) => !child.isExactPosition());
     if (floating_children.length) {
-      const first = floating_children[floating_children.length - 1];
+      const first = floating_children[0];
       this.initAlignmentChildOffset(first);
       floating_children.forEach((child, index) => {
         if (index === 0) {
           return;
         }
 
-        child.setOffset({
-          x: 0,
-          y: floating_children[index - 1].getSize().height + 10,
+        child.setPosition({
+          x: first.getPosition().x,
+          y: first.getPosition().y + floating_children[index - 1].getSize().height + 10,
         })
       })
     }
@@ -93,8 +101,8 @@ export class Container extends Element {
 
   private initAlignmentChildOffset(child: Element): void {
     let offset = {
-      x: this.getPosition().x,
-      y: this.getPosition().y,
+      x: child.getPosition().x || 0,
+      y: child.getPosition().y || 0,
     }
 
     switch (child.getAutoPosition().horizontal) {
@@ -105,10 +113,10 @@ export class Container extends Element {
 
     switch (child.getAutoPosition().vertical) {
       case 'middle':
-        offset.y += (this.getSize().height - child.getSize().height) / 2 - 10;
+        offset.y += (this.getSize().height - child.getSize().height) / 2;
         break;
     }
 
-    child.setOffset(offset);
+    child.setPosition(offset);
   }
 }

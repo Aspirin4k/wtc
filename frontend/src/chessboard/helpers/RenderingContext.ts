@@ -5,16 +5,30 @@ export class RenderingContext {
   canvas: HTMLCanvasElement;
   canvas_context: CanvasRenderingContext2D;
 
+  offset: ExactPosition = {x: 0, y: 0};
+
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.canvas_context = canvas.getContext('2d');
   }
 
+  withOffset(offset: ExactPosition): RenderingContext {
+    const newContext = Object.assign({}, this);
+    Object.setPrototypeOf(newContext, RenderingContext.prototype);
+
+    newContext.offset = {
+      x: this.offset.x + offset.x,
+      y: this.offset.y + offset.y
+    }
+
+    return newContext;
+  }
+
   rectangle(position: ExactPosition, size: Size, color: string): void {
     this.canvas_context.fillStyle = color;
     this.canvas_context.fillRect(
-      position.x,
-      position.y,
+      this.offset.x + position.x,
+      this.offset.y + position.y,
       size ? size.width : this.canvas.width,
       size ? size.height : this.canvas.height
     );
@@ -25,8 +39,8 @@ export class RenderingContext {
     this.canvas_context.fillStyle = color;
     this.canvas_context.fillText(
       text,
-      position.x,
-      position.y,
+      this.offset.x + position.x,
+      this.offset.y + position.y,
     )
   }
 }

@@ -19,7 +19,7 @@ export abstract class Element implements Renderable {
   protected size: Size;
   private readonly auto_position: AutoPosition | null = null;
 
-  protected constructor(canvas: HTMLCanvasElement, options: ElementOptions) {
+  protected constructor(options: ElementOptions) {
     if (options.position) {
       this.position = {
         ...options.position
@@ -69,28 +69,11 @@ export abstract class Element implements Renderable {
     return this.size;
   }
 
-  resetOffset(): void {
-    this.position = {
-      ...this.original_position
-    }
-  }
-
-  setOffset(position: ExactPosition): void {
-    if (!this.position) {
-      this.position = {x: 0, y: 0};
-    }
-
-    this.position = {
-      x: this.position.x + position.x,
-      y: this.position.y + position.y,
-    }
+  setPosition(position: ExactPosition): void {
+    this.position = {...position};
   }
 
   isExactPosition(): boolean {
     return null === this.auto_position;
-  }
-
-  protected background(context: RenderingContext, color: string): void {
-    context.rectangle(this.getPosition(), this.size, color);
   }
 }

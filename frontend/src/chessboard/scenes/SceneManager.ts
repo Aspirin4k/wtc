@@ -3,9 +3,12 @@ import {AssetManager} from "../helpers/AssetManager";
 import {AssetResolver} from "../helpers/AssetResolver";
 import {createInstance as createDisclaimer} from "./disclaimer/FactoryMethod";
 import {createInstance as createNovel} from "./novel/FactoryMethod";
+import { createInstance as createLoading} from "./loading/FactoryMethod";
+import { Renderer as LoadingRenderer } from "./loading/Renderer";
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
+export const SCENE_LOADING = 'loading';
 
 const CHESSBOARD_MODE_CLASSIC = 1;
 
@@ -14,6 +17,7 @@ export class SceneManager {
     private readonly SCENE_FACTORY_MAP = {
         [SCENE_NOVEL]: () => createNovel(this.asset_manager, this.asset_resolver),
         [SCENE_DISCLAIMER]: () => createDisclaimer(this, this.canvas),
+        [SCENE_LOADING]: () => createLoading(this.canvas),
     };
     // TODO: подумоть как конфигурировать флоу
     private readonly SCENE_FLOW = {
@@ -48,10 +52,24 @@ export class SceneManager {
 
     private changeScene(scene_id: string): void {
         const scene = this.getScene(scene_id);
-        scene.loader.load().then(() => {
-            this.current_scene = scene;
-            this.current_scene_id = scene_id;
-        })
+
+        scene.loader
+            .getAssetsCount()
+            .then((resourcesCount) => {
+                if (0 === resourcesCount) {
+                    this.current_scene = scene;
+                    this.current_scene_id = scene_id;
+                    return;
+                }
+
+                this.current_scene = this.getScene(SCENE_LOADING);
+                const loading_renderer = this.current_scene.renderer as LoadingRenderer;
+                const state = loading_renderer.getLoadingState(resourcesCount);
+                scene.loader.load(state).then(() => {
+                    this.current_scene = scene;
+                    this.current_scene_id = scene_id;
+                })
+            })
     }
 
     private getScene(scene_id: string): SceneInterface {

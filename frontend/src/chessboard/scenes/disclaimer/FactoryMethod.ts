@@ -8,7 +8,6 @@ import { NotificationWindow } from '../../ui/NotificationWindow';
 
 export const createInstance = (scene_manager: SceneManager, canvas: HTMLCanvasElement): SceneInterface => {
     const ui_stack = new Container(
-      canvas,
       {
         position: {
           x: 0,
@@ -17,7 +16,8 @@ export const createInstance = (scene_manager: SceneManager, canvas: HTMLCanvasEl
         size: {
           width: canvas.width,
           height: canvas.height
-        }
+        },
+        background: 'black'
       },
       [
         new NotificationWindow(
