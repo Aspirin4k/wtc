@@ -1,13 +1,13 @@
 package main
 
 import (
-	"database/sql"
 	"net/http"
 	"time"
 
+	"whentheycry.ru/m/v2/web"
 	"whentheycry.ru/m/v2/web/controller"
 	"whentheycry.ru/m/v2/web/middleware"
-	"whentheycry.ru/m/v2/web/storage"
+	"whentheycry.ru/m/v2/web/middleware/authorization"
 	"whentheycry.ru/m/v2/web/utils"
 )
 
@@ -15,35 +15,41 @@ func main() {
 	utils.FlagInit()
 	utils.FlagParse()
 
-	dbUrl := utils.GetEnv("MYSQL_DATABASE_URL", "tcp(127.0.0.1:3306)/posts")
-	dbUser := utils.GetEnv("MYSQL_DATABASE_USER", "root")
-	dbPassword := utils.GetEnv("MYSQL_DATABASE_PASSWORD", "root")
-	db, err := sql.Open("mysql", dbUser+":"+dbPassword+"@"+dbUrl)
-	if err != nil {
-		panic(err)
-	}
+	locator := web.NewServiceLocator()
 
-	db.SetConnMaxLifetime(time.Minute)
-	db.SetMaxOpenConns(10)
-	db.SetMaxIdleConns(10)
-	err = db.Ping()
+	db, err := locator.GetDB()
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
 
-	photoStorage := storage.NewPhotoStorage(db)
-	postStorage := storage.NewPostStorage(db, photoStorage)
-	postController := controller.NewPostController(postStorage)
+	postController, err := locator.GetPostController()
+	if err != nil {
+		panic(err)
+	}
 
 	serverPort := utils.GetEnv("SERVER_PORT", "3001")
+
+	mux := http.NewServeMux()
+	mux.Handle("/post/", postController)
+	mux.Handle(
+		"/internal/infra/release",
+		authorization.AuthorizationMiddleware(
+			authorization.DeveloperAuthorizationMiddleware(
+				controller.NewInfrastructureController(),
+				locator.GetXsollaClient(),
+			),
+		),
+	)
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { w.WriteHeader(http.StatusNotFound) })
+
 	srv := &http.Server{
 		ReadTimeout:       1 * time.Second,
 		WriteTimeout:      5 * time.Second,
 		IdleTimeout:       30 * time.Second,
 		ReadHeaderTimeout: 2 * time.Second,
 		Addr:              ":" + serverPort,
-		Handler:           middleware.HeadersMiddleware(postController),
+		Handler:           middleware.HeadersMiddleware(mux),
 	}
 	srv.ListenAndServe()
 }

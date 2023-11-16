@@ -32,7 +32,6 @@ export class SceneRenderer {
                 scene.renderer.renderGameFrame(this.rendering_context, this.canvas);
             }
         } catch (e) {
-            console.log(e);
             clearInterval(this.game_render_loop);
             LoggerFactory.getLogger().error('Render exception', {error: e});
         }

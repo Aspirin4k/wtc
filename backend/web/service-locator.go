@@ -3,25 +3,31 @@ package web
 import (
 	"database/sql"
 
+	"whentheycry.ru/m/v2/web/controller"
 	"whentheycry.ru/m/v2/web/database"
 	"whentheycry.ru/m/v2/web/image"
 	"whentheycry.ru/m/v2/web/storage"
 	"whentheycry.ru/m/v2/web/utils"
 	"whentheycry.ru/m/v2/web/vk"
+	"whentheycry.ru/m/v2/web/xsolla"
 )
 
 type ServiceLocator struct {
 	db *sql.DB
 
+	postController *controller.PostController
+
 	communityStorage *storage.Community
-	postStorage *storage.Post
-	photoStorage *storage.Photo
+	postStorage      *storage.Post
+	photoStorage     *storage.Photo
 
 	imageLoader *image.Loader
 
 	vkSynchronizer *vk.Synchronizer
-	vkClient *vk.Client
-	vkTransformer *vk.Transformer
+	vkClient       *vk.Client
+	vkTransformer  *vk.Transformer
+
+	xsollaClient *xsolla.Client
 }
 
 func NewServiceLocator() *ServiceLocator {
@@ -144,4 +150,31 @@ func (s *ServiceLocator) GetVKSynchronizer() (*vk.Synchronizer, error) {
 	}
 
 	return s.vkSynchronizer, nil
+}
+
+func (s *ServiceLocator) GetPostController() (*controller.PostController, error) {
+	if s.postController == nil {
+		postStorage, err := s.GetPostStorage()
+		if err != nil {
+			return nil, err
+		}
+
+		s.postController = controller.NewPostController(postStorage)
+	}
+
+	return s.postController, nil
+}
+
+func (s *ServiceLocator) GetXsollaClient() *xsolla.Client {
+	if s.xsollaClient == nil {
+		s.xsollaClient = xsolla.New(
+			utils.GetEnv("XSOLLA_LOGIN_API", "https://login.xsolla.com/api"),
+			utils.GetIntEnv("XSOLLA_LOGIN_CLIENT_ID", 4790),
+			utils.GetEnv("XSOLLA_LOGIN_SECRET", ""),
+			utils.GetIntEnv("XSOLLA_PUBLISHER_ID", 266596),
+			utils.GetIntEnv("XSOLLA_PUBLISHER_PROJECT_ID", 186513),
+		)
+	}
+
+	return s.xsollaClient
 }
