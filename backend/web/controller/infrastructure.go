@@ -38,7 +38,7 @@ func (c *InfrastructureController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 		output, err = exec.Command(swapReleaseScript).Output()
 	} else {
 		swapReleaseScript += ".sh"
-		output, err = exec.Command("/bin/sh", swapReleaseScript).Output()
+		output, err = exec.Command("/bin/bash", swapReleaseScript).Output()
 	}
 
 	if err != nil {
