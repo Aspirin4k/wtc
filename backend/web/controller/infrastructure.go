@@ -38,6 +38,5 @@ func (c *InfrastructureController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 		utils.Fork("/bin/bash", swapReleaseScript)
 	}
 
-	os.Exit(1)
 	w.WriteHeader(http.StatusOK)
 }
