@@ -25,9 +25,11 @@ func (c *InfrastructureController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 		return
 	}
 
-	ex, _ := os.Executable()
-	swapReleaseScript := filepath.Dir(ex)
-	swapReleaseScript += utils.GetEnv("SWAP_RELEASE_SCRIPT_PATH", "/../swap_release")
+	swapReleaseScript := utils.GetEnv("SWAP_RELEASE_SCRIPT_PATH", "../swap_release")
+	if strings.HasPrefix(swapReleaseScript, ".") {
+		ex, _ := os.Executable()
+		swapReleaseScript = filepath.Dir(ex) + "/" + swapReleaseScript
+	}
 
 	var output []byte
 	var err error
