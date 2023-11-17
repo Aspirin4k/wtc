@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 	"os/exec"
@@ -31,25 +30,17 @@ func (c *InfrastructureController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 		swapReleaseScript = filepath.Dir(ex) + "/" + swapReleaseScript
 	}
 
-	var output []byte
-	var err error
 	isWindows := runtime.GOOS == "windows"
+	var command *exec.Cmd
 	if isWindows {
 		swapReleaseScript += ".bat"
 		swapReleaseScript = strings.ReplaceAll(swapReleaseScript, "/", "\\")
-		output, err = exec.Command(swapReleaseScript).Output()
+		command = exec.Command(swapReleaseScript)
 	} else {
 		swapReleaseScript += ".sh"
-		output, err = exec.Command("/bin/bash", swapReleaseScript).Output()
+		command = exec.Command("/bin/bash", swapReleaseScript)
 	}
 
-	if err != nil {
-		fmt.Println(err)
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("{\"error\":\"" + err.Error() + "\"}"))
-		return
-	}
-
+	command.Start()
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("{\"result\":\"" + string(output) + "\"}"))
 }

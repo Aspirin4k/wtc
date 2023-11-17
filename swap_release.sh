@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# wait before api returns response in case script was called through api
+sleep(10)
+
 app_directory="/root/app"
 prod_directory="${app_directory}/"
 env_directory="${app_directory}/env"
