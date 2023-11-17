@@ -3,7 +3,6 @@ package controller
 import (
 	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -31,16 +30,14 @@ func (c *InfrastructureController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 	}
 
 	isWindows := runtime.GOOS == "windows"
-	var command *exec.Cmd
 	if isWindows {
 		swapReleaseScript += ".bat"
-		swapReleaseScript = strings.ReplaceAll(swapReleaseScript, "/", "\\")
-		command = exec.Command(swapReleaseScript)
+		utils.Fork(swapReleaseScript)
 	} else {
 		swapReleaseScript += ".sh"
-		command = exec.Command("/bin/bash", swapReleaseScript)
+		utils.Fork("/bin/bash", swapReleaseScript)
 	}
 
-	command.Start()
+	os.Exit(1)
 	w.WriteHeader(http.StatusOK)
 }
