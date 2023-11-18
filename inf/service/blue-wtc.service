@@ -10,6 +10,8 @@ RestartSec=1
 User=root
 ExecStart=/root/app/blue/wtc-server
 
+KillMode=process
+
 Environment=SERVER_PORT=8080
 EnvironmentFile=/root/app/env/.env_blue
 
