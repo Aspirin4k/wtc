@@ -30,4 +30,28 @@
       height: 100%;
     }
   }
+
+  &-login {
+    margin-left: auto;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    font: inherit;
+    color: inherit;
+
+    &:hover {
+      .page-header-login-img {
+        transform: scale(1.1);
+        transition: transform ease .3s;
+      }
+    }
+
+    &-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+  }
 }

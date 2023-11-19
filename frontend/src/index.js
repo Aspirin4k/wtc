@@ -9,7 +9,7 @@ import './index.scss';
 
 const axiosInstance = axios.create({
     baseURL: getConfigValue('api_url')
-})
+});
 const cache = window.cache || {};
 const wrapper = document.getElementById('application');
 ReactDOM.render(
