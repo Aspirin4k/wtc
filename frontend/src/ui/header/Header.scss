@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
 
     @include mobile {
       justify-content: center;
@@ -32,7 +33,6 @@
   }
 
   &-login {
-    margin-left: auto;
     height: 100%;
     background: none;
     border: none;
@@ -40,6 +40,9 @@
     outline: inherit;
     font: inherit;
     color: inherit;
+
+    position: absolute;
+    right: 0;
 
     &:hover {
       .page-header-login-img {
