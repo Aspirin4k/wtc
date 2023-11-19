@@ -24,3 +24,23 @@ export const showAuthorizationWidget = () => {
   
     xl.open();
 }
+
+export const getUserSession = (jwt: string | null): User => {
+    if (!jwt) {
+        return null;
+    }
+
+    const payload = jwt.split('.')[1] || null;
+    if (!payload) {
+        return null;
+    }
+
+    let parsedPayload;
+    try {
+        parsedPayload = JSON.parse(atob(payload));
+    } catch (e) {
+        return null;
+    }
+
+    return parsedPayload;
+}

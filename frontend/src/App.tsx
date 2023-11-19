@@ -10,11 +10,11 @@ import {Header} from "./ui/header/Header";
 import {Footer} from "./ui/footer/Footer";
 import {ChessboardResolver} from "./chessboard/ChessboardResolver";
 import {getStaticURL} from "./utils/static";
-import { isServer } from './utils/version';
 import { User } from './utils/authorization';
 
 interface AppProps {
-    saveFetch: () => void
+    user_session: User,
+    saveFetch: () => void,
 }
 
 interface AppState {
@@ -27,12 +27,10 @@ interface AppState {
 
 class App extends Component<AppProps, AppState> {
     background_image: string = 'hm_day.webp';
-    user_session: User | null;
 
     constructor(props) {
         super(props);
 
-        this.user_session = this.getUserSession();
         this.state = {
             axios: props.axios,
             fetches: [],
@@ -54,40 +52,6 @@ class App extends Component<AppProps, AppState> {
         this.initBackground();
     }
 
-    getUserSession(): User | null {
-        if (isServer()) {
-            return null;
-        }
-
-        const query = new URLSearchParams(document.location.search);
-        const token = query.get('token');
-        if (!token) {
-            const cookiesToken = Cookies.get('auth_token');
-            return !cookiesToken ? null : this.getParsedToken(cookiesToken);
-        }
-
-        const parsedPayload = this.getParsedToken(token);
-        Cookies.set('auth_token', token, {expires: new Date(parsedPayload.exp * 1000), path: ''});
-        history.replaceState({}, null, document.location.href.split('?')[0]);
-        return parsedPayload;
-    }
-
-    getParsedToken(token: string): User | null {
-        const payload = token.split('.')[1] || null;
-        if (!payload) {
-            return null;
-        }
-
-        let parsedPayload;
-        try {
-            parsedPayload = JSON.parse(atob(payload));
-        } catch (e) {
-            return null;
-        }
-
-        return parsedPayload;
-    }
-
     initBackground() {
         const current_date = new Date();
         const current_time = current_date.getUTCHours();
@@ -105,7 +69,8 @@ class App extends Component<AppProps, AppState> {
     }
 
     render() {
-        const { background_image, user_session } = this;
+        const { background_image, props } = this;
+        const { user_session } = props;
 
         return <APIContext.Provider value={this.state}>
             <Background page_url={getStaticURL(`/background/${background_image}`)} />

@@ -3,6 +3,7 @@ import axios from 'axios';
 import compression from 'compression';
 import express from 'express';
 import favicon from 'serve-favicon';
+import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import path from 'path';
 import { StaticRouter } from 'react-router-dom';
@@ -15,6 +16,7 @@ import {LoggerFactory} from "../src/logger/LoggerFactory";
 import {registerLoggerMiddleware} from "./middleware/logger-middleware";
 import {getClientConfig} from "./config-client-processing";
 import { getProcessedError } from './error-handle';
+import { getUserSession } from '../src/utils/authorization';
 
 const app = express();
 const port = getConfigValue('server_port');
@@ -25,6 +27,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 app.use(favicon(path.join(__dirname, 'static/icon/favicon.ico')));
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(compression());
+app.use(cookieParser())
 registerLoggerMiddleware(app);
 
 if (DEV) {
@@ -59,7 +62,22 @@ const axiosInstance = axios.create({
 app.get('*', (req, res) => {
     res.set('x-environment', environment);
 
+    const authToken = req.query.token;
+    if (!!authToken) {
+        const user = getUserSession(authToken);
+        res.cookie(
+            'auth_token', 
+            authToken,
+            {
+                path: '/', 
+                maxAge: user.exp * 1000 - (new Date()).getTime(),
+            }
+        );
+        return res.redirect(req.path);
+    }
+
     try {
+        const user = getUserSession(req.cookies.auth_token || null);
         const url = req.originalUrl;
         const routerContext = {};
         const fetches = [];
@@ -68,7 +86,11 @@ app.get('*', (req, res) => {
                 location={url}
                 context={routerContext}
             >
-                <App axios={axiosInstance} saveFetch={(fetch) => {fetches.push(fetch)}} />
+                <App 
+                    axios={axiosInstance} 
+                    saveFetch={(fetch) => {fetches.push(fetch)}} 
+                    user_session={user}
+                />
             </StaticRouter>
         );
 
@@ -89,7 +111,11 @@ app.get('*', (req, res) => {
                         location={url}
                         context={routerContext}
                     >
-                        <App axios={axiosInstance} fetch_results={fetch_results} />
+                        <App
+                            axios={axiosInstance} 
+                            fetch_results={fetch_results} 
+                            user_session={user}
+                        />
                     </StaticRouter>
                 );
 
