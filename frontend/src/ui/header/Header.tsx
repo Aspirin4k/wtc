@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 
 import { User, showAuthorizationWidget } from "../../utils/authorization";
 import { getConfigValue } from "../../utils/config";
+import { getStaticURL } from "../../utils/static";
 
 interface HeaderProps {
     user: User | null,
@@ -35,10 +36,18 @@ class Header extends Component<HeaderProps, HeaderState> {
         return <div className={'page-header'}>
             <div className={'page-header__container'}>
                 <Link className={'page-header-logo'} to={'/'}>
-                    <img className={'page-header-logo-img'} alt={'When They Cry'} src={'/common/logo.webp'} />
+                    <img 
+                        className={'page-header-logo-img'} 
+                        alt={'When They Cry'} 
+                        src={getStaticURL('/common/logo.webp')} 
+                    />
                 </Link>
                 <button onClick={this.handleLoginClick} className={'page-header-login'}>
-                    <img className={'page-header-login-img'} alt={'Login'} src={user?.picture ? user.picture : '/common/Login.png'} />
+                    <img 
+                        className={'page-header-login-img'}
+                        alt={'Login'} 
+                        src={user?.picture ? user.picture : getStaticURL('/common/Login.png')}
+                    />
                 </button>
             </div>
         </div>;
