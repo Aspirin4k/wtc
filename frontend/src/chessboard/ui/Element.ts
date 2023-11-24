@@ -1,23 +1,18 @@
-import { Renderable } from './RenderableInterface';
-import { ExactPosition, Size } from './Interfaces';
-import { RenderingContext } from '../helpers/RenderingContext';
+import { Container as CreateJSContainer, DisplayObject } from 'createjs-module';
 
-type AutoPosition = {
-  horizontal: 'left' | 'center',
-  vertical: 'top' | 'middle'
-}
+import { ExactPosition, Size } from './Interfaces';
 
 export type ElementOptions = {
   position?: ExactPosition,
-  auto_position?: AutoPosition,
   size?: Size,
 };
 
-export abstract class Element implements Renderable {
+export abstract class Element {
+  protected renderObject: DisplayObject;
+
   protected position: ExactPosition | null = null;
   protected original_position: ExactPosition | null = null;
   protected size: Size;
-  private readonly auto_position: AutoPosition | null = null;
 
   protected constructor(options: ElementOptions) {
     if (options.position) {
@@ -28,29 +23,22 @@ export abstract class Element implements Renderable {
         ...options.position
       };
     }
-    if (options.auto_position) {
-      this.auto_position = options.auto_position;
-    }
     this.size = options.size;
   }
 
-  protected abstract renderElement(context: RenderingContext): void;
-  protected onClickElement(position: ExactPosition) {
-    return false;
-  };
+  public addToStage(stage: CreateJSContainer, position: ExactPosition = null): void
+  {
+    position = position || this.position || {x: 0, y: 0};
+    this.renderObject.x = position.x;
+    this.renderObject.y = position.y;
 
-  onClick(position: ExactPosition): boolean {
-    const is_in_x = position.x > this.getPosition().x && position.x < this.getPosition().x + this.size.width;
-    const is_in_y = position.y > this.getPosition().y && position.y < this.getPosition().y + this.size.height;
-    if (!is_in_x || !is_in_y) {
-      return false;
-    }
+    console.log(position);
 
-    return this.onClickElement(position);
+    stage.addChild(this.renderObject);
   }
 
-  render(context: RenderingContext): void {
-    this.renderElement(context);
+  hasPosition(): boolean {
+    return !!this.position;
   }
 
   getPosition(): ExactPosition {
@@ -61,19 +49,12 @@ export abstract class Element implements Renderable {
     return this.original_position || {x: 0, y: 0};
   }
 
-  getAutoPosition(): AutoPosition {
-    return this.auto_position;
-  }
+  public getSize(): Size {
+    const boundaries = this.renderObject.getBounds();
 
-  getSize(): Size {
-    return this.size;
-  }
-
-  setPosition(position: ExactPosition): void {
-    this.position = {...position};
-  }
-
-  isExactPosition(): boolean {
-    return null === this.auto_position;
+    return {
+      width: boundaries?.width,
+      height: boundaries?.height,
+    }
   }
 }

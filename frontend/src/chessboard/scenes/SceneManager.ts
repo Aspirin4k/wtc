@@ -1,32 +1,42 @@
+import { Stage, Ticker } from 'createjs-module';
+
 import {SceneInterface} from "./SceneInterface";
 import {AssetManager} from "../helpers/AssetManager";
 import {AssetResolver} from "../helpers/AssetResolver";
-import {createInstance as createDisclaimer} from "./disclaimer/FactoryMethod";
-import {createInstance as createNovel} from "./novel/FactoryMethod";
-import { createInstance as createLoading} from "./loading/FactoryMethod";
-import { Renderer as LoadingRenderer } from "./loading/Renderer";
+import {Scene as DisclaimerScene} from "./disclaimer/Scene";
+import { Scene as NovelScene } from './novel/Scene';
+import { Scene as LoadingScene } from './loading/Scene';
+import { Scene as PurpleGameScene } from './purple-game/Scene';
+import { AssetLoader } from "../helpers/AssetLoader";
+import { LoggerFactory } from '../../logger/LoggerFactory';
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
 export const SCENE_LOADING = 'loading';
+export const SCENE_PURPLE_GAME = 'purple-game';
 
 const CHESSBOARD_MODE_CLASSIC = 1;
+
+const FPS_50 = 1000 / 50;
 
 export class SceneManager {
     private readonly FIRST_SCENE = SCENE_DISCLAIMER;
     private readonly SCENE_FACTORY_MAP = {
-        [SCENE_NOVEL]: () => createNovel(this.asset_manager, this.asset_resolver),
-        [SCENE_DISCLAIMER]: () => createDisclaimer(this, this.canvas),
-        [SCENE_LOADING]: () => createLoading(this.canvas),
+        [SCENE_NOVEL]: () => new NovelScene(this.asset_manager, this.asset_loader),
+        [SCENE_DISCLAIMER]: () => new DisclaimerScene(),
+        [SCENE_LOADING]: () => new LoadingScene(),
+        [SCENE_PURPLE_GAME]: () => new PurpleGameScene(this.asset_loader, this.asset_manager),
     };
     // TODO: подумоть как конфигурировать флоу
     private readonly SCENE_FLOW = {
-        [SCENE_DISCLAIMER]: SCENE_NOVEL,
+        [SCENE_DISCLAIMER]: SCENE_PURPLE_GAME,
     }
 
     private readonly asset_manager: AssetManager;
     private readonly asset_resolver: AssetResolver;
+    private readonly asset_loader: AssetLoader;
     private canvas: HTMLCanvasElement;
+    private stage: Stage;
 
     private current_scene: SceneInterface = null;
     private current_scene_id: string = null;
@@ -35,11 +45,25 @@ export class SceneManager {
     constructor() {
         this.asset_resolver = new AssetResolver(CHESSBOARD_MODE_CLASSIC);
         this.asset_manager = new AssetManager();
+        this.asset_loader = new AssetLoader(this.asset_manager, this.asset_resolver);
+
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.tick = this.tick.bind(this)
     }
 
-    public initiate(canvas: HTMLCanvasElement): void {
-        this.canvas = canvas;
+    public register(stage: Stage): void {
+        Ticker.framerate = FPS_50;
+        Ticker.addEventListener('tick', this.tick);
+
+        document.addEventListener('keydown', this.handleKeyDown);
+
+        this.stage = stage;
         this.changeScene(this.FIRST_SCENE);
+    }
+
+    public unregister() {
+        document.removeEventListener('keydown', this.handleKeyDown);
+        Ticker.removeEventListener('tick', this.tick);
     }
 
     public nextScene(): void {
@@ -50,26 +74,56 @@ export class SceneManager {
         return this.current_scene;
     }
 
+    tick(event) {
+        try {
+            const scene = this.getCurrentScene();
+            if (scene) {
+                scene.tick();
+            }
+
+            this.stage.update(event);
+        } catch (e) {
+            Ticker.removeEventListener('tick', this.tick);
+            LoggerFactory.getLogger().error('Render exception', {error: e});
+        }
+    }
+
+    private handleKeyDown(event: KeyboardEvent) {
+        const scene = this.getCurrentScene();
+        if (scene) {
+            scene.handleKeyDown(event.key);
+        }
+    }
+
     private changeScene(scene_id: string): void {
         const scene = this.getScene(scene_id);
-
-        scene.loader
+        
+        const loadingScene = (this.getScene(SCENE_LOADING) as LoadingScene);
+        this.renderScene(loadingScene, SCENE_LOADING);
+        
+        scene
             .getAssetsCount()
-            .then((resourcesCount) => {
-                if (0 === resourcesCount) {
-                    this.current_scene = scene;
-                    this.current_scene_id = scene_id;
+            .then((maximum) => {
+                if (0 === maximum) {
+                    this.renderScene(scene, scene_id);
                     return;
                 }
 
-                this.current_scene = this.getScene(SCENE_LOADING);
-                const loading_renderer = this.current_scene.renderer as LoadingRenderer;
-                const state = loading_renderer.getLoadingState(resourcesCount);
-                scene.loader.load(state).then(() => {
-                    this.current_scene = scene;
-                    this.current_scene_id = scene_id;
-                })
-            })
+                const loadingState = loadingScene.getLoadingState(maximum);
+                scene.load(loadingState).then(() => {
+                    this.renderScene(scene, scene_id);
+                });
+            });
+    }
+
+    private renderScene(scene: SceneInterface, scene_id: string): void {
+        this.stage.removeAllChildren();
+        this.stage.removeAllEventListeners();
+
+        scene.initialize(this, this.stage);
+
+        this.current_scene = scene;
+        this.current_scene_id = scene_id;
     }
 
     private getScene(scene_id: string): SceneInterface {

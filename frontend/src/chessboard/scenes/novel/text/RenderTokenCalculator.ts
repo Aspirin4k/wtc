@@ -1,8 +1,10 @@
+import { Stage, Text } from "createjs-module";
 import {
     TEXT_COLOR_BLUE,
     TEXT_COLOR_DEFAULT,
     TEXT_COLOR_PURPLE,
     TEXT_COLOR_RED,
+    TEXT_FONT_FAMILY,
     TEXT_FONT_SIZE,
     TEXT_WIDTH
 } from "./Constants";
@@ -16,7 +18,10 @@ interface TextTokenInterface {
 }
 
 class RenderTokenCalculator {
-    public calculate(context: CanvasRenderingContext2D, text: string): TextTokenInterface[] {
+    public calculate(text: string): TextTokenInterface[] {
+        const createJsText = new Text();
+        createJsText.font = `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`;
+
         return text
             // Двойной перенос строки считаем за начало нового абзаца
             .split("\n\n")
@@ -43,7 +48,7 @@ class RenderTokenCalculator {
             // Разбиваем на линии по ширине экрана с учетом цветов
             .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
                 const first_line_num = !!result.length ? result[result.length - 1].line_num + 1 : 0;
-                const added_lines = this.getTextBrokenToLines(context, line).map((line) => ({
+                const added_lines = this.getTextBrokenToLines(createJsText, line).map((line) => ({
                     ...line,
                     line_num: line.line_num + first_line_num
                 }));
@@ -54,7 +59,7 @@ class RenderTokenCalculator {
     /**
      * Разбить текст на линии, чтобы влазили в экран
      */
-    private getTextBrokenToLines(context: CanvasRenderingContext2D, line: TextTokenInterface): TextTokenInterface[] {
+    private getTextBrokenToLines(createJsText: Text, line: TextTokenInterface): TextTokenInterface[] {
         const result_lines = [];
         let colored_sublines = line.text
             .split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/)
@@ -89,7 +94,8 @@ class RenderTokenCalculator {
             // Сценарий: в предыдущей линии влезли все слова в строку, однако
             // новое слово из этой линии в оставшееся пространство не помещается
             // Решение: перенос на новую строку
-            if (offset_x_current + context.measureText(words[0]).width > TEXT_WIDTH) {
+            createJsText.text = words[0];
+            if (offset_x_current + createJsText.getMeasuredWidth() > TEXT_WIDTH) {
                 line_num_current++;
                 offset_x_current = 0;
             }
@@ -104,10 +110,15 @@ class RenderTokenCalculator {
                 : ' ';
 
             words.forEach((word: string) => {
-                if (context.measureText(line_prefix + word).width > TEXT_WIDTH) {
+                createJsText.text = line_prefix + word;
+                if (createJsText.getMeasuredWidth() > TEXT_WIDTH) {
                     // TODO: слово не влазит в строку (Нахера такое слово?)
                     // может потребоваться для японского, в котором нет пробелов (Нахера на сайте японский?)
-                } else if (offset_x_current + context.measureText(line_prefix + [...result_words, word].join(' ')).width > TEXT_WIDTH) {
+                    return;
+                }
+                
+                createJsText.text = line_prefix + [...result_words, word].join(' ');
+                if (offset_x_current + createJsText.getMeasuredWidth() > TEXT_WIDTH) {
                     result_lines.push({
                         text: line_prefix + result_words.join(' '),
                         color: text_color,
@@ -132,7 +143,9 @@ class RenderTokenCalculator {
                     offset_x: offset_x_current,
                     line_num: line_num_current
                 })
-                offset_x_current +=  context.measureText(line_prefix + result_words.join(' ')).width;
+
+                createJsText.text = line_prefix + result_words.join(' ');
+                offset_x_current += createJsText.getMeasuredWidth();
                 result_words = [];
             }
         })

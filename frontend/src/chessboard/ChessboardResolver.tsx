@@ -11,12 +11,24 @@ interface ChessboardResolverState {
 }
 
 class ChessboardResolver extends Component<ChessboardResolverProps, ChessboardResolverState> {
-    render() {
-        if (isClient()) {
-            return <Chessboard />
+    private Chessboard;
+
+    constructor(props) {
+        super(props);
+
+        // @ts-ignore
+        if (SERVER) {
+            this.Chessboard = null;
         } else {
-            return null;
+            const Chessboard = require('./Chessboard').Chessboard;
+            this.Chessboard = <Chessboard />
         }
+    }
+
+    render() {
+        const {Chessboard} = this;
+
+        return Chessboard;
     }
 }
 

@@ -25,7 +25,8 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new DefinePlugin({
-            DEV: true
+            DEV: true,
+            SERVER: true
         }),
         new CopyPlugin({
             patterns: [

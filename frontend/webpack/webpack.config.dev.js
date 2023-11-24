@@ -3,6 +3,7 @@ const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/index.js'),
@@ -21,6 +22,9 @@ module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     plugins: [
+        new DefinePlugin({
+            SERVER: false,
+        }),
         new WebpackManifestPlugin(),
         new MiniCssExtractPlugin(),
         new CopyPlugin({

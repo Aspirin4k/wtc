@@ -43,4 +43,14 @@ export class RenderingContext {
       this.offset.y + position.y,
     )
   }
+
+  image(position: ExactPosition, size: Size, img: HTMLImageElement): void {
+    this.canvas_context.drawImage(
+      img, 
+      this.offset.x + position.x, 
+      this.offset.y + position.y, 
+      size ? size.width : img.width / 2, 
+      size ? size.height : img.height / 2
+    );
+  }
 }

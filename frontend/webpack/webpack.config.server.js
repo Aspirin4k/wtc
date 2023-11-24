@@ -21,7 +21,8 @@ module.exports = {
     mode: 'production',
     plugins: [
         new DefinePlugin({
-            DEV: false
+            DEV: false,
+            SERVER: true,
         }),
         new CopyPlugin({
             patterns: [

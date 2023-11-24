@@ -4,6 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
     entry: [path.resolve(__dirname, '../src/index.js')],
@@ -20,6 +21,9 @@ module.exports = {
     },
     mode: 'production',
     plugins: [
+        new DefinePlugin({
+            SERVER: false,
+        }),
         new CleanWebpackPlugin({
             verbose: true
         }),

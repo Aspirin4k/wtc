@@ -52,7 +52,7 @@ class AssetManager {
             const audio = new Audio(getStaticURL(urls[short_name]));
 
             audio.addEventListener('canplaythrough', () => {
-                this.current_assets_loaded++;
+                this.assets_load_sessions[session_id].current_assets_loaded++;
                 onSingleLoad && onSingleLoad();
                 if (this.isSessionCompleted(session_id)) {
                     this.notifyListeners(session_id);
@@ -84,16 +84,16 @@ class AssetManager {
     private notifyListeners(session_id: number) {
         this.event_listeners = this.event_listeners.filter((listener) => {
             if (!listener.sessions.includes(session_id)) {
-                return false;
+                return true;
             }
 
             listener.sessions.splice(listener.sessions.indexOf(session_id), 1);
             if (listener.sessions.length) {
-                return false;
+                return true;
             }
 
             listener.callback();
-            return true;
+            return false;
         });
     }
 

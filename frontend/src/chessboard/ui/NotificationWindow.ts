@@ -1,4 +1,4 @@
-import { SimpleWindow } from './SimpleWindow';
+import { Container } from './Container';
 import { Button } from './Button';
 import { Label } from './Label';
 
@@ -10,33 +10,32 @@ type NotificationWindowOptions = ElementOptions & {
   on_confirm: () => void,
 }
 
-export class NotificationWindow extends SimpleWindow {
-  constructor(canvas: HTMLCanvasElement, options: NotificationWindowOptions) {
+export class NotificationWindow extends Container {
+  constructor( options: NotificationWindowOptions) {
     super(
       {
         ...options,
-        background: 'green'
+        alignChildren: {
+          horizontal: 'center',
+          vertical: 'top'
+        },
+        background: 'green',
+        padding: 10
       },
       [
         new Label(
-          canvas,
           {
-            auto_position: {
-              horizontal: 'center',
-              vertical: 'top'
-            },
-            size: { width: options.size.width },
+            size: { width: options.size?.width },
             text: options.text,
             align_vertical: 'top',
             align_horizontal: 'left',
           }
         ),
         new Button(
-          canvas,
           {
-            auto_position: {
+            alignChildren: {
               horizontal: 'center',
-              vertical: 'top',
+              vertical: 'middle',
             },
             size: {width: options.size.width - 20, height: 30},
             text: options.button_text,

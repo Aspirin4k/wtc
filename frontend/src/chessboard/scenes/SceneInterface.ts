@@ -1,23 +1,15 @@
-import { RenderingContext } from '../helpers/RenderingContext';
-import { ExactPosition } from '../ui/Interfaces';
-import { LoadingState } from './loading/LoadingState';
+import { Stage } from 'createjs-module';
 
-export interface ControllerInterface {
-    handleClick: (position: ExactPosition) => void,
-    handleKeyDown: (key: string) => void,
-}
-
-export interface RendererInterface {
-    renderGameFrame: (rendering_context: RenderingContext, canvas: HTMLCanvasElement) => void,
-}
-
-export interface ResourceLoaderInterface {
-    getAssetsCount: () => Promise<number>,
-    load: (loading_state: LoadingState) => Promise<void>,
-}
+import { SceneManager } from './SceneManager';
+import { LoadingStateInteface } from './loading/Scene';
 
 export interface SceneInterface {
-    renderer: RendererInterface,
-    controller: ControllerInterface,
-    loader: ResourceLoaderInterface,
+    tick: () => void,
+
+    getAssetsCount: () => Promise<number>,
+    load: (state: LoadingStateInteface) => Promise<void>,
+
+    initialize: (scene_manager: SceneManager, stage: Stage) => void,
+
+    handleKeyDown: (key: string) => void,
 }
