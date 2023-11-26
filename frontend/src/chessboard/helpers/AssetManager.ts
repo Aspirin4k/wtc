@@ -85,7 +85,7 @@ class AssetManager {
         this.initiateSession(session_id, Object.keys(urls).length);
 
         Object.keys(urls).forEach((font_name) => {
-            const font = new FontFace(font_name, `url(${urls[font_name]})`);
+            const font = new FontFace(font_name, `url(${getStaticURL(urls[font_name])})`);
 
             font.load().then(() => {
                 this.assets_load_sessions[session_id].current_assets_loaded++;
