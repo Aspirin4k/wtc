@@ -5,25 +5,30 @@ import { ExactPosition, Size } from './Interfaces';
 export type ElementOptions = {
   position?: ExactPosition,
   size?: Size,
+  transparency?: number,
 };
 
 export abstract class Element {
   protected renderObject: DisplayObject;
 
   protected position: ExactPosition | null = null;
-  protected original_position: ExactPosition | null = null;
   protected size: Size;
+  protected transparency: number | null = null;
 
   protected constructor(options: ElementOptions) {
     if (options.position) {
       this.position = {
         ...options.position
       };
-      this.original_position = {
-        ...options.position
-      };
     }
     this.size = options.size;
+    this.transparency = options.transparency || null;
+  }
+
+  protected initCommon(): void {
+    if (this.transparency !== null) {
+      this.renderObject.alpha = this.transparency
+    }
   }
 
   public addToStage(stage: CreateJSContainer, position: ExactPosition = null): void
@@ -32,21 +37,15 @@ export abstract class Element {
     this.renderObject.x = position.x;
     this.renderObject.y = position.y;
 
-    console.log(position);
-
     stage.addChild(this.renderObject);
   }
 
-  hasPosition(): boolean {
+  public hasPosition(): boolean {
     return !!this.position;
   }
 
-  getPosition(): ExactPosition {
+  public getPosition(): ExactPosition {
     return this.position || {x: 0, y: 0};
-  }
-
-  getOriginalPosition(): ExactPosition {
-    return this.original_position || {x: 0, y: 0};
   }
 
   public getSize(): Size {
@@ -56,5 +55,9 @@ export abstract class Element {
       width: boundaries?.width,
       height: boundaries?.height,
     }
+  }
+
+  public getCreateJSObject(): DisplayObject {
+    return this.renderObject;
   }
 }

@@ -18,6 +18,7 @@ export class AssetLoader {
     public createLoaderPromise(
         resources_images: Resources, 
         resources_audio: Resources, 
+        resources_fonts: Resources,
         loading_state: LoadingStateInteface = null
     ): Promise<void> {
         return new Promise((resolve) => {
@@ -37,7 +38,12 @@ export class AssetLoader {
                 loading_state && (() => loading_state.increment())
             );
 
-            this.asset_manager.onLoad(resolve, images_session_id, sounds_session_id);
+            const fonts_session_id = this.asset_manager.loadFont(
+                resources_fonts,
+                loading_state && (() => loading_state.increment())
+            )
+
+            this.asset_manager.onLoad(resolve, images_session_id, sounds_session_id, fonts_session_id);
         });
     }
 };

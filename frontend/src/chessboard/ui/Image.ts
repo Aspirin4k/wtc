@@ -22,8 +22,16 @@ export class Image extends Container {
             }
         }
 
+        if (options.backgroundOver) {
+            options.on_rollover = () => this.initImage(asset_manager.getImage(options.backgroundOver), options.position);
+            options.on_rollout = () => this.initImage(asset_manager.getImage(options.background), options.position);
+        }
+
         super(
-            {...options, background: null}, 
+            {
+                ...options, 
+                background: null
+            }, 
             children
         );
 
@@ -39,14 +47,19 @@ export class Image extends Container {
             this.renderObject.getBounds()?.height
         );
         
+        bitmap.name = 'image_background';
         if (position) {
-            bitmap.x = position.x;
-            bitmap.y = position.y;
+            bitmap.x = position.x / background.width;
+            bitmap.y = position.y / background.height;
         }
 
-        this.renderObject.children = [
-            bitmap, 
-            ...this.renderObject.children
-        ];
+        if (this.renderObject.children[0] && this.renderObject.children[0].name === 'image_background') {
+            this.renderObject.children[0] = bitmap;
+        } else {
+            this.renderObject.children = [
+                bitmap, 
+                ...this.renderObject.children
+            ];
+        }
     }
 }

@@ -1,115 +1,58 @@
-import { Text, Container as CreateJSContainer } from 'createjs-module';
+import { Text, Container as CreateJSContainer, Shadow } from 'createjs-module';
 
 import { Element } from './Element';
-import { RenderingContext } from '../helpers/RenderingContext';
-import { calculateRows, TextTokenInterface } from '../helpers/StringRowsCalculator';
 
 import type { ElementOptions } from './Element';
-import { ExactPosition } from './Interfaces';
+import { ExactPosition, Size } from './Interfaces';
 
 type LabelOptions = ElementOptions & {
   text: string,
+  font?: string,
+  color?: string,
+  fontSize?: number,
+  shadow?: {
+    color: string
+  },
   align_horizontal?: 'center' | 'left',
   align_vertical?: 'middle' | 'top',
 }
 
 export class Label extends Element {
-  protected renderObject: Text;
-  private readonly font_size = 20;
-  private readonly options: LabelOptions;
+  private readonly DEFAULT_FONT = 'Arial';
+  private readonly DEFAULT_FONT_SIZE = 20;
+  private readonly DEFAULT_COLOR = 'black';
 
-  private tokens: TextTokenInterface[] = [];
-  private line_height: number;
+  protected renderObject: Text;
+  private readonly options: LabelOptions;
 
   constructor(options: LabelOptions) {
     super(options)
     
+    this.options = options;
     this.renderObject = new Text(
       options.text,
-      '20px Arial'
+      `${options.fontSize || this.DEFAULT_FONT_SIZE}px ${options.font || this.DEFAULT_FONT}`
     );
+
+    this.renderObject.color = options.color || this.DEFAULT_COLOR;
     this.renderObject.name = 'Label';
+
+    if (options.shadow) {
+      const shadow = new Shadow(options.shadow.color, 0, 0, 5);
+      this.renderObject.shadow = shadow;
+    }
+  }
+  
+  public getSize(): Size {
+      return {
+        width: this.renderObject.getMeasuredWidth(),
+        height: this.renderObject.getMeasuredHeight()
+      }
   }
 
-  public addToStage(stage: CreateJSContainer, position: ExactPosition = {x: 0, y: 0}): void {
-    if (!this.options?.size?.width) {
-      this.renderObject.lineWidth = stage.getBounds()?.width;
-    }
+  public addToStage(stage: CreateJSContainer, position: ExactPosition = null): void {
+    this.renderObject.lineWidth = !this.options?.size?.width ? stage.getBounds()?.width : this.options.size.width;
 
     super.addToStage(stage, position);
   }
-
-  // protected renderElement(context: RenderingContext): void {
-  //   this.tokens.forEach((token) => {
-  //     context.text({
-  //       x: this.getPosition().x + token.offset.x,
-  //       y: this.getPosition().y + token.offset.y
-  //     }, token.text, token.color, this.font_size)
-  //   })
-  // }
-
-  // private init(context: CanvasRenderingContext2D): void {
-  //   this.line_height = context.measureText('M').width;
-  //   this.tokens = calculateRows(
-  //     context,
-  //     {
-  //       text: this.options.text,
-  //       color: {
-  //         default: 'white'
-  //       },
-  //       size: {
-  //         width: this.size.width - 20,
-  //         font: this.font_size
-  //       }
-  //     }
-  //   )
-
-  //   let max_width = 0;
-  //   const rows_widths = this.tokens.reduce((result, token) => {
-  //     if (!result[token.line_num]) {
-  //       result[token.line_num] = token.width;
-  //     } else {
-  //       result[token.line_num] += token.width;
-  //     }
-
-  //     if (result[token.line_num] > max_width) {
-  //       max_width = result[token.line_num];
-  //     }
-
-  //     return result;
-  //   }, {})
-
-  //   // TODO: хз как это работает, оч сложно
-  //   const text_height = this.font_size * Object.keys(rows_widths).length
-  //    + Object.keys(rows_widths).length * this.line_height / 2;
-
-  //   this.size = {
-  //     width: max_width,
-  //     height: text_height,
-  //   }
-  //   this.initAlignment(rows_widths, text_height);
-  // }
-
-  // private initAlignment(rows_widths: {[line_num: string]: number}, text_height: number): void {
-  //   this.tokens.forEach((token) => {
-  //     switch (this.options.align_horizontal) {
-  //       case 'left':
-  //         break;
-  //       case 'center':
-  //       default:
-  //         token.offset.x = (this.size.width - rows_widths[token.line_num]) / 2 + token.offset.x;
-  //         break;
-  //     }
-
-  //     switch (this.options.align_vertical) {
-  //       case 'top':
-  //         token.offset.y = this.font_size + token.offset.y;
-  //         break;
-  //       case 'middle':
-  //       default:
-  //         token.offset.y = this.font_size + (this.size.height - text_height) / 2 + token.offset.y;
-  //         break;
-  //     }
-  //   })
-  // }
 }

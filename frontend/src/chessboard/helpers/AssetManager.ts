@@ -1,6 +1,5 @@
 import {getStaticURL} from "../../utils/static";
 import {LoggerFactory} from "../../logger/LoggerFactory";
-import {act} from "react-dom/test-utils";
 
 interface Listener {
     callback: () => void,
@@ -12,9 +11,6 @@ class AssetManager {
     private audio: {[key: string]: HTMLAudioElement} = {};
     private event_listeners: Listener[] = [];
 
-    private total_assets_to_load: number = 0;
-    private current_assets_loaded: number = 0;
-
     private assets_load_sessions = {};
 
     public loadImages(urls: { [short_name: string]: string }, onSingleLoad?: () => void): number {
@@ -22,6 +18,15 @@ class AssetManager {
         this.initiateSession(session_id, Object.keys(urls).length);
 
         Object.keys(urls).forEach((short_name) => {
+            if (this.images[short_name]) {
+                this.assets_load_sessions[session_id].current_assets_loaded++;
+                onSingleLoad && onSingleLoad();
+                if (this.isSessionCompleted(session_id)) {
+                    this.notifyListeners(session_id);
+                }
+                return;
+            }
+
             const image = new Image();
 
             image.onload = () => {
@@ -49,6 +54,15 @@ class AssetManager {
         this.initiateSession(session_id, Object.keys(urls).length);
 
         Object.keys(urls).forEach((short_name) => {
+            if (this.audio[short_name]) {
+                this.assets_load_sessions[session_id].current_assets_loaded++;
+                onSingleLoad && onSingleLoad();
+                if (this.isSessionCompleted(session_id)) {
+                    this.notifyListeners(session_id);
+                }
+                return;
+            }
+
             const audio = new Audio(getStaticURL(urls[short_name]));
 
             audio.addEventListener('canplaythrough', () => {
@@ -61,6 +75,27 @@ class AssetManager {
 
             audio.loop = true;
             this.audio[short_name] = audio;
+        })
+
+        return session_id;
+    }
+
+    public loadFont(urls: { [font_name: string]: string }, onSingleLoad?: () => void): number {
+        const session_id = this.generateSessionID();
+        this.initiateSession(session_id, Object.keys(urls).length);
+
+        Object.keys(urls).forEach((font_name) => {
+            const font = new FontFace(font_name, `url(${urls[font_name]})`);
+
+            font.load().then(() => {
+                this.assets_load_sessions[session_id].current_assets_loaded++;
+                onSingleLoad && onSingleLoad();
+                if (this.isSessionCompleted(session_id)) {
+                    this.notifyListeners(session_id);
+                }
+                // @ts-ignore
+                document.fonts.add(font);
+            })
         })
 
         return session_id;

@@ -1,6 +1,5 @@
 import {Character, Proceeding, ScreenState} from "./ScreenStateInterface";
 
-import twilight from "../../classic/twilight/5-6_twilight.json";
 import {AssetManager} from "../../helpers/AssetManager";
 
 const CLASSIC_SPRITE_LEFT_X = -75;
@@ -24,7 +23,7 @@ class State {
 
     private listeners: (() => void)[] = [];
 
-    public constructor(asset_manager: AssetManager) {
+    public constructor(asset_manager: AssetManager, twilight: any) {
         this.asset_manager = asset_manager;
 
         this.screen_state = twilight.scene;
@@ -60,12 +59,13 @@ class State {
         // this.asset_manager.getAudio('a_rain').play();
         // this.asset_manager.getAudio('bgm_gc-28').play();
         if (this.proceeding_current_num >= this.proceedings.length) {
-            return;
+            return false;
         }
 
         const proceeding = this.proceedings[this.proceeding_current_num];
         this.revert_proceedings.push(this.proceed(proceeding));
         this.proceeding_current_num++;
+        return true;
     }
 
     /**

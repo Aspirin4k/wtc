@@ -30,12 +30,12 @@ export class SceneManager {
     // TODO: подумоть как конфигурировать флоу
     private readonly SCENE_FLOW = {
         [SCENE_DISCLAIMER]: SCENE_PURPLE_GAME,
+        [SCENE_NOVEL]: SCENE_PURPLE_GAME,
     }
 
     private readonly asset_manager: AssetManager;
     private readonly asset_resolver: AssetResolver;
     private readonly asset_loader: AssetLoader;
-    private canvas: HTMLCanvasElement;
     private stage: Stage;
 
     private current_scene: SceneInterface = null;
@@ -95,8 +95,11 @@ export class SceneManager {
         }
     }
 
-    private changeScene(scene_id: string): void {
+    public changeScene(scene_id: string, args: any = null): void {
         const scene = this.getScene(scene_id);
+        if (args) {
+            scene.preInitialize(args);
+        }
         
         const loadingScene = (this.getScene(SCENE_LOADING) as LoadingScene);
         this.renderScene(loadingScene, SCENE_LOADING);

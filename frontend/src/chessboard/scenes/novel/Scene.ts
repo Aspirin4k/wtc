@@ -4,7 +4,6 @@ import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
 import { AssetManager } from "../../helpers/AssetManager";
 import { State } from "./State";
-import twilight from "../../classic/twilight/5-6_twilight.json";
 import { AssetLoader } from "../../helpers/AssetLoader";
 import { Character } from "./ScreenStateInterface";
 import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET } from "./text/Constants";
@@ -26,42 +25,50 @@ export class Scene implements SceneInterface {
     private readonly asset_manager: AssetManager;
     private readonly asset_loader: AssetLoader;
 
-    private readonly game_state: State;
+    private game_state: State;
+    private twilight: any;
     private readonly text_render_calculator: RenderTokenCalculator;
 
     private stage: Stage;
+    private scene_manager: SceneManager;
 
     constructor(asset_manager: AssetManager, asset_loader: AssetLoader) {
         this.asset_manager = asset_manager;
         this.asset_loader = asset_loader;
 
-        this.game_state = new State(asset_manager);
         this.text_render_calculator = new RenderTokenCalculator();
 
         this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+
+    public preInitialize(args: any): void {
+        this.twilight = args;
+        this.game_state = new State(this.asset_manager, this.twilight);
     }
 
     public tick(): void {
     }
 
     public async getAssetsCount(): Promise<number> {
-        return Object.keys(twilight.resources.audio).length
-            + Object.keys(twilight.resources.images).length;
+        return Object.keys(this.twilight.resources.audio).length
+            + Object.keys(this.twilight.resources.images).length;
     }
 
     public async load(loadingState: LoadingStateInteface): Promise<void> {
         await this.asset_loader.createLoaderPromise(
-            twilight.resources.images,
-            twilight.resources.audio,
+            this.twilight.resources.images,
+            this.twilight.resources.audio,
+            {},
             loadingState
         );
     }
 
     public initialize(scene_manager: SceneManager, stage: Stage): void {
         this.stage = stage;
+        this.scene_manager = scene_manager;
 
         stage.on('click', () => {
-            this.game_state.proceedNovel();
+            this.proceedNovel();
             this.renderState();
         })
 
@@ -72,13 +79,19 @@ export class Scene implements SceneInterface {
         switch (key) {
             case KEY_ENTER:
             case KEY_ARROW_RIGHT:
-                this.game_state.proceedNovel();
+                this.proceedNovel();
                 this.renderState();
                 break;
             case KEY_ARROW_LEFT:
                 this.game_state.revertNovel();
                 this.renderState();
                 break;
+        }
+    }
+
+    private proceedNovel(): void {
+        if (!this.game_state.proceedNovel()) {
+            this.scene_manager.nextScene();
         }
     }
 

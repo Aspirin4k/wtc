@@ -25,6 +25,9 @@ export class Scene implements SceneInterface, LoadingStateInteface {
     public tick(): void {
     }
 
+    public preInitialize(args: any): void {
+    }
+
     public async getAssetsCount(): Promise<number> {
         return 0;
     }

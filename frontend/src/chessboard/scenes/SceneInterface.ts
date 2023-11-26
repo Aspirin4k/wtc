@@ -9,6 +9,7 @@ export interface SceneInterface {
     getAssetsCount: () => Promise<number>,
     load: (state: LoadingStateInteface) => Promise<void>,
 
+    preInitialize: (args: any) => void,
     initialize: (scene_manager: SceneManager, stage: Stage) => void,
 
     handleKeyDown: (key: string) => void,

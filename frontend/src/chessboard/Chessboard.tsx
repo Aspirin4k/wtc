@@ -1,4 +1,4 @@
-import React, {Component, RefObject} from "react";
+import React, {Component, Fragment, RefObject} from "react";
 import { Stage } from 'createjs-module';
 
 import {CLASSIC_SCREEN_HEIGHT, CLASSIC_SCREEN_WIDTH} from "./scenes/novel/Scene";
@@ -28,6 +28,8 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
 
     componentDidMount() {
         this.stage = new Stage('canvas');
+        this.stage.enableMouseOver(30);
+
         this.scene_manager.register(this.stage);
     }
 
@@ -42,16 +44,18 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
     }
 
     render() {
-        return <canvas
-            id='canvas'
-            style={{
-                width: CLASSIC_SCREEN_WIDTH,
-                height: CLASSIC_SCREEN_HEIGHT
-            }}
-            ref={this.canvas}
-            height={CLASSIC_SCREEN_HEIGHT}
-            width={CLASSIC_SCREEN_WIDTH}
-        />;
+        return <Fragment>
+            <canvas
+                id='canvas'
+                style={{
+                    width: CLASSIC_SCREEN_WIDTH,
+                    height: CLASSIC_SCREEN_HEIGHT
+                }}
+                ref={this.canvas}
+                height={CLASSIC_SCREEN_HEIGHT}
+                width={CLASSIC_SCREEN_WIDTH}
+            />
+        </Fragment>;
     }
 }
 

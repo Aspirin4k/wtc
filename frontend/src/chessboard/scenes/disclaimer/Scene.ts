@@ -9,6 +9,9 @@ export class Scene implements SceneInterface {
     public tick(): void {
     }
 
+    public preInitialize(args: any): void {
+    }
+
     public async getAssetsCount(): Promise<number> {
         return 0;
     }

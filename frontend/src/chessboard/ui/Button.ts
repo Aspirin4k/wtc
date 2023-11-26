@@ -4,7 +4,6 @@ import { Label } from './Label';
 
 type ButtonOptions = ContainerOptions & {
   text: string,
-  on_click: () => void,
 }
 
 export class Button extends Container {
@@ -23,12 +22,5 @@ export class Button extends Container {
         })
       ]
     );
-
-    if (options.on_click) {
-      const hitArea = new Shape();
-      hitArea.graphics.beginFill('#000').drawRect(0, 0, this.getSize().width, this.getSize().height);
-      this.renderObject.hitArea = hitArea;
-      this.renderObject.on('click', options.on_click);
-    }
   }
 }

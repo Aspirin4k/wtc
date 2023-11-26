@@ -13,7 +13,13 @@ type AutoPosition = {
 export type ContainerOptions = ElementOptions & {
   alignChildren?: AutoPosition,
   background?: string,
+  backgroundOver?: string,
   padding?: number,
+  childrenSpacing?: number,
+
+  on_click?: () => void,
+  on_rollover?: () => void,
+  on_rollout?: () => void,
 }
 
 export class Container extends Element {
@@ -35,11 +41,23 @@ export class Container extends Element {
       this.initSize(options.size, options.padding || 0);
     }
 
-    this.initChildren(children, options.alignChildren, options.padding || 0);
+    this.initChildren(children, options.alignChildren, options.padding || 0, options.childrenSpacing);
 
     if (options.background) {
       this.initBackground(options.background);
     }
+
+    if (options.on_click || options.on_rollout || options.on_rollover) {
+      const hitArea = new Shape();
+      hitArea.graphics.beginFill('#000').drawRect(0, 0, this.getSize().width, this.getSize().height);
+      this.renderObject.hitArea = hitArea;
+    }
+
+    options.on_click && this.renderObject.on('click', options.on_click);
+    options.on_rollout && this.renderObject.on('rollout', options.on_rollout);
+    options.on_rollover && this.renderObject.on('rollover', options.on_rollover);
+
+    this.initCommon();
   }
 
   private initPosition(position: ExactPosition): void {
@@ -76,9 +94,15 @@ export class Container extends Element {
     }
   }
 
-  private initChildren(children: Element[], alignChildren: AutoPosition | null, padding: number): void {
+  private initChildren(
+    children: Element[], 
+    alignChildren: AutoPosition | null,
+    padding: number,
+    childrenSpacing: number | null
+  ): void {
+    childrenSpacing = null == childrenSpacing ? this.ELEMENTS_PADDING : childrenSpacing;
     const childrenHeight = children.reduce((acc, child) => acc + child.getSize().height, 0)
-      + this.ELEMENTS_PADDING * (children.length - 1);
+      + childrenSpacing * (children.length - 1);
 
     let offset = 0;
     children
@@ -96,7 +120,7 @@ export class Container extends Element {
           : 0;
 
         child.addToStage(this.renderObject, {x: childOffsetX + padding, y: childOffsetY + offset + padding});
-        offset += child.getSize().height + this.ELEMENTS_PADDING;
+        offset += child.getSize().height + childrenSpacing;
       });
 
     children.filter((child) => child.hasPosition()).forEach((child) => child.addToStage(this.renderObject));
