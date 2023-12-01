@@ -11,7 +11,10 @@ type LabelOptions = ElementOptions & {
   color?: string,
   fontSize?: number,
   shadow?: {
-    color: string
+    color: string,
+    x?: number,
+    y?: number,
+    blur?: number,
   },
   align_horizontal?: 'center' | 'left',
   align_vertical?: 'middle' | 'top',
@@ -38,7 +41,8 @@ export class Label extends Element {
     this.renderObject.name = 'Label';
 
     if (options.shadow) {
-      const shadow = new Shadow(options.shadow.color, 0, 0, 5);
+      const shadowOptions = options.shadow;
+      const shadow = new Shadow(shadowOptions.color, shadowOptions.x || 0, shadowOptions.y || 0, shadowOptions.blur || 5);
       this.renderObject.shadow = shadow;
     }
   }

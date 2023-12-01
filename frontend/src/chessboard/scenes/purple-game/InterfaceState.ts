@@ -11,6 +11,8 @@ import twilight4 from "../../classic/twilight/4_twilight.json";
 import twilight56 from "../../classic/twilight/5-6_twilight.json";
 import twilight7 from "../../classic/twilight/7_twilight.json";
 import twilight8 from "../../classic/twilight/8_twilight.json";
+import { CulpritBoard } from "./CulpritBoard";
+import { buildCulprit } from "./CulpritBuilder";
 
 export class InterfaceState {
     private readonly currentState: DisplayObject[] = []
@@ -21,12 +23,42 @@ export class InterfaceState {
     private readonly screenWidth: number;
     private readonly screenHeight: number;
 
+    private readonly culpritBoard: CulpritBoard;
+
     constructor(asset_manager: AssetManager, sceneManager: SceneManager, screenWidth: number, screenHeight: number) {
         this.asset_manager = asset_manager;
         this.scene_manager = sceneManager;
 
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+
+        const battler = buildCulprit('battler', '#a11e46', {left: true});
+        const eva = buildCulprit('eva', '#a11e46', {top: true});
+        const genji = buildCulprit('genji', '#2c1378');
+        const george = buildCulprit('george', '#a11e46', {left: true});
+        const gohda = buildCulprit('gohda', '#2c1378', {left: true});
+        const hideyoshi = buildCulprit('hideyoshi', '#a11e46', {left: true});
+        const jessica = buildCulprit('jessica', '#a11e46', {left: true});
+        const kanon = buildCulprit('kanon', '#2c1378', {left: true});
+        const krauss = buildCulprit('krauss');
+        const kumasawa = buildCulprit('kumasawa', '#2c1378', {left: true});
+        const kyrie = buildCulprit('kyrie', '#a11e46', {left: true});
+        const maria = buildCulprit('maria', '#a11e46', {left: true});
+        const nanjo = buildCulprit('nanjo');
+        const natsuhi = buildCulprit('natsuhi', '#a11e46', {left: true});
+        const rosa = buildCulprit('rosa', '#a11e46', {right: true, top: true});
+        const rudolf = buildCulprit('rudolf', '#a11e46', {top: true});
+        const shannon = buildCulprit('shannon', '#2c1378', {top: true});
+        this.culpritBoard = new CulpritBoard(
+            asset_manager,
+            [
+                [null, krauss, natsuhi, jessica],
+                [nanjo, eva, hideyoshi, george],
+                [null, rudolf, kyrie, battler],
+                [genji, rosa, null, maria],
+                [shannon, kanon, gohda, kumasawa],
+            ]
+        );
 
         this.currentState = [
             this.renderBackground(),
@@ -53,14 +85,20 @@ export class InterfaceState {
         this.currentState.push(this.renderRules());
     }
 
+    private openCulpritSelect(): void {
+        this.currentState.splice(0, this.currentState.length);
+        this.currentState.push(this.renderBackground('b_different_space_1a'));
+        this.currentState.push(this.renderBattler());
+        this.currentState.push(this.renderSelectCulprit());
+    }
 
-    private renderBackground(): DisplayObject {
+    private renderBackground(background = 'b_different_space_2d'): DisplayObject {
         return new Image(
             this.asset_manager,
             {
                 position: {x: 0, y: 0},
                 size: {width: this.screenWidth, height: this.screenHeight},
-                background: 'b_different_space_2d',
+                background,
             }
         )
             .getCreateJSObject()
@@ -187,6 +225,7 @@ export class InterfaceState {
                             {
                                 background: 'ui_button',
                                 backgroundOver: 'ui_button_selected',
+                                on_click: () => this.openCulpritSelect(),
                             },
                             [
                                 new Label(
@@ -435,6 +474,104 @@ export class InterfaceState {
                             size: {
                                 width: 360
                             }
+                        })
+                    ]
+                )
+            ]
+        )
+            .getCreateJSObject()
+    }
+
+    private renderBattler(): DisplayObject {
+        return new Image(
+            this.asset_manager,
+            {
+                position: {x: -50, y: 0},
+                background: 'battler',
+            }
+        )
+            .getCreateJSObject();
+    }
+
+    private renderSelectCulprit(): DisplayObject {
+        return new Container(
+            {
+                position: {x: 420, y: 65}
+            },
+            [
+                new Image(
+                    this.asset_manager,
+                    {
+                        position: {x: 0, y: 0},
+                        background: 'ui_label_select_culprit',
+                        alignChildren: {horizontal: 'center', vertical: 'middle'}
+                    },
+                    [
+                        new Label({
+                            text: 'Select the culprit',
+                            font: 'ITC Bookman Light',
+                            color: 'white',
+                            fontSize: 17,
+                            shadow: {
+                                color: 'white',
+                                y: 1,
+                                x: 1,
+                                blur: 3
+                            }
+                        })
+                    ]
+                ),
+                this.culpritBoard.render({x: 0, y: 35}),
+                new Image(
+                    this.asset_manager,
+                    {
+                        position: {x: 0, y: 262},
+                        background: 'ui_button_culprit',
+                        backgroundOver: 'ui_button_culprit_selected',
+                        on_click: () => this.openChaptersMenu(),
+                        alignChildren: {
+                            horizontal: 'center'
+                        },
+                    },
+                    [
+                        new Label({
+                            text: 'Return to main menu',
+                            font: 'ITC Bookman Light',
+                            color: 'white',
+                            fontSize: 14,
+                            shadow: {
+                                color: 'black',
+                                y: 2,
+                                x: -2,
+                                blur: 2
+                            },
+                            position: {y: 12}
+                        })
+                    ]
+                ),
+                new Image(
+                    this.asset_manager,
+                    {
+                        position: {x: 0, y: 294},
+                        background: 'ui_button_culprit',
+                        backgroundOver: 'ui_button_culprit_selected',
+                        alignChildren: {
+                            horizontal: 'center'
+                        },
+                    },
+                    [
+                        new Label({
+                            text: 'Confirm',
+                            font: 'ITC Bookman Light',
+                            color: 'white',
+                            fontSize: 14,
+                            shadow: {
+                                color: 'black',
+                                y: 2,
+                                x: -2,
+                                blur: 2
+                            },
+                            position: {y: 12}
                         })
                     ]
                 )

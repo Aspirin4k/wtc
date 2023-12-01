@@ -6,8 +6,8 @@ import { Element } from './Element';
 import type { ElementOptions } from './Element';
 
 type AutoPosition = {
-  horizontal: 'left' | 'center',
-  vertical: 'top' | 'middle',
+  horizontal?: 'left' | 'center',
+  vertical?: 'top' | 'middle',
 }
 
 export type ContainerOptions = ElementOptions & {
@@ -108,18 +108,26 @@ export class Container extends Element {
     children
       .filter((child) => !child.hasPosition())
       .forEach((child) => {
-        const childOffsetX = Math.max(
-          alignChildren?.horizontal === 'center'
-            ? (this.getSize().width - child.getSize().width) / 2
-            : 0,
-          0
-        );
+        const childOffsetX = !child.getPosition()?.x 
+          ? alignChildren?.horizontal
+            ? Math.max(
+                alignChildren?.horizontal === 'center'
+                  ? (this.getSize().width - child.getSize().width) / 2
+                  : 0,
+                0
+              ) + padding
+            : 0
+          : null;
 
-        const childOffsetY = alignChildren?.vertical === 'middle'
-          ? (this.getSize().height - childrenHeight) / 2
-          : 0;
+        const childOffsetY = !child.getPosition()?.y 
+          ? alignChildren?.vertical
+            ? (alignChildren?.vertical === 'middle'
+              ? (this.getSize().height - childrenHeight) / 2
+              : 0) + offset + padding
+            : 0
+          : null;
 
-        child.addToStage(this.renderObject, {x: childOffsetX + padding, y: childOffsetY + offset + padding});
+        child.addToStage(this.renderObject, {x: childOffsetX, y: childOffsetY});
         offset += child.getSize().height + childrenSpacing;
       });
 
@@ -139,8 +147,8 @@ export class Container extends Element {
     shape.graphics
       .beginFill(background)
       .drawRect(
-        this.renderObject.x, 
-        this.renderObject.y, 
+        0, 
+        0, 
         this.renderObject.getBounds()?.width, 
         this.renderObject.getBounds()?.height
       )

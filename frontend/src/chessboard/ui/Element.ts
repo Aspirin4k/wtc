@@ -33,19 +33,20 @@ export abstract class Element {
 
   public addToStage(stage: CreateJSContainer, position: ExactPosition = null): void
   {
-    position = position || this.position || {x: 0, y: 0};
-    this.renderObject.x = position.x;
-    this.renderObject.y = position.y;
+    const x = position?.x || this.position?.x || 0;
+    const y = position?.y || this.position?.y || 0;
+    this.renderObject.x = x;
+    this.renderObject.y = y;
 
     stage.addChild(this.renderObject);
   }
 
   public hasPosition(): boolean {
-    return !!this.position;
+    return !!this.position && !!this.position.x && !!this.position.y;
   }
 
   public getPosition(): ExactPosition {
-    return this.position || {x: 0, y: 0};
+    return this.position;
   }
 
   public getSize(): Size {
