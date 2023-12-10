@@ -15,12 +15,25 @@ interface TextTokenInterface {
     offset_y: number;
     offset_x: number;
     line_num: number;
+    line_height: number;
+}
+
+interface TextOptions {
+    font_size?: number,
+    font_family?: string,
+    width?: number
 }
 
 class RenderTokenCalculator {
-    public calculate(text: string): TextTokenInterface[] {
+    public calculate(text: string, options: TextOptions = {}): TextTokenInterface[] {
+        const FONT_SIZE = options.font_size || TEXT_FONT_SIZE;
+        const FONT_FAMILY = options.font_family || TEXT_FONT_FAMILY;
+        const WIDTH = options.width || TEXT_WIDTH;
+
         const createJsText = new Text();
-        createJsText.font = `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`;
+        createJsText.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
+
+        const LINE_HEIGHT = createJsText.getMeasuredLineHeight();
 
         return text
             // Двойной перенос строки считаем за начало нового абзаца
@@ -28,9 +41,10 @@ class RenderTokenCalculator {
             .map((line: string, index: number): TextTokenInterface => ({
                 text: line,
                 color: TEXT_COLOR_DEFAULT,
-                offset_y: index * TEXT_FONT_SIZE,
+                offset_y: index * FONT_SIZE,
                 offset_x: 0,
-                line_num: 0
+                line_num: 0,
+                line_height: LINE_HEIGHT
             }))
             // Учитываем одинарные переносы строки
             .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
@@ -41,14 +55,15 @@ class RenderTokenCalculator {
                         color: TEXT_COLOR_DEFAULT,
                         offset_y: line.offset_y,
                         offset_x: 0,
-                        line_num: 0
+                        line_num: 0,
+                        line_height: LINE_HEIGHT,
                     }))
                 return [...result, ...added_lines];
             }, [])
             // Разбиваем на линии по ширине экрана с учетом цветов
             .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
                 const first_line_num = !!result.length ? result[result.length - 1].line_num + 1 : 0;
-                const added_lines = this.getTextBrokenToLines(createJsText, line).map((line) => ({
+                const added_lines = this.getTextBrokenToLines(createJsText, line, WIDTH, LINE_HEIGHT).map((line) => ({
                     ...line,
                     line_num: line.line_num + first_line_num
                 }));
@@ -59,7 +74,7 @@ class RenderTokenCalculator {
     /**
      * Разбить текст на линии, чтобы влазили в экран
      */
-    private getTextBrokenToLines(createJsText: Text, line: TextTokenInterface): TextTokenInterface[] {
+    private getTextBrokenToLines(createJsText: Text, line: TextTokenInterface, width: number, line_height: number): TextTokenInterface[] {
         const result_lines = [];
         let colored_sublines = line.text
             .split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/)
@@ -95,7 +110,7 @@ class RenderTokenCalculator {
             // новое слово из этой линии в оставшееся пространство не помещается
             // Решение: перенос на новую строку
             createJsText.text = words[0];
-            if (offset_x_current + createJsText.getMeasuredWidth() > TEXT_WIDTH) {
+            if (offset_x_current + createJsText.getMeasuredWidth() > width) {
                 line_num_current++;
                 offset_x_current = 0;
             }
@@ -111,20 +126,21 @@ class RenderTokenCalculator {
 
             words.forEach((word: string) => {
                 createJsText.text = line_prefix + word;
-                if (createJsText.getMeasuredWidth() > TEXT_WIDTH) {
+                if (createJsText.getMeasuredWidth() > width) {
                     // TODO: слово не влазит в строку (Нахера такое слово?)
                     // может потребоваться для японского, в котором нет пробелов (Нахера на сайте японский?)
                     return;
                 }
                 
                 createJsText.text = line_prefix + [...result_words, word].join(' ');
-                if (offset_x_current + createJsText.getMeasuredWidth() > TEXT_WIDTH) {
+                if (offset_x_current + createJsText.getMeasuredWidth() > width) {
                     result_lines.push({
                         text: line_prefix + result_words.join(' '),
                         color: text_color,
                         offset_y: line.offset_y,
                         offset_x: offset_x_current,
-                        line_num: line_num_current
+                        line_num: line_num_current,
+                        line_height,
                     });
                     result_words = [word]
                     offset_x_current = 0;
@@ -141,7 +157,8 @@ class RenderTokenCalculator {
                     color: text_color,
                     offset_y: line.offset_y,
                     offset_x: offset_x_current,
-                    line_num: line_num_current
+                    line_num: line_num_current,
+                    line_height,
                 })
 
                 createJsText.text = line_prefix + result_words.join(' ');

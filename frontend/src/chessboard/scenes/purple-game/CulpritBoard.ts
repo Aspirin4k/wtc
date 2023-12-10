@@ -6,7 +6,7 @@ import { Element } from "../../ui/Element";
 import { Image } from "../../ui/Image";
 import { ExactPosition } from "../../ui/Interfaces";
 
-type CulpritPortraits = [
+export type CulpritPortraits = [
     [CulpritPortrait, CulpritPortrait, CulpritPortrait, CulpritPortrait],
     [CulpritPortrait, CulpritPortrait, CulpritPortrait, CulpritPortrait],
     [CulpritPortrait, CulpritPortrait, CulpritPortrait, CulpritPortrait],
@@ -17,7 +17,7 @@ type CulpritPortraits = [
 export type CulpritPortrait = {
     image: {
         default: string,
-        hover: string,
+        hover?: string,
     },
     connections: {
         left?: boolean,
@@ -26,6 +26,7 @@ export type CulpritPortrait = {
         bottom?: boolean
     },
     line_color: string,
+    on_click?: () => void,
 } | null
 
 export class CulpritBoard {
@@ -61,7 +62,8 @@ export class CulpritBoard {
                             {
                                 position: {x: this.getCulpritX(x), y: this.getCulpritY(y)},
                                 background: culprit.image.default,
-                                backgroundOver: culprit.image.hover
+                                backgroundOver: culprit.image.hover,
+                                on_click: culprit.on_click,
                             }
                         ));
                     })

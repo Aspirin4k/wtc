@@ -39,6 +39,7 @@ export class Label extends Element {
 
     this.renderObject.color = options.color || this.DEFAULT_COLOR;
     this.renderObject.name = 'Label';
+    this.renderObject.textAlign = options.align_horizontal || 'left';
 
     if (options.shadow) {
       const shadowOptions = options.shadow;

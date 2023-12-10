@@ -17,8 +17,6 @@ export class Button extends Container {
         new Label({
           size: options.size,
           text: options.text,
-          align_horizontal: 'center',
-          align_vertical: 'middle'
         })
       ]
     );
