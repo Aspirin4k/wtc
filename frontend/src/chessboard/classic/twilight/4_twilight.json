@@ -1,6 +1,7 @@
 {
   "name": "Fourth twilight",
   "mode": "classic",
+  "deaths": ["kanon", "shannon"],
   "resources": {
     "images": {
       "t_dai_4": "/twilight/dai_4.png",

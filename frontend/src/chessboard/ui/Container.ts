@@ -16,10 +16,11 @@ export type ContainerOptions = ElementOptions & {
   backgroundOver?: string,
   padding?: number,
   childrenSpacing?: number,
+  childrenDirection?: 'column' | 'row',
 
-  on_click?: () => void,
-  on_rollover?: () => void,
-  on_rollout?: () => void,
+  on_click?: (self: Container) => void,
+  on_rollover?: (self: Container) => void,
+  on_rollout?: (self: Container) => void,
 }
 
 export class Container extends Element {
@@ -27,8 +28,12 @@ export class Container extends Element {
 
   protected readonly renderObject: CreateJSContainer;
 
+  private readonly children: Element[];
+
   constructor(options: ContainerOptions, children: Element[] = []) {
     super(options);
+
+    this.children = children;
 
     this.renderObject = new CreateJSContainer();
     this.renderObject.name = 'Container';
@@ -41,7 +46,13 @@ export class Container extends Element {
       this.initSize(options.size, options.padding || 0);
     }
 
-    this.initChildren(children, options.alignChildren, options.padding || 0, options.childrenSpacing);
+    this.initChildren(
+      children, 
+      options.alignChildren, 
+      options.padding || 0, 
+      options.childrenSpacing, 
+      options.childrenDirection || 'column'
+    );
 
     if (options.background) {
       this.initBackground(options.background);
@@ -53,9 +64,9 @@ export class Container extends Element {
       this.renderObject.hitArea = hitArea;
     }
 
-    options.on_click && this.renderObject.on('click', options.on_click);
-    options.on_rollout && this.renderObject.on('rollout', options.on_rollout);
-    options.on_rollover && this.renderObject.on('rollover', options.on_rollover);
+    options.on_click && this.renderObject.on('click', () => options.on_click(this));
+    options.on_rollout && this.renderObject.on('rollout', () => options.on_rollout(this));
+    options.on_rollover && this.renderObject.on('rollover', () => options.on_rollover(this));
 
     this.initCommon();
   }
@@ -98,37 +109,38 @@ export class Container extends Element {
     children: Element[], 
     alignChildren: AutoPosition | null,
     padding: number,
-    childrenSpacing: number | null
+    childrenSpacing: number | null,
+    childrenDirection: 'column' | 'row'
   ): void {
     childrenSpacing = null == childrenSpacing ? this.ELEMENTS_PADDING : childrenSpacing;
     const childrenHeight = children.reduce((acc, child) => acc + child.getSize().height, 0)
+      + childrenSpacing * (children.length - 1);
+    const childrenWidth = children.reduce((acc, child) => acc + child.getSize().width, 0)
       + childrenSpacing * (children.length - 1);
 
     let offset = 0;
     children
       .filter((child) => !child.hasPosition())
       .forEach((child) => {
-        const childOffsetX = !child.getPosition()?.x 
-          ? alignChildren?.horizontal
-            ? Math.max(
-                alignChildren?.horizontal === 'center'
-                  ? (this.getSize().width - child.getSize().width) / 2
-                  : 0,
-                0
-              ) + padding
-            : 0
-          : null;
-
-        const childOffsetY = !child.getPosition()?.y 
-          ? alignChildren?.vertical
-            ? (alignChildren?.vertical === 'middle'
-              ? (this.getSize().height - childrenHeight) / 2
-              : 0) + offset + padding
-            : 0
-          : null;
+        const childOffsetX = this.getChildOffsetX(
+          child,
+          alignChildren,
+          padding,
+          childrenDirection,
+          childrenWidth,
+          offset
+        );
+        const childOffsetY = this.getChildOffsetY(
+          child,
+          alignChildren,
+          padding,
+          childrenDirection,
+          childrenHeight,
+          offset
+        );
 
         child.addToStage(this.renderObject, {x: childOffsetX, y: childOffsetY});
-        offset += child.getSize().height + childrenSpacing;
+        offset += (childrenDirection === 'column' ? child.getSize().height : child.getSize().width) + childrenSpacing;
       });
 
     children.filter((child) => child.hasPosition()).forEach((child) => child.addToStage(this.renderObject));
@@ -139,6 +151,64 @@ export class Container extends Element {
       this.getSize().width + padding,
       this.getSize().height + padding
     );
+  }
+
+  private getChildOffsetX(
+    child: Element, 
+    alignChildren: AutoPosition | null,
+    padding: number,
+    childrenDirection: 'column' | 'row',
+    childrenWidth: number,
+    currentOffset: number
+  ): number {
+    if (child.getPosition()?.x) {
+      return null;
+    }
+
+    if (!alignChildren?.horizontal) {
+      return 0;
+    }
+
+    const isRowDirection = childrenDirection === 'row';
+    let offset = 0;
+    if (alignChildren?.horizontal === 'center') {
+      offset = Math.max((this.getSize().width - (isRowDirection ? childrenWidth : child.getSize().width)) / 2, 0);
+    }
+
+    if (isRowDirection) {
+      offset += currentOffset;
+    }
+
+    return offset + padding;
+  }
+
+  private getChildOffsetY(
+    child: Element, 
+    alignChildren: AutoPosition | null,
+    padding: number,
+    childrenDirection: 'column' | 'row',
+    childrenHeight: number,
+    currentOffset: number
+  ): number {
+    if (child.getPosition()?.y) {
+      return null;
+    }
+
+    if (!alignChildren?.vertical) {
+      return 0;
+    }
+
+    const isColumnDirection = childrenDirection === 'column';
+    let offset = 0;
+    if (alignChildren?.vertical === 'middle') {
+      offset = Math.max((this.getSize().height - (isColumnDirection ? childrenHeight : child.getSize().height)) / 2, 0);
+    }
+
+    if (isColumnDirection) {
+      offset += currentOffset;
+    }
+
+    return offset + padding;
   }
 
   private initBackground(background: string): void {
@@ -154,5 +224,9 @@ export class Container extends Element {
       )
       .endFill();
     this.renderObject.children = [shape, ...this.renderObject.children];
+  }
+
+  public getChildren(): Element[] {
+    return this.children;
   }
 }

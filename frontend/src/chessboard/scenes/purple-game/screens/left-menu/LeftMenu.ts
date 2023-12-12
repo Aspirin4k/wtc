@@ -10,6 +10,7 @@ import { Rules } from "./Rules";
 import { Renderable } from "../../InterfaceState";
 import { PurpleModal } from "./PurpleModal";
 import { PurpleByCharacter } from "./PurpleByCharacter";
+import { PurpleByChapter } from "./PurpleByChapter";
 
 export class LeftMenu {
     private readonly asset_manager: AssetManager;
@@ -151,6 +152,15 @@ export class LeftMenu {
                                         this.backgroundSize,
                                         () => {
                                             this.currentSelection = new PurpleByCharacter(
+                                                this.asset_manager,
+                                                this.backgroundSize,
+                                                this.render.bind(this),
+                                                ...this.twilights
+                                            );
+                                            this.render();
+                                        },
+                                        () => {
+                                            this.currentSelection = new PurpleByChapter(
                                                 this.asset_manager,
                                                 this.backgroundSize,
                                                 this.render.bind(this),

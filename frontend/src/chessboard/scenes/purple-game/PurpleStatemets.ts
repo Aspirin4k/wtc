@@ -15,12 +15,9 @@ export class PurpleStatemets {
                 if (text.character && currentActor !== text.character.toLowerCase()) {
                     if (currentActor !== 'narrator' && currentPhrase.includes('<purple>')) {
                         if (!this.byChapter[twilight.name]) {
-                            this.byChapter[twilight.name] = {};
+                            this.byChapter[twilight.name] = [];
                         }
-                        if (!this.byChapter[twilight.name][currentActor]) {
-                            this.byChapter[twilight.name][currentActor] = [];
-                        }
-                        this.byChapter[twilight.name][currentActor].push(currentPhrase);
+                        this.byChapter[twilight.name].push({actor: currentActor, phrase: currentPhrase});
 
                         if (!this.byCharacter[currentActor]) {
                             this.byCharacter[currentActor] = {};

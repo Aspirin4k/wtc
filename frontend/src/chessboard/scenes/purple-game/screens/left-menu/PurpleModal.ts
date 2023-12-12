@@ -9,11 +9,18 @@ export class PurpleModal implements Renderable {
     private readonly asset_manager: AssetManager;
     private readonly backgroundSize: Size;
     private readonly onByCharacterClick: () => void;
+    private readonly onByChapterClick: () => void;
 
-    constructor(asset_manager: AssetManager, backgroundSize: Size, onByCharacterClick: () => void) {
+    constructor(
+        asset_manager: AssetManager, 
+        backgroundSize: Size, 
+        onByCharacterClick: () => void,
+        onByChapterClick: () => void
+    ) {
         this.asset_manager = asset_manager;
         this.backgroundSize = backgroundSize;
         this.onByCharacterClick = onByCharacterClick;
+        this.onByChapterClick = onByChapterClick;
     }
 
     public render(): DisplayObject[] {
@@ -66,7 +73,8 @@ export class PurpleModal implements Renderable {
                         {
                             position: {x: 28, y: 93},
                             background: 'ui_button_culprit',
-                            backgroundOver: 'ui_button_culprit_selected'
+                            backgroundOver: 'ui_button_culprit_selected',
+                            on_click: this.onByChapterClick,
                         },
                         [
                             new Label({

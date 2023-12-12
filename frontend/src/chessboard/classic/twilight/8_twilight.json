@@ -1,6 +1,7 @@
 {
   "name": "Eighth twilight",
   "mode": "classic",
+  "deaths": ["jessica"],
   "resources": {
     "images": {
       "t_dai_8": "/twilight/dai_8.png",

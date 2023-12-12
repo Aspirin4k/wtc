@@ -27,7 +27,7 @@ export abstract class Element {
 
   protected initCommon(): void {
     if (this.transparency !== null) {
-      this.renderObject.alpha = this.transparency
+      this.setTransparency(this.transparency);
     }
   }
 
@@ -39,6 +39,12 @@ export abstract class Element {
     this.renderObject.y = y;
 
     stage.addChild(this.renderObject);
+  }
+
+  public setTransparency(transparency: number): void
+  {
+    this.transparency = transparency;
+    this.renderObject.alpha = transparency;
   }
 
   public hasPosition(): boolean {
