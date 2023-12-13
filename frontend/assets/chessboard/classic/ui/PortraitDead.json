@@ -1,0 +1,105 @@
+{
+	"meta": {
+		"image": "PortraitDead.png",
+		"size": {"w":248,"h":216},
+		"scale": "1"
+	},
+	"frames": {
+		"PortraitEva.png":
+		{
+			"frame": {"x":0,"y":0,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitEva_selected.png":
+		{
+			"frame": {"x":62,"y":0,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitGenji.png":
+		{
+			"frame": {"x":124,"y":0,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitGenji_selected.png":
+		{
+			"frame": {"x":0,"y":72,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitHideyoshi.png":
+		{
+			"frame": {"x":62,"y":72,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitHideyoshi_selected.png":
+		{
+			"frame": {"x":124,"y":72,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitKyrie.png":
+		{
+			"frame": {"x":186,"y":0,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitKyrie_selected.png":
+		{
+			"frame": {"x":186,"y":72,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRosa.png":
+		{
+			"frame": {"x":0,"y":144,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRosa_selected.png":
+		{
+			"frame": {"x":62,"y":144,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRudolf.png":
+		{
+			"frame": {"x":124,"y":144,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRudolf_selected.png":
+		{
+			"frame": {"x":186,"y":144,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		}
+	}
+}

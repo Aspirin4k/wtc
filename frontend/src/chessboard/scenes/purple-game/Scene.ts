@@ -7,6 +7,13 @@ import { AssetManager } from "../../helpers/AssetManager";
 import { InterfaceState } from "./InterfaceState";
 
 export class Scene implements SceneInterface {
+    private readonly ATLASES = {
+        ui_portrait: '/ui/Portrait.png',
+        ui_portrait_dead: '/ui/PortraitDead.png',
+        ui_victim_portrait: '/ui/PortraitVictim.png',
+        ui_element: '/ui/UI.png',
+    };
+
     private readonly IMAGES = {
         bernkastel: '/character/bernkastel/ber_evil_laugh_a2.png',
         battler: '/character/ushiromia_battler/ub_serious_a3.png',
@@ -28,76 +35,7 @@ export class Scene implements SceneInterface {
 
         ui_menu: '/ui/menu.png',
         ui_chapter_select: '/ui/chapter-select.png',
-        ui_button: '/ui/Button.png',
-        ui_button_selected: '/ui/Button_selected.png',
-        ui_button_wide: '/ui/ButtonWide.png',
-        ui_button_wide_selected: '/ui/ButtonWide_selected.png',
-        ui_button_culprit: '/ui/ButtonCulprit.png',
-        ui_button_culprit_selected: '/ui/ButtonCulprit_selected.png',
         ui_flowers: '/ui/hana_back.png',
-        ui_label_select_culprit: '/ui/LabelSelectCulprit.png',
-        ui_modal: '/ui/Modal.png',
-
-        ui_portrait_battler: '/ui/portrait/PortraitBattler.png',
-        ui_portrait_battler_selected: '/ui/portrait/PortraitBattler_selected.png',
-        ui_portrait_eva: '/ui/portrait/PortraitEva.png',
-        ui_portrait_eva_selected: '/ui/portrait/PortraitEva_selected.png',
-        ui_portrait_eva_dead: '/ui/portrait/PortraitEvaDead.png',
-        ui_portrait_eva_dead_selected: '/ui/portrait/PortraitEvaDead_selected.png',
-        ui_portrait_eva_victim: '/ui/portrait-victim/PortraitVictimEva.png',
-        ui_portrait_genji: '/ui/portrait/PortraitGenji.png',
-        ui_portrait_genji_selected: '/ui/portrait/PortraitGenji_selected.png',
-        ui_portrait_genji_dead: '/ui/portrait/PortraitGenjiDead.png',
-        ui_portrait_genji_dead_selected: '/ui/portrait/PortraitGenjiDead_selected.png',
-        ui_portrait_genji_victim: '/ui/portrait-victim/PortraitVictimGenji.png',
-        ui_portrait_george: '/ui/portrait/PortraitGeorge.png',
-        ui_portrait_george_selected: '/ui/portrait/PortraitGeorge_selected.png',
-        ui_portrait_gohda: '/ui/portrait/PortraitGohda.png',
-        ui_portrait_gohda_selected: '/ui/portrait/PortraitGohda_selected.png',
-        ui_portrait_gohda_victim: '/ui/portrait-victim/PortraitVictimGohda.png',
-        ui_portrait_hideyoshi: '/ui/portrait/PortraitHideyoshi.png',
-        ui_portrait_hideyoshi_selected: '/ui/portrait/PortraitHideyoshi_selected.png',
-        ui_portrait_hideyoshi_dead: '/ui/portrait/PortraitHideyoshiDead.png',
-        ui_portrait_hideyoshi_dead_selected: '/ui/portrait/PortraitHideyoshiDead_selected.png',
-        ui_portrait_hideyoshi_victim: '/ui/portrait-victim/PortraitVictimHideyoshi.png',
-        ui_portrait_jessica: '/ui/portrait/PortraitJessica.png',
-        ui_portrait_jessica_selected: '/ui/portrait/PortraitJessica_selected.png',
-        ui_portrait_jessica_victim: '/ui/portrait-victim/PortraitVictimJessica.png',
-        ui_portrait_kanon: '/ui/portrait/PortraitKanon.png',
-        ui_portrait_kanon_selected: '/ui/portrait/PortraitKanon_selected.png',
-        ui_portrait_kanon_victim: '/ui/portrait-victim/PortraitVictimKanon.png',
-        ui_portrait_krauss: '/ui/portrait/PortraitKrauss.png',
-        ui_portrait_krauss_selected: '/ui/portrait/PortraitKrauss_selected.png',
-        ui_portrait_krauss_victim: '/ui/portrait-victim/PortraitVictimKrauss.png',
-        ui_portrait_kumasawa: '/ui/portrait/PortraitKumasawa.png',
-        ui_portrait_kumasawa_selected: '/ui/portrait/PortraitKumasawa_selected.png',
-        ui_portrait_kumasawa_victim: '/ui/portrait-victim/PortraitVictimKumasawa.png',
-        ui_portrait_kyrie: '/ui/portrait/PortraitKyrie.png',
-        ui_portrait_kyrie_selected: '/ui/portrait/PortraitKyrie_selected.png',
-        ui_portrait_kyrie_dead: '/ui/portrait/PortraitKyrieDead.png',
-        ui_portrait_kyrie_dead_selected: '/ui/portrait/PortraitKyrieDead_selected.png',
-        ui_portrait_kyrie_victim: '/ui/portrait-victim/PortraitVictimKyrie.png',
-        ui_portrait_maria: '/ui/portrait/PortraitMaria.png',
-        ui_portrait_maria_selected: '/ui/portrait/PortraitMaria_selected.png',
-        ui_portrait_nanjo: '/ui/portrait/PortraitNanjo.png',
-        ui_portrait_nanjo_selected: '/ui/portrait/PortraitNanjo_selected.png',
-        ui_portrait_nanjo_victim: '/ui/portrait-victim/PortraitVictimNanjo.png',
-        ui_portrait_natsuhi: '/ui/portrait/PortraitNatsuhi.png',
-        ui_portrait_natsuhi_selected: '/ui/portrait/PortraitNatsuhi_selected.png',
-        ui_portrait_natsuhi_victim: '/ui/portrait-victim/PortraitVictimNatsuhi.png',
-        ui_portrait_rosa: '/ui/portrait/PortraitRosa.png',
-        ui_portrait_rosa_selected: '/ui/portrait/PortraitRosa_selected.png',
-        ui_portrait_rosa_dead: '/ui/portrait/PortraitRosaDead.png',
-        ui_portrait_rosa_dead_selected: '/ui/portrait/PortraitRosaDead_selected.png',
-        ui_portrait_rosa_victim: '/ui/portrait-victim/PortraitVictimRosa.png',
-        ui_portrait_rudolf: '/ui/portrait/PortraitRudolf.png',
-        ui_portrait_rudolf_selected: '/ui/portrait/PortraitRudolf_selected.png',
-        ui_portrait_rudolf_dead: '/ui/portrait/PortraitRudolfDead.png',
-        ui_portrait_rudolf_dead_selected: '/ui/portrait/PortraitRudolfDead_selected.png',
-        ui_portrait_rudolf_victim: '/ui/portrait-victim/PortraitVictimRudolf.png',
-        ui_portrait_shannon: '/ui/portrait/PortraitShannon.png',
-        ui_portrait_shannon_selected: '/ui/portrait/PortraitShannon_selected.png',
-        ui_portrait_shannon_victim: '/ui/portrait-victim/PortraitVictimShannon.png',
     };
 
     private readonly AUDIO = {
@@ -126,12 +64,16 @@ export class Scene implements SceneInterface {
     }
 
     public async getAssetsCount(): Promise<number> {
-        return Object.keys(this.IMAGES).length + Object.keys(this.AUDIO).length;
+        return Object.keys(this.IMAGES).length 
+            + Object.keys(this.AUDIO).length 
+            + Object.keys(this.ATLASES).length
+            + Object.keys(this.FONTS).length;
     }
 
     public async load(loadingState: LoadingStateInteface): Promise<void> {
         await this.asset_loader.createLoaderPromise(
             this.IMAGES,
+            this.ATLASES,
             this.AUDIO,
             this.FONTS,
             loadingState

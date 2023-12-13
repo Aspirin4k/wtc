@@ -28,7 +28,7 @@ export class PurpleModal implements Renderable {
             new Image(
                 this.asset_manager,
                 {
-                    background: 'ui_modal',
+                    background: ['ui_element', 'Modal.png'],
                     position: {
                         x: (this.backgroundSize.width - 227) / 2,
                         y: (this.backgroundSize.height - 139) / 2
@@ -48,8 +48,8 @@ export class PurpleModal implements Renderable {
                         this.asset_manager,
                         {
                             position: {x: 28, y: 60},
-                            background: 'ui_button_culprit',
-                            backgroundOver: 'ui_button_culprit_selected',
+                            background: ['ui_element', 'ButtonCulprit.png'],
+                            backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                             on_click: this.onByCharacterClick,
                         },
                         [
@@ -72,8 +72,8 @@ export class PurpleModal implements Renderable {
                         this.asset_manager,
                         {
                             position: {x: 28, y: 93},
-                            background: 'ui_button_culprit',
-                            backgroundOver: 'ui_button_culprit_selected',
+                            background: ['ui_element', 'ButtonCulprit.png'],
+                            backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                             on_click: this.onByChapterClick,
                         },
                         [

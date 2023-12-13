@@ -3,34 +3,44 @@ import { Element } from "./Element";
 import { getBitmap } from "../helpers/Image";
 import { AssetManager } from "../helpers/AssetManager";
 import { ExactPosition } from "./Interfaces";
+import { AtlasImage } from "../helpers/AtlasImage";
+
+type ImageOptions = ContainerOptions<string | [string, string]>;
 
 export class Image extends Container {
     constructor(
         asset_manager: AssetManager,
-        options: ContainerOptions, 
+        options: ImageOptions, 
         children: Element[] = []
     ) {
-        let img;
+        let img: AtlasImage;
         if (options.background) {
-            img = asset_manager.getImage(options.background);
+            img = asset_manager.getUniversalImage(options.background);
 
             if (!options.size) {
                 options.size = {
-                    width: img.width / 2,
-                    height: img.height / 2,
+                    width: img.frame.frame.w / 2,
+                    height: img.frame.frame.h / 2,
                 }
             }
         }
 
         if (options.backgroundOver) {
-            options.on_rollover = () => this.initImage(asset_manager.getImage(options.backgroundOver), options.position);
-            options.on_rollout = () => this.initImage(asset_manager.getImage(options.background), options.position);
+            options.on_rollover = () => this.initImage(
+                asset_manager.getUniversalImage(options.backgroundOver), 
+                options.position
+            );
+            options.on_rollout = () => this.initImage(
+                asset_manager.getUniversalImage(options.background), 
+                options.position
+            );
         }
 
         super(
             {
                 ...options, 
-                background: null
+                background: null,
+                backgroundOver: null
             }, 
             children
         );
@@ -40,7 +50,7 @@ export class Image extends Container {
         }
     }
 
-    private initImage(background: HTMLImageElement, position: ExactPosition | null): void {
+    private initImage(background: AtlasImage, position: ExactPosition | null): void {
         const bitmap = getBitmap(
             background,
             this.renderObject.getBounds()?.width, 
@@ -49,8 +59,8 @@ export class Image extends Container {
         
         bitmap.name = 'image_background';
         if (position) {
-            bitmap.x = position.x / background.width;
-            bitmap.y = position.y / background.height;
+            bitmap.x = position.x / background.frame.frame.w;
+            bitmap.y = position.y / background.frame.frame.h;
         }
 
         if (this.renderObject.children[0] && this.renderObject.children[0].name === 'image_background') {

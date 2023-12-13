@@ -1,0 +1,145 @@
+{
+	"meta": {
+		"image": "PortraitVictim.png",
+		"size": {"w":672,"h":432},
+		"scale": "1"
+	},
+	"frames": {
+		"PortraitVictimBattler.png":
+		{
+			"frame": {"x":0,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimEva.png":
+		{
+			"frame": {"x":112,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimGenji.png":
+		{
+			"frame": {"x":224,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimGeorge.png":
+		{
+			"frame": {"x":0,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimGohda.png":
+		{
+			"frame": {"x":112,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimHideyoshi.png":
+		{
+			"frame": {"x":224,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimJessica.png":
+		{
+			"frame": {"x":336,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimKanon.png":
+		{
+			"frame": {"x":336,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimKrauss.png":
+		{
+			"frame": {"x":0,"y":288,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimKumasawa.png":
+		{
+			"frame": {"x":112,"y":288,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimKyrie.png":
+		{
+			"frame": {"x":224,"y":288,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimMaria.png":
+		{
+			"frame": {"x":336,"y":288,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimNanjo.png":
+		{
+			"frame": {"x":448,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimNatsuhi.png":
+		{
+			"frame": {"x":448,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimRosa.png":
+		{
+			"frame": {"x":448,"y":288,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimRudolf.png":
+		{
+			"frame": {"x":560,"y":0,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimShannon.png":
+		{
+			"frame": {"x":560,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		}
+	}
+}

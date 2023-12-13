@@ -2,7 +2,7 @@ import { Shape } from 'createjs-module';
 import { Container, ContainerOptions } from './Container';
 import { Label } from './Label';
 
-type ButtonOptions = ContainerOptions & {
+type ButtonOptions = ContainerOptions<string> & {
   text: string,
 }
 

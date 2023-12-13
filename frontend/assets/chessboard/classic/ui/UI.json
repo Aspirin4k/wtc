@@ -1,0 +1,73 @@
+{
+	"meta": {
+		"image": "UI.png",
+		"size": {"w":774,"h":452},
+		"scale": "1"
+	},
+	"frames": {
+		"Modal.png":
+		{
+			"frame": {"x":0,"y":0,"w":454,"h":278},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":454,"h":278},
+			"sourceSize": {"w":454,"h":278}
+		},
+		"ButtonCulprit.png":
+		{
+			"frame": {"x":0,"y":278,"w":344,"h":58},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":344,"h":58},
+			"sourceSize": {"w":344,"h":58}
+		},
+		"ButtonCulprit_selected.png":
+		{
+			"frame": {"x":0,"y":336,"w":344,"h":58},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":344,"h":58},
+			"sourceSize": {"w":344,"h":58}
+		},
+		"LabelSelectCulprit.png":
+		{
+			"frame": {"x":0,"y":394,"w":344,"h":58},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":344,"h":58},
+			"sourceSize": {"w":344,"h":58}
+		},
+		"ButtonWide.png":
+		{
+			"frame": {"x":454,"y":0,"w":320,"h":78},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":320,"h":78},
+			"sourceSize": {"w":320,"h":78}
+		},
+		"ButtonWide_selected.png":
+		{
+			"frame": {"x":454,"y":78,"w":320,"h":78},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":320,"h":78},
+			"sourceSize": {"w":320,"h":78}
+		},
+		"Button.png":
+		{
+			"frame": {"x":454,"y":156,"w":282,"h":64},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":282,"h":64},
+			"sourceSize": {"w":282,"h":64}
+		},
+		"Button_selected.png":
+		{
+			"frame": {"x":454,"y":220,"w":282,"h":64},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":282,"h":64},
+			"sourceSize": {"w":282,"h":64}
+		}
+	}
+}

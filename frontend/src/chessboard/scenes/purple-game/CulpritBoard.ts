@@ -16,8 +16,8 @@ export type CulpritPortraits = [
 
 export type CulpritPortrait = {
     image: {
-        default: string,
-        hover?: string,
+        default: [string, string],
+        hover?: [string, string],
     },
     connections: {
         left?: boolean,

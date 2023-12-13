@@ -94,8 +94,8 @@ export class LeftMenu {
                         new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button',
-                                backgroundOver: 'ui_button_selected',
+                                background: ['ui_element', 'Button.png'],
+                                backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
                                     this.currentSelection = new Chapters(this.asset_manager, this.chapters);
                                     this.render();
@@ -119,8 +119,8 @@ export class LeftMenu {
                         new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button',
-                                backgroundOver: 'ui_button_selected',
+                                background: ['ui_element', 'Button.png'],
+                                backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
                                     this.currentSelection = new Rules(this.asset_manager, this.backgroundSize);
                                     this.render();
@@ -144,8 +144,8 @@ export class LeftMenu {
                         new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button',
-                                backgroundOver: 'ui_button_selected',
+                                background: ['ui_element', 'Button.png'],
+                                backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
                                     this.currentSelection = new PurpleModal(
                                         this.asset_manager,
@@ -190,7 +190,7 @@ export class LeftMenu {
                         new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button',
+                                background: ['ui_element', 'Button.png'],
                                 transparency: 0.2
                             },
                             [
@@ -211,8 +211,8 @@ export class LeftMenu {
                         new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button',
-                                backgroundOver: 'ui_button_selected',
+                                background: ['ui_element', 'Button.png'],
+                                backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: this.onCulpritSelectClick,
                             },
                             [

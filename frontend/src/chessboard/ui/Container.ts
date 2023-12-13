@@ -10,10 +10,10 @@ type AutoPosition = {
   vertical?: 'top' | 'middle',
 }
 
-export type ContainerOptions = ElementOptions & {
+export type ContainerOptions<BACKGROUND> = ElementOptions & {
   alignChildren?: AutoPosition,
-  background?: string,
-  backgroundOver?: string,
+  background?: BACKGROUND | null,
+  backgroundOver?: BACKGROUND | null,
   padding?: number,
   childrenSpacing?: number,
   childrenDirection?: 'column' | 'row',
@@ -30,7 +30,7 @@ export class Container extends Element {
 
   private readonly children: Element[];
 
-  constructor(options: ContainerOptions, children: Element[] = []) {
+  constructor(options: ContainerOptions<string>, children: Element[] = []) {
     super(options);
 
     this.children = children;

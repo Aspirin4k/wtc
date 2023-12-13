@@ -68,7 +68,7 @@ export class CulpritSelect {
                     this.asset_manager,
                     {
                         position: {x: 0, y: 0},
-                        background: 'ui_label_select_culprit',
+                        background: ['ui_element', 'LabelSelectCulprit.png'],
                         alignChildren: {horizontal: 'center', vertical: 'middle'}
                     },
                     [
@@ -91,8 +91,8 @@ export class CulpritSelect {
                     this.asset_manager,
                     {
                         position: {x: 0, y: 262},
-                        background: 'ui_button_culprit',
-                        backgroundOver: 'ui_button_culprit_selected',
+                        background: ['ui_element', 'ButtonCulprit.png'],
+                        backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                         on_click: this.onBack,
                         alignChildren: {
                             horizontal: 'center'
@@ -118,8 +118,8 @@ export class CulpritSelect {
                     this.asset_manager,
                     {
                         position: {x: 0, y: 294},
-                        background: 'ui_button_culprit',
-                        backgroundOver: 'ui_button_culprit_selected',
+                        background: ['ui_element', 'ButtonCulprit.png'],
+                        backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                         alignChildren: {
                             horizontal: 'center'
                         },

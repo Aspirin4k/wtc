@@ -16,7 +16,8 @@ export class AssetLoader {
     }
 
     public createLoaderPromise(
-        resources_images: Resources, 
+        resources_images: Resources,
+        resources_atlases: Resources, 
         resources_audio: Resources, 
         resources_fonts: Resources,
         loading_state: LoadingStateInteface = null
@@ -27,6 +28,14 @@ export class AssetLoader {
             })
             const images_session_id = this.asset_manager.loadImages(
                 resources_images, 
+                loading_state && (() => loading_state.increment())
+            );
+
+            Object.keys(resources_atlases).forEach((short_name) => {
+                resources_atlases[short_name] = this.asset_resolver.getResource(resources_atlases[short_name]);
+            });
+            const atlases_session_id = this.asset_manager.loadAtlases(
+                resources_atlases, 
                 loading_state && (() => loading_state.increment())
             );
 
@@ -43,7 +52,7 @@ export class AssetLoader {
                 loading_state && (() => loading_state.increment())
             )
 
-            this.asset_manager.onLoad(resolve, images_session_id, sounds_session_id, fonts_session_id);
+            this.asset_manager.onLoad(resolve, images_session_id, atlases_session_id, sounds_session_id, fonts_session_id);
         });
     }
 };

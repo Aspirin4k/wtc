@@ -9,6 +9,7 @@ import { ExactPosition, Size } from "../../../../ui/Interfaces";
 import { PurpleStatemets } from "../../PurpleStatemets";
 import { RenderTokenCalculator } from "../../../novel/text/RenderTokenCalculator";
 import { MultiPageText } from "../../../../ui/MultiPageText";
+import { ucfirst } from "../../../../helpers/String";
 
 export class PurpleByChapter implements Renderable {
     private readonly asset_manager: AssetManager;
@@ -173,7 +174,8 @@ export class PurpleByChapter implements Renderable {
                 return new Image(
                     this.asset_manager,
                     {
-                        background: `ui_portrait_${character}_victim`,
+                        // @ts-ignore
+                        background: ['ui_victim_portrait', `PortraitVictim${ucfirst(character)}.png`],
                         size: iconSize,
                     }
                 )
@@ -229,7 +231,7 @@ export class PurpleByChapter implements Renderable {
                                 },
                                 paragraph_padding: 16,
                                 paragraphs: phrases.map((phrase) => ({
-                                    header: phrase.actor.charAt(0).toUpperCase() + phrase.actor.slice(1),
+                                    header: ucfirst(phrase.actor),
                                     text: `"${phrase.phrase.trim()}"` + '\n\n',
                                 }))
                             }

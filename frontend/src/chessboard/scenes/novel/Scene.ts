@@ -57,6 +57,7 @@ export class Scene implements SceneInterface {
     public async load(loadingState: LoadingStateInteface): Promise<void> {
         await this.asset_loader.createLoaderPromise(
             this.twilight.resources.images,
+            {},
             this.twilight.resources.audio,
             {},
             loadingState

@@ -54,8 +54,8 @@ export class Chapters implements Renderable {
                         this.chapters.map((chapter) => new Image(
                             this.asset_manager,
                             {
-                                background: 'ui_button_wide',
-                                backgroundOver: 'ui_button_wide_selected',
+                                background: ['ui_element', 'ButtonWide.png'],
+                                backgroundOver: ['ui_element', 'ButtonWide_selected.png'],
                                 alignChildren: {
                                     vertical: 'middle',
                                     horizontal: 'center'
