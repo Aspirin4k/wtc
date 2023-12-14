@@ -49,7 +49,7 @@ class AssetManager {
                 new Promise((resolve) => {
                     const atlasUrl = urls[short_name];
                     const jsonUrl = atlasUrl.substring(0, atlasUrl.lastIndexOf('.')) + '.json';
-                    return fetch(jsonUrl).then((response) => {
+                    return fetch(getStaticURL(jsonUrl)).then((response) => {
                         return response.json().then((atlasMetadata) => {
                             return resolve(atlasMetadata);
                         });
