@@ -13,6 +13,8 @@ export class CulpritSelect {
     private readonly onBack: () => void;
     private readonly onRender: (objects: DisplayObject[]) => void;
 
+    private readonly selected_characters: string[] = [];
+
     constructor(
         asset_manager: AssetManager,
         backgroundSize: Size,
@@ -86,7 +88,17 @@ export class CulpritSelect {
                         })
                     ]
                 ),
-                new CulpritBoard(this.asset_manager, buildCulprits()).render({x: 0, y: 35}),
+                new CulpritBoard(
+                    this.asset_manager, 
+                    buildCulprits(this.selected_characters, (character) => {
+                        if (this.selected_characters.includes(character)) {
+                            this.selected_characters.splice(this.selected_characters.indexOf(character), 1);
+                        } else {
+                            this.selected_characters.push(character);
+                        }
+                        this.render();
+                    })
+                ).render({x: 0, y: 35}),
                 new Image(
                     this.asset_manager,
                     {

@@ -12,14 +12,12 @@ export const getBitmap = (img: HTMLImageElement | AtlasImage, width: number, hei
         bitmap = new Bitmap(img.atlas);
 
         const frame = img.frame.frame;
-        bitmap.sourceRect = new Rectangle(frame.x, frame.y, frame.w, frame.h);
+        // FIXME: for some reason it renders extra pixel of neighbor image
+        bitmap.sourceRect = new Rectangle(frame.x, frame.y, frame.w, frame.h - 1);
         
         bitmap.scaleX = width / img.frame.frame.w;
         bitmap.scaleY = height / img.frame.frame.h;
-
-        img = img.atlas;
     }
-
 
     return bitmap;
 };
