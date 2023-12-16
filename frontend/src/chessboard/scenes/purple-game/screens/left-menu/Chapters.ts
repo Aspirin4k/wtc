@@ -60,7 +60,10 @@ export class Chapters implements Renderable {
                                     vertical: 'middle',
                                     horizontal: 'center'
                                 },
-                                on_click: chapter.on_click,
+                                on_click: () => {
+                                    this.asset_manager.getAudio('page').play();
+                                    chapter.on_click();
+                                }
                             },
                             [
                                 new Label({

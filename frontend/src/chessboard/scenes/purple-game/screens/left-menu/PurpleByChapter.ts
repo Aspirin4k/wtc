@@ -228,6 +228,7 @@ export class PurpleByChapter implements Renderable {
                                 control_style: {  
                                     font: 'ITC Bookman Light',
                                     font_size: 20,
+                                    click_sound: this.asset_manager.getAudio('click07'),
                                 },
                                 paragraph_padding: 16,
                                 paragraphs: phrases.map((phrase) => ({

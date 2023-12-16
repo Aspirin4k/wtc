@@ -91,6 +91,7 @@ export class CulpritSelect {
                 new CulpritBoard(
                     this.asset_manager, 
                     buildCulprits(this.selected_characters, (character) => {
+                        this.asset_manager.getAudio('click07').play();
                         if (this.selected_characters.includes(character)) {
                             this.selected_characters.splice(this.selected_characters.indexOf(character), 1);
                         } else {
@@ -105,7 +106,10 @@ export class CulpritSelect {
                         position: {x: 0, y: 262},
                         background: ['ui_element', 'ButtonCulprit.png'],
                         backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
-                        on_click: this.onBack,
+                        on_click: () => {
+                            this.asset_manager.getAudio('click07').play();
+                            this.onBack();
+                        },
                         alignChildren: {
                             horizontal: 'center'
                         },

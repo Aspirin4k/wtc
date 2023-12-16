@@ -9,6 +9,7 @@ import { Scene as LoadingScene } from './loading/Scene';
 import { Scene as PurpleGameScene } from './purple-game/Scene';
 import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
+import { BGM } from './purple-game/BGM';
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
@@ -25,7 +26,7 @@ export class SceneManager {
         [SCENE_NOVEL]: () => new NovelScene(this.asset_manager, this.asset_loader),
         [SCENE_DISCLAIMER]: () => new DisclaimerScene(),
         [SCENE_LOADING]: () => new LoadingScene(),
-        [SCENE_PURPLE_GAME]: () => new PurpleGameScene(this.asset_loader, this.asset_manager),
+        [SCENE_PURPLE_GAME]: () => new PurpleGameScene(this.asset_loader, this.asset_manager, this.bgm),
     };
     // TODO: подумоть как конфигурировать флоу
     private readonly SCENE_FLOW = {
@@ -36,6 +37,7 @@ export class SceneManager {
     private readonly asset_manager: AssetManager;
     private readonly asset_resolver: AssetResolver;
     private readonly asset_loader: AssetLoader;
+    private readonly bgm: BGM;
     private stage: Stage;
 
     private current_scene: SceneInterface = null;
@@ -46,6 +48,7 @@ export class SceneManager {
         this.asset_resolver = new AssetResolver(CHESSBOARD_MODE_CLASSIC);
         this.asset_manager = new AssetManager();
         this.asset_loader = new AssetLoader(this.asset_manager, this.asset_resolver);
+        this.bgm = new BGM();
 
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.tick = this.tick.bind(this)
@@ -96,6 +99,7 @@ export class SceneManager {
     }
 
     public changeScene(scene_id: string, args: any = null): void {
+        this.bgm.stop();
         const scene = this.getScene(scene_id);
         if (args) {
             scene.preInitialize(args);

@@ -139,7 +139,6 @@ class AssetManager {
                 }
             });
 
-            audio.loop = true;
             this.audio[short_name] = audio;
         })
 

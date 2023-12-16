@@ -5,6 +5,7 @@ import { AssetLoader } from "../../helpers/AssetLoader";
 import { LoadingStateInteface } from "../loading/Scene";
 import { AssetManager } from "../../helpers/AssetManager";
 import { InterfaceState } from "./InterfaceState";
+import { BGM } from "./BGM";
 
 export class Scene implements SceneInterface {
     private readonly ATLASES = {
@@ -40,6 +41,10 @@ export class Scene implements SceneInterface {
 
     private readonly AUDIO = {
         main: '/bgm/0e_resurrectedreplayer.ogg',
+
+        page: '/system/page.wav',
+        click01: '/system/mouse_click_01.wav',
+        click07: '/system/mouse_click_07.wav',
     };
 
     private readonly FONTS = {
@@ -49,12 +54,14 @@ export class Scene implements SceneInterface {
 
     private readonly asset_loader: AssetLoader;
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
     
     private state: InterfaceState;
 
-    constructor(asset_loader: AssetLoader, asset_manager: AssetManager) {
+    constructor(asset_loader: AssetLoader, asset_manager: AssetManager, bgm: BGM) {
         this.asset_loader = asset_loader;
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
     }
 
     public preInitialize(args: any): void {
@@ -85,6 +92,9 @@ export class Scene implements SceneInterface {
         const screenHeight = (stage.canvas as HTMLCanvasElement).height;
 
         this.state = new InterfaceState(this.asset_manager, scene_manager, screenWidth, screenHeight);
+        const bgm = this.asset_manager.getAudio('main');
+        this.bgm.play(bgm);
+
         stage.children = this.state.getCurrentState();
     }
 

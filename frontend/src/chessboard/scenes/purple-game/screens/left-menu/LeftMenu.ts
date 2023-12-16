@@ -97,6 +97,7 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
+                                    this.asset_manager.getAudio('click07').play();
                                     this.currentSelection = new Chapters(this.asset_manager, this.chapters);
                                     this.render();
                                 },
@@ -122,6 +123,7 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
+                                    this.asset_manager.getAudio('click07').play();
                                     this.currentSelection = new Rules(this.asset_manager, this.backgroundSize);
                                     this.render();
                                 },
@@ -147,6 +149,7 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
+                                    this.asset_manager.getAudio('click07').play();
                                     this.currentSelection = new PurpleModal(
                                         this.asset_manager,
                                         this.backgroundSize,
@@ -213,7 +216,10 @@ export class LeftMenu {
                             {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
-                                on_click: this.onCulpritSelectClick,
+                                on_click: () => {
+                                    this.asset_manager.getAudio('click07').play();
+                                    this.onCulpritSelectClick();
+                                }
                             },
                             [
                                 new Label(

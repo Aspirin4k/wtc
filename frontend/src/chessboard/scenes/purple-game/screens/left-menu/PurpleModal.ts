@@ -50,7 +50,10 @@ export class PurpleModal implements Renderable {
                             position: {x: 28, y: 60},
                             background: ['ui_element', 'ButtonCulprit.png'],
                             backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
-                            on_click: this.onByCharacterClick,
+                            on_click: () => {
+                                this.asset_manager.getAudio('click01').play();
+                                this.onByCharacterClick();
+                            }
                         },
                         [
                             new Label({
@@ -74,7 +77,10 @@ export class PurpleModal implements Renderable {
                             position: {x: 28, y: 93},
                             background: ['ui_element', 'ButtonCulprit.png'],
                             backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
-                            on_click: this.onByChapterClick,
+                            on_click: () => {
+                                this.asset_manager.getAudio('click01').play();
+                                this.onByChapterClick();
+                            }
                         },
                         [
                             new Label({

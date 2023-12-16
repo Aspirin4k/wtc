@@ -30,6 +30,7 @@ export class PurpleByCharacter implements Renderable {
         this.purpleBoard = new CulpritBoard(
             this.asset_manager, 
             buildPurpleStatements((selected) => {
+                this.asset_manager.getAudio('click07').play();
                 this.selectedCharacter = selected;
                 onReRender();
             })
@@ -99,6 +100,7 @@ export class PurpleByCharacter implements Renderable {
                                 control_style: {  
                                     font: 'ITC Bookman Light',
                                     font_size: 20,
+                                    click_sound: this.asset_manager.getAudio('click07'),
                                 },
                                 paragraph_padding: 16,
                                 paragraphs: Object.keys(phrases).map((twilight) => ({

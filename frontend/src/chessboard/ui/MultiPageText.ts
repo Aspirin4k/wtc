@@ -16,7 +16,9 @@ type MultiPageTextOptions = ElementOptions & {
     }
     header_style?: TextStyle,
     text_style?: TextStyle,
-    control_style?: TextStyle,
+    control_style?: TextStyle & {
+        click_sound?: HTMLAudioElement,
+    },
     paragraph_padding?: number,
     paragraphs: {
         header: string,
@@ -97,7 +99,7 @@ export class MultiPageText extends Element {
             'Next', 
             {x: -this.options.size.width + 8, y: this.options.size.height - 10},
             () => {
-                console.log('test');
+                this.options.control_style.click_sound && this.options.control_style.click_sound.play();
                 this.currentPageNum++;
                 this.renderPage();
             }
@@ -109,6 +111,7 @@ export class MultiPageText extends Element {
             'Back', 
             {x: 8, y: this.options.size.height - 10},
             () => {
+                this.options.control_style.click_sound && this.options.control_style.click_sound.play();
                 this.currentPageNum--;
                 this.renderPage();
             }
@@ -148,6 +151,12 @@ export class MultiPageText extends Element {
         container.hitArea = hitArea;
 
         container.on('click', onClick);
+        container.on('rollover', () => {
+            text.color = 'red';
+        });
+        container.on('rollout', () => {
+            text.color = 'white';
+        });
         container.mouseChildren = false;
         return container;
     }
