@@ -11,6 +11,8 @@ import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
 import { BGM } from './purple-game/BGM';
 
+import twilight1 from "../classic/twilight/1_twilight.json";
+
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
 export const SCENE_LOADING = 'loading';
@@ -61,7 +63,8 @@ export class SceneManager {
         document.addEventListener('keydown', this.handleKeyDown);
 
         this.stage = stage;
-        this.changeScene(this.FIRST_SCENE);
+        // this.changeScene(this.FIRST_SCENE);
+        this.changeScene(SCENE_NOVEL, twilight1)
     }
 
     public unregister() {

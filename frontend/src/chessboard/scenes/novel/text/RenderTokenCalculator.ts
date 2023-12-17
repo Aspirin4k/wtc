@@ -77,7 +77,14 @@ class RenderTokenCalculator {
     private getTextBrokenToLines(createJsText: Text, line: TextTokenInterface, width: number, line_height: number): TextTokenInterface[] {
         const result_lines = [];
         let colored_sublines = line.text
-            .split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/)
+            .split('<BREAK>')
+            .reduce(
+                (result, subline) => {
+                    result.push(...subline.split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/))
+                    return result;
+                },
+                []
+            )
             .map((subline: string) => subline.trim())
             .filter((subline: string) => subline.length > 0);
 
@@ -110,7 +117,8 @@ class RenderTokenCalculator {
             // новое слово из этой линии в оставшееся пространство не помещается
             // Решение: перенос на новую строку
             createJsText.text = words[0];
-            if (offset_x_current + createJsText.getMeasuredWidth() > width) {
+            const isQuote = (words.length === 1 && words[0] === '"');
+            if (offset_x_current + createJsText.getMeasuredWidth() > width && !isQuote) {
                 line_num_current++;
                 offset_x_current = 0;
             }
@@ -120,7 +128,7 @@ class RenderTokenCalculator {
             const last_character = result_lines.length && result_lines[result_lines.length - 1].text.length
                 ? result_lines[result_lines.length - 1].text.charAt(result_lines[result_lines.length - 1].text.length - 1)
                 : '';
-            let line_prefix = offset_x_current <= 0 || ['"'].includes(last_character) || (words.length === 1 && words[0] === '"')
+            let line_prefix = offset_x_current <= 0 || ['"'].includes(last_character) || isQuote
                 ? ''
                 : ' ';
 
@@ -133,7 +141,7 @@ class RenderTokenCalculator {
                 }
                 
                 createJsText.text = line_prefix + [...result_words, word].join(' ');
-                if (offset_x_current + createJsText.getMeasuredWidth() > width) {
+                if (offset_x_current + createJsText.getMeasuredWidth() > width && !isQuote) {
                     result_lines.push({
                         text: line_prefix + result_words.join(' '),
                         color: text_color,

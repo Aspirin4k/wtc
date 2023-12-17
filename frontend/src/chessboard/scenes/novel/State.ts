@@ -59,13 +59,20 @@ class State {
         // this.asset_manager.getAudio('a_rain').play();
         // this.asset_manager.getAudio('bgm_gc-28').play();
         if (this.proceeding_current_num >= this.proceedings.length) {
-            return false;
+            return [false, false];
         }
 
         const proceeding = this.proceedings[this.proceeding_current_num];
-        this.revert_proceedings.push(this.proceed(proceeding));
+        const revertProceeding = this.proceed(proceeding);
+
+        let isRepeating = true;
+        if (!this.revert_proceedings[this.proceeding_current_num]) {
+            this.revert_proceedings.push(revertProceeding);
+            isRepeating = false;
+        }
+
         this.proceeding_current_num++;
-        return true;
+        return [true, isRepeating];
     }
 
     /**
@@ -121,7 +128,7 @@ class State {
             }
 
             new_text = proceeding.text.style === PROCEEDING_TEXT_ADD
-                ? new_state.text.content + new_text
+                ? new_state.text.content + '<BREAK>' + new_text
                 : new_text;
 
             revert_proceeding.text = {

@@ -10,6 +10,7 @@ import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT
 import { RenderTokenCalculator } from "./text/RenderTokenCalculator";
 import { LoadingStateInteface } from "../loading/Scene";
 import { getBitmap } from "../../helpers/Image";
+import { AnimatedText } from "./text/AnimatedText";
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
@@ -31,6 +32,7 @@ export class Scene implements SceneInterface {
 
     private stage: Stage;
     private scene_manager: SceneManager;
+    private animated_text: AnimatedText;
 
     constructor(asset_manager: AssetManager, asset_loader: AssetLoader) {
         this.asset_manager = asset_manager;
@@ -47,6 +49,7 @@ export class Scene implements SceneInterface {
     }
 
     public tick(): void {
+        this.animated_text && this.animated_text.tick();
     }
 
     public async getAssetsCount(): Promise<number> {
@@ -67,13 +70,13 @@ export class Scene implements SceneInterface {
     public initialize(scene_manager: SceneManager, stage: Stage): void {
         this.stage = stage;
         this.scene_manager = scene_manager;
+        this.animated_text = new AnimatedText(stage);
 
         stage.on('click', () => {
             this.proceedNovel();
-            this.renderState();
         })
 
-        this.renderState();
+        this.renderState(false);
     }
 
     handleKeyDown(key: string): void {
@@ -81,22 +84,41 @@ export class Scene implements SceneInterface {
             case KEY_ENTER:
             case KEY_ARROW_RIGHT:
                 this.proceedNovel();
-                this.renderState();
                 break;
             case KEY_ARROW_LEFT:
-                this.game_state.revertNovel();
-                this.renderState();
+                this.revertNovel();
                 break;
         }
     }
 
     private proceedNovel(): void {
-        if (!this.game_state.proceedNovel()) {
+        if (this.animated_text?.isAnimating()) {
+            this.animated_text.end();
+            return;
+        }
+
+        const [hasContinuation, isRepeat] = this.game_state.proceedNovel();
+        if (!hasContinuation) {
             this.scene_manager.nextScene();
         }
+
+        this.renderState(isRepeat);
     }
 
-    private renderState(): void {
+    private revertNovel(): void {
+        if (this.animated_text?.isAnimating()) {
+            this.animated_text.end();
+            return;
+        }
+
+        this.game_state.revertNovel();
+        this.renderState(true);
+    }
+
+    /**
+     * isRepeat - scene has already been read and this is repeat
+     */
+    private renderState(isRepeat: boolean): void {
         const {game_state, stage} = this;
         const screen_state = game_state.getCurrentScene();
         const {background, text} = screen_state;
@@ -136,7 +158,7 @@ export class Scene implements SceneInterface {
             stage.addChild(rain);
         }
 
-        this.renderText();
+        this.renderText(isRepeat);
     }
 
     private renderBackground(filters: Filter[]): void {
@@ -178,8 +200,8 @@ export class Scene implements SceneInterface {
         });
     }
 
-    private renderText(): void {
-        const {game_state, stage} = this;
+    private renderText(isRepeat: boolean): void {
+        const {game_state} = this;
         const screen_state = game_state.getCurrentScene();
         const {text} = screen_state;
 
@@ -187,23 +209,13 @@ export class Scene implements SceneInterface {
             return;
         }
 
-        this.text_render_calculator
-            .calculate(text.content)
-            .forEach((textToken) => {
-                const createjsText = new Text(
-                    textToken.text,
-                    `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`
-                );
-                createjsText.color = textToken.color;
-        
-                const shadow = new Shadow('#000', 1, 1, 0);
-                createjsText.shadow = shadow;
-        
-                createjsText.x = textToken.offset_x + TEXT_X_OFFSET;
-                createjsText.y = textToken.offset_y + textToken.line_num * TEXT_LINE_HEIGHT + TEXT_Y_OFFSET;
-        
-                stage.addChild(createjsText);
-            });
+        const tokens = this.text_render_calculator
+            .calculate(text.content);
+        if (isRepeat) {
+            this.animated_text.render(tokens);
+        } else {
+            this.animated_text.queue(tokens);
+        }
     }
 
     private getBitmap(url: string, width: number, height: number): Bitmap {
