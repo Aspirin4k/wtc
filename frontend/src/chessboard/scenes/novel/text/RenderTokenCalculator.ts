@@ -1,4 +1,4 @@
-import { Stage, Text } from "createjs-module";
+import { Text } from "createjs-module";
 import {
     TEXT_COLOR_BLUE,
     TEXT_COLOR_DEFAULT,
@@ -16,6 +16,7 @@ interface TextTokenInterface {
     offset_x: number;
     line_num: number;
     line_height: number;
+    line_end: number;
 }
 
 interface TextOptions {
@@ -44,7 +45,8 @@ class RenderTokenCalculator {
                 offset_y: index * FONT_SIZE,
                 offset_x: 0,
                 line_num: 0,
-                line_height: LINE_HEIGHT
+                line_height: LINE_HEIGHT,
+                line_end: 0,
             }))
             // Учитываем одинарные переносы строки
             .reduce((result: TextTokenInterface[], line: TextTokenInterface) => {
@@ -57,6 +59,7 @@ class RenderTokenCalculator {
                         offset_x: 0,
                         line_num: 0,
                         line_height: LINE_HEIGHT,
+                        line_end: 0,
                     }))
                 return [...result, ...added_lines];
             }, [])
@@ -132,6 +135,7 @@ class RenderTokenCalculator {
                 ? ''
                 : ' ';
 
+            let lineEnd = 0;
             words.forEach((word: string) => {
                 createJsText.text = line_prefix + word;
                 if (createJsText.getMeasuredWidth() > width) {
@@ -141,7 +145,8 @@ class RenderTokenCalculator {
                 }
                 
                 createJsText.text = line_prefix + [...result_words, word].join(' ');
-                if (offset_x_current + createJsText.getMeasuredWidth() > width && !isQuote) {
+                const newLineEnd = offset_x_current + createJsText.getMeasuredWidth();
+                if (newLineEnd > width && !isQuote) {
                     result_lines.push({
                         text: line_prefix + result_words.join(' '),
                         color: text_color,
@@ -149,13 +154,18 @@ class RenderTokenCalculator {
                         offset_x: offset_x_current,
                         line_num: line_num_current,
                         line_height,
+                        line_end: lineEnd,
                     });
                     result_words = [word]
                     offset_x_current = 0;
                     line_prefix = '';
                     line_num_current++;
+
+                    createJsText.text = word;
+                    lineEnd = createJsText.getMeasuredWidth();
                 } else {
                     result_words.push(word);
+                    lineEnd = newLineEnd;
                 }
             });
 
@@ -167,6 +177,7 @@ class RenderTokenCalculator {
                     offset_x: offset_x_current,
                     line_num: line_num_current,
                     line_height,
+                    line_end: lineEnd
                 })
 
                 createJsText.text = line_prefix + result_words.join(' ');

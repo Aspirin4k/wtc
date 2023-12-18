@@ -1,4 +1,4 @@
-import { Stage, Ticker } from 'createjs-module';
+import { Stage, Ticker, TickerEvent } from 'createjs-module';
 
 import {SceneInterface} from "./SceneInterface";
 import {AssetManager} from "../helpers/AssetManager";
@@ -9,7 +9,7 @@ import { Scene as LoadingScene } from './loading/Scene';
 import { Scene as PurpleGameScene } from './purple-game/Scene';
 import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
-import { BGM } from './purple-game/BGM';
+import { BGM } from './novel/BGM';
 
 import twilight1 from "../classic/twilight/1_twilight.json";
 
@@ -80,11 +80,11 @@ export class SceneManager {
         return this.current_scene;
     }
 
-    tick(event) {
+    tick(event: TickerEvent) {
         try {
             const scene = this.getCurrentScene();
             if (scene) {
-                scene.tick();
+                scene.tick(event.time);
             }
 
             this.stage.update(event);

@@ -22,7 +22,7 @@ export class Scene implements SceneInterface, LoadingStateInteface {
     private maximum: number = 0;
     private current: number = 0;
 
-    public tick(): void {
+    public tick(time: number): void {
     }
 
     public preInitialize(args: any): void {

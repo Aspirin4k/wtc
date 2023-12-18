@@ -75,6 +75,10 @@ class State {
         return [true, isRepeating];
     }
 
+    public getNextProceeding(): Proceeding {
+        return this.proceedings[this.proceeding_current_num] || null;
+    }
+
     /**
      * Продвигает новелу согласно переданному событию
      * Возвращает событие, которое позволяет откатить изменения

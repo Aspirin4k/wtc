@@ -4,7 +4,7 @@ import { SceneManager } from './SceneManager';
 import { LoadingStateInteface } from './loading/Scene';
 
 export interface SceneInterface {
-    tick: () => void,
+    tick: (time: number) => void,
 
     getAssetsCount: () => Promise<number>,
     load: (state: LoadingStateInteface) => Promise<void>,

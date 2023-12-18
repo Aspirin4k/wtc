@@ -6,7 +6,7 @@ import { NotificationWindow } from '../../ui/NotificationWindow';
 import { SceneManager } from '../SceneManager';
 
 export class Scene implements SceneInterface {
-    public tick(): void {
+    public tick(time: number): void {
     }
 
     public preInitialize(args: any): void {

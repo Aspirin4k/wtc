@@ -1,4 +1,4 @@
-import { Bitmap, Stage, Text, Shadow, ColorMatrix, ColorMatrixFilter, Filter } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter } from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -6,7 +6,6 @@ import { AssetManager } from "../../helpers/AssetManager";
 import { State } from "./State";
 import { AssetLoader } from "../../helpers/AssetLoader";
 import { Character } from "./ScreenStateInterface";
-import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET } from "./text/Constants";
 import { RenderTokenCalculator } from "./text/RenderTokenCalculator";
 import { LoadingStateInteface } from "../loading/Scene";
 import { getBitmap } from "../../helpers/Image";
@@ -48,8 +47,8 @@ export class Scene implements SceneInterface {
         this.game_state = new State(this.asset_manager, this.twilight);
     }
 
-    public tick(): void {
-        this.animated_text && this.animated_text.tick();
+    public tick(time: number): void {
+        this.animated_text && this.animated_text.tick(time);
     }
 
     public async getAssetsCount(): Promise<number> {
@@ -205,16 +204,13 @@ export class Scene implements SceneInterface {
         const screen_state = game_state.getCurrentScene();
         const {text} = screen_state;
 
-        if (!text.content) {
-            return;
-        }
-
-        const tokens = this.text_render_calculator
-            .calculate(text.content);
+        const tokens = this.text_render_calculator.calculate(text.content || '');
+        const nextProceeding = game_state.getNextProceeding();
+        const isEndOfPage = !nextProceeding || !nextProceeding.text || nextProceeding.text.style === 'replace';
         if (isRepeat) {
-            this.animated_text.render(tokens);
+            this.animated_text.render(tokens, isEndOfPage);
         } else {
-            this.animated_text.queue(tokens);
+            this.animated_text.queue(tokens, isEndOfPage);
         }
     }
 

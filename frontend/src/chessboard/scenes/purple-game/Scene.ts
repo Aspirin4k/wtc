@@ -5,7 +5,7 @@ import { AssetLoader } from "../../helpers/AssetLoader";
 import { LoadingStateInteface } from "../loading/Scene";
 import { AssetManager } from "../../helpers/AssetManager";
 import { InterfaceState } from "./InterfaceState";
-import { BGM } from "./BGM";
+import { BGM } from "../novel/BGM";
 
 export class Scene implements SceneInterface {
     private readonly ATLASES = {
@@ -67,7 +67,7 @@ export class Scene implements SceneInterface {
     public preInitialize(args: any): void {
     }
 
-    public tick(): void {
+    public tick(time: number): void {
     }
 
     public async getAssetsCount(): Promise<number> {
