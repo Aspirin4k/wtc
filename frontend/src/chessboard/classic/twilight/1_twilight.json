@@ -76,7 +76,7 @@
         "effect": ["rain"]
       },
       "effects": {
-        "before": "fade-in"
+        "before": "fade-in-gradient-radial"
       }
     },
     {

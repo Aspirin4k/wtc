@@ -19,7 +19,7 @@ interface BaseProceeding {
     }
 }
 
-type Effect = 'fade-out' | 'fade-in'
+type Effect = 'fade-out' | 'fade-in' | 'fade-in-gradient-radial'
 
 interface Background {
     url: string,
