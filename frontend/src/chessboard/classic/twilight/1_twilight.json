@@ -64,6 +64,9 @@
     },
     "text": {
       "content": null
+    },
+    "effects": {
+      "after": "fade-out"
     }
   },
   "proceeding": [
@@ -71,6 +74,9 @@
       "background": {
         "url": "m_o1b_rain",
         "effect": ["rain"]
+      },
+      "effects": {
+        "before": "fade-in"
       }
     },
     {

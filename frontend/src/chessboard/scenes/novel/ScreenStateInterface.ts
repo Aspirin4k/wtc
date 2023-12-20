@@ -1,12 +1,25 @@
-interface ScreenState {
-    background: Background,
-    characters: {
-        left: Character | null,
-        middle: Character | null,
-        right: Character | null
-    },
+interface ScreenState extends BaseProceeding {
     text: Text
 }
+
+interface Proceeding extends BaseProceeding {
+    text?: ProceedingText,
+}
+
+interface BaseProceeding {
+    background?: Background,
+    characters?: {
+        left?: Character | null,
+        middle?: Character | null,
+        right?: Character | null
+    },
+    effects?: {
+        after?: Effect,
+        before?: Effect,
+    }
+}
+
+type Effect = 'fade-out' | 'fade-in'
 
 interface Background {
     url: string,
@@ -25,19 +38,9 @@ interface Text {
     content: string | null
 }
 
-interface Proceeding {
-    background?: Background,
-    characters?: {
-        left?: Character | null,
-        middle?: Character | null,
-        right?: Character | null
-    },
-    text?: ProceedingText
-}
-
 interface ProceedingText extends Text {
     style: "add" | "replace",
     statement?: "start" | "continue" | "end"
 }
 
-export { ScreenState, Character, Text, Proceeding }
+export { ScreenState, Character, Text, Proceeding, Effect }

@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container } from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -10,6 +10,7 @@ import { RenderTokenCalculator } from "./text/RenderTokenCalculator";
 import { LoadingStateInteface } from "../loading/Scene";
 import { getBitmap } from "../../helpers/Image";
 import { AnimatedText } from "./text/AnimatedText";
+import { ScreenAnimation } from "./animation/ScreenAnimation";
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
@@ -22,12 +23,15 @@ export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
 
 export class Scene implements SceneInterface {
+    private readonly ELEMENT_RAIN = 'element_rain';
+
     private readonly asset_manager: AssetManager;
     private readonly asset_loader: AssetLoader;
 
     private game_state: State;
     private twilight: any;
     private readonly text_render_calculator: RenderTokenCalculator;
+    private readonly screen_animation: ScreenAnimation;
 
     private stage: Stage;
     private scene_manager: SceneManager;
@@ -38,6 +42,7 @@ export class Scene implements SceneInterface {
         this.asset_loader = asset_loader;
 
         this.text_render_calculator = new RenderTokenCalculator();
+        this.screen_animation = new ScreenAnimation();
 
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -96,17 +101,30 @@ export class Scene implements SceneInterface {
             return;
         }
 
+        if (this.screen_animation.isAnimating()) {
+            this.screen_animation.end();
+            return;
+        }
+
+        const afterEffect = this.game_state.getCurrentScene()?.effects?.after;
         const [hasContinuation, isRepeat] = this.game_state.proceedNovel();
         if (!hasContinuation) {
             this.scene_manager.nextScene();
         }
 
-        this.renderState(isRepeat);
+        this.screen_animation
+            .runAnimation(isRepeat ? null : afterEffect, this.stage)
+            .then(() => this.renderState(isRepeat));
     }
 
     private revertNovel(): void {
         if (this.animated_text?.isAnimating()) {
             this.animated_text.end();
+            return;
+        }
+
+        if (this.screen_animation.isAnimating()) {
+            this.screen_animation.end();
             return;
         }
 
@@ -150,14 +168,21 @@ export class Scene implements SceneInterface {
         }
 
         this.renderBackground(filters);
-        this.renderCharaters(filters);
         if (background.effect.includes(EFFECT_RAIN)) {
             const rain = this.getBitmap('e_rain', screenWidth, screenHeight);
+            rain.name = this.ELEMENT_RAIN;
             rain.compositeOperation = 'screen';
             stage.addChild(rain);
         }
 
-        this.renderText(isRepeat);
+        const beforeEffect = isRepeat ? null : game_state.getCurrentScene()?.effects?.before;
+        this.screen_animation
+            .runAnimation(beforeEffect, this.stage)
+            .then(() => {
+                this.renderCharaters(filters);
+
+                this.renderText(isRepeat);
+            });
     }
 
     private renderBackground(filters: Filter[]): void {
@@ -186,6 +211,9 @@ export class Scene implements SceneInterface {
             }
         });
 
+        // rendering characters under rain layer
+        const elementRain = stage.getChildByName(this.ELEMENT_RAIN);
+        elementRain && stage.removeChild(elementRain);
         z_indexed.forEach((characters_array: Character[]) => {
             characters_array.forEach((character: Character) => {
                 const bitmap = this.getBitmap(character.url, character.width, screenHeight);
@@ -197,6 +225,7 @@ export class Scene implements SceneInterface {
                 stage.addChild(bitmap);
             });
         });
+        elementRain && stage.addChild(elementRain);
     }
 
     private renderText(isRepeat: boolean): void {

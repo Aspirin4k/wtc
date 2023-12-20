@@ -47,7 +47,7 @@ class State {
             return;
         }
 
-        const proceeding = this.revert_proceedings.pop();
+        const proceeding = this.revert_proceedings[this.proceeding_current_num - 1];
         this.proceed(proceeding);
         this.proceeding_current_num--;
     }
@@ -84,7 +84,10 @@ class State {
      * Возвращает событие, которое позволяет откатить изменения
      */
     private proceed(proceeding: Proceeding): Proceeding {
-        const new_state = { ...this.screen_state };
+        const new_state: ScreenState = { 
+            ...this.screen_state,
+            effects: null 
+        };
 
         const revert_proceeding: Proceeding = {};
 
@@ -143,6 +146,10 @@ class State {
 
             new_state.text.content = new_text;
             new_state.text.character = proceeding.text.character;
+        }
+
+        if (typeof proceeding.effects !== 'undefined') {
+            new_state.effects = proceeding.effects;
         }
 
         this.screen_state = new_state;
