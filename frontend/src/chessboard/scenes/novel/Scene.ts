@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject } from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -37,6 +37,8 @@ export class Scene implements SceneInterface {
     private scene_manager: SceneManager;
     private animated_text: AnimatedText;
 
+    private auto_transition_timeout: NodeJS.Timeout;
+
     constructor(asset_manager: AssetManager, asset_loader: AssetLoader) {
         this.asset_manager = asset_manager;
         this.asset_loader = asset_loader;
@@ -74,7 +76,7 @@ export class Scene implements SceneInterface {
     public initialize(scene_manager: SceneManager, stage: Stage): void {
         this.stage = stage;
         this.scene_manager = scene_manager;
-        this.animated_text = new AnimatedText(stage);
+        this.animated_text = new AnimatedText();
 
         stage.on('click', () => {
             this.proceedNovel();
@@ -106,15 +108,12 @@ export class Scene implements SceneInterface {
             return;
         }
 
-        const afterEffect = this.game_state.getCurrentScene()?.effects?.after;
         const [hasContinuation, isRepeat] = this.game_state.proceedNovel();
         if (!hasContinuation) {
             this.scene_manager.nextScene();
         }
 
-        this.screen_animation
-            .runAnimation(isRepeat ? null : afterEffect, this.stage)
-            .then(() => this.renderState(isRepeat));
+        this.renderState(isRepeat);
     }
 
     private revertNovel(): void {
@@ -136,14 +135,19 @@ export class Scene implements SceneInterface {
      * isRepeat - scene has already been read and this is repeat
      */
     private renderState(isRepeat: boolean): void {
-        const {game_state, stage} = this;
+        clearTimeout(this.auto_transition_timeout);
+        
+        const {game_state} = this;
         const screen_state = game_state.getCurrentScene();
         const {background, text} = screen_state;
 
         const screenWidth = (this.stage.canvas as HTMLCanvasElement).width;
         const screenHeight = (this.stage.canvas as HTMLCanvasElement).height;
 
-        this.stage.removeAllChildren();
+        const newOuterContainer = new Container();
+        newOuterContainer.setBounds(0, 0, screenWidth, screenHeight);
+        newOuterContainer.name = 'outer-container';
+        this.stage.children = [newOuterContainer, ...this.stage.children];
 
         const filters = [];
         if (!!text.content) {
@@ -167,37 +171,50 @@ export class Scene implements SceneInterface {
             );
         }
 
-        this.renderBackground(filters);
+        newOuterContainer.addChild(this.renderBackground(filters));
         if (background.effect.includes(EFFECT_RAIN)) {
             const rain = this.getBitmap('e_rain', screenWidth, screenHeight);
             rain.name = this.ELEMENT_RAIN;
             rain.compositeOperation = 'screen';
-            stage.addChild(rain);
+            newOuterContainer.addChild(rain);
         }
 
-        const beforeEffect = isRepeat ? null : game_state.getCurrentScene()?.effects?.before;
+        const transition = isRepeat ? null : game_state.getCurrentScene()?.effects?.transition;
+        const previousOuterContainer = (this.stage.children[this.stage.children.length - 1] as Container);
         this.screen_animation
-            .runAnimation(beforeEffect, this.stage)
+            .runAnimation(transition, previousOuterContainer)
             .then(() => {
-                this.renderCharaters(filters);
+                this.stage.removeChild(this.stage.getChildByName('outer-container'));
 
-                this.renderText(isRepeat);
+                newOuterContainer.addChild(...this.renderCharaters(filters));
+
+                this.renderText(isRepeat, newOuterContainer);
+                this.stage.addChild(newOuterContainer);
+
+                this.auto_transition_timeout = game_state.getCurrentScene()?.effects?.auto_transition
+                    && setTimeout(() => {
+                        this.proceedNovel();
+                    }, 
+                    game_state.getCurrentScene().effects.auto_transition
+                )
             });
     }
 
-    private renderBackground(filters: Filter[]): void {
+    private renderBackground(filters: Filter[]): Bitmap {
         const background = this.game_state.getCurrentScene().background;
 
         const screenWidth = (this.stage.canvas as HTMLCanvasElement).width;
         const screenHeight = (this.stage.canvas as HTMLCanvasElement).height;
 
         const bitmap = this.getBitmap(background.url, screenWidth, screenHeight);
+        bitmap.name = 'background';
         bitmap.filters = filters;
         bitmap.cache(0, 0, bitmap.getBounds().width, bitmap.getBounds().height);
-        this.stage.addChild(bitmap);
+
+        return bitmap;
     }
 
-    private renderCharaters(filters: Filter[]): void {
+    private renderCharaters(filters: Filter[]): DisplayObject[] {
         const {game_state, stage} = this;
         const screen_state = game_state.getCurrentScene();
         const {characters} = screen_state;
@@ -211,24 +228,23 @@ export class Scene implements SceneInterface {
             }
         });
 
-        // rendering characters under rain layer
-        const elementRain = stage.getChildByName(this.ELEMENT_RAIN);
-        elementRain && stage.removeChild(elementRain);
-        z_indexed.forEach((characters_array: Character[]) => {
-            characters_array.forEach((character: Character) => {
-                const bitmap = this.getBitmap(character.url, character.width, screenHeight);
-                bitmap.x = character.x;
-                bitmap.y = 0;
-                bitmap.filters = filters;
-                bitmap.cache(0, 0, bitmap.getBounds().width, bitmap.getBounds().height);
-                
-                stage.addChild(bitmap);
-            });
-        });
-        elementRain && stage.addChild(elementRain);
+        return z_indexed.reduce((result: DisplayObject[], characters_array: Character[]) => {
+            return [
+                ...result,
+                ...characters_array.map((character: Character) => {
+                    const bitmap = this.getBitmap(character.url, character.width, screenHeight);
+                    bitmap.x = character.x;
+                    bitmap.y = 0;
+                    bitmap.filters = filters;
+                    bitmap.cache(0, 0, bitmap.getBounds().width, bitmap.getBounds().height);
+                    
+                    return bitmap;
+                })
+            ];
+        }, []);
     }
 
-    private renderText(isRepeat: boolean): void {
+    private renderText(isRepeat: boolean, container: Container): void {
         const {game_state} = this;
         const screen_state = game_state.getCurrentScene();
         const {text} = screen_state;
@@ -236,6 +252,8 @@ export class Scene implements SceneInterface {
         const tokens = this.text_render_calculator.calculate(text.content || '');
         const nextProceeding = game_state.getNextProceeding();
         const isEndOfPage = !nextProceeding || !nextProceeding.text || nextProceeding.text.style === 'replace';
+
+        this.animated_text.setRenderingTarget(container);
         if (isRepeat) {
             this.animated_text.render(tokens, isEndOfPage);
         } else {

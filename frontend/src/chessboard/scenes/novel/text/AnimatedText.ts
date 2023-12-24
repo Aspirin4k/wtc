@@ -1,4 +1,4 @@
-import { Shadow, Stage, Text } from "createjs-module";
+import { Container, Shadow, Text } from "createjs-module";
 import { TextTokenInterface } from "./RenderTokenCalculator";
 import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET } from "./Constants";
 import { ExactPosition } from "../../../ui/Interfaces";
@@ -6,7 +6,7 @@ import { ExactPosition } from "../../../ui/Interfaces";
 export class AnimatedText {
     private readonly TEXT_SPEED = 2;
 
-    private readonly stage: Stage;
+    private container: Container;
 
     private readonly ANIMATION_NAME = 'animated-text-animation';
 
@@ -37,9 +37,7 @@ export class AnimatedText {
     private current_text: Text = null;
     private last_character_position: ExactPosition = null;
 
-    constructor(stage: Stage) {
-        this.stage = stage;
-
+    constructor() {
         this.animationContinue = new Text(' ▷', `${this.ANIMATION_CONTINUE_FRAMES[0]}px ${TEXT_FONT_FAMILY}`);
         this.animationContinue.name = this.ANIMATION_NAME;
         this.animationContinue.color = 'white';
@@ -74,6 +72,10 @@ export class AnimatedText {
                 break;
             }
         }
+    }
+
+    public setRenderingTarget(container: Container): void {
+        this.container = container;
     }
 
     public queue(tokens: TextTokenInterface[], isEndOfPage: boolean): void {
@@ -131,8 +133,8 @@ export class AnimatedText {
         }
 
         const animationObject = this.isEndPageAnimation ? this.animationEndPage : this.animationContinue;
-        if (!this.stage.getChildByName(this.ANIMATION_NAME)) {
-            this.stage.addChild(animationObject);
+        if (!this.container.getChildByName(this.ANIMATION_NAME)) {
+            this.container.addChild(animationObject);
         }
 
         if (this.isEndPageAnimation) {
@@ -181,7 +183,7 @@ export class AnimatedText {
         createjsText.x = position.x;
         createjsText.y = position.y;
 
-        this.stage.addChild(createjsText);
+        this.container.addChild(createjsText);
 
         return createjsText;
     }

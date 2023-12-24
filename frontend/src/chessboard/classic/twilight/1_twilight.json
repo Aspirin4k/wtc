@@ -66,17 +66,36 @@
       "content": null
     },
     "effects": {
-      "after": "fade-out"
+      "auto_transition": 1000
     }
   },
   "proceeding": [
     {
       "background": {
-        "url": "m_o1b_rain",
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": ["rain"]
       },
       "effects": {
-        "before": "fade-in-gradient-radial"
+        "transition": "gradient-bottom-right",
+        "auto_transition": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "m_o1b_rain"
+      },
+      "effects": {
+        "transition": "gradient-bottom-right",
+        "auto_transition": 1000
       }
     },
     {
@@ -88,6 +107,9 @@
         "content": "The tragedy of the first twilight was discovered at 6:00 in the morning on the following day.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-radial"
       }
     },
     {

@@ -14,12 +14,16 @@ interface BaseProceeding {
         right?: Character | null
     },
     effects?: {
-        after?: Effect,
-        before?: Effect,
+        transition?: Effect,
+        auto_transition?: number,
     }
 }
 
-type Effect = 'fade-out' | 'fade-in' | 'fade-in-gradient-radial'
+type Effect = 
+    'fade-in' 
+    | 'gradient-radial' 
+    | 'gradient-right' | 'gradient-left' | 'gradient-top' | 'gradient-bottom'
+    | 'gradient-top-left' | 'gradient-top-right' | 'gradient-bottom-left' | 'gradient-bottom-right';
 
 interface Background {
     url: string,
