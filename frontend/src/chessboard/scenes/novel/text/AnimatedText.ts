@@ -8,7 +8,8 @@ export class AnimatedText {
 
     private container: Container;
 
-    private readonly ANIMATION_NAME = 'animated-text-animation';
+    public static readonly ANIMATION_NAME = 'animated-text-animation';
+    public static readonly TEXT_NAME = 'animated-text-text';
 
     private readonly ANIMATION_CONTINUE_FRAMES = [16, 17, 18, 19, 20, 21, 20, 19, 18, 17];
     private readonly ANIMATION_FRAME_CHANGE_MS = 60;
@@ -39,13 +40,13 @@ export class AnimatedText {
 
     constructor() {
         this.animationContinue = new Text(' ▷', `${this.ANIMATION_CONTINUE_FRAMES[0]}px ${TEXT_FONT_FAMILY}`);
-        this.animationContinue.name = this.ANIMATION_NAME;
+        this.animationContinue.name = AnimatedText.ANIMATION_NAME;
         this.animationContinue.color = 'white';
         this.animationContinue.shadow = new Shadow('#000', 1, 1, 0);
         this.animationContinue.alpha = 0.6;
 
         this.animationEndPage = new Text('🗏', `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`);
-        this.animationEndPage.name = this.ANIMATION_NAME;
+        this.animationEndPage.name = AnimatedText.ANIMATION_NAME;
         this.animationEndPage.color = 'white';
         this.animationEndPage.shadow = new Shadow('#000', 1, 1, 0);
         this.animationEndPage.alpha = 0.6;
@@ -123,6 +124,10 @@ export class AnimatedText {
         }
     }
 
+    public stopAnimating(): void {
+        this.last_character_position = null;
+    }
+
     private animateEndSymbol(time: number): void {
         if (!this.last_character_position) {
             return;
@@ -133,7 +138,7 @@ export class AnimatedText {
         }
 
         const animationObject = this.isEndPageAnimation ? this.animationEndPage : this.animationContinue;
-        if (!this.container.getChildByName(this.ANIMATION_NAME)) {
+        if (!this.container.getChildByName(AnimatedText.ANIMATION_NAME)) {
             this.container.addChild(animationObject);
         }
 
@@ -175,6 +180,7 @@ export class AnimatedText {
             `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`
         );
         createjsText.color = token.color;
+        createjsText.name = AnimatedText.TEXT_NAME;
 
         const shadow = new Shadow('#000', 1, 1, 0);
         createjsText.shadow = shadow;

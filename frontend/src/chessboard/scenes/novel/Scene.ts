@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject, Text } from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -181,17 +181,23 @@ export class Scene implements SceneInterface {
 
         const transition = isRepeat ? null : game_state.getCurrentScene()?.effects?.transition;
         const previousOuterContainer = (this.stage.children[this.stage.children.length - 1] as Container);
+        // removing text before animating
+        this.animated_text.stopAnimating();
+        previousOuterContainer.children = previousOuterContainer.children.filter((child) => {
+            return child.name !== AnimatedText.ANIMATION_NAME
+                && child.name !== AnimatedText.TEXT_NAME;
+        });
         this.screen_animation
             .runAnimation(transition, previousOuterContainer)
             .then(() => {
-                this.stage.removeChild(this.stage.getChildByName('outer-container'));
+                this.stage.children = [];
+                this.stage.addChild(newOuterContainer);
 
                 newOuterContainer.addChild(...this.renderCharaters(filters));
 
                 this.renderText(isRepeat, newOuterContainer);
-                this.stage.addChild(newOuterContainer);
 
-                this.auto_transition_timeout = game_state.getCurrentScene()?.effects?.auto_transition
+                this.auto_transition_timeout = game_state.getCurrentScene()?.effects?.auto_transition !== undefined
                     && setTimeout(() => {
                         this.proceedNovel();
                     }, 

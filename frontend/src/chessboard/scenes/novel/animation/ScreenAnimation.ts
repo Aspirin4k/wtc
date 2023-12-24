@@ -74,13 +74,14 @@ export class ScreenAnimation {
         let maskFilter: Filter;
         let animationTickHandler;
         let state = {};
+        let isCanceled = false;
         const promise = new Promise<void>((resolve) => {
             animationTickHandler = target.on('tick', (event: TickerEvent) => {
                 // debugger;
-                target.filters.filter((filter) => filter !== maskFilter);
+                target.filters = target.filters.filter((filter) => filter !== maskFilter);
 
                 state = drawCallback(state, mask.graphics, target.getBounds(), event.delta);
-                if (!state) {
+                if (!state || isCanceled) {
                     target.removeEventListener('tick', animationTickHandler);
                     return resolve();
                 }
@@ -95,8 +96,7 @@ export class ScreenAnimation {
 
         return [
             () => {
-                target.removeEventListener('tick', animationTickHandler);
-                target.filters.filter((filter) => filter !== maskFilter);
+                isCanceled = true;
             }, 
             promise
         ];
@@ -179,7 +179,6 @@ export class ScreenAnimation {
                     .to({alpha: end}, this.ANIMATION_DURATION)
                     .wait(100)
                     .call(() => {
-                        target.removeChild(target);
                         resolve();
                     });
             })

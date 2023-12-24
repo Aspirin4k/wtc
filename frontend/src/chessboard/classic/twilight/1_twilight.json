@@ -66,7 +66,7 @@
       "content": null
     },
     "effects": {
-      "auto_transition": 1000
+      "auto_transition": 500
     }
   },
   "proceeding": [
@@ -76,7 +76,7 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 1000
+        "auto_transition": 200
       }
     },
     {
@@ -85,8 +85,8 @@
         "effect": ["rain"]
       },
       "effects": {
-        "transition": "gradient-bottom-right",
-        "auto_transition": 1000
+        "transition": "gradient-bottom",
+        "auto_transition": 0
       }
     },
     {
@@ -94,14 +94,23 @@
         "url": "m_o1b_rain"
       },
       "effects": {
-        "transition": "gradient-bottom-right",
-        "auto_transition": 1000
+        "transition": "fade-in",
+        "auto_transition": 500
       }
     },
     {
       "background": {
-        "url": "b_dinner_1b_rain",
+        "url": "black",
         "effect": []
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1b_rain"
       },
       "text": {
         "content": "The tragedy of the first twilight was discovered at 6:00 in the morning on the following day.",
@@ -109,7 +118,7 @@
         "style": "replace"
       },
       "effects": {
-        "transition": "gradient-radial"
+        "transition": "fade-in"
       }
     },
     {
@@ -140,6 +149,9 @@
         "content": "Tell us about when you discovered the crime.",
         "character": "Battler",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
