@@ -172,6 +172,7 @@ export class Scene implements SceneInterface {
         }
 
         newOuterContainer.addChild(this.renderBackground(filters));
+        newOuterContainer.addChild(...this.renderCharaters(filters));
         if (background.effect.includes(EFFECT_RAIN)) {
             const rain = this.getBitmap('e_rain', screenWidth, screenHeight);
             rain.name = this.ELEMENT_RAIN;
@@ -192,8 +193,6 @@ export class Scene implements SceneInterface {
             .then(() => {
                 this.stage.children = [];
                 this.stage.addChild(newOuterContainer);
-
-                newOuterContainer.addChild(...this.renderCharaters(filters));
 
                 this.renderText(isRepeat, newOuterContainer);
 

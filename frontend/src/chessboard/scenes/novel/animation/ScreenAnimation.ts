@@ -7,7 +7,7 @@ type LinearGradientPosition = {
 }
 
 export class ScreenAnimation {
-    private readonly ANIMATION_DURATION = 500;
+    private readonly ANIMATION_DURATION = 300;
 
     private cancelCurrent: () => void = null;
 
@@ -38,7 +38,7 @@ export class ScreenAnimation {
     private getAnimationCallback(effect: Effect | null): (target: Container) => [() => void | null, Promise<void>] {
         switch (effect) {
             case 'fade-in':
-                return this.fadeIn.bind(this);
+                return (target: Container) => this.animateAlphaMask(target, this.animateFadeIn.bind(this));
             case 'gradient-right':
                 return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'left'}));
             case 'gradient-left':
@@ -142,17 +142,27 @@ export class ScreenAnimation {
 
             const step = targetLength / this.ANIMATION_DURATION;
 
+            let startPositionX = targetBounds.height / 2;
+            if (startPosition.x) {
+                startPositionX = startPosition.x === 'left'
+                    ? Math.max(0, length - 3 * targetBounds.width / 5)
+                    : Math.min(targetBounds.width, targetBounds.width - length + 3 * targetBounds.width / 5);
+            }
+
+            let startPositionY = targetBounds.width / 2;
+            if (startPosition.y) {
+                startPositionY = startPosition.y === 'top'
+                    ? Math.max(0, length - 3 * targetBounds.height / 5)
+                    : Math.min(targetBounds.height, targetBounds.height - length + 3 * targetBounds.height / 5);
+            }
+
             graphics
                 .clear()
                 .beginLinearGradientFill(
                     ['rgba(0, 0, 0, 0)', '#000'],
                     [0, 1],
-                    startPosition.x
-                        ? (startPosition.x === 'left' ? 0 : targetBounds.width)
-                        : targetBounds.height / 2,
-                    startPosition.y
-                        ? (startPosition.y === 'top' ? 0 : targetBounds.height)
-                        : targetBounds.width / 2,
+                    startPositionX,
+                    startPositionY,
                     startPosition.x
                         ? (startPosition.x === 'left' ? length : targetBounds.width - length)
                         : targetBounds.height / 2,
@@ -168,26 +178,22 @@ export class ScreenAnimation {
             };
         }
 
-    private getFadeCallback(start: number, end: number): (target: Container) => [() => void, Promise<void>] {
-        return (target: Stage) => {
-            let tween: Tween;
-            const promise = new Promise<void>((resolve) => {
-                target.alpha = start;
-        
-                tween = Tween
-                    .get(target)
-                    .to({alpha: end}, this.ANIMATION_DURATION)
-                    .wait(100)
-                    .call(() => {
-                        resolve();
-                    });
-            })
+    private animateFadeIn(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number): any {
+        const step = 1 / this.ANIMATION_DURATION;
+        const alpha = state.alpha === undefined ? 1 : state.alpha;
 
-            return [() => tween.setPosition(tween.duration, 1), promise];
+        if (alpha < 0) {
+            return false;
         }
-    }
 
-    private fadeIn(target: Container): [() => void, Promise<void>] {
-        return this.getFadeCallback(1, 0)(target);
+        graphics
+            .clear()
+            .beginFill(`rgba(0, 0, 0, ${alpha})`)
+            .drawRect(0, 0, targetBounds.width, targetBounds.height);
+
+        return {
+            ...state,
+            alpha: alpha - delta * step,
+        };
     }
 }

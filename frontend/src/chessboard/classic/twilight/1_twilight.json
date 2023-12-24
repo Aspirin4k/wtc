@@ -28,6 +28,7 @@
       "c_ushiromia_natsuhi_un_puzzled_a2": "/character/ushiromia_natsuhi/un_puzzled_a2.png",
       "c_ushiromia_natsuhi_un_worried_a3": "/character/ushiromia_natsuhi/un_worried_a3.png",
       "c_ushiromia_george_ug_serious_a2": "/character/ushiromia_george/ug_serious_a2.png",
+      "c_ushiromia_jessica_uj_troubled_a3": "/character/ushiromia_jessica/uj_troubled_a3.png",
       "c_ushiromia_jessica_uj_crying_a2": "/character/ushiromia_jessica/uj_crying_a2.png",
       "c_ushiromia_jessica_uj_puzzled_a1": "/character/ushiromia_jessica/uj_puzzled_a1.png",
       "c_ushiromia_maria_um_evil_a1": "/character/ushiromia_maria/um_evil_a1.png",
@@ -76,7 +77,7 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 200
+        "auto_transition": 0
       }
     },
     {
@@ -95,7 +96,7 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 500
+        "auto_transition": 1000
       }
     },
     {
@@ -139,6 +140,12 @@
       "background": {
         "url": "b_1floor_s1b_rain"
       },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "middle": {
           "z-index": 1,
@@ -151,7 +158,7 @@
         "style": "replace"
       },
       "effects": {
-        "transition": "fade-in"
+        "transition": "gradient-left"
       }
     },
     {
@@ -159,17 +166,28 @@
         "url": "b_1floor_s1a_rain"
       },
       "characters": {
+        "middle": null
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "left": {
           "z-index": 1,
           "url": "c_gohda_goh_troubled_a2"
-        },
-        "middle": null
+        }
       },
       "text": {
         "content": "<purple>The dining hall was locked up.</purple>",
         "character": "Gohda",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -200,6 +218,9 @@
         "character": "Kumasawa",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -221,6 +242,9 @@
         "content": "When <purple>I unlocked the door with a master key</purple>, a terrifying sight awaited me inside...",
         "character": "Gohda",
         "style": "add"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -235,6 +259,9 @@
         "character": "Kumasawa",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -251,6 +278,15 @@
       },
       "characters": {
         "left": null,
+        "middle": null
+      },
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "middle": {
           "z-index": 1,
           "url": "c_ushiromia_krauss_uk_serious_a2"
@@ -261,6 +297,9 @@
         "character": "Krauss",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -287,6 +326,9 @@
         "character": "Natsuhi",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -302,18 +344,29 @@
         "url": "b_1floor_s1b_rain"
       },
       "characters": {
+        "middle": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "left": {
           "z-index": 1,
           "url": "c_ushiromia_jessica_uj_crying_a2"
-        },
-        "middle": null,
-        "right": null
+        }
       },
       "text": {
         "content": "There was a chance they might've been alive still.",
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -336,6 +389,9 @@
         "character": "Shannon",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -351,16 +407,28 @@
         "url": "b_1floor_s1a_rain"
       },
       "characters": {
+        "right": null,
+        "left": null
+      },
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "left": {
           "z-index": 1,
           "url": "c_kanon_kan_puzzled_a2"
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "<purple>Doctor Nanjo and I confirmed that Genji-sama was dead.</purple>",
         "character": "Kanon",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -375,6 +443,9 @@
         "character": "Nanjo",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -397,6 +468,9 @@
         "character": "Maria",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -413,16 +487,28 @@
       },
       "characters": {
         "left": null,
+        "middle": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "middle": {
           "z-index": 2,
           "url": "c_ushiromia_krauss_uk_serious_a1"
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "<purple>After inspecting the interior of the dining hall, we determined that all of the doors and windows had been locked, making it closed room.</purple>",
         "character": "Krauss",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -436,6 +522,9 @@
         "content": "And <purple>nothing suspicious was found inside the dining hall.</purple>",
         "character": "Battler",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -449,6 +538,9 @@
         "content": "Of course, <purple>there was no one hiding in the dining hall either.</purple>",
         "character": "George",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -463,6 +555,9 @@
         "character": "Krauss",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -483,21 +578,48 @@
     },
     {
       "background": {
+        "url": "black"
+      },
+      "characters": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
         "url": "b_1floor_s1c_rain"
       },
       "characters": {
         "left": {
           "z-index": 1,
+          "url": "c_ushiromia_jessica_uj_troubled_a3"
+        }
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 100
+      }
+    },
+    {
+      "characters": {
+        "left": {
+          "z-index": 1,
           "url": "c_ushiromia_jessica_uj_puzzled_a1"
-        },
-        "middle": null,
-        "right": null
+        }
       },
       "text": {
         "content": "But Dad, if that's true, it doesn't make sense...",
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -528,6 +650,9 @@
         "character": "Natsuhi",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -550,6 +675,9 @@
         "character": "Krauss",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -577,6 +705,9 @@
         "character": "Gohda",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -589,16 +720,28 @@
     },
     {
       "background": {
-        "url": "b_dinner_1b_rain",
-        "effect": ["grayscale"]
+        "url": "black"
       },
       "characters": {
         "middle": null
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1b_rain",
+        "effect": ["grayscale"]
       },
       "text": {
         "content": "Since there was no chance of the culprit hiding inside the dining hall,",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -638,9 +781,29 @@
     },
     {
       "background": {
-        "url": "b_different_space_1a",
+        "url": "black",
         "effect": []
       },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 500
+      }
+    },
+    {
+      "background": {
+        "url": "b_different_space_1a"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "right": {
           "z-index": 2,
@@ -651,6 +814,9 @@
         "content": "Is there any way to lock up from the outside without a master key?",
         "character": "Battler",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -665,6 +831,9 @@
         "character": "Bernkastel",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -695,6 +864,9 @@
         "content": "<red>All doors can only be locked or unlocked with a master key.</red>",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -708,6 +880,12 @@
       "background": {
         "url": "b_different_space_1a"
       },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "z-index": 1,
@@ -719,6 +897,9 @@
         "character": "Lambdadelta",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -740,6 +921,9 @@
         "content": "Shouldn't there be keys to each individual room, in addition to the master keys?",
         "character": "Beatrice",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -748,6 +932,15 @@
       },
       "characters": {
         "left": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-top-right",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "right": {
           "z-index": 2,
           "url": "c_bernkastel_ber_apathy_a1"
@@ -758,6 +951,9 @@
         "character": "Bernkastel",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -796,6 +992,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-top-right"
       }
     },
     {
@@ -812,6 +1011,15 @@
       },
       "characters": {
         "left": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "right": {
           "z-index": 2,
           "url": "c_lambdadelta_lam_evil_a1"
@@ -822,6 +1030,9 @@
         "character": "Lambdadelta",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -843,25 +1054,48 @@
         "content": "In that case, we should now check the number of master keys and who holds them.",
         "character": "Beatrice",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-top-right"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": {
+        "left": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
       }
     },
     {
       "background": {
         "url": "b_different_space_1c"
       },
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 100
+      }
+    },
+    {
       "characters": {
-        "left": null,
         "middle": {
           "z-index": 1,
           "url": "c_bernkastel_ber_apathy_a2"
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "<red>There are five master keys total.</red>",
         "character": "Bernkastel",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -893,7 +1127,15 @@
         "url": "b_different_space_1b"
       },
       "characters": {
-        "middle": null,
+        "middle": null
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "right": {
           "z-index": 2,
           "url": "c_ushiromia_battler_cape_ubc_puzzled_a3"
@@ -904,6 +1146,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -926,6 +1171,9 @@
         "character": "Beatrice",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -938,10 +1186,33 @@
     },
     {
       "background": {
-        "url": "b_dinner_1a_rain"
+        "url": "black"
       },
       "characters": {
         "left": null,
+        "right": null
+      },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 500
+      }
+    },
+    {
+      "background": {
+        "url": "b_dinner_1a_rain"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "characters": {
         "right": {
           "z-index": 2,
           "url": "c_ushiromia_krauss_uk_serious_a2"
@@ -951,6 +1222,9 @@
         "content": "We tried to retrieve Genji-san's master key, but had no luck.",
         "character": "Krauss",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -964,6 +1238,9 @@
         "content": "To guard against trouble later on, <purple>we destroyed Genji's master key.</purple>",
         "character": "Natsuhi",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -975,6 +1252,9 @@
         "content": "This was the crime of the first twilight.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -996,6 +1276,19 @@
         "content": " Then again, no one else has an alibi either...",
         "character": "narrator",
         "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": {
+        "left": null,
+        "right": null
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     }
   ]

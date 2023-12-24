@@ -20,7 +20,7 @@ export const SCENE_PURPLE_GAME = 'purple-game';
 
 const CHESSBOARD_MODE_CLASSIC = 1;
 
-const FPS_50 = 1000 / 50;
+const FPS = 50;
 
 export class SceneManager {
     private readonly FIRST_SCENE = SCENE_DISCLAIMER;
@@ -57,7 +57,7 @@ export class SceneManager {
     }
 
     public register(stage: Stage): void {
-        Ticker.framerate = FPS_50;
+        Ticker.framerate = FPS;
         Ticker.addEventListener('tick', this.tick);
 
         document.addEventListener('keydown', this.handleKeyDown);
