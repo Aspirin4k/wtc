@@ -1,6 +1,7 @@
 import {Character, Proceeding, ScreenState} from "./ScreenStateInterface";
 
 import {AssetManager} from "../../helpers/AssetManager";
+import { getCharacterX } from "./CharacterOffset";
 
 const CLASSIC_SPRITE_LEFT_X = -75;
 const CLASSIC_SPRITE_RIGHT_X = 270;
@@ -162,16 +163,17 @@ class State {
 
     hydrateCharCoordinates(character: Character, position: string) {
         character.width = this.asset_manager.getImage(character.url).width / 2;
+        const characterName = character.url.match(/c_(.*)_\w+_\w+_\w+/)[1];
         switch (position) {
             case 'left':
-                character.x = - character.width / 5;
+                character.x = getCharacterX(characterName, -26);
                 break;
             case 'middle':
-                character.x = (640 - character.width) / 2
+                character.x = getCharacterX(characterName, 132);
                 break;
             case 'right':
             default:
-                character.x = 320 - character.width / 6;
+                character.x = getCharacterX(characterName, 285);
                 break;
         }
     }

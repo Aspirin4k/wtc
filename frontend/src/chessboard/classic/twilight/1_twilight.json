@@ -600,6 +600,11 @@
           "url": "c_ushiromia_jessica_uj_troubled_a3"
         }
       },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
+      },
       "effects": {
         "transition": "gradient-right",
         "auto_transition": 100
@@ -1075,6 +1080,11 @@
     {
       "background": {
         "url": "b_different_space_1c"
+      },
+      "text": {
+        "content": "",
+        "character": "narrator",
+        "style": "replace"
       },
       "effects": {
         "transition": "gradient-right",
