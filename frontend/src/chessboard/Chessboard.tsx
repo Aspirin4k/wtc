@@ -49,7 +49,8 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
                 id='canvas'
                 style={{
                     width: CLASSIC_SCREEN_WIDTH,
-                    height: CLASSIC_SCREEN_HEIGHT
+                    height: CLASSIC_SCREEN_HEIGHT,
+                    backgroundColor: '#000'
                 }}
                 ref={this.canvas}
                 height={CLASSIC_SCREEN_HEIGHT}

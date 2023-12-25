@@ -16,14 +16,17 @@ interface BaseProceeding {
     effects?: {
         transition?: Effect,
         auto_transition?: number,
+        sound?: string,
+        visual?: Effect,
     }
 }
 
 type Effect = 
-    'fade-in' 
+    'fade-in'
     | 'gradient-radial' 
     | 'gradient-right' | 'gradient-left' | 'gradient-top' | 'gradient-bottom'
-    | 'gradient-top-left' | 'gradient-top-right' | 'gradient-bottom-left' | 'gradient-bottom-right';
+    | 'gradient-top-left' | 'gradient-top-right' | 'gradient-bottom-left' | 'gradient-bottom-right'
+    | 'shake-bottom';
 
 interface Background {
     url: string,

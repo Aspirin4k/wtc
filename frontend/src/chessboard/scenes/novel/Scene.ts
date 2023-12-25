@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject, Text } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject, Text, Shape, Rectangle } from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -193,15 +193,24 @@ export class Scene implements SceneInterface {
             .then(() => {
                 this.stage.children = [];
                 this.stage.addChild(newOuterContainer);
-
+                const effects = game_state.getCurrentScene()?.effects;
+                return this.screen_animation
+                    .runAnimation(isRepeat ? null : effects?.visual, newOuterContainer);
+            })
+            .then(() => {
                 this.renderText(isRepeat, newOuterContainer);
 
-                this.auto_transition_timeout = game_state.getCurrentScene()?.effects?.auto_transition !== undefined
+                const effects = game_state.getCurrentScene()?.effects;
+                this.auto_transition_timeout = effects?.auto_transition !== undefined
                     && setTimeout(() => {
                         this.proceedNovel();
                     }, 
-                    game_state.getCurrentScene().effects.auto_transition
-                )
+                    effects.auto_transition
+                );
+
+                if (!isRepeat && effects?.sound) {
+                    this.asset_manager.getAudio(effects.sound).play();
+                }
             });
     }
 

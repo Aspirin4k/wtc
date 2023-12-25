@@ -37,6 +37,8 @@ export class ScreenAnimation {
 
     private getAnimationCallback(effect: Effect | null): (target: Container) => [() => void | null, Promise<void>] {
         switch (effect) {
+            case 'shake-bottom':
+                return this.animateShakeBottom.bind(this);
             case 'fade-in':
                 return (target: Container) => this.animateAlphaMask(target, this.animateFadeIn.bind(this));
             case 'gradient-right':
@@ -60,6 +62,22 @@ export class ScreenAnimation {
             default:
                 return () => [null, Promise.resolve()];
         }
+    }
+
+    private animateShakeBottom(target: Container): [() => void, Promise<void>] {
+        const startY = target.y;
+        const offsetY = 4;
+
+        let tween: Tween;
+        const promise = new Promise<void>((resolve) => {
+            tween = Tween
+                .get(target)
+                .to({y: startY + offsetY}, this.ANIMATION_DURATION / 5)
+                .to({y: startY}, this.ANIMATION_DURATION / 5)
+                .call(resolve);
+        });
+
+        return [() => tween.setPosition(tween.duration, 1), promise];
     }
 
     private animateAlphaMask(

@@ -50,7 +50,8 @@
     },
     "audio": {
       "a_rain": "/ambient/rain_2.wav",
-      "bgm_gc-28": "/bgm/gc-28.ogg"
+      "bgm_gc-28": "/bgm/gc-28.ogg",
+      "e_red_statement": "/effect/barrier_tenkai_2.wav"
     }
   },
   "scene": {
@@ -712,7 +713,8 @@
         "statement": "start"
       },
       "effects": {
-        "transition": "gradient-right"
+        "transition": "gradient-right",
+        "visual": "shake-bottom"
       }
     },
     {
@@ -871,7 +873,8 @@
         "style": "replace"
       },
       "effects": {
-        "transition": "fade-in"
+        "transition": "fade-in",
+        "sound": "e_red_statement"
       }
     },
     {
@@ -983,6 +986,9 @@
         "character": "Bernkastel",
         "style": "add",
         "statement": "end"
+      },
+      "effects": {
+        "sound": "e_red_statement"
       }
     },
     {
@@ -1105,7 +1111,8 @@
         "statement": "start"
       },
       "effects": {
-        "transition": "fade-in"
+        "transition": "fade-in",
+        "sound": "e_red_statement"
       }
     },
     {
@@ -1130,6 +1137,9 @@
         "character": "Bernkastel",
         "style": "add",
         "statement": "end"
+      },
+      "effects": {
+        "sound": "e_red_statement"
       }
     },
     {
