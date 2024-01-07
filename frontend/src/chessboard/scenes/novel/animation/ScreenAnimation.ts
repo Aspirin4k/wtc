@@ -24,8 +24,8 @@ export class ScreenAnimation {
         this.cancelCurrent = null;
     }
 
-    public runAnimation(effect: Effect | null, target: Container): Promise<void> {
-        const [cancel, promise] = this.getAnimationCallback(effect)(target);
+    public runAnimation(effect: Effect | null, speed: number | null, target: Container): Promise<void> {
+        const [cancel, promise] = this.getAnimationCallback(effect)(target, speed || this.ANIMATION_DURATION);
         this.cancelCurrent = cancel;
         
         return promise
@@ -35,36 +35,36 @@ export class ScreenAnimation {
             });
     }
 
-    private getAnimationCallback(effect: Effect | null): (target: Container) => [() => void | null, Promise<void>] {
+    private getAnimationCallback(effect: Effect | null): (target: Container, speed: number) => [() => void | null, Promise<void>] {
         switch (effect) {
             case 'shake-bottom':
                 return this.animateShakeBottom.bind(this);
             case 'fade-in':
-                return (target: Container) => this.animateAlphaMask(target, this.animateFadeIn.bind(this));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateFadeIn.bind(this));
             case 'gradient-right':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'left'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'left'}));
             case 'gradient-left':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'right'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'right'}));
             case 'gradient-top':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({y: 'bottom'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({y: 'bottom'}));
             case 'gradient-bottom':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({y: 'top'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({y: 'top'}));
             case 'gradient-top-left':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'right', y: 'bottom'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'right', y: 'bottom'}));
             case 'gradient-top-right':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'left', y: 'bottom'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'left', y: 'bottom'}));
             case 'gradient-bottom-left':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'right', y: 'top'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'right', y: 'top'}));
             case 'gradient-bottom-right':
-                return (target: Container) => this.animateAlphaMask(target, this.animateLinearGradient({x: 'left', y: 'top'}));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'left', y: 'top'}));
             case 'gradient-radial':
-                return (target: Container) => this.animateAlphaMask(target, this.animateGradientRadial.bind(this));
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateGradientRadial.bind(this));
             default:
                 return () => [null, Promise.resolve()];
         }
     }
 
-    private animateShakeBottom(target: Container): [() => void, Promise<void>] {
+    private animateShakeBottom(target: Container, speed: number): [() => void, Promise<void>] {
         const startY = target.y;
         const offsetY = 4;
 
@@ -72,8 +72,8 @@ export class ScreenAnimation {
         const promise = new Promise<void>((resolve) => {
             tween = Tween
                 .get(target)
-                .to({y: startY + offsetY}, this.ANIMATION_DURATION / 5)
-                .to({y: startY}, this.ANIMATION_DURATION / 5)
+                .to({y: startY + offsetY}, speed / 5)
+                .to({y: startY}, speed / 5)
                 .call(resolve);
         });
 
@@ -82,7 +82,8 @@ export class ScreenAnimation {
 
     private animateAlphaMask(
         target: Container,
-        drawCallback: (state: any, graphics: Graphics, targetBounds: Rectangle, delta: number) => any
+        speed: number,
+        drawCallback: (state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number) => any
     ): [() => void, Promise<void>] {
         if (null === target.filters) {
             target.filters = [];
@@ -98,7 +99,7 @@ export class ScreenAnimation {
                 // debugger;
                 target.filters = target.filters.filter((filter) => filter !== maskFilter);
 
-                state = drawCallback(state, mask.graphics, target.getBounds(), event.delta);
+                state = drawCallback(state, mask.graphics, target.getBounds(), event.delta, speed);
                 if (!state || isCanceled) {
                     target.removeEventListener('tick', animationTickHandler);
                     return resolve();
@@ -120,7 +121,7 @@ export class ScreenAnimation {
         ];
     }
 
-    private animateGradientRadial(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number): any {
+    private animateGradientRadial(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any {
         const targetRadius = targetBounds.width;
         const radius = state.radius || 1;
 
@@ -128,7 +129,7 @@ export class ScreenAnimation {
             return false;
         }
 
-        const step = targetRadius / this.ANIMATION_DURATION;
+        const step = targetRadius / speed;
         graphics
             .clear()
             .beginRadialGradientFill(
@@ -150,7 +151,7 @@ export class ScreenAnimation {
     }
 
     private animateLinearGradient = (startPosition: LinearGradientPosition) => 
-        (state: any, graphics: Graphics, targetBounds: Rectangle, delta: number): any => {
+        (state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any => {
             const targetLength = targetBounds.width;
             const length = state.length || 1;
 
@@ -158,7 +159,7 @@ export class ScreenAnimation {
                 return false;
             }
 
-            const step = targetLength / this.ANIMATION_DURATION;
+            const step = targetLength / speed;
 
             let startPositionX = targetBounds.height / 2;
             if (startPosition.x) {
@@ -196,8 +197,8 @@ export class ScreenAnimation {
             };
         }
 
-    private animateFadeIn(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number): any {
-        const step = 1 / this.ANIMATION_DURATION;
+    private animateFadeIn(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any {
+        const step = 1 / speed;
         const alpha = state.alpha === undefined ? 1 : state.alpha;
 
         if (alpha < 0) {

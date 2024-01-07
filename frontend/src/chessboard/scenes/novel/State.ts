@@ -106,6 +106,14 @@ class State {
         }
 
         if (typeof proceeding.characters !== 'undefined') {
+            if (proceeding.characters === null) {
+                proceeding.characters = {
+                    left: null,
+                    middle: null,
+                    right: null,
+                };
+            }
+
             revert_proceeding.characters = {};
             Object.keys(new_state.characters).forEach((char_position) => {
                 if (typeof proceeding.characters[char_position] !== 'undefined') {
@@ -118,6 +126,14 @@ class State {
         }
 
         if (typeof proceeding.text !== 'undefined') {
+            if (proceeding.text === null) {
+                proceeding.text = {
+                    content: '',
+                    style: PROCEEDING_TEXT_REPLACE,
+                    character: PROCEEDING_TEXT_NARRATOR,
+                };
+            }
+
             let new_text = proceeding.text.content;
 
             if (proceeding.text.statement === PROCEEDING_TEXT_STATEMENT_START) {

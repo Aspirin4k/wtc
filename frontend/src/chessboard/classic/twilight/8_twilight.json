@@ -5,6 +5,7 @@
   "resources": {
     "images": {
       "t_dai_8": "/twilight/dai_8.png",
+      "black": "/background/black.jpg",
       "e_rain": "/background/effect/rain/stillrainfront.png",
       "b_garden_o1a_rain": "/background/guesthouse/garden_o1a_rain.bmp",
       "b_rose_1a_rain": "/background/garden/rose_1a_rain.bmp",
@@ -30,18 +31,42 @@
     },
     "text": {
       "content": null
+    },
+    "effects": {
+      "auto_transition": 500
     }
   },
   "proceeding": [
     {
       "background": {
-        "url": "b_garden_o1a_rain",
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": ["rain"]
+      },
+      "effects": {
+        "transition": "gradient-bottom",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_o1a_rain"
       },
       "text": {
         "content": "By now, it was clear that holing up wouldn't keep them safe.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -73,6 +98,9 @@
         "content": "Then, outside the building, they found Jessica lying on the ground.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -80,6 +108,15 @@
         "content": "\n\nIt was, as anyone could tell at a glance, a gruesome corpse...",
         "character": "narrator",
         "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     },
     {
@@ -97,6 +134,9 @@
         "character": "George",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -119,6 +159,9 @@
         "character": "Maria",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -141,6 +184,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -153,11 +199,26 @@
     },
     {
       "background": {
+        "url": "black"
+      },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 100
+      }
+    },
+    {
+      "background": {
         "url": "b_rose_1b_rain"
       },
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
-        "left": null,
-        "middle": null,
         "right": {
           "url": "c_ushiromia_maria_um_evil_a1",
           "z-index": 1
@@ -168,6 +229,9 @@
         "character": "Maria",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -190,6 +254,9 @@
         "character": "George",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -212,6 +279,9 @@
         "character": "Maria",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -250,6 +320,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -262,17 +335,26 @@
     },
     {
       "background": {
-        "url": "b_rose_1a_rain"
+        "url": "black"
       },
-      "characters": {
-        "left": null,
-        "middle": null,
-        "right": null
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1a_rain"
       },
       "text": {
         "content": "This was the eighth twilight.",
         "style": "replace",
         "character": "narrator"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -308,6 +390,27 @@
         "content": "\n\nThe curtain is lowered on this tale, for now...",
         "style": "add",
         "character": "narrator"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0,
+        "transition_speed": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "black",
+        "effect": []
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     }
   ]

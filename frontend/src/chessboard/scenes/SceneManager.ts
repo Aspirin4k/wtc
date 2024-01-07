@@ -11,7 +11,7 @@ import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
 import { BGM } from './novel/BGM';
 
-import twilight1 from "../classic/twilight/1_twilight.json";
+import twilight1 from "../classic/twilight/8_twilight.json";
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';

@@ -25,7 +25,10 @@
       "blood": "/background/special/blood_1a.png",
       "spiral_b": "/background/metaworld/different_spiral_1b.bmp"
     },
-    "audio": {}
+    "audio": {
+      "e_impact": "/effect/02se_umi.wav",
+      "e_ahaha": "/effect/ahaha.wav"
+    }
   },
   "scene": {
     "background": {
@@ -39,18 +42,42 @@
     },
     "text": {
       "content": null
+    },
+    "effects": {
+      "auto_transition": 500
     }
   },
   "proceeding": [
     {
       "background": {
-        "url": "b_garden_o1c_rain",
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": ["rain"]
+      },
+      "effects": {
+        "transition": "gradient-bottom",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_o1c_rain"
       },
       "text": {
         "content": "Everyone took shelter in the guesthouse.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -76,6 +103,27 @@
     },
     {
       "background": {
+        "url": "black",
+        "effect": ["rain"]
+      },
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "black",
+        "effect": []
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 1000
+      }
+    },
+    {
+      "background": {
         "url": "b_1floor_p1e",
         "effect": []
       },
@@ -83,6 +131,19 @@
         "content": "After arguing fiercely in the cousin room about finding the culprit, they decided that they should double-check Nanjo, Kumasawa, and Gohda's testimony.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
+      }
+    },
+    {
+      "background": {
+        "url": "b_1floor_r1b_rain"
+      },
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     },
     {
@@ -93,12 +154,22 @@
         "content": "And there, ...they learned that a tragedy had occured once more.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "sound": "e_impact"
       }
     },
     {
       "background": {
         "url": "b_1floor_r1a_rain"
       },
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "right": {
           "url": "c_nanji_nan_troubled_a4",
@@ -110,6 +181,9 @@
         "character": "Nanjo",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -132,6 +206,10 @@
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "visual": "shake-bottom"
       }
     },
     {
@@ -146,19 +224,28 @@
       "background": {
         "url": "b_1floor_r1b_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_ushiromia_battler_ub_panicked_a2",
           "z-index": 1
-        },
-        "middle": null,
-        "right": null
+        }
       },
       "text": {
         "content": "Well, we have been busy, keeping a lookout and locking up and all that.",
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -181,6 +268,9 @@
         "character": "George",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -210,15 +300,24 @@
         "content": "But Doctor Nanjo and all of the cousins have no blood spatter on them.",
         "character": "Maria",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
       "background": {
         "url": "b_1floor_r1a_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
-        "left": null,
-        "middle": null,
         "right": {
           "url": "c_ushiromia_jessica_uj_troubled_a3",
           "z-index": 2
@@ -228,6 +327,9 @@
         "content": "All of us...in other words, <purple>the four of cousins and Doctor Nanjo couldn't have killed Gohda-san or Kumasawa-san.</purple>",
         "character": "Jessica",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -241,24 +343,36 @@
         "content": "In that case, it's clear that the culprit is someone other than us.",
         "character": "Battler",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-top-right"
       }
     },
     {
       "background": {
         "url": "b_1floor_r1b_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-bottom-left",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
-        "left": null,
         "middle": {
           "url": "c_ushiromia_george_ug_serious_a3",
           "z-index": 1
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "I guessed that someone might have snuck in, so I checked around, <purple>but the guesthouse was still completely locked up.</purple>",
         "character": "George",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -272,25 +386,37 @@
         "content": "Perhaps the culprit has a master key after all...",
         "character": "Nanjo",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
       "background": {
         "url": "b_1floor_r1a_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_ushiromia_battler_ub_panicked_a3",
           "z-index": 1
-        },
-        "middle": null,
-        "right": null
+        }
       },
       "text": {
         "content": "That's impossible.",
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -313,6 +439,9 @@
         "character": "Jessica",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -335,6 +464,9 @@
         "character": "Maria",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -343,21 +475,23 @@
         "character": "Maria",
         "style": "add",
         "statement": "end"
+      },
+      "effects": {
+        "sound": "e_ahaha"
       }
     },
     {
       "background": {
         "url": "black"
       },
-      "characters": {
-        "left": null,
-        "middle": null,
-        "right": null
-      },
+      "characters": null,
       "text": {
         "content": "This was the crime of the fifth and sixth twilights.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -382,6 +516,9 @@
         "content": "Now, no one can break into this closed room guesthouse.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -389,6 +526,16 @@
         "content": "\n\nAt least, that should have been the case...",
         "character": "narrator",
         "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0,
+        "transition_speed": 1000
       }
     }
   ]

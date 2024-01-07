@@ -111,6 +111,7 @@ export class Scene implements SceneInterface {
         const [hasContinuation, isRepeat] = this.game_state.proceedNovel();
         if (!hasContinuation) {
             this.scene_manager.nextScene();
+            return;
         }
 
         this.renderState(isRepeat);
@@ -181,6 +182,7 @@ export class Scene implements SceneInterface {
         }
 
         const transition = isRepeat ? null : game_state.getCurrentScene()?.effects?.transition;
+        const transitionSpeed = game_state.getCurrentScene()?.effects?.transition_speed || null;
         const previousOuterContainer = (this.stage.children[this.stage.children.length - 1] as Container);
         // removing text before animating
         this.animated_text.stopAnimating();
@@ -189,13 +191,13 @@ export class Scene implements SceneInterface {
                 && child.name !== AnimatedText.TEXT_NAME;
         });
         this.screen_animation
-            .runAnimation(transition, previousOuterContainer)
+            .runAnimation(transition, transitionSpeed, previousOuterContainer)
             .then(() => {
                 this.stage.children = [];
                 this.stage.addChild(newOuterContainer);
                 const effects = game_state.getCurrentScene()?.effects;
                 return this.screen_animation
-                    .runAnimation(isRepeat ? null : effects?.visual, newOuterContainer);
+                    .runAnimation(isRepeat ? null : effects?.visual, null, newOuterContainer);
             })
             .then(() => {
                 this.renderText(isRepeat, newOuterContainer);
@@ -209,7 +211,14 @@ export class Scene implements SceneInterface {
                 );
 
                 if (!isRepeat && effects?.sound) {
-                    this.asset_manager.getAudio(effects.sound).play();
+                    setTimeout(
+                        () => {
+                            const audio = this.asset_manager.getAudio(effects.sound);
+                            audio.currentTime = 0;
+                            audio.play();
+                        }, 
+                        effects.sound_delay || 0
+                    );
                 }
             });
     }

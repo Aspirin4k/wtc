@@ -4,6 +4,7 @@
   "deaths": ["kanon", "shannon"],
   "resources": {
     "images": {
+      "black": "/background/black.jpg",
       "t_dai_4": "/twilight/dai_4.png",
       "e_rain": "/background/effect/rain/stillrainfront.png",
       "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
@@ -27,9 +28,12 @@
       "c_gohda_goh_troubled_a2": "/character/gohda/goh_troubled_a2.png",
       "c_beatrice_bea_serious_a2": "/character/beatrice/bea_serious_a2.png",
       "c_bernkastel_ber_apathy_a1": "/character/bernkastel/ber_apathy_a1.png",
-      "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png"
+      "c_bernkastel_ber_apathy_a2": "/character/bernkastel/ber_apathy_a2.png",
+      "c_lambdadelta_lam_evil_a1": "/character/lambdadelta/lam_evil_a1.png"
     },
-    "audio": {}
+    "audio": {
+      "e_red_statement": "/effect/barrier_tenkai_2.wav"
+    }
   },
   "scene": {
     "background": {
@@ -43,18 +47,42 @@
     },
     "text": {
       "content": null
+    },
+    "effects": {
+      "auto_transition": 500
     }
   },
   "proceeding": [
     {
       "background": {
-        "url": "b_garden_o1b_rain",
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": ["rain"]
+      },
+      "effects": {
+        "transition": "gradient-bottom",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_o1b_rain"
       },
       "text": {
         "content": "All those who took refuge in the guesthouse decided to hole up in there until the typhoon passed.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -80,19 +108,43 @@
     },
     {
       "background": {
-        "url": "b_rose_1b_rain"
+        "url": "black"
       },
-      "text": {
-        "content": "",
-        "character": "narrator",
-        "style": "replace"
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     },
     {
       "background": {
-        "url": "b_garden_r1a_rain",
+        "url": "b_rose_1b_rain"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": []
       },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_garden_r1a_rain"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_ushiromia_battler_ub_puzzled_a2",
@@ -103,6 +155,9 @@
         "content": "Shannon-chan and Kanon-kun went outside on an errand and still haven't come back...!",
         "character": "Battler",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -116,24 +171,37 @@
         "content": "George nii-san got upset, so <purple>we all went outside to look for them.</purple>",
         "character": "Jessica",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
       "background": {
         "url": "b_garden_r1c_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_kumasawa_kum_troubled_a1",
           "z-index": 1
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "We found Shannon-chan lying there in the rose garden.",
         "character": "Kumasawa",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -156,6 +224,9 @@
         "character": "George",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -177,25 +248,37 @@
         "content": "Of course, <purple>I also examined her and confirmed her death.</purple>",
         "character": "Nanjo",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
       "background": {
         "url": "b_garden_r1a_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_gohda_goh_troubled_a2",
           "z-index": 1
-        },
-        "middle": null,
-        "right": null
+        }
       },
       "text": {
         "content": "When the two of them left, we were busy checking the locks around the guesthouse.",
         "character": "Gohda",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -218,6 +301,9 @@
         "character": "George",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -240,6 +326,9 @@
         "character": "Maria",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -252,21 +341,33 @@
     },
     {
       "background": {
+        "url": "black"
+      },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 100
+      }
+    },
+    {
+      "background": {
         "url": "b_garden_r1c_rain"
       },
       "characters": {
-        "left": null,
         "middle": {
           "url": "c_ushiromia_jessica_uj_worried_a1",
           "z-index": 3
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "Later on, we learned that George nii-san alone had an alibi.",
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -289,6 +390,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -311,6 +415,9 @@
         "character": "Gohda",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -323,11 +430,27 @@
     },
     {
       "background": {
+        "url": "black"
+      },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 1000,
+        "transition_speed": 1000
+      }
+    },
+    {
+      "background": {
         "url": "b_different_space_1b"
       },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
-        "left": null,
-        "middle": null,
         "right": {
           "url": "c_bernkastel_ber_apathy_a2",
           "z-index": 2
@@ -338,6 +461,9 @@
         "character": "Bernkastel",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -346,6 +472,10 @@
         "character": "Bernkastel",
         "style": "add",
         "statement": "continue"
+      },
+      "effects": {
+        "sound": "e_red_statement",
+        "sound_delay": 150
       }
     },
     {
@@ -357,21 +487,56 @@
       }
     },
     {
+      "characters": {
+        "middle": {
+          "url": "c_lambdadelta_lam_evil_a1",
+          "z-index": 1
+        }
+      },
+      "text": {
+        "content": "Well, I thought it'd be rude, so I kept quiet about it,",
+        "character": "Lambdadelta",
+        "style": "replace",
+        "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
+      }
+    },
+    {
+      "text": {
+        "content": "but that's what happens when Shannon dies.",
+        "character": "Lambdadelta",
+        "style": "add",
+        "statement": "end"
+      }
+    },
+    {
       "background": {
         "url": "b_different_space_1a"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
         "left": {
           "url": "c_beatrice_bea_serious_a2",
           "z-index": 1
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "In other words,",
         "character": "Beatrice",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -393,6 +558,9 @@
         "content": "That's right.",
         "character": "Bernkastel",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-bottom-left"
       }
     },
     {
@@ -407,6 +575,9 @@
         "character": "Battler",
         "style": "add",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -419,18 +590,37 @@
     },
     {
       "background": {
-        "url": "b_rose_1a_rain",
+        "url": "black"
+      },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0,
+        "transition_speed": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "black",
         "effect": ["rain"]
       },
-      "characters": {
-        "left": null,
-        "middle": null,
-        "right": null
+      "effects": {
+        "transition": "gradient-bottom",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
+        "url": "b_rose_1a_rain"
       },
       "text": {
         "content": "This was the crime of the fourth twilight.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -466,6 +656,27 @@
         "content": "\n\nThen, the pace of the crimes began to accelerate...",
         "character": "narrator",
         "style": "add"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "text": null,
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0,
+        "transition_speed": 1000
+      }
+    },
+    {
+      "background": {
+        "url": "black",
+        "effect": []
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     }
   ]

@@ -19,7 +19,9 @@
       "c_ushiromia_jessica_uj_puzzled_a1": "/character/ushiromia_jessica/uj_puzzled_a1.png",
       "c_ushiromia_jessica_uj_anger_a3": "/character/ushiromia_jessica/uj_anger_a3.png"
     },
-    "audio": {}
+    "audio": {
+      "e_impact": "/effect/02se_umi.wav"
+    }
   },
   "scene": {
     "background": {
@@ -33,12 +35,37 @@
     },
     "text": {
       "content": null
+    },
+    "effects": {
+      "auto_transition": 500
     }
   },
   "proceeding": [
     {
       "background": {
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
+      }
+    },
+    {
+      "background": {
         "url": "b_blood"
+      },
+      "effects": {
+        "auto_transition": 500,
+        "sound": "e_impact"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "effects": {
+        "transition": "fade-in",
+        "auto_transition": 0
       }
     },
     {
@@ -49,6 +76,9 @@
         "content": "This time, Doctor Nanjo was killed.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -67,6 +97,16 @@
     },
     {
       "background": {
+        "url": "black"
+      },
+      "text": null,
+      "effects": {
+        "transition": "gradient-right",
+        "auto_transition": 100
+      }
+    },
+    {
+      "background": {
         "url": "b_1floor_p1b_rain"
       },
       "characters": {
@@ -80,6 +120,9 @@
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -101,15 +144,24 @@
         "content": "Even I... can say for sure that <purple>this was an instant death</purple>...",
         "character": "George",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
       "background": {
         "url": "b_1floor_p1a_rain"
       },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 0
+      }
+    },
+    {
       "characters": {
-        "left": null,
-        "middle": null,
         "right": {
           "url": "c_ushiromia_maria_um_troubled_a1",
           "z-index": 1
@@ -120,6 +172,9 @@
         "character": "Maria",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -141,6 +196,20 @@
         "content": "That means the culprit is one of us...!",
         "character": "Battler",
         "style": "add"
+      },
+      "effects": {
+        "transition": "gradient-right"
+      }
+    },
+    {
+      "background": {
+        "url": "black"
+      },
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 100
       }
     },
     {
@@ -148,7 +217,6 @@
         "url": "b_1floor_p1b_rain"
       },
       "characters": {
-        "left": null,
         "right": {
           "url": "c_ushiromia_jessica_uj_anger_a3",
           "z-index": 2
@@ -159,6 +227,9 @@
         "character": "Jessica",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -180,6 +251,9 @@
         "content": "In the first place, <purple>no one could kill Doctor Nanjo inside the guesthouse!</purple>",
         "character": "George",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "gradient-right"
       }
     },
     {
@@ -194,6 +268,9 @@
         "character": "Battler",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -205,19 +282,28 @@
       }
     },
     {
+      "characters": null,
+      "text": null,
+      "effects": {
+        "transition": "gradient-left",
+        "auto_transition": 100
+      }
+    },
+    {
       "characters": {
-        "left": null,
         "middle": {
           "url": "c_ushiromia_maria_um_puzzled_a1",
           "z-index": 1
-        },
-        "right": null
+        }
       },
       "text": {
         "content": "That means no one could kill Doctor Nanjo, right?",
         "character": "Maria",
         "style": "replace",
         "statement": "start"
+      },
+      "effects": {
+        "transition": "gradient-left"
       }
     },
     {
@@ -246,6 +332,9 @@
         "content": "This was the seventh twilight.",
         "character": "narrator",
         "style": "replace"
+      },
+      "effects": {
+        "transition": "fade-in"
       }
     },
     {
@@ -267,6 +356,12 @@
         "content": "\n\nThen, the tragedy reached the eighth twilight, the final one.",
         "character": "narrator",
         "style": "add"
+      }
+    },
+    {
+      "text": null,
+      "effects": {
+        "auto_transition": 1000
       }
     }
   ]

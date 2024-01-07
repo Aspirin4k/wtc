@@ -601,11 +601,7 @@
           "url": "c_ushiromia_jessica_uj_troubled_a3"
         }
       },
-      "text": {
-        "content": "",
-        "character": "narrator",
-        "style": "replace"
-      },
+      "text": null,
       "effects": {
         "transition": "gradient-right",
         "auto_transition": 100
@@ -791,11 +787,7 @@
         "url": "black",
         "effect": []
       },
-      "text": {
-        "content": "",
-        "character": "narrator",
-        "style": "replace"
-      },
+      "text": null,
       "effects": {
         "transition": "fade-in",
         "auto_transition": 500
@@ -1087,11 +1079,7 @@
       "background": {
         "url": "b_different_space_1c"
       },
-      "text": {
-        "content": "",
-        "character": "narrator",
-        "style": "replace"
-      },
+      "text": null,
       "effects": {
         "transition": "gradient-right",
         "auto_transition": 100
@@ -1212,11 +1200,7 @@
         "left": null,
         "right": null
       },
-      "text": {
-        "content": "",
-        "character": "narrator",
-        "style": "replace"
-      },
+      "text": null,
       "effects": {
         "transition": "fade-in",
         "auto_transition": 500

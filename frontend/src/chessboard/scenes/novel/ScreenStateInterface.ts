@@ -15,8 +15,10 @@ interface BaseProceeding {
     },
     effects?: {
         transition?: Effect,
+        transition_speed?: number,
         auto_transition?: number,
         sound?: string,
+        sound_delay?: number,
         visual?: Effect,
     }
 }
