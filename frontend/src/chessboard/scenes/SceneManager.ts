@@ -11,7 +11,7 @@ import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
 import { BGM } from './novel/BGM';
 
-import twilight1 from "../classic/twilight/8_twilight.json";
+import twilight1 from "../classic/twilight/1_twilight.json";
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
@@ -25,7 +25,7 @@ const FPS = 50;
 export class SceneManager {
     private readonly FIRST_SCENE = SCENE_DISCLAIMER;
     private readonly SCENE_FACTORY_MAP = {
-        [SCENE_NOVEL]: () => new NovelScene(this.asset_manager, this.asset_loader),
+        [SCENE_NOVEL]: () => new NovelScene(this.asset_manager, this.asset_loader, this.bgm),
         [SCENE_DISCLAIMER]: () => new DisclaimerScene(),
         [SCENE_LOADING]: () => new LoadingScene(),
         [SCENE_PURPLE_GAME]: () => new PurpleGameScene(this.asset_loader, this.asset_manager, this.bgm),

@@ -64,7 +64,10 @@
     },
     "audio": {
       "e_impact": "/effect/02se_umi.wav",
-      "e_red_statement": "/effect/barrier_tenkai_2.wav"
+      "e_red_statement": "/effect/barrier_tenkai_2.wav",
+      "e_keychain": "/effect/kusari.WAV",
+      "rain1": "/ambient/Rain4_Long.WAV",
+      "bgm": "/bgm/blue_no_reishou.ogg"
     }
   },
   "scene": {
@@ -72,6 +75,7 @@
       "url": "t_dai_2",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -91,7 +95,8 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
@@ -185,9 +190,12 @@
         "url": "black",
         "effect": ["rain"]
       },
+      "ambient": {
+        "rain": "rain1"
+      },
       "effects": {
         "transition": "gradient-bottom",
-        "auto_transition": 0
+        "auto_transition": 200
       }
     },
     {
@@ -196,7 +204,7 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 500
+        "auto_transition": 1000
       }
     },
     {
@@ -761,7 +769,8 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "sound": "e_keychain"
       }
     },
     {
@@ -973,6 +982,9 @@
       "background": {
         "url": "black",
         "effect": []
+      },
+      "ambient": {
+        "rain": null
       },
       "effects": {
         "transition": "fade-in",
@@ -1563,6 +1575,9 @@
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",

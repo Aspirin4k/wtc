@@ -11,6 +11,7 @@ import { LoadingStateInteface } from "../loading/Scene";
 import { getBitmap } from "../../helpers/Image";
 import { AnimatedText } from "./text/AnimatedText";
 import { ScreenAnimation } from "./animation/ScreenAnimation";
+import { BGM } from "./BGM";
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
@@ -27,6 +28,7 @@ export class Scene implements SceneInterface {
 
     private readonly asset_manager: AssetManager;
     private readonly asset_loader: AssetLoader;
+    private readonly bgm: BGM;
 
     private game_state: State;
     private twilight: any;
@@ -39,9 +41,10 @@ export class Scene implements SceneInterface {
 
     private auto_transition_timeout: NodeJS.Timeout;
 
-    constructor(asset_manager: AssetManager, asset_loader: AssetLoader) {
+    constructor(asset_manager: AssetManager, asset_loader: AssetLoader, bgm: BGM) {
         this.asset_manager = asset_manager;
         this.asset_loader = asset_loader;
+        this.bgm = bgm;
 
         this.text_render_calculator = new RenderTokenCalculator();
         this.screen_animation = new ScreenAnimation();
@@ -214,12 +217,31 @@ export class Scene implements SceneInterface {
                     setTimeout(
                         () => {
                             const audio = this.asset_manager.getAudio(effects.sound);
-                            audio.currentTime = 0;
-                            audio.play();
+                            this.bgm.playEffect(audio);
                         }, 
                         effects.sound_delay || 0
                     );
                 }
+
+                if (!isRepeat && typeof effects?.bgm !== 'undefined') {
+                    if (null === effects.bgm) {
+                        this.bgm.stop('bgm');
+                    } else {
+                        this.bgm.play(this.asset_manager.getAudio(effects.bgm), 'bgm');
+                    }
+                }
+
+                const ambient = game_state.getCurrentScene()?.ambient;
+                Object.keys(ambient || {}).forEach((name) => {
+                    const audioName = ambient[name];
+                    if (null === audioName) {
+                        this.bgm.stop(name);
+                        return;
+                    }
+
+                    const audio = this.asset_manager.getAudio(audioName);
+                    this.bgm.play(audio, name, 'ignore');
+                });
             });
     }
 

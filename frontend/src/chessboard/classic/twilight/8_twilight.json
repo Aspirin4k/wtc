@@ -17,13 +17,17 @@
       "c_ushiromia_george_ug_anger_a1": "/character/ushiromia_george/ug_anger_a1.png",
       "c_ushiromia_george_ug_crying_a1k": "/character/ushiromia_george/ug_crying_a1k.png"
     },
-    "audio": {}
+    "audio": {
+      "bgm": "/bgm/gc-29.ogg",
+      "rain1": "/ambient/Rain4_Long.WAV"
+    }
   },
   "scene": {
     "background": {
       "url": "t_dai_8",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -43,13 +47,17 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",

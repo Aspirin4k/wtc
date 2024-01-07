@@ -32,7 +32,10 @@
       "c_lambdadelta_lam_evil_a1": "/character/lambdadelta/lam_evil_a1.png"
     },
     "audio": {
-      "e_red_statement": "/effect/barrier_tenkai_2.wav"
+      "e_red_statement": "/effect/barrier_tenkai_2.wav",
+      "e_impact": "/effect/A5_10317.WAV",
+      "bgm": "/bgm/maria_utanasi_mx.ogg",
+      "rain1": "/ambient/rain_2.wav"
     }
   },
   "scene": {
@@ -40,6 +43,7 @@
       "url": "t_dai_4",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -59,13 +63,17 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",
@@ -303,7 +311,9 @@
         "statement": "start"
       },
       "effects": {
-        "transition": "gradient-left"
+        "transition": "gradient-left",
+        "visual": "shake-bottom",
+        "sound": "e_impact"
       }
     },
     {
@@ -434,6 +444,9 @@
       },
       "characters": null,
       "text": null,
+      "ambient": {
+        "rain": null
+      },
       "effects": {
         "transition": "fade-in",
         "auto_transition": 1000,
@@ -604,6 +617,9 @@
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",

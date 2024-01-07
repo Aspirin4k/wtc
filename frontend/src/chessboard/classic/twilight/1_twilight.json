@@ -49,8 +49,8 @@
       "c_lambdadelta_lam_indulgent_a3": "/character/lambdadelta/lam_indulgent_a3.png"
     },
     "audio": {
-      "a_rain": "/ambient/rain_2.wav",
-      "bgm_gc-28": "/bgm/gc-28.ogg",
+      "rain1": "/ambient/Rain4_Long.WAV",
+      "bgm": "/bgm/gc-28.ogg",
       "e_red_statement": "/effect/barrier_tenkai_2.wav"
     }
   },
@@ -59,6 +59,7 @@
       "url": "t_dai_1",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -78,13 +79,17 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",
@@ -788,9 +793,12 @@
         "effect": []
       },
       "text": null,
+      "ambient": {
+        "rain": null
+      },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 500
+        "auto_transition": 1000
       }
     },
     {
@@ -1209,6 +1217,9 @@
     {
       "background": {
         "url": "b_dinner_1a_rain"
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "fade-in",

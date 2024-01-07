@@ -44,35 +44,42 @@ class State {
      * Продвижение новелы назад
      */
     public revertNovel() {
-        if (this.proceeding_current_num === 0) {
-            return;
-        }
+        let proceeding: Proceeding;
+        do {
+            if (this.proceeding_current_num === 0) {
+                return;
+            }
 
-        const proceeding = this.revert_proceedings[this.proceeding_current_num - 1];
-        this.proceed(proceeding);
-        this.proceeding_current_num--;
+            proceeding = this.revert_proceedings[this.proceeding_current_num - 1];
+            this.proceed(proceeding);
+            this.proceeding_current_num--;
+        } while (proceeding.should_be_skipped);
     }
 
     /**
      * Продвижение новелы вперед
      */
     public proceedNovel() {
-        // this.asset_manager.getAudio('a_rain').play();
-        // this.asset_manager.getAudio('bgm_gc-28').play();
-        if (this.proceeding_current_num >= this.proceedings.length) {
-            return [false, false];
-        }
+        let isRepeating: boolean;
+        let isAutoProceeding: boolean;
+        do {
+            if (this.proceeding_current_num >= this.proceedings.length) {
+                return [false, false];
+            }
 
-        const proceeding = this.proceedings[this.proceeding_current_num];
-        const revertProceeding = this.proceed(proceeding);
+            const proceeding = this.proceedings[this.proceeding_current_num];
+            const revertProceeding = this.proceed(proceeding);
 
-        let isRepeating = true;
-        if (!this.revert_proceedings[this.proceeding_current_num]) {
-            this.revert_proceedings.push(revertProceeding);
-            isRepeating = false;
-        }
+            isRepeating = true;
+            if (!this.revert_proceedings[this.proceeding_current_num]) {
+                this.revert_proceedings.push(revertProceeding);
+                isRepeating = false;
+            }
 
-        this.proceeding_current_num++;
+            isAutoProceeding = typeof proceeding.effects?.auto_transition !== 'undefined';
+            this.proceeding_current_num++;
+        } while(isRepeating && isAutoProceeding)
+
         return [true, isRepeating];
     }
 
@@ -91,6 +98,7 @@ class State {
         };
 
         const revert_proceeding: Proceeding = {};
+        revert_proceeding.should_be_skipped = typeof this.screen_state.effects?.auto_transition !== 'undefined';
 
         if (typeof proceeding.background !== 'undefined') {
             revert_proceeding.background = {
@@ -103,6 +111,14 @@ class State {
                     ? new_state.background.effect
                     : proceeding.background.effect
             }
+        }
+
+        if (typeof proceeding.ambient !== 'undefined') {
+            revert_proceeding.ambient = Object.keys(proceeding).reduce((res, name) => ({
+                ...res,
+                [name]: new_state.ambient[name] || null
+            }), {});
+            new_state.ambient = proceeding.ambient;
         }
 
         if (typeof proceeding.characters !== 'undefined') {

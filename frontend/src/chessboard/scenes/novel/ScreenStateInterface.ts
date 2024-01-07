@@ -4,10 +4,14 @@ interface ScreenState extends BaseProceeding {
 
 interface Proceeding extends BaseProceeding {
     text?: ProceedingText,
+    should_be_skipped?: boolean,
 }
 
 interface BaseProceeding {
     background?: Background,
+    ambient?: {
+        [name: string]: string,
+    },
     characters?: {
         left?: Character | null,
         middle?: Character | null,
@@ -20,7 +24,8 @@ interface BaseProceeding {
         sound?: string,
         sound_delay?: number,
         visual?: Effect,
-    }
+        bgm?: string,
+    },
 }
 
 type Effect = 

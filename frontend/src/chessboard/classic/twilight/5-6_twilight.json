@@ -27,7 +27,9 @@
     },
     "audio": {
       "e_impact": "/effect/02se_umi.wav",
-      "e_ahaha": "/effect/ahaha.wav"
+      "e_ahaha": "/effect/ahaha.wav",
+      "bgm": "/bgm/gc-28.ogg",
+      "rain1": "/ambient/Rain4_Long.WAV"
     }
   },
   "scene": {
@@ -35,6 +37,7 @@
       "url": "t_dai_56",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -54,13 +57,17 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
       "background": {
         "url": "black",
         "effect": ["rain"]
+      },
+      "ambient": {
+        "rain": "rain1"
       },
       "effects": {
         "transition": "gradient-bottom",

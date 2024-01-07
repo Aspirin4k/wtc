@@ -20,7 +20,8 @@
       "c_ushiromia_jessica_uj_anger_a3": "/character/ushiromia_jessica/uj_anger_a3.png"
     },
     "audio": {
-      "e_impact": "/effect/02se_umi.wav"
+      "e_impact": "/effect/02se_umi.wav",
+      "bgm": "/bgm/lg_kina9mx.ogg"
     }
   },
   "scene": {
@@ -28,6 +29,7 @@
       "url": "t_dai_7",
       "effect": []
     },
+    "ambient": {},
     "characters": {
       "left": null,
       "middle": null,
@@ -47,7 +49,8 @@
       },
       "effects": {
         "transition": "fade-in",
-        "auto_transition": 0
+        "auto_transition": 0,
+        "bgm": "bgm"
       }
     },
     {
