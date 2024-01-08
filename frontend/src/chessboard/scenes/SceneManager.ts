@@ -10,6 +10,7 @@ import { Scene as PurpleGameScene } from './purple-game/Scene';
 import { AssetLoader } from "../helpers/AssetLoader";
 import { LoggerFactory } from '../../logger/LoggerFactory';
 import { BGM } from './novel/BGM';
+import { removeAllEventListeners } from '../helpers/CreateJS';
 
 export const SCENE_DISCLAIMER = 'disclaimer';
 export const SCENE_NOVEL = 'novel';
@@ -42,6 +43,7 @@ export class SceneManager {
 
     private current_scene: SceneInterface = null;
     private current_scene_id: string = null;
+    private is_changing_scene: boolean = false;
     private scenes: {[scene_id: string]: SceneInterface} = {};
 
     constructor() {
@@ -99,35 +101,44 @@ export class SceneManager {
     }
 
     public changeScene(scene_id: string, args: any = null): void {
+        if (this.is_changing_scene) {
+            return;
+        }
+
+        this.is_changing_scene = true;
         this.bgm.stop();
+
+        const loadingScene = (this.getScene(SCENE_LOADING) as LoadingScene);
+        this.renderScene(loadingScene, SCENE_LOADING);
+
         this.asset_manager.freeResources();
-        
+
         const scene = this.getScene(scene_id);
         if (args) {
             scene.preInitialize(args);
         }
-        
-        const loadingScene = (this.getScene(SCENE_LOADING) as LoadingScene);
-        this.renderScene(loadingScene, SCENE_LOADING);
+    
 
         scene
             .getAssetsCount()
             .then((maximum) => {
                 if (0 === maximum) {
                     this.renderScene(scene, scene_id);
+                    this.is_changing_scene = false;
                     return;
                 }
 
                 const loadingState = loadingScene.getLoadingState(maximum);
                 scene.load(loadingState).then(() => {
                     this.renderScene(scene, scene_id);
+                    this.is_changing_scene = false;
                 });
             });
     }
 
     private renderScene(scene: SceneInterface, scene_id: string): void {
+        removeAllEventListeners(this.stage);
         this.stage.removeAllChildren();
-        this.stage.removeAllEventListeners();
 
         scene.initialize(this, this.stage);
 
