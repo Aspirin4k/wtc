@@ -100,6 +100,8 @@ export class SceneManager {
 
     public changeScene(scene_id: string, args: any = null): void {
         this.bgm.stop();
+        this.asset_manager.freeResources();
+        
         const scene = this.getScene(scene_id);
         if (args) {
             scene.preInitialize(args);
@@ -107,7 +109,7 @@ export class SceneManager {
         
         const loadingScene = (this.getScene(SCENE_LOADING) as LoadingScene);
         this.renderScene(loadingScene, SCENE_LOADING);
-        
+
         scene
             .getAssetsCount()
             .then((maximum) => {

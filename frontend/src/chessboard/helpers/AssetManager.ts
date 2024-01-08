@@ -31,6 +31,13 @@ class AssetManager {
 
     private assets_load_sessions = {};
 
+    public freeResources(): void {
+        this.images = {};
+        this.atlases = {};
+        this.audio = {};
+        this.jsons = {};
+    }
+
     public loadAtlases(urls: { [short_name: string]: string}, onSingleLoad?: () => void): number {
         const session_id = this.generateSessionID();
         this.initiateSession(session_id, Object.keys(urls).length);
