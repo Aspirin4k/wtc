@@ -3,6 +3,7 @@ import { RenderTokenCalculator, TextTokenInterface } from "../scenes/novel/text/
 import { Element, ElementOptions } from "./Element";
 import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE } from "../scenes/novel/text/Constants";
 import { ExactPosition } from "./Interfaces";
+import { BGM } from "../scenes/novel/BGM";
 
 type TextStyle = {
     font?: string,
@@ -30,15 +31,17 @@ export class MultiPageText extends Element {
     protected readonly renderObject: Container;
 
     private readonly text_render_calculator: RenderTokenCalculator;
+    private readonly bgm: BGM;
     private readonly options: MultiPageTextOptions;
 
     private readonly pages: Text[][] = [];
     private currentPageNum: number = 0;
 
-    constructor(text_render_calculator: RenderTokenCalculator, options: MultiPageTextOptions) {
+    constructor(text_render_calculator: RenderTokenCalculator, options: MultiPageTextOptions, bgm: BGM = null) {
         super(options);
 
         this.text_render_calculator = text_render_calculator;
+        this.bgm = bgm;
         this.options = options;
 
         this.renderObject = new Container();
@@ -99,7 +102,9 @@ export class MultiPageText extends Element {
             'Next', 
             {x: -this.options.size.width + 8, y: this.options.size.height - 10},
             () => {
-                this.options.control_style.click_sound && this.options.control_style.click_sound.play();
+                this.options.control_style.click_sound 
+                    && this.bgm
+                    && this.bgm.playEffect(this.options.control_style.click_sound);
                 this.currentPageNum++;
                 this.renderPage();
             }
@@ -111,7 +116,9 @@ export class MultiPageText extends Element {
             'Back', 
             {x: 8, y: this.options.size.height - 10},
             () => {
-                this.options.control_style.click_sound && this.options.control_style.click_sound.play();
+                this.options.control_style.click_sound 
+                    && this.bgm
+                    && this.bgm.playEffect(this.options.control_style.click_sound);
                 this.currentPageNum--;
                 this.renderPage();
             }

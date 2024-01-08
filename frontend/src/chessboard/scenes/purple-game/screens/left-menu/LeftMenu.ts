@@ -11,9 +11,15 @@ import { Renderable } from "../../InterfaceState";
 import { PurpleModal } from "./PurpleModal";
 import { PurpleByCharacter } from "./PurpleByCharacter";
 import { PurpleByChapter } from "./PurpleByChapter";
+import { BGM } from "../../../novel/BGM";
+import { Game } from "../../Scene";
 
 export class LeftMenu {
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
+
+    private readonly game: Game;
+
     private readonly backgroundSize: Size;
     private readonly chapters: Chapter[];
     private readonly onCulpritSelectClick: () => void;
@@ -23,7 +29,9 @@ export class LeftMenu {
     private currentSelection: Renderable;
 
     constructor(
-        asset_manager: AssetManager, 
+        asset_manager: AssetManager,
+        bgm: BGM,
+        game: Game,
         backgroundSize: Size, 
         chapters: Chapter[],
         onCulpritSelectClick: () => void, 
@@ -31,6 +39,8 @@ export class LeftMenu {
         twilights
     ) {
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
+        this.game = game;
         this.backgroundSize = backgroundSize;
         this.chapters = chapters;
         this.onCulpritSelectClick = onCulpritSelectClick;
@@ -97,8 +107,8 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
-                                    this.asset_manager.getAudio('click07').play();
-                                    this.currentSelection = new Chapters(this.asset_manager, this.chapters);
+                                    this.bgm.playEffect(this.asset_manager.getAudio('click07'));
+                                    this.currentSelection = new Chapters(this.asset_manager, this.bgm, this.chapters);
                                     this.render();
                                 },
                             },
@@ -123,7 +133,7 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
-                                    this.asset_manager.getAudio('click07').play();
+                                    this.bgm.playEffect(this.asset_manager.getAudio('click07'));
                                     this.currentSelection = new Rules(this.asset_manager, this.backgroundSize);
                                     this.render();
                                 },
@@ -149,13 +159,16 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
-                                    this.asset_manager.getAudio('click07').play();
+                                    this.bgm.playEffect(this.asset_manager.getAudio('click07'));
                                     this.currentSelection = new PurpleModal(
                                         this.asset_manager,
+                                        this.bgm,
                                         this.backgroundSize,
                                         () => {
                                             this.currentSelection = new PurpleByCharacter(
                                                 this.asset_manager,
+                                                this.bgm,
+                                                this.game,
                                                 this.backgroundSize,
                                                 this.render.bind(this),
                                                 ...this.twilights
@@ -165,6 +178,7 @@ export class LeftMenu {
                                         () => {
                                             this.currentSelection = new PurpleByChapter(
                                                 this.asset_manager,
+                                                this.bgm,
                                                 this.backgroundSize,
                                                 this.render.bind(this),
                                                 ...this.twilights
@@ -217,7 +231,7 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
-                                    this.asset_manager.getAudio('click07').play();
+                                    this.bgm.playEffect(this.asset_manager.getAudio('click07'));
                                     this.onCulpritSelectClick();
                                 }
                             },

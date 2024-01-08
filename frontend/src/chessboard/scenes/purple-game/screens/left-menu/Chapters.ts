@@ -4,6 +4,7 @@ import { AssetManager } from "../../../../helpers/AssetManager";
 import { Container } from "../../../../ui/Container";
 import { Image } from "../../../../ui/Image";
 import { Renderable } from "../../InterfaceState";
+import { BGM } from "../../../novel/BGM";
 
 export type Chapter = {
     name: string,
@@ -12,10 +13,12 @@ export type Chapter = {
 
 export class Chapters implements Renderable {
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
     private readonly chapters: Chapter[];
 
-    constructor(asset_manager: AssetManager, chapters: Chapter[]) {
+    constructor(asset_manager: AssetManager, bgm: BGM, chapters: Chapter[]) {
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
         this.chapters = chapters;
     }
 
@@ -61,7 +64,7 @@ export class Chapters implements Renderable {
                                     horizontal: 'center'
                                 },
                                 on_click: () => {
-                                    this.asset_manager.getAudio('page').play();
+                                    this.bgm.playEffect(this.asset_manager.getAudio('page'));
                                     chapter.on_click();
                                 }
                             },

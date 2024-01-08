@@ -4,20 +4,25 @@ import { AssetManager } from "../../../../helpers/AssetManager";
 import { Size } from "../../../../ui/Interfaces";
 import { Label } from "../../../../ui/Label";
 import { Image } from "../../../../ui/Image";
+import { BGM } from "../../../novel/BGM";
 
 export class PurpleModal implements Renderable {
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
+
     private readonly backgroundSize: Size;
     private readonly onByCharacterClick: () => void;
     private readonly onByChapterClick: () => void;
 
     constructor(
         asset_manager: AssetManager, 
+        bgm: BGM,
         backgroundSize: Size, 
         onByCharacterClick: () => void,
         onByChapterClick: () => void
     ) {
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
         this.backgroundSize = backgroundSize;
         this.onByCharacterClick = onByCharacterClick;
         this.onByChapterClick = onByChapterClick;
@@ -51,7 +56,7 @@ export class PurpleModal implements Renderable {
                             background: ['ui_element', 'ButtonCulprit.png'],
                             backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                             on_click: () => {
-                                this.asset_manager.getAudio('click01').play();
+                                this.bgm.playEffect(this.asset_manager.getAudio('click01'));
                                 this.onByCharacterClick();
                             }
                         },
@@ -78,7 +83,7 @@ export class PurpleModal implements Renderable {
                             background: ['ui_element', 'ButtonCulprit.png'],
                             backgroundOver: ['ui_element', 'ButtonCulprit_selected.png'],
                             on_click: () => {
-                                this.asset_manager.getAudio('click01').play();
+                                this.bgm.playEffect(this.asset_manager.getAudio('click01'));
                                 this.onByChapterClick();
                             }
                         },

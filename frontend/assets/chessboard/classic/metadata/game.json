@@ -1,0 +1,216 @@
+{
+    "resources": {
+        "atlases": {
+            "ui_portrait": "/ui/Portrait.png",
+            "ui_portrait_dead": "/ui/PortraitDead.png",
+            "ui_victim_portrait": "/ui/PortraitVictim.png",
+            "ui_element": "/ui/UI.png"
+        },
+        "images": {
+            "bernkastel": "/character/bernkastel/ber_evil_laugh_a2.png",
+            "battler": "/character/ushiromia_battler/ub_serious_a3.png",
+    
+            "purple_krauss": "/character/ushiromia_krauss/uk_serious_a2.png",
+            "purple_nanjo": "/character/nanji/nan_troubled_a3.png",
+            "purple_natsuhi": "/character/ushiromia_natsuhi/un_serious_a1.png",
+            "purple_jessica": "/character/ushiromia_jessica/uj_serious_a1.png",
+            "purple_george": "/character/ushiromia_george/ug_serious_a3.png",
+            "purple_battler": "/character/ushiromia_battler/ub_serious_a1.png",
+            "purple_maria": "/character/ushiromia_maria/um_evil_a2.png",
+            "purple_kumasawa": "/character/kumasawa/kum_serious_a1.png",
+            "purple_gohda": "/character/gohda/goh_troubled_a2.png",
+            "purple_kanon": "/character/kanon/kan_apathy_a2.png",
+            "purple_shannon": "/character/shannon/sha_serious_a3.png",
+    
+            "b_different_space_2d": "/background/metaworld/different_space_2d.bmp",
+            "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+    
+            "ui_menu": "/ui/menu.png",
+            "ui_chapter_select": "/ui/chapter-select.png",
+            "ui_flowers": "/ui/hana_back.png"
+        },
+        "audio": {
+            "main": "/bgm/0e_resurrectedreplayer.ogg",
+
+            "page": "/system/page.wav",
+            "click01": "/system/mouse_click_01.wav",
+            "click07": "/system/mouse_click_07.wav"
+        },
+        "fonts": {
+            "ITC Bookman Medium": "/font/BookmanStd-Medium.woff2",
+            "ITC Bookman Light": "/font/BookmanStd-Light.woff2"
+        }
+    },
+    "twilights": [
+        {
+            "name": "First twilight",
+            "url": "/chessboard/classic/metadata/twilight/1_twilight.json",
+            "deaths": ["eva", "hideyoshi", "rosa", "rudolf", "kyrie", "genji"]
+        },
+        {
+            "name": "Second twilight",
+            "url": "/chessboard/classic/metadata/twilight/2_twilight.json",
+            "deaths": ["krauss", "natsuhi"]
+        },
+        {
+            "name": "Fourth twilight",
+            "url": "/chessboard/classic/metadata/twilight/4_twilight.json",
+            "deaths": ["kanon", "shannon"]
+        },
+        {
+            "name": "Fifth/Sixth twilight",
+            "url": "/chessboard/classic/metadata/twilight/5-6_twilight.json",
+            "deaths": ["gohda", "kumasawa"]
+        },
+        {
+            "name": "Seventh twilight",
+            "url": "/chessboard/classic/metadata/twilight/7_twilight.json",
+            "deaths": ["nanjo"]
+        },
+        {
+            "name": "Eighth twilight",
+            "url": "/chessboard/classic/metadata/twilight/8_twilight.json",
+            "deaths": ["jessica"]
+        }
+    ],
+    "characters": {
+        "krauss": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "natsuhi": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "jessica": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "nanjo": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "eva": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "top": true
+                }
+            }
+        },
+        "hideyoshi": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "george": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "rudolf": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "top": true
+                }
+            }
+        },
+        "kyrie": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "battler": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "genji": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "rosa": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "right": true,
+                    "top": true
+                }
+            }
+        },
+        "maria": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "shannon": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "top": true
+                }
+            }
+        },
+        "kanon": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "gohda": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "kumasawa": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        }
+    },
+    "culprit_board": [
+        [null, "krauss", "natsuhi", "jessica"],
+        ["nanjo", "eva", "hideyoshi", "george"],
+        [null, "rudolf", "kyrie", "battler"],
+        ["genji", "rosa", null, "maria"],
+        ["shannon", "kanon", "gohda", "kumasawa"]
+    ]
+}

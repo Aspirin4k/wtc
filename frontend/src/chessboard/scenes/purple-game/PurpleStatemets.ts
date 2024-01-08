@@ -27,6 +27,13 @@ export class PurpleStatemets {
                         }
                         this.byCharacter[currentActor][twilight.name].push(currentPhrase);
                     }
+
+                    if (currentActor !== 'narrator' && currentPhrase.includes('<red>')) {
+                        if (!this.byChapter[twilight.name]) {
+                            this.byChapter[twilight.name] = [];
+                        }
+                        this.byChapter[twilight.name].push({actor: currentActor, phrase: currentPhrase});
+                    }
                     
                     currentActor = text.character.toLowerCase();
                     currentPhrase = text.content;

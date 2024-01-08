@@ -26,6 +26,7 @@ class AssetManager {
     private images: {[key: string]: HTMLImageElement} = {};
     private atlases: {[key: string]: [HTMLImageElement, AtlasMetadata]} = {};
     private audio: {[key: string]: HTMLAudioElement} = {};
+    private jsons: {[key: string]: any} = {};
     private event_listeners: Listener[] = [];
 
     private assets_load_sessions = {};
@@ -44,17 +45,10 @@ class AssetManager {
                 return;
             }
 
+            const atlasUrl = urls[short_name];
             Promise.all([
-                this.loadImage(short_name, urls[short_name]),
-                new Promise((resolve) => {
-                    const atlasUrl = urls[short_name];
-                    const jsonUrl = atlasUrl.substring(0, atlasUrl.lastIndexOf('.')) + '.json';
-                    return fetch(getStaticURL(jsonUrl)).then((response) => {
-                        return response.json().then((atlasMetadata) => {
-                            return resolve(atlasMetadata);
-                        });
-                    });
-                })
+                this.loadImage(short_name, atlasUrl),
+                this.loadJSON(short_name, atlasUrl.substring(0, atlasUrl.lastIndexOf('.')) + '.json'),
             ])
                 .then((results) => {
                     const [image, metadata] = results;
@@ -87,6 +81,34 @@ class AssetManager {
             this.loadImage(short_name, urls[short_name])
                 .then((image) => {
                     this.images[short_name] = image;
+                    this.assets_load_sessions[session_id].current_assets_loaded++;
+                    onSingleLoad && onSingleLoad();
+                    if (this.isSessionCompleted(session_id)) {
+                        this.notifyListeners(session_id);
+                    }
+                })
+        })
+
+        return session_id;
+    }
+
+    public loadJSONs(urls: { [short_name: string]: string }, onSingleLoad?: () => void): number {
+        const session_id = this.generateSessionID();
+        this.initiateSession(session_id, Object.keys(urls).length);
+
+        Object.keys(urls).forEach((short_name) => {
+            if (this.jsons[short_name]) {
+                this.assets_load_sessions[session_id].current_assets_loaded++;
+                onSingleLoad && onSingleLoad();
+                if (this.isSessionCompleted(session_id)) {
+                    this.notifyListeners(session_id);
+                }
+                return;
+            }
+
+            this.loadJSON(short_name, urls[short_name])
+                .then((json) => {
+                    this.jsons[short_name] = json;
                     this.assets_load_sessions[session_id].current_assets_loaded++;
                     onSingleLoad && onSingleLoad();
                     if (this.isSessionCompleted(session_id)) {
@@ -164,6 +186,22 @@ class AssetManager {
         })
 
         return session_id;
+    }
+
+    public loadJSON(short_name: string, json_url: string): Promise<any> {
+        return new Promise((resolve) => {
+            return fetch(getStaticURL(json_url)).then((response) => {
+                return response.json().then((json) => {
+                    LoggerFactory.getLogger().info('Loaded JSON: ' + short_name)
+                    return resolve(json);
+                });
+            });
+        })
+            .catch((error) => {
+                LoggerFactory.getLogger().info('Failed to load: ' + short_name);
+
+                throw error;
+            })
     }
 
     private generateSessionID(): number {

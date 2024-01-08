@@ -1,7 +1,5 @@
 {
-  "name": "Fifth/Sixth twilight",
   "mode": "classic",
-  "deaths": ["gohda", "kumasawa"],
   "resources": {
     "images": {
       "t_dai_56": "/twilight/dai_56.png",

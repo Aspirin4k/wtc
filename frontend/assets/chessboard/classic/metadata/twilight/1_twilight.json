@@ -1,7 +1,5 @@
 {
-  "name": "First twilight",
   "mode": "classic",
-  "deaths": ["eva", "hideyoshi", "rosa", "rudolf", "kyrie", "genji"],
   "resources": {
     "images": {
       "t_dai_1": "/twilight/dai_1.png",

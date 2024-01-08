@@ -1,5 +1,5 @@
 export class BGM {
-    private volume: number = 0.2;
+    private volume: number = 0.1;
     private currents: {[name: string]: HTMLAudioElement} = {};
 
     public stop(name: string = null): void {

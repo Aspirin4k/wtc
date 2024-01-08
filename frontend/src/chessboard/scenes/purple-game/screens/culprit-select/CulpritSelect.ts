@@ -6,9 +6,13 @@ import { Label } from "../../../../ui/Label";
 import { CulpritBoard } from "../../CulpritBoard";
 import { buildCulprits } from "../../CulpritBuilder";
 import { Size } from "../../../../ui/Interfaces";
+import { Game } from "../../Scene";
 
 export class CulpritSelect {
     private readonly asset_manager: AssetManager;
+
+    private readonly game: Game;
+
     private readonly backgroundSize: Size;
     private readonly onBack: () => void;
     private readonly onRender: (objects: DisplayObject[]) => void;
@@ -17,11 +21,13 @@ export class CulpritSelect {
 
     constructor(
         asset_manager: AssetManager,
+        game: Game,
         backgroundSize: Size,
         onBack: () => void,
         onRender: (objects: DisplayObject[]) => void,
     ) {
         this.asset_manager = asset_manager;
+        this.game = game;
         this.backgroundSize = backgroundSize;
         this.onBack = onBack;
         this.onRender = onRender;
@@ -90,7 +96,7 @@ export class CulpritSelect {
                 ),
                 new CulpritBoard(
                     this.asset_manager, 
-                    buildCulprits(this.selected_characters, (character) => {
+                    buildCulprits(this.game, this.selected_characters, (character) => {
                         this.asset_manager.getAudio('click07').play();
                         if (this.selected_characters.includes(character)) {
                             this.selected_characters.splice(this.selected_characters.indexOf(character), 1);

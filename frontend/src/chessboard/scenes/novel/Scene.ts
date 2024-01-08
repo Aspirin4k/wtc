@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject, Text, Shape, Rectangle } from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject} from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -71,6 +71,7 @@ export class Scene implements SceneInterface {
             this.twilight.resources.images,
             {},
             this.twilight.resources.audio,
+            {},
             {},
             loadingState
         );

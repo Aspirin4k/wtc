@@ -1,7 +1,5 @@
 {
-  "name": "Second twilight",
   "mode": "classic",
-  "deaths": ["krauss", "natsuhi"],
   "resources": {
     "images": {
       "black": "/background/black.jpg",

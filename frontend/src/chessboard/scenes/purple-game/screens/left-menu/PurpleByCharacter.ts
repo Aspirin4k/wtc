@@ -11,9 +11,13 @@ import { Label } from "../../../../ui/Label";
 import { RenderTokenCalculator } from "../../../novel/text/RenderTokenCalculator";
 import { MultiPageText } from "../../../../ui/MultiPageText";
 import { getCharacterX } from "../../../novel/CharacterOffset";
+import { BGM } from "../../../novel/BGM";
+import { Game } from "../../Scene";
 
 export class PurpleByCharacter implements Renderable {
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
+
     private readonly backgroundSize: Size;
     private readonly text_render_calculator: RenderTokenCalculator;
 
@@ -22,14 +26,15 @@ export class PurpleByCharacter implements Renderable {
 
     private selectedCharacter: string = '';
     
-    constructor(asset_manager: AssetManager, backgroundSize: Size, onReRender: () => void, ...twilights) {
+    constructor(asset_manager: AssetManager, bgm: BGM, game: Game, backgroundSize: Size, onReRender: () => void, ...twilights) {
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
         this.backgroundSize = backgroundSize;
         this.text_render_calculator = new RenderTokenCalculator();
 
         this.purpleBoard = new CulpritBoard(
             this.asset_manager, 
-            buildPurpleStatements((selected) => {
+            buildPurpleStatements(game, (selected) => {
                 this.asset_manager.getAudio('click07').play();
                 this.selectedCharacter = selected;
                 onReRender();
@@ -107,7 +112,8 @@ export class PurpleByCharacter implements Renderable {
                                     header: `◼${twilight}`,
                                     text: phrases[twilight].map((phrase) => `"${phrase.trim()}"`).join('\n\n'),
                                 }))
-                            }
+                            },
+                            this.bgm
                         )
                     ]
                 )

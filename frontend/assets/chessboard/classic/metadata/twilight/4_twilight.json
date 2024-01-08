@@ -1,7 +1,5 @@
 {
-  "name": "Fourth twilight",
   "mode": "classic",
-  "deaths": ["kanon", "shannon"],
   "resources": {
     "images": {
       "black": "/background/black.jpg",

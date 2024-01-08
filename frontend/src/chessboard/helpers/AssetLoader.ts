@@ -20,6 +20,7 @@ export class AssetLoader {
         resources_atlases: Resources, 
         resources_audio: Resources, 
         resources_fonts: Resources,
+        resources_jsons: Resources,
         loading_state: LoadingStateInteface = null
     ): Promise<void> {
         return new Promise((resolve) => {
@@ -52,7 +53,19 @@ export class AssetLoader {
                 loading_state && (() => loading_state.increment())
             )
 
-            this.asset_manager.onLoad(resolve, images_session_id, atlases_session_id, sounds_session_id, fonts_session_id);
+            const jsons_session_id = this.asset_manager.loadJSONs(
+                resources_jsons,
+                loading_state && (() => loading_state.increment())
+            )
+
+            this.asset_manager.onLoad(
+                resolve, 
+                images_session_id, 
+                atlases_session_id, 
+                sounds_session_id, 
+                fonts_session_id, 
+                jsons_session_id
+            );
         });
     }
 };

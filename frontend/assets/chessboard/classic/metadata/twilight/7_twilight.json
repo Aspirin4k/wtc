@@ -1,7 +1,5 @@
 {
-  "name": "Seventh twilight",
   "mode": "classic",
-  "deaths": ["nanjo"],
   "resources": {
     "images": {
       "t_dai_7": "/twilight/dai_7.png",

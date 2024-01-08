@@ -10,9 +10,12 @@ import { PurpleStatemets } from "../../PurpleStatemets";
 import { RenderTokenCalculator } from "../../../novel/text/RenderTokenCalculator";
 import { MultiPageText } from "../../../../ui/MultiPageText";
 import { ucfirst } from "../../../../helpers/String";
+import { BGM } from "../../../novel/BGM";
 
 export class PurpleByChapter implements Renderable {
     private readonly asset_manager: AssetManager;
+    private readonly bgm: BGM;
+
     private readonly backgroundSize: Size;
     private readonly onReRender: () => void;
     private readonly twilights: any[];
@@ -24,11 +27,13 @@ export class PurpleByChapter implements Renderable {
 
     public constructor(
         asset_manager: AssetManager,
+        bgm: BGM,
         backgroundSize: Size,
         onReRender: () => void,
         ...twilights
     ) {
         this.asset_manager = asset_manager;
+        this.bgm = bgm;
         this.backgroundSize = backgroundSize;
         this.onReRender = onReRender;
         this.twilights = twilights;
@@ -235,7 +240,8 @@ export class PurpleByChapter implements Renderable {
                                     header: ucfirst(phrase.actor),
                                     text: `"${phrase.phrase.trim()}"` + '\n\n',
                                 }))
-                            }
+                            },
+                            this.bgm
                         )
                     ]
                 )
