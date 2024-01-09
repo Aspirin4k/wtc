@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
-import Cookies from 'js-cookie';
+import {Switch, Route, withRouter, RouteComponentProps} from 'react-router-dom';
 
 import {APIContext} from './api/api-context';
 import {Main} from './main/main/Main';
@@ -12,7 +11,7 @@ import {ChessboardResolver} from "./chessboard/ChessboardResolver";
 import {getStaticURL} from "./utils/static";
 import { User } from './utils/authorization';
 
-interface AppProps {
+type AppProps = RouteComponentProps & {
     user_session: User,
     saveFetch: () => void,
 }
@@ -25,7 +24,7 @@ interface AppState {
     saveFetch: () => void
 }
 
-class App extends Component<AppProps, AppState> {
+class AppComponent extends Component<AppProps, AppState> {
     background_image: string = 'hm_day.webp';
 
     constructor(props) {
@@ -56,6 +55,9 @@ class App extends Component<AppProps, AppState> {
         const current_date = new Date();
         const current_time = current_date.getUTCHours();
         switch (true) {
+            case this.props.location.pathname.includes('/chessboard'):
+                this.background_image = 'tea_room.webp';
+                break;
             case current_time >= 14 && current_time < 19:
                 this.background_image = 'hm_evening.webp';
                 break;
@@ -89,4 +91,4 @@ class App extends Component<AppProps, AppState> {
     }
 }
 
-export { App };
+export const App = withRouter(AppComponent);

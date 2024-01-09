@@ -75,7 +75,7 @@ export class LeftMenu {
             new Shape(
                 new Graphics()
                     .beginFill('white')
-                    .drawRect(0, 0, this.backgroundSize.width, this.backgroundSize.height)
+                    .drawRect(0, 0, this.backgroundSize.width, this.backgroundSize.height - 1)
             ),
             this.elements_container,
         ])

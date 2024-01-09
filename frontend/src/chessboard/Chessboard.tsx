@@ -44,7 +44,7 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
     }
 
     render() {
-        return <Fragment>
+        return <div className="chessboard-container">
             <canvas
                 id='canvas'
                 style={{
@@ -56,7 +56,7 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
                 height={CLASSIC_SCREEN_HEIGHT}
                 width={CLASSIC_SCREEN_WIDTH}
             />
-        </Fragment>;
+        </div>;
     }
 }
 

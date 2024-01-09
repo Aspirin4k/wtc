@@ -1,0 +1,13 @@
+.chessboard-container {
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #cdd1e0;
+    border-radius: 4px;
+
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
+    padding: 5px;
+
+    canvas {
+        display: block;
+    }
+}

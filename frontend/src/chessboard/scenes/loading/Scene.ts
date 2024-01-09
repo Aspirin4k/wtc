@@ -46,7 +46,7 @@ export class Scene implements SceneInterface, LoadingStateInteface {
             .beginFill('black')
             .drawRect(0, 0, this.screenWidth, this.screenHeight)
             .setStrokeStyle(4)
-            .beginStroke('yellow')
+            .beginStroke('#501b1b')
             .moveTo((this.screenWidth - this.LOADING_BAR_WIDTH) / 2, (this.screenHeight - this.LOADING_BAR_HEIGHT) / 2)
             .lineTo((this.screenWidth + this.LOADING_BAR_WIDTH) / 2, (this.screenHeight - this.LOADING_BAR_HEIGHT) / 2)
             .lineTo((this.screenWidth + this.LOADING_BAR_WIDTH) / 2, (this.screenHeight + this.LOADING_BAR_HEIGHT) / 2)
@@ -72,7 +72,7 @@ export class Scene implements SceneInterface, LoadingStateInteface {
 
         this.background
             .graphics
-            .beginFill('yellow')
+            .beginFill('#501b1b')
             .drawRect(
                 (this.screenWidth - this.LOADING_BAR_WIDTH) / 2 + 8 + this.current * this.loading_cell_width, 
                 (this.screenHeight - this.LOADING_BAR_HEIGHT) / 2 + 8, 

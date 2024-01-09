@@ -67,6 +67,7 @@ export class SceneManager {
     }
 
     public unregister() {
+        this.asset_manager.freeResources();
         document.removeEventListener('keydown', this.handleKeyDown);
         Ticker.removeEventListener('tick', this.tick);
     }
@@ -118,7 +119,6 @@ export class SceneManager {
             scene.preInitialize(args);
         }
     
-
         scene
             .getAssetsCount()
             .then((maximum) => {
