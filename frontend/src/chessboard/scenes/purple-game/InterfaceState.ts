@@ -6,6 +6,7 @@ import { LeftMenu } from "./screens/left-menu/LeftMenu";
 import { CulpritSelect } from "./screens/culprit-select/CulpritSelect";
 import { BGM } from "../novel/BGM";
 import { Game } from "./Scene";
+import { Effect } from "../novel/ScreenStateInterface";
 
 export interface Renderable {
     render(): DisplayObject[]
@@ -23,6 +24,8 @@ export class InterfaceState {
     private readonly screenWidth: number;
     private readonly screenHeight: number;
 
+    private readonly toggleMouse: (enabled: boolean) => void;
+
     private currentRenderable;
 
     constructor(
@@ -31,7 +34,8 @@ export class InterfaceState {
         bgm: BGM, 
         game: Game, 
         screenWidth: number,
-        screenHeight: number
+        screenHeight: number,
+        toggleMouse: (enabled: boolean) => void,
     ) {
         this.asset_manager = asset_manager;
         this.scene_manager = sceneManager;
@@ -42,6 +46,7 @@ export class InterfaceState {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
 
+        this.toggleMouse = toggleMouse;
 
         this.renderLeftMenu();
     }
@@ -60,6 +65,7 @@ export class InterfaceState {
             }),
             () => this.renderCulpritSelect(),
             this.render.bind(this),
+            this.toggleMouse,
             this.game.twilights
         );
     }
@@ -67,10 +73,12 @@ export class InterfaceState {
     private renderCulpritSelect() {
         this.currentRenderable = new CulpritSelect(
             this.asset_manager,
+            this.bgm,
             this.game,
             {width: this.screenWidth, height: this.screenHeight},
             () => this.renderLeftMenu(),
-            this.render.bind(this)
+            this.render.bind(this),
+            this.toggleMouse
         )
     }
 

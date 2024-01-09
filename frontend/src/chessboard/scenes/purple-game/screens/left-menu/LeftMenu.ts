@@ -1,4 +1,4 @@
-import { DisplayObject } from "createjs-module";
+import { DisplayObject, Graphics, Shape, Container as CreateJSContainer } from "createjs-module";
 import { AssetManager } from "../../../../helpers/AssetManager";
 import { Size } from "../../../../ui/Interfaces";
 import { Image } from "../../../../ui/Image";
@@ -13,10 +13,13 @@ import { PurpleByCharacter } from "./PurpleByCharacter";
 import { PurpleByChapter } from "./PurpleByChapter";
 import { BGM } from "../../../novel/BGM";
 import { Game } from "../../Scene";
+import { BernakstelSelected } from "./BernkastelSelected";
+import { ScreenAnimation } from "../../../novel/animation/ScreenAnimation";
 
 export class LeftMenu {
     private readonly asset_manager: AssetManager;
     private readonly bgm: BGM;
+    private readonly screen_animation: ScreenAnimation;
 
     private readonly game: Game;
 
@@ -24,7 +27,10 @@ export class LeftMenu {
     private readonly chapters: Chapter[];
     private readonly onCulpritSelectClick: () => void;
     private readonly onRender: (objects: DisplayObject[]) => void;
+    private readonly toggleMouse: (enabled: boolean) => void;
     private readonly twilights;
+
+    private readonly elements_container: CreateJSContainer;
 
     private currentSelection: Renderable;
 
@@ -36,6 +42,7 @@ export class LeftMenu {
         chapters: Chapter[],
         onCulpritSelectClick: () => void, 
         onRender: (objects: DisplayObject[]) => void,
+        toggleMouse: (enabled: boolean) => void,
         twilights
     ) {
         this.asset_manager = asset_manager;
@@ -45,17 +52,32 @@ export class LeftMenu {
         this.chapters = chapters;
         this.onCulpritSelectClick = onCulpritSelectClick;
         this.onRender = onRender;
+        this.toggleMouse = toggleMouse;
         this.twilights = twilights;
+
+        // white fade in animation
+        this.screen_animation = new ScreenAnimation();
+        this.elements_container = new CreateJSContainer();
+        this.elements_container.setBounds(0, 0, backgroundSize.width, backgroundSize.height);
 
         this.currentSelection = new Bernkastel(asset_manager);
         this.render();
     }
 
     public render() {
-        this.onRender([
+        this.elements_container.children = [
             this.renderBackground(),
             this.renderLeftMenu(),
             ...this.currentSelection.render(),
+        ];
+
+        this.onRender([
+            new Shape(
+                new Graphics()
+                    .beginFill('white')
+                    .drawRect(0, 0, this.backgroundSize.width, this.backgroundSize.height)
+            ),
+            this.elements_container,
         ])
     }
 
@@ -231,8 +253,21 @@ export class LeftMenu {
                                 background: ['ui_element', 'Button.png'],
                                 backgroundOver: ['ui_element', 'Button_selected.png'],
                                 on_click: () => {
-                                    this.bgm.playEffect(this.asset_manager.getAudio('click07'));
-                                    this.onCulpritSelectClick();
+                                    this.toggleMouse(false);
+                                    this.bgm.playEffect(this.asset_manager.getAudio('culprit_select_screen'));
+                                    this.currentSelection = new BernakstelSelected(this.asset_manager, this.backgroundSize);
+                                    this.render();
+                                    setTimeout(() => {   
+                                        this.screen_animation.runAnimation(
+                                            'fade-in',
+                                            1000,
+                                            this.elements_container
+                                        )
+                                            .then(() => {
+                                                this.toggleMouse(true);
+                                                this.onCulpritSelectClick();
+                                            })
+                                    }, 1500);
                                 }
                             },
                             [

@@ -8,7 +8,10 @@
         },
         "images": {
             "bernkastel": "/character/bernkastel/ber_evil_laugh_a2.png",
+            "bernkastel_selected": "/character/bernkastel/ber_evil_laugh_a1.png",
             "battler": "/character/ushiromia_battler/ub_serious_a3.png",
+            "battler_solved": "/character/ushiromia_battler/ub_fearless_b2.png",
+            "battler_wrong": "/character/ushiromia_battler/ub_troubled_b1.png",
     
             "purple_krauss": "/character/ushiromia_krauss/uk_serious_a2.png",
             "purple_nanjo": "/character/nanji/nan_troubled_a3.png",
@@ -24,6 +27,8 @@
     
             "b_different_space_2d": "/background/metaworld/different_space_2d.bmp",
             "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+
+            "e_broken_glass": "/effect/broken_glass.png",
     
             "ui_menu": "/ui/menu.png",
             "ui_chapter_select": "/ui/chapter-select.png",
@@ -34,7 +39,10 @@
 
             "page": "/system/page.wav",
             "click01": "/system/mouse_click_01.wav",
-            "click07": "/system/mouse_click_07.wav"
+            "click07": "/system/mouse_click_07.wav",
+            "ahaha": "/effect/ahaha.wav",
+            "confirm_culprits": "/effect/barrier_tenkai_3.wav",
+            "culprit_select_screen": "/effect/ZS4.wav"
         },
         "fonts": {
             "ITC Bookman Medium": "/font/BookmanStd-Medium.woff2",
@@ -212,5 +220,6 @@
         [null, "rudolf", "kyrie", "battler"],
         ["genji", "rosa", null, "maria"],
         ["shannon", "kanon", "gohda", "kumasawa"]
-    ]
+    ],
+    "solution": ["battler", "kyrie", "rudolf"]
 }

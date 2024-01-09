@@ -6,12 +6,14 @@ import { LoadingStateInteface } from "../loading/Scene";
 import { AssetManager } from "../../helpers/AssetManager";
 import { InterfaceState } from "./InterfaceState";
 import { BGM } from "../novel/BGM";
-import { Proceeding, ScreenState } from "../novel/ScreenStateInterface";
+import { Effect, Proceeding, ScreenState } from "../novel/ScreenStateInterface";
+import { ScreenAnimation } from "../novel/animation/ScreenAnimation";
 
 export type Game = Resourcable & {
     twilights: Twilight[],
     characters: {[name: string]: GameCharacter},
     culprit_board: [CulpritBoardRow, CulpritBoardRow, CulpritBoardRow, CulpritBoardRow, CulpritBoardRow],
+    solution: string[],
 };
 
 type Twilight = Resourcable & {
@@ -50,6 +52,7 @@ export class Scene implements SceneInterface {
     private readonly asset_loader: AssetLoader;
     private readonly asset_manager: AssetManager;
     private readonly bgm: BGM;
+    private readonly screen_animation: ScreenAnimation;
     
     private game: Game;
     private state: InterfaceState;
@@ -58,6 +61,8 @@ export class Scene implements SceneInterface {
         this.asset_loader = asset_loader;
         this.asset_manager = asset_manager;
         this.bgm = bgm;
+
+        this.screen_animation = new ScreenAnimation();
     }
 
     public preInitialize(args: any): void {
@@ -102,7 +107,17 @@ export class Scene implements SceneInterface {
         const screenWidth = (stage.canvas as HTMLCanvasElement).width;
         const screenHeight = (stage.canvas as HTMLCanvasElement).height;
 
-        this.state = new InterfaceState(this.asset_manager, scene_manager, this.bgm, this.game, screenWidth, screenHeight);
+        this.state = new InterfaceState(
+            this.asset_manager, 
+            scene_manager, 
+            this.bgm, 
+            this.game, 
+            screenWidth, 
+            screenHeight,
+            (enabled: boolean) => {
+                stage.mouseChildren = enabled;
+            }
+        );
         const bgm = this.asset_manager.getAudio('main');
         this.bgm.play(bgm);
 

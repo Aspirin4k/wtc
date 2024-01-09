@@ -39,6 +39,12 @@ export class ScreenAnimation {
         switch (effect) {
             case 'shake-bottom':
                 return this.animateShakeBottom.bind(this);
+            case 'shake-top':
+                return this.animateShakeTop.bind(this);
+            case 'shake-left':
+                return this.animateShakeLeft.bind(this);
+            case 'shake-right':
+                return this.animateShakeRight.bind(this);
             case 'fade-in':
                 return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateFadeIn.bind(this));
             case 'gradient-right':
@@ -65,15 +71,31 @@ export class ScreenAnimation {
     }
 
     private animateShakeBottom(target: Container, speed: number): [() => void, Promise<void>] {
+        return this.animateShake(target, speed, 0, 4);
+    }
+
+    private animateShakeTop(target: Container, speed: number): [() => void, Promise<void>] {
+        return this.animateShake(target, speed, 0, -4);
+    }
+
+    private animateShakeLeft(target: Container, speed: number): [() => void, Promise<void>] {
+        return this.animateShake(target, speed, -4, 0);
+    }
+
+    private animateShakeRight(target: Container, speed: number): [() => void, Promise<void>] {
+        return this.animateShake(target, speed, 4, 0);
+    }
+    
+    private animateShake(target: Container, speed: number, offsetX: number, offsetY: number): [() => void, Promise<void>] {
         const startY = target.y;
-        const offsetY = 4;
+        const startX = target.x;
 
         let tween: Tween;
         const promise = new Promise<void>((resolve) => {
             tween = Tween
                 .get(target)
-                .to({y: startY + offsetY}, speed / 5)
-                .to({y: startY}, speed / 5)
+                .to({y: startY + offsetY, x: startX + offsetX}, speed / 5)
+                .to({y: startY, x: startX}, speed / 5)
                 .call(resolve);
         });
 
@@ -96,7 +118,6 @@ export class ScreenAnimation {
         let isCanceled = false;
         const promise = new Promise<void>((resolve) => {
             animationTickHandler = target.on('tick', (event: TickerEvent) => {
-                // debugger;
                 target.filters = target.filters.filter((filter) => filter !== maskFilter);
 
                 state = drawCallback(state, mask.graphics, target.getBounds(), event.delta, speed);

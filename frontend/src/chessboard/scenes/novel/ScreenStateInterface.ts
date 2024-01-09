@@ -33,7 +33,7 @@ type Effect =
     | 'gradient-radial' 
     | 'gradient-right' | 'gradient-left' | 'gradient-top' | 'gradient-bottom'
     | 'gradient-top-left' | 'gradient-top-right' | 'gradient-bottom-left' | 'gradient-bottom-right'
-    | 'shake-bottom';
+    | 'shake-bottom' | 'shake-top' | 'shake-left' | 'shake-right';
 
 interface Background {
     url: string,
