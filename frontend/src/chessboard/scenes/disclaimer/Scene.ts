@@ -7,10 +7,13 @@ import { SceneManager } from '../SceneManager';
 import { Label } from '../../ui/Label';
 
 export class Scene implements SceneInterface {
+    private args: any;
+
     public tick(time: number): void {
     }
 
     public preInitialize(args: any): void {
+        this.args = args;
     }
 
     public async getAssetsCount(): Promise<number> {
@@ -29,7 +32,7 @@ export class Scene implements SceneInterface {
                     height: (stage.canvas as HTMLCanvasElement).height
                 },
                 background: 'black',
-                on_click: () => scene_manager.nextScene(),
+                on_click: () => scene_manager.nextScene(this.args),
             },
             [
                 new Label({

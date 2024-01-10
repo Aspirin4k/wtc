@@ -1,0 +1,69 @@
+@keyframes crystal {
+    from {margin-top: 5px; margin-bottom: 0px;}
+    to {margin-top: 0px; margin-bottom: 5px;}
+}
+
+.game-panel {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 480px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-thumbnail {
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        opacity: 0.95;
+
+        animation-name: crystal;
+        animation-duration: 2s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-delay: 500ms;
+
+        transition: .2s ease;
+
+        &:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+    }
+
+    &-crystal {
+        width: 320px;
+    }
+
+    &-image {
+        mask-size: 97%;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+
+        height: 100%;
+
+        &__container {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            width: 320px;
+            height: 100%;
+
+            overflow: hidden;
+        }
+    }
+
+    &-title {
+        color: $text-secondary-color;
+        text-shadow: 2px 2px #000000;
+        font-size: 2rem;
+    }
+}

@@ -5,7 +5,7 @@ import {CLASSIC_SCREEN_HEIGHT, CLASSIC_SCREEN_WIDTH} from "./scenes/novel/Scene"
 import {SceneManager} from "./scenes/SceneManager";
 
 interface ChessboardProps {
-
+    game_url: string,
 }
 
 interface ChessboardState {
@@ -30,7 +30,12 @@ class Chessboard extends Component<ChessboardProps, ChessboardState> {
         this.stage = new Stage('canvas');
         this.stage.enableMouseOver(30);
 
-        this.scene_manager.register(this.stage);
+        this.scene_manager.register(this.stage, this.props.game_url);
+    }
+
+    componentDidUpdate(): void {
+        this.scene_manager.unregister();
+        this.scene_manager.register(this.stage, this.props.game_url);
     }
 
     componentWillUnmount() {

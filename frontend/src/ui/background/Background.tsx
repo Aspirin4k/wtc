@@ -11,7 +11,9 @@ class Background extends Component<BackgroundProps, BackgroundState> {
     render() {
         const {page_url} = this.props;
         return <div className={'page-background'}>
-            <img className={'page-background-image'} src={page_url} />
+            <div className={'page-background-image'}>
+                <img src={page_url} />
+            </div>
             <div className={'page-background-lower'}>
                 <div className={'page-background-lower__invisible'} />
                 <div className={'page-background-lower__fill'}>

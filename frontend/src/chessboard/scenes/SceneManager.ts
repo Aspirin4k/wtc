@@ -56,24 +56,25 @@ export class SceneManager {
         this.tick = this.tick.bind(this)
     }
 
-    public register(stage: Stage): void {
+    public register(stage: Stage, game_url: string): void {
         Ticker.framerate = FPS;
         Ticker.addEventListener('tick', this.tick);
 
         document.addEventListener('keydown', this.handleKeyDown);
 
         this.stage = stage;
-        this.changeScene(this.FIRST_SCENE);
+        this.changeScene(this.FIRST_SCENE, {game_url});
     }
 
     public unregister() {
+        this.bgm.stop();
         this.asset_manager.freeResources();
         document.removeEventListener('keydown', this.handleKeyDown);
         Ticker.removeEventListener('tick', this.tick);
     }
 
-    public nextScene(): void {
-        this.changeScene(this.SCENE_FLOW[this.current_scene_id]);
+    public nextScene(args: any = null): void {
+        this.changeScene(this.SCENE_FLOW[this.current_scene_id], args);
     }
 
     public getCurrentScene(): SceneInterface {

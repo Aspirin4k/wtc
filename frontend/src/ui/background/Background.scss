@@ -5,11 +5,20 @@
 }
 
 .page-background-image {
+  display: flex;
   position: fixed;
-  width: 100%;
   left: 0;
   top: $header-height;
   z-index: 0;
+  overflow: hidden;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+  }
 }
 
 .page-background-lower {

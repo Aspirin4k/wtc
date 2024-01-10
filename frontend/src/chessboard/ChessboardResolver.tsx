@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import {Chessboard} from "./Chessboard";
-import {isClient} from "../utils/version";
 
 interface ChessboardResolverProps {
-
+    game_url: string,
 }
 
 interface ChessboardResolverState {
@@ -21,7 +19,7 @@ class ChessboardResolver extends Component<ChessboardResolverProps, ChessboardRe
             this.Chessboard = null;
         } else {
             const Chessboard = require('./Chessboard').Chessboard;
-            this.Chessboard = <Chessboard />
+            this.Chessboard = <Chessboard game_url={this.props.game_url} />
         }
     }
 

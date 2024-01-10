@@ -54,6 +54,7 @@ export class Scene implements SceneInterface {
     private readonly bgm: BGM;
     private readonly screen_animation: ScreenAnimation;
     
+    private game_url: string;
     private game: Game;
     private state: InterfaceState;
 
@@ -66,13 +67,14 @@ export class Scene implements SceneInterface {
     }
 
     public preInitialize(args: any): void {
+        this.game_url = args.game_url;
     }
 
     public tick(time: number): void {
     }
 
     public async getAssetsCount(): Promise<number> {
-        this.game = await this.asset_manager.loadJSON('game', '/chessboard/classic/metadata/game.json');
+        this.game = await this.asset_manager.loadJSON('game', this.game_url);
 
         return Object.keys(this.game.resources.images).length 
             + Object.keys(this.game.resources.audio).length 

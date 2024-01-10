@@ -7,9 +7,9 @@ import {Background} from "./ui/background/Background";
 import {AxiosInstance} from "axios";
 import {Header} from "./ui/header/Header";
 import {Footer} from "./ui/footer/Footer";
-import {ChessboardResolver} from "./chessboard/ChessboardResolver";
 import {getStaticURL} from "./utils/static";
 import { User } from './utils/authorization';
+import { GameList } from './chessboard/GameList';
 
 type AppProps = RouteComponentProps & {
     user_session: User,
@@ -25,8 +25,6 @@ interface AppState {
 }
 
 class AppComponent extends Component<AppProps, AppState> {
-    background_image: string = 'hm_day.webp';
-
     constructor(props) {
         super(props);
 
@@ -47,31 +45,26 @@ class AppComponent extends Component<AppProps, AppState> {
             },
             saveFetch: this.props.saveFetch || (() => {})
         }
-
-        this.initBackground();
     }
 
-    initBackground() {
+    getBackground() {
         const current_date = new Date();
         const current_time = current_date.getUTCHours();
         switch (true) {
             case this.props.location.pathname.includes('/chessboard'):
-                this.background_image = 'tea_room.webp';
-                break;
+                return 'tea_room.webp';
             case current_time >= 14 && current_time < 19:
-                this.background_image = 'hm_evening.webp';
-                break;
+                return 'hm_evening.webp';
             case current_time >= 19 || current_time <= 4:
-                this.background_image = 'hm_night.webp';
-                break;
+                return 'hm_night.webp';
             default:
-                this.background_image = 'hm_day.webp';
-                break;
+                return 'hm_day.webp';
         }
     }
 
     render() {
-        const { background_image, props } = this;
+        const background_image = this.getBackground();
+        const { props } = this;
         const { user_session } = props;
 
         return <APIContext.Provider value={this.state}>
@@ -80,7 +73,10 @@ class AppComponent extends Component<AppProps, AppState> {
             <div className={'page'}>
                 <div className='content'>
                     <Switch>
-                        <Route path='/chessboard' component={ChessboardResolver} />
+                        <Route path='/chessboard' render={(props) => {
+                            // @ts-ignore
+                            return <GameList {...props.location.state} />}
+                         } />
                         <Route path='/page/:num' component={Main} />
                         <Route path='/' component={Main} />
                     </Switch>
