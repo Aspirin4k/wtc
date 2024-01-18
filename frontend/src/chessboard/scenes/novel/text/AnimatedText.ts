@@ -1,6 +1,6 @@
 import { Container, Shadow, Text } from "createjs-module";
 import { TextTokenInterface } from "./RenderTokenCalculator";
-import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_X_OFFSET, TEXT_Y_OFFSET } from "./Constants";
+import { TEXT_FONT_FAMILY, TEXT_FONT_SIZE, TEXT_LINE_HEIGHT, TEXT_STYLE_ITALIC, TEXT_X_OFFSET, TEXT_Y_OFFSET } from "./Constants";
 import { ExactPosition } from "../../../ui/Interfaces";
 
 export class AnimatedText {
@@ -175,14 +175,19 @@ export class AnimatedText {
     }
 
     private renderEmptyText(token: TextTokenInterface): Text {
+        let font = `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`;
+        if (token.style === TEXT_STYLE_ITALIC) {
+            font = `italic ${font}`;
+        }
+
         const createjsText = new Text(
             '',
-            `${TEXT_FONT_SIZE}px ${TEXT_FONT_FAMILY}`
+            font
         );
         createjsText.color = token.color;
         createjsText.name = AnimatedText.TEXT_NAME;
 
-        const shadow = new Shadow('#000', 1, 1, 0);
+        const shadow = new Shadow('#000', 2, 2, 0);
         createjsText.shadow = shadow;
 
         const position = this.getPositionByToken(token);

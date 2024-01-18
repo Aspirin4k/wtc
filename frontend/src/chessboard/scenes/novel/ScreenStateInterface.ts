@@ -13,6 +13,15 @@ interface BaseProceeding {
         [name: string]: string,
     },
     characters?: {
+        left_left?: Character | null,
+        left?: Character | null,
+        left_middle?: Character | null,
+        middle?: Character | null,
+        right_middle?: Character | null,
+        right?: Character | null,
+        right_right?: Character | null,
+    },
+    characters_meta?: {
         left?: Character | null,
         middle?: Character | null,
         right?: Character | null
@@ -25,6 +34,11 @@ interface BaseProceeding {
         sound_delay?: number,
         visual?: Effect,
         bgm?: string,
+        clock?: {
+            to: string,
+            from?: string,
+            position: 'bottom-right' | 'right' | 'center'
+        }
     },
 }
 
@@ -33,16 +47,18 @@ type Effect =
     | 'gradient-radial' 
     | 'gradient-right' | 'gradient-left' | 'gradient-top' | 'gradient-bottom'
     | 'gradient-top-left' | 'gradient-top-right' | 'gradient-bottom-left' | 'gradient-bottom-right'
+    | 'gradient-left-right'
+    | 'gradient-horizontal-outside'
     | 'shake-bottom' | 'shake-top' | 'shake-left' | 'shake-right';
 
 interface Background {
     url: string,
-    effect: ("grayscale" | "rain")[]
+    effect: ("grayscale" | "rain" | "meta" | "cinematic")[]
 }
 
 interface Character {
     url: string,
-    'z-index': 1 | 2 | 3,
+    'z-index': 1 | 2 | 3 | 4 | 5 | 6 | 7,
     x: number,
     width: number
 }

@@ -1,6 +1,6 @@
 import { Stage } from "createjs-module";
 import { SceneInterface } from "../SceneInterface";
-import { SceneManager } from "../SceneManager";
+import { SCENE_NOVEL, SceneManager } from "../SceneManager";
 import { AssetLoader } from "../../helpers/AssetLoader";
 import { LoadingStateInteface } from "../loading/Scene";
 import { AssetManager } from "../../helpers/AssetManager";
@@ -106,6 +106,9 @@ export class Scene implements SceneInterface {
     }
 
     public initialize(scene_manager: SceneManager, stage: Stage): void {
+        // scene_manager.changeScene(SCENE_NOVEL, this.game.twilights[0]);
+        // return;
+
         const screenWidth = (stage.canvas as HTMLCanvasElement).width;
         const screenHeight = (stage.canvas as HTMLCanvasElement).height;
 

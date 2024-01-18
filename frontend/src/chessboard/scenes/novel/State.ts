@@ -2,6 +2,7 @@ import {Character, Proceeding, ScreenState} from "./ScreenStateInterface";
 
 import {AssetManager} from "../../helpers/AssetManager";
 import { getCharacterX } from "./CharacterOffset";
+import { Size } from "../../ui/Interfaces";
 
 const CLASSIC_SPRITE_LEFT_X = -75;
 const CLASSIC_SPRITE_RIGHT_X = 270;
@@ -15,6 +16,7 @@ const PROCEEDING_TEXT_STATEMENT_END = 'end';
 
 class State {
     private asset_manager: AssetManager;
+    private backgroundSize: Size;
 
     private screen_state: ScreenState;
 
@@ -38,6 +40,10 @@ class State {
 
     public onStateChange(callback: () => void) {
         this.listeners.push(callback);
+    }
+
+    public setBackgroundSize(size: Size): void {
+        this.backgroundSize = size;
     }
 
     /**
@@ -124,9 +130,13 @@ class State {
         if (typeof proceeding.characters !== 'undefined') {
             if (proceeding.characters === null) {
                 proceeding.characters = {
+                    left_left: null,
                     left: null,
+                    left_middle: null,
                     middle: null,
+                    right_middle: null,
                     right: null,
+                    right_right: null,
                 };
             }
 
@@ -137,6 +147,26 @@ class State {
                     const character = proceeding.characters[char_position];
                     character && this.hydrateCharCoordinates(character, char_position);
                     new_state.characters[char_position] = character;
+                }
+            })
+        }
+
+        if (typeof proceeding.characters_meta !== 'undefined') {
+            if (proceeding.characters_meta === null) {
+                proceeding.characters_meta = {
+                    left: null,
+                    middle: null,
+                    right: null,
+                };
+            }
+
+            revert_proceeding.characters_meta = {};
+            Object.keys(new_state.characters_meta || {}).forEach((char_position) => {
+                if (typeof proceeding.characters_meta[char_position] !== 'undefined') {
+                    revert_proceeding.characters_meta[char_position] = new_state.characters_meta[char_position];
+                    const character = proceeding.characters_meta[char_position];
+                    character && this.hydrateCharCoordinates(character, char_position);
+                    new_state.characters_meta[char_position] = character;
                 }
             })
         }
@@ -195,17 +225,29 @@ class State {
 
     hydrateCharCoordinates(character: Character, position: string) {
         character.width = this.asset_manager.getImage(character.url).width / 2;
-        const characterName = character.url.match(/c_(.*)_\w+_\w+_\w+/)[1];
+        const characterCenter = character.width / 2;
         switch (position) {
+            case 'left_left':
+                character.x = this.backgroundSize.width / 8 - characterCenter;
+                break;
             case 'left':
-                character.x = getCharacterX(characterName, -26);
+                character.x = this.backgroundSize.width / 4 - characterCenter;
+                break;
+            case 'left_middle':
+                character.x = 3 * this.backgroundSize.width / 8 - characterCenter;
                 break;
             case 'middle':
-                character.x = getCharacterX(characterName, 132);
+                character.x = this.backgroundSize.width / 2 - characterCenter;
+                break;
+            case 'right_middle':
+                character.x = 5 * this.backgroundSize.width / 8 - characterCenter;
                 break;
             case 'right':
+                character.x = 3 * this.backgroundSize.width / 4 - characterCenter;
+                break;
+            case 'right_right':
             default:
-                character.x = getCharacterX(characterName, 285);
+                character.x = 7 * this.backgroundSize.width / 8 - characterCenter;
                 break;
         }
     }

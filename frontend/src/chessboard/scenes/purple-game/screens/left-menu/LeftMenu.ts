@@ -138,7 +138,7 @@ export class LeftMenu {
                                 new Label(
                                     {
                                         position: {x: 9, y: 8},
-                                        text: 'Read again',
+                                        text: 'Read',
                                         font: 'ITC Bookman Medium',
                                         fontSize: 18,
                                         color: '#ffffff',

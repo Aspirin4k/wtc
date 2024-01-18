@@ -6,12 +6,15 @@ import {
     TEXT_COLOR_RED,
     TEXT_FONT_FAMILY,
     TEXT_FONT_SIZE,
+    TEXT_STYLE_ITALIC,
+    TEXT_STYLE_REGULAR,
     TEXT_WIDTH
 } from "./Constants";
 
 interface TextTokenInterface {
     text: string;
     color: string;
+    style: string;
     offset_y: number;
     offset_x: number;
     line_num: number;
@@ -42,6 +45,7 @@ class RenderTokenCalculator {
             .map((line: string, index: number): TextTokenInterface => ({
                 text: line,
                 color: TEXT_COLOR_DEFAULT,
+                style: TEXT_STYLE_REGULAR,
                 offset_y: index * FONT_SIZE,
                 offset_x: 0,
                 line_num: 0,
@@ -55,6 +59,7 @@ class RenderTokenCalculator {
                     .map((subline) => ({
                         text: subline,
                         color: TEXT_COLOR_DEFAULT,
+                        style: TEXT_STYLE_REGULAR,
                         offset_y: line.offset_y,
                         offset_x: 0,
                         line_num: 0,
@@ -83,7 +88,7 @@ class RenderTokenCalculator {
             .split('<BREAK>')
             .reduce(
                 (result, subline) => {
-                    result.push(...subline.split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>)/))
+                    result.push(...subline.split(/(<red>.*?<\/red>|<purple>.*?<\/purple>|<blue>.*?<\/blue>|<i>.*?<\/i>)/))
                     return result;
                 },
                 []
@@ -92,6 +97,7 @@ class RenderTokenCalculator {
             .filter((subline: string) => subline.length > 0);
 
         let text_color;
+        let text_style;
         let offset_x_current = 0;
         let line_num_current = 0;
         let result_words = [];
@@ -100,17 +106,26 @@ class RenderTokenCalculator {
                 case colored_subline.match(/<red>.*<\/red>/) !== null:
                     colored_subline = colored_subline.substring(5, colored_subline.length - 6);
                     text_color = TEXT_COLOR_RED;
+                    text_style = TEXT_STYLE_REGULAR;
                     break;
                 case colored_subline.match(/<purple>.*<\/purple>/) !== null:
                     colored_subline = colored_subline.substring(8, colored_subline.length - 9);
                     text_color = TEXT_COLOR_PURPLE;
+                    text_style = TEXT_STYLE_REGULAR;
                     break;
                 case colored_subline.match(/<blue>.*<\/blue>/) !== null:
                     colored_subline = colored_subline.substring(6, colored_subline.length - 7);
                     text_color = TEXT_COLOR_BLUE;
+                    text_style = TEXT_STYLE_REGULAR;
+                    break;
+                case colored_subline.match(/<i>.*<\/i>/) !== null:
+                    colored_subline = colored_subline.substring(3, colored_subline.length - 4);
+                    text_color = TEXT_COLOR_DEFAULT;
+                    text_style = TEXT_STYLE_ITALIC;
                     break;
                 default:
                     text_color = TEXT_COLOR_DEFAULT;
+                    text_style = TEXT_STYLE_REGULAR;
                     break;
             }
 
@@ -150,6 +165,7 @@ class RenderTokenCalculator {
                     result_lines.push({
                         text: line_prefix + result_words.join(' '),
                         color: text_color,
+                        style: text_style,
                         offset_y: line.offset_y,
                         offset_x: offset_x_current,
                         line_num: line_num_current,
@@ -173,6 +189,7 @@ class RenderTokenCalculator {
                 result_lines.push({
                     text: line_prefix + result_words.join(' '),
                     color: text_color,
+                    style: text_style,
                     offset_y: line.offset_y,
                     offset_x: offset_x_current,
                     line_num: line_num_current,

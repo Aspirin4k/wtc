@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"image": "Portrait.png",
-		"size": {"w":434,"h":360},
+		"size": {"w":434,"h":432},
 		"scale": "1"
 	},
 	"frames": {
@@ -21,7 +21,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitEva.png":
+		"PortraitErika.png":
 		{
 			"frame": {"x":124,"y":0,"w":62,"h":72},
 			"rotated": false,
@@ -29,7 +29,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitEva_selected.png":
+		"PortraitErika_selected.png":
 		{
 			"frame": {"x":0,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -37,7 +37,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGenji.png":
+		"PortraitEva.png":
 		{
 			"frame": {"x":62,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -45,7 +45,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGenji_selected.png":
+		"PortraitEva_selected.png":
 		{
 			"frame": {"x":124,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -53,7 +53,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGeorge.png":
+		"PortraitGenji.png":
 		{
 			"frame": {"x":186,"y":0,"w":62,"h":72},
 			"rotated": false,
@@ -61,7 +61,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGeorge_selected.png":
+		"PortraitGenji_selected.png":
 		{
 			"frame": {"x":186,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -69,7 +69,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGohda.png":
+		"PortraitGeorge.png":
 		{
 			"frame": {"x":0,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -77,7 +77,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitGohda_selected.png":
+		"PortraitGeorge_selected.png":
 		{
 			"frame": {"x":62,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -85,7 +85,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitHideyoshi.png":
+		"PortraitGohda.png":
 		{
 			"frame": {"x":124,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -93,7 +93,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitHideyoshi_selected.png":
+		"PortraitGohda_selected.png":
 		{
 			"frame": {"x":186,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -101,7 +101,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitJessica.png":
+		"PortraitHideyoshi.png":
 		{
 			"frame": {"x":248,"y":0,"w":62,"h":72},
 			"rotated": false,
@@ -109,7 +109,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitJessica_selected.png":
+		"PortraitHideyoshi_selected.png":
 		{
 			"frame": {"x":248,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -117,7 +117,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKanon.png":
+		"PortraitJessica.png":
 		{
 			"frame": {"x":248,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -125,7 +125,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKanon_selected.png":
+		"PortraitJessica_selected.png":
 		{
 			"frame": {"x":0,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -133,7 +133,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKrauss.png":
+		"PortraitKanon.png":
 		{
 			"frame": {"x":62,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -141,7 +141,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKrauss_selected.png":
+		"PortraitKanon_selected.png":
 		{
 			"frame": {"x":124,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -149,7 +149,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKumasawa.png":
+		"PortraitKinzo.png":
 		{
 			"frame": {"x":186,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -157,7 +157,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKumasawa_selected.png":
+		"PortraitKinzo_selected.png":
 		{
 			"frame": {"x":248,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -165,7 +165,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKyrie.png":
+		"PortraitKrauss.png":
 		{
 			"frame": {"x":310,"y":0,"w":62,"h":72},
 			"rotated": false,
@@ -173,7 +173,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitKyrie_selected.png":
+		"PortraitKrauss_selected.png":
 		{
 			"frame": {"x":310,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -181,7 +181,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitMaria.png":
+		"PortraitKumasawa.png":
 		{
 			"frame": {"x":310,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -189,7 +189,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitMaria_selected.png":
+		"PortraitKumasawa_selected.png":
 		{
 			"frame": {"x":310,"y":216,"w":62,"h":72},
 			"rotated": false,
@@ -197,7 +197,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitNanjo.png":
+		"PortraitKyrie.png":
 		{
 			"frame": {"x":0,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -205,7 +205,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitNanjo_selected.png":
+		"PortraitKyrie_selected.png":
 		{
 			"frame": {"x":62,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -213,7 +213,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitNatsuhi.png":
+		"PortraitMaria.png":
 		{
 			"frame": {"x":124,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -221,7 +221,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitNatsuhi_selected.png":
+		"PortraitMaria_selected.png":
 		{
 			"frame": {"x":186,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -229,7 +229,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitRosa.png":
+		"PortraitNanjo.png":
 		{
 			"frame": {"x":248,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -237,7 +237,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitRosa_selected.png":
+		"PortraitNanjo_selected.png":
 		{
 			"frame": {"x":310,"y":288,"w":62,"h":72},
 			"rotated": false,
@@ -245,7 +245,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitRudolf.png":
+		"PortraitNatsuhi.png":
 		{
 			"frame": {"x":372,"y":0,"w":62,"h":72},
 			"rotated": false,
@@ -253,7 +253,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitRudolf_selected.png":
+		"PortraitNatsuhi_selected.png":
 		{
 			"frame": {"x":372,"y":72,"w":62,"h":72},
 			"rotated": false,
@@ -261,7 +261,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitShannon.png":
+		"PortraitRosa.png":
 		{
 			"frame": {"x":372,"y":144,"w":62,"h":72},
 			"rotated": false,
@@ -269,9 +269,41 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
 			"sourceSize": {"w":62,"h":72}
 		},
-		"PortraitShannon_selected.png":
+		"PortraitRosa_selected.png":
 		{
 			"frame": {"x":372,"y":216,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRudolf.png":
+		{
+			"frame": {"x":372,"y":288,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitRudolf_selected.png":
+		{
+			"frame": {"x":0,"y":360,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitShannon.png":
+		{
+			"frame": {"x":62,"y":360,"w":62,"h":72},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},
+			"sourceSize": {"w":62,"h":72}
+		},
+		"PortraitShannon_selected.png":
+		{
+			"frame": {"x":124,"y":360,"w":62,"h":72},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":62,"h":72},

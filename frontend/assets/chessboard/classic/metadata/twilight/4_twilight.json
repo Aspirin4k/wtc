@@ -43,6 +43,15 @@
     },
     "ambient": {},
     "characters": {
+      "left_left": null,
+      "left": null,
+      "left_middle": null,
+      "middle": null,
+      "right_middle": null,
+      "right": null,
+      "right_right": null
+    },
+    "characters_meta": {
       "left": null,
       "middle": null,
       "right": null

@@ -9,3 +9,6 @@ export const TEXT_COLOR_DEFAULT = '#ffffff';
 export const TEXT_COLOR_RED = '#ff0000';
 export const TEXT_COLOR_BLUE = '#60e2fc';
 export const TEXT_COLOR_PURPLE = '#c99cf9';
+
+export const TEXT_STYLE_REGULAR = 'regular';
+export const TEXT_STYLE_ITALIC = 'italic';

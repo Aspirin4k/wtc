@@ -1,4 +1,4 @@
-import { Bitmap, Stage, ColorMatrix, ColorMatrixFilter, Filter, Container, DisplayObject} from "createjs-module";
+import { Bitmap, Stage, ColorMatrix, Filter, Container, DisplayObject, Shape} from "createjs-module";
 
 import { SceneInterface } from "../SceneInterface";
 import { SceneManager } from "../SceneManager";
@@ -12,6 +12,8 @@ import { getBitmap } from "../../helpers/Image";
 import { AnimatedText } from "./text/AnimatedText";
 import { ScreenAnimation } from "./animation/ScreenAnimation";
 import { BGM } from "./BGM";
+import { Clock } from "./animation/Clock";
+import { ColorMatrixFilter } from "./filter/ColorMatrixFilter"; 
 
 const KEY_ARROW_RIGHT = 'ArrowRight';
 const KEY_ARROW_LEFT = 'ArrowLeft';
@@ -19,12 +21,16 @@ const KEY_ENTER = 'Enter';
 
 const EFFECT_GRAYSCALE = 'grayscale';
 const EFFECT_RAIN = 'rain';
+const EFFECT_META = 'meta';
+const EFFECT_CINEMATIC = 'cinematic';
 
 export const CLASSIC_SCREEN_WIDTH = 640;
 export const CLASSIC_SCREEN_HEIGHT = 480;
 
 export class Scene implements SceneInterface {
     private readonly ELEMENT_RAIN = 'element_rain';
+
+    private readonly OBJECT_BACKGROUND = 'background';
 
     private readonly asset_manager: AssetManager;
     private readonly asset_loader: AssetLoader;
@@ -34,6 +40,7 @@ export class Scene implements SceneInterface {
     private twilight: any;
     private readonly text_render_calculator: RenderTokenCalculator;
     private readonly screen_animation: ScreenAnimation;
+    private readonly clock: Clock;
 
     private stage: Stage;
     private scene_manager: SceneManager;
@@ -48,6 +55,7 @@ export class Scene implements SceneInterface {
 
         this.text_render_calculator = new RenderTokenCalculator();
         this.screen_animation = new ScreenAnimation();
+        this.clock = new Clock(asset_manager);
 
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -81,6 +89,17 @@ export class Scene implements SceneInterface {
         this.stage = stage;
         this.scene_manager = scene_manager;
         this.animated_text = new AnimatedText();
+        this.game_state.setBackgroundSize(
+            {
+                width: (stage.canvas as HTMLCanvasElement).width,
+                height: (stage.canvas as HTMLCanvasElement).height,
+            }
+        );
+
+        // const proceedLength = Math.max(0, this.twilight.proceeding.length - 20);
+        // for (let i = 0; i < proceedLength; i++) {
+        //     this.game_state.proceedNovel();
+        // }
 
         stage.on('click', () => {
             this.proceedNovel();
@@ -102,6 +121,10 @@ export class Scene implements SceneInterface {
     }
 
     private proceedNovel(): void {
+        if (this.clock.isAnimating()) {
+            this.clock.stop();
+        }
+
         if (this.animated_text?.isAnimating()) {
             this.animated_text.end();
             return;
@@ -122,6 +145,10 @@ export class Scene implements SceneInterface {
     }
 
     private revertNovel(): void {
+        if (this.clock.isAnimating()) {
+            this.clock.stop();
+        }
+
         if (this.animated_text?.isAnimating()) {
             this.animated_text.end();
             return;
@@ -156,13 +183,14 @@ export class Scene implements SceneInterface {
 
         const filters = [];
         if (!!text.content) {
-            filters.push(
-                new ColorMatrixFilter(
-                    (new ColorMatrix)
-                        .adjustBrightness(-25)
-                        .adjustContrast(-30)
-                )
+            const filter = new ColorMatrixFilter(
+                (new ColorMatrix)
+                    .adjustBrightness(-25)
+                    .adjustContrast(-30)
             );
+            filter.name = 'text-filter';
+
+            filters.push(filter);
         }
 
         if (background.effect.includes(EFFECT_GRAYSCALE)) {
@@ -177,7 +205,7 @@ export class Scene implements SceneInterface {
         }
 
         newOuterContainer.addChild(this.renderBackground(filters));
-        newOuterContainer.addChild(...this.renderCharaters(filters));
+        newOuterContainer.addChild(...this.renderCharaters(screen_state.characters, filters));
         if (background.effect.includes(EFFECT_RAIN)) {
             const rain = this.getBitmap('e_rain', screenWidth, screenHeight);
             rain.name = this.ELEMENT_RAIN;
@@ -185,15 +213,37 @@ export class Scene implements SceneInterface {
             newOuterContainer.addChild(rain);
         }
 
+        if (background.effect.includes(EFFECT_CINEMATIC)) {
+            this.renderCinematic(newOuterContainer);
+        }
+
+        if (background.effect.includes(EFFECT_META)) {
+            this.renderMeta(newOuterContainer, filters);
+        }
+
+        newOuterContainer.addChild(...this.renderCharaters(screen_state.characters_meta  || {}, filters));
+
         const transition = isRepeat ? null : game_state.getCurrentScene()?.effects?.transition;
         const transitionSpeed = game_state.getCurrentScene()?.effects?.transition_speed || null;
         const previousOuterContainer = (this.stage.children[this.stage.children.length - 1] as Container);
         // removing text before animating
         this.animated_text.stopAnimating();
-        previousOuterContainer.children = previousOuterContainer.children.filter((child) => {
-            return child.name !== AnimatedText.ANIMATION_NAME
-                && child.name !== AnimatedText.TEXT_NAME;
-        });
+        previousOuterContainer.children = previousOuterContainer
+            .children
+            .filter((child) => {
+                return child.name !== AnimatedText.ANIMATION_NAME
+                    && child.name !== AnimatedText.TEXT_NAME;
+            });
+
+        if (!screen_state.text.content) {
+            previousOuterContainer.children.forEach((child) => {
+                if (child.filters && child.filters.length) {
+                    child.filters = child.filters.filter((filter: ColorMatrixFilter) => filter?.name !== 'text-filter');
+                    child.cache(0, 0, child.getBounds().width, child.getBounds().height);
+                }
+            });
+        }
+
         this.screen_animation
             .runAnimation(transition, transitionSpeed, previousOuterContainer)
             .then(() => {
@@ -204,9 +254,31 @@ export class Scene implements SceneInterface {
                     .runAnimation(isRepeat ? null : effects?.visual, null, newOuterContainer);
             })
             .then(() => {
+                const effects = game_state.getCurrentScene()?.effects;
+                if (effects?.clock) {
+                    const clock = effects.clock;
+                    const clocks = this.clock.renderClocks(clock.to, clock.from || null);
+
+                    clocks.x = clock.position === 'bottom-right' || clock.position === 'right' 
+                        ? screenWidth - 3 * clocks.getBounds().width / 4
+                        : (
+                            clock.position === 'center'
+                                ? screenWidth / 2 - clocks.getBounds().width / 2
+                                : 0
+                        );
+                    clocks.y = clock.position === 'bottom-right' 
+                        ? screenHeight - 3 * clocks.getBounds().height / 4
+                        : (
+                            clock.position === 'right' || clock.position === 'center'
+                                ? screenHeight / 2 - clocks.getBounds().height / 2
+                                : 0
+                        );
+
+                    newOuterContainer.addChild(clocks);
+                }
+
                 this.renderText(isRepeat, newOuterContainer);
 
-                const effects = game_state.getCurrentScene()?.effects;
                 this.auto_transition_timeout = effects?.auto_transition !== undefined
                     && setTimeout(() => {
                         this.proceedNovel();
@@ -246,27 +318,36 @@ export class Scene implements SceneInterface {
             });
     }
 
-    private renderBackground(filters: Filter[]): Bitmap {
+    private renderBackground(filters: Filter[]): DisplayObject {
         const background = this.game_state.getCurrentScene().background;
 
         const screenWidth = (this.stage.canvas as HTMLCanvasElement).width;
         const screenHeight = (this.stage.canvas as HTMLCanvasElement).height;
 
-        const bitmap = this.getBitmap(background.url, screenWidth, screenHeight);
-        bitmap.name = 'background';
-        bitmap.filters = filters;
-        bitmap.cache(0, 0, bitmap.getBounds().width, bitmap.getBounds().height);
+        let object: DisplayObject;
+        if (background.url === 'white' || background.url === 'black') {
+            object = new Shape();
+            (object as Shape)
+                .graphics
+                .beginFill(background.url)
+                .drawRect(0, 0, screenWidth, screenHeight);
+            object.setBounds(0, 0, screenWidth, screenHeight);
+        } else {
+            object = this.getBitmap(background.url, screenWidth, screenHeight);
+        }
 
-        return bitmap;
+        object.name = this.OBJECT_BACKGROUND;
+        object.filters = filters;
+        object.cache(0, 0, object.getBounds().width, object.getBounds().height);
+
+        return object;
     }
 
-    private renderCharaters(filters: Filter[]): DisplayObject[] {
-        const {game_state, stage} = this;
-        const screen_state = game_state.getCurrentScene();
-        const {characters} = screen_state;
+    private renderCharaters(characters, filters: Filter[]): DisplayObject[] {
+        const {stage} = this;
         const screenHeight = (stage.canvas as HTMLCanvasElement).height;
 
-        const z_indexed: Character[][] = [[],[],[]];
+        const z_indexed: Character[][] = [[],[],[],[],[],[],[]];
 
         Object.keys(characters).forEach((position: string) => {
             if (!!characters[position]) {
@@ -305,6 +386,42 @@ export class Scene implements SceneInterface {
         } else {
             this.animated_text.queue(tokens, isEndOfPage);
         }
+    }
+
+    private renderCinematic(container: Container): void {
+        const height = 100;
+
+        const screenHeight = (this.stage.canvas as HTMLCanvasElement).height;
+        const screenWidth = (this.stage.canvas as HTMLCanvasElement).width;
+
+        const shape = new Shape();
+        shape.setBounds(0, 0, screenWidth, screenHeight);
+        shape
+            .graphics
+            .beginFill('black')
+            .drawRect(0, 0, screenWidth, height)
+            .drawRect(0, screenHeight - height, screenWidth, height)
+            .endFill();
+
+        container.addChild(shape);
+    }
+
+    private renderMeta(container: Container, filters: Filter[]): void {
+        const flowersTop = this.asset_manager.getImage('flowers_top');
+        const flowersTopBitmap = this.getBitmap('flowers_top', flowersTop.width / 2, flowersTop.height / 2);
+        flowersTopBitmap.x = 0;
+        flowersTopBitmap.y = 0;
+        flowersTopBitmap.filters = filters;
+        flowersTopBitmap.cache(0, 0, flowersTopBitmap.getBounds().width, flowersTopBitmap.getBounds().height);
+        container.addChild(flowersTopBitmap);
+
+        const flowersBottom = this.asset_manager.getImage('flowers_bottom');
+        const flowersBottomBitmap = this.getBitmap('flowers_bottom', flowersBottom.width / 2, flowersBottom.height / 2);
+        flowersBottomBitmap.x = 0;
+        flowersBottomBitmap.y = (this.stage.canvas as HTMLCanvasElement).height - flowersBottom.height / 2;
+        flowersBottomBitmap.filters = filters;
+        flowersBottomBitmap.cache(0, 0, flowersBottomBitmap.getBounds().width, flowersBottomBitmap.getBounds().height);
+        container.addChild(flowersBottomBitmap);
     }
 
     private getBitmap(url: string, width: number, height: number): Bitmap {

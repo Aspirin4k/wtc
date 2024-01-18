@@ -63,8 +63,12 @@ export class ScreenAnimation {
                 return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'right', y: 'top'}));
             case 'gradient-bottom-right':
                 return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradient({x: 'left', y: 'top'}));
+            case 'gradient-left-right':
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradientTear({x: 'right'}));
             case 'gradient-radial':
                 return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateGradientRadial.bind(this));
+            case 'gradient-horizontal-outside':
+                return (target: Container, speed: number) => this.animateAlphaMask(target, speed, this.animateLinearGradientHorizontalOutside.bind(this));
             default:
                 return () => [null, Promise.resolve()];
         }
@@ -182,41 +186,112 @@ export class ScreenAnimation {
 
             const step = targetLength / speed;
 
-            let startPositionX = targetBounds.height / 2;
-            if (startPosition.x) {
-                startPositionX = startPosition.x === 'left'
-                    ? Math.max(0, length - 3 * targetBounds.width / 5)
-                    : Math.min(targetBounds.width, targetBounds.width - length + 3 * targetBounds.width / 5);
-            }
-
-            let startPositionY = targetBounds.width / 2;
-            if (startPosition.y) {
-                startPositionY = startPosition.y === 'top'
-                    ? Math.max(0, length - 3 * targetBounds.height / 5)
-                    : Math.min(targetBounds.height, targetBounds.height - length + 3 * targetBounds.height / 5);
-            }
-
-            graphics
-                .clear()
-                .beginLinearGradientFill(
-                    ['rgba(0, 0, 0, 0)', '#000'],
-                    [0, 1],
-                    startPositionX,
-                    startPositionY,
-                    startPosition.x
-                        ? (startPosition.x === 'left' ? length : targetBounds.width - length)
-                        : targetBounds.height / 2,
-                    startPosition.y
-                        ? (startPosition.y === 'top' ? length : targetBounds.height - length)
-                        : targetBounds.width / 2,
-                )
-                .drawRect(0, 0, targetBounds.width, targetBounds.height);
+            graphics.clear();
+            this.renderLinearGradient(graphics, startPosition, targetBounds, length);
+            graphics.drawRect(0, 0, targetBounds.width, targetBounds.height);
 
             return {
                 ...state,
                 length: length + delta * step,
             };
         }
+
+    private animateLinearGradientTear = (start1Position: LinearGradientPosition) => 
+        (state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any => {
+            const targetLength = targetBounds.width;
+            const length = state.length || 1;
+
+            if (length > targetLength * 1.5) {
+                return false;
+            }
+
+            const start2Position: LinearGradientPosition = {
+                x: !start1Position.x
+                    ? undefined
+                    : (start1Position.x === 'left' ? 'right' : 'left'),
+                y: !start1Position.y
+                    ? undefined
+                    : (start1Position.y === 'top' ? 'bottom' : 'top'),
+            }
+
+            graphics.clear();
+            this.renderLinearGradient(graphics, start1Position, targetBounds, length);
+            graphics.drawRect(0, 0, targetBounds.width, targetBounds.height / 2);
+
+            this.renderLinearGradient(graphics, start2Position, targetBounds, length);
+            graphics.drawRect(0, targetBounds.height / 2, targetBounds.width, targetBounds.height / 2);
+
+            const step = targetLength / speed;
+            return {
+                ...state,
+                length: length + delta * step,
+            };
+        }
+
+    private renderLinearGradient(graphics: Graphics, position: LinearGradientPosition, targetBounds: Rectangle, length: number): void {
+        let startPositionX = targetBounds.height / 2;
+        if (position.x) {
+            startPositionX = position.x === 'left'
+                ? Math.max(0, length - 3 * targetBounds.width / 5)
+                : Math.min(targetBounds.width, targetBounds.width - length + 3 * targetBounds.width / 5);
+        }
+
+        let startPositionY = targetBounds.width / 2;
+        if (position.y) {
+            startPositionY = position.y === 'top'
+                ? Math.max(0, length - 3 * targetBounds.height / 5)
+                : Math.min(targetBounds.height, targetBounds.height - length + 3 * targetBounds.height / 5);
+        }
+
+        graphics.beginLinearGradientFill(
+            ['rgba(0, 0, 0, 0)', '#000'],
+            [0, 1],
+            startPositionX,
+            startPositionY,
+            position.x
+                ? (position.x === 'left' ? length : targetBounds.width - length)
+                : targetBounds.height / 2,
+                position.y
+                ? (position.y === 'top' ? length : targetBounds.height - length)
+                : targetBounds.width / 2,
+        )
+    }
+
+    private animateLinearGradientHorizontalOutside(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any {
+        const targetLength = targetBounds.width / 2;
+        const length = state.length || 1;
+
+        if (length > targetLength * 1.5) {
+            return false;
+        }
+
+        graphics
+            .clear()
+            .beginLinearGradientFill(
+                ['rgba(0, 0, 0, 0)', '#000'],
+                [0, 1],
+                Math.min(targetBounds.width / 2, targetBounds.width / 2 - length + 3 * targetBounds.width / 10),
+                targetBounds.height / 2,
+                targetBounds.width / 2 - length,
+                targetBounds.height / 2,
+            )
+            .drawRect(0, 0, targetBounds.width / 2, targetBounds.height)
+            .beginLinearGradientFill(
+                ['rgba(0, 0, 0, 0)', '#000'],
+                [0, 1],
+                Math.max(targetBounds.width / 2, targetBounds.width / 2 + length - 3 * targetBounds.width / 10),
+                targetBounds.height / 2,
+                targetBounds.width / 2 + length,
+                targetBounds.height / 2
+            )
+            .drawRect(targetBounds.width / 2, 0, targetBounds.width, targetBounds.height)
+
+        const step = targetLength / speed;
+        return {
+            ...state,
+            length: length + delta * step,
+        };
+    }
 
     private animateFadeIn(state: any, graphics: Graphics, targetBounds: Rectangle, delta: number, speed: number): any {
         const step = 1 / speed;

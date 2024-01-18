@@ -66,7 +66,7 @@ export class PurpleByCharacter implements Renderable {
                     {
                         background: `purple_${character}`,
                         position: {x: getCharacterX(character, 300), y: 0},
-                        transparency: 0.3
+                        transparency: 0.8
                     }
                 ),
                 new Container(

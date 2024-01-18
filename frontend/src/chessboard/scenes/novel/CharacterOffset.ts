@@ -23,7 +23,10 @@ export const getCharacterX = (char: string, x: number): number => {
         case 'lambdadelta':
             return x - 70;
         case 'beatrice':
+        case 'ronove':
             return x - 140;
+        case 'erika':
+            return x - 120;
         default:
             return x;
     }

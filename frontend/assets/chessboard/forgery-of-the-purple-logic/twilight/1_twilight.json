@@ -1,0 +1,4857 @@
+{
+    "mode": "classic",
+    "resources": {
+      "images": {
+        "t_dai_1": "/twilight/dai_1.png",
+        "black": "/background/black.jpg",
+
+        "c_beatrice_bea_apathy_a1": "/character/beatrice/bea_apathy_a1.png",
+        "c_beatrice_bea_laugh_a1": "/character/beatrice/bea_laugh_a1.png",
+        "c_beatrice_bea_laugh_a2": "/character/beatrice/bea_laugh_a2.png",
+        "c_beatrice_bea_laugh_a4": "/character/beatrice/bea_laugh_a4.png",
+        "c_beatrice_bea_laugh_a5": "/character/beatrice/bea_laugh_a5.png",
+        "c_beatrice_bea_evil_a1": "/character/beatrice/bea_evil_a1.png",
+        "c_beatrice_bea_evil_a2": "/character/beatrice/bea_evil_a2.png",
+        "c_beatrice_bea_evil_a3": "/character/beatrice/bea_evil_a3.png",
+        "c_beatrice_bea_evil_a4": "/character/beatrice/bea_evil_a4.png",
+        "c_beatrice_bea_evil_a5": "/character/beatrice/bea_evil_a5.png",
+        "c_beatrice_bea_default_a2": "/character/beatrice/bea_default_a2.png",
+        "c_beatrice_bea_serious_a2": "/character/beatrice/bea_serious_a2.png",
+        "c_beatrice_bea_fearless_a1": "/character/beatrice/bea_fearless_a1.png",
+        "c_beatrice_bea_fearless_a2": "/character/beatrice/bea_fearless_a2.png",
+        "c_beatrice_bea_frown_a2": "/character/beatrice/bea_frown_a2.png",
+
+        "c_ushiromia_battler_ub_crying_a2": "/character/ushiromia_battler/ub_crying_a2.png",
+        "c_ushiromia_battler_ub_serious_a1": "/character/ushiromia_battler/ub_serious_a1.png",
+        "c_ushiromia_battler_ub_serious_a2": "/character/ushiromia_battler/ub_serious_a2.png",
+        "c_ushiromia_battler_ub_serious_a3": "/character/ushiromia_battler/ub_serious_a3.png",
+        "c_ushiromia_battler_ub_serious_a4": "/character/ushiromia_battler/ub_serious_a4.png",
+        "c_ushiromia_battler_ub_laugh_a2": "/character/ushiromia_battler/ub_laugh_a2.png",
+        "c_ushiromia_battler_ub_laugh_a3": "/character/ushiromia_battler/ub_laugh_a3.png",
+        "c_ushiromia_battler_ub_fearless_a1": "/character/ushiromia_battler/ub_fearless_a1.png",
+        "c_ushiromia_battler_ub_fearless_a2": "/character/ushiromia_battler/ub_fearless_a2.png",
+        "c_ushiromia_battler_ub_fearless_a4": "/character/ushiromia_battler/ub_fearless_a4.png",
+        "c_ushiromia_battler_ub_fearless_a5": "/character/ushiromia_battler/ub_fearless_a5.png",
+        "c_ushiromia_battler_b_ub_fearless_b2": "/character/ushiromia_battler/ub_fearless_b2.png",
+        "c_ushiromia_battler_ub_panicked_a1": "/character/ushiromia_battler/ub_panicked_a1.png",
+        "c_ushiromia_battler_ub_panicked_a2": "/character/ushiromia_battler/ub_panicked_a2.png",
+        "c_ushiromia_battler_ub_troubled_a1": "/character/ushiromia_battler/ub_troubled_a1.png",
+        "c_ushiromia_battler_ub_troubled_a2": "/character/ushiromia_battler/ub_troubled_a2.png",
+        "c_ushiromia_battler_ub_default_a2": "/character/ushiromia_battler/ub_default_a2.png",
+        "c_ushiromia_battler_ub_puzzled_a2": "/character/ushiromia_battler/ub_puzzled_a2.png",
+
+        "c_ronove_ron_default_a2": "/character/ronove/ron_default_a2.png",
+        "c_ronove_ron_laugh_a2": "/character/ronove/ron_laugh_a2.png",
+
+        "c_ushiromia_anje_ua_default_a1": "/character/ushiromia_anje/ua_default_a1.png",
+
+        "c_ushiromia_eva_ue_default_a1": "/character/ushiromia_eva/ue_default_a1.png",
+        "c_ushiromia_eva_ue_amazed_a1": "/character/ushiromia_eva/ue_amazed_a1.png",
+        "c_ushiromia_eva_ue_amazed_a2": "/character/ushiromia_eva/ue_amazed_a2.png",
+        "c_ushiromia_eva_ue_troubled_a1": "/character/ushiromia_eva/ue_troubled_a1.png",
+
+        "c_ushiromia_hideyoshi_uh_default_a1": "/character/ushiromia_hideyoshi/uh_default_a1.png",
+
+        "c_ushiromia_george_ug_default_a1": "/character/ushiromia_george/ug_default_a1.png",
+        "c_ushiromia_george_ug_smile_a1": "/character/ushiromia_george/ug_smile_a1.png",
+        "c_ushiromia_george_ug_troubled_a4": "/character/ushiromia_george/ug_troubled_a4.png",
+        "c_ushiromia_george_ug_serious_a2": "/character/ushiromia_george/ug_serious_a2.png",
+        "c_ushiromia_george_ug_laugh_a2": "/character/ushiromia_george/ug_laugh_a2.png",
+
+        "c_ushiromia_kinzo_uk_default_a1": "/character/ushiromia_kinzo/uk_default_a1.png",
+
+        "c_ushiromia_krauss_uk_default_a1": "/character/ushiromia_krauss/uk_default_a1.png",
+        "c_ushiromia_krauss_uk_worried_a1": "/character/ushiromia_krauss/uk_worried_a1.png",
+        "c_ushiromia_krauss_uk_evil_laugh_a2": "/character/ushiromia_krauss/uk_evil_laugh_a2.png",
+        "c_ushiromia_krauss_uk_serious_a1": "/character/ushiromia_krauss/uk_serious_a1.png",
+        "c_ushiromia_krauss_uk_serious_a2": "/character/ushiromia_krauss/uk_serious_a2.png",
+        "c_ushiromia_krauss_uk_troubled_a1": "/character/ushiromia_krauss/uk_troubled_a1.png",
+
+        "c_ushiromia_natsuhi_un_default_a1": "/character/ushiromia_natsuhi/un_default_a1.png",
+        "c_ushiromia_natsuhi_un_crying_a1": "/character/ushiromia_natsuhi/un_crying_a1.png",
+        "c_ushiromia_natsuhi_un_crying_a2": "/character/ushiromia_natsuhi/un_crying_a2.png",
+        "c_ushiromia_natsuhi_un_worried_a3": "/character/ushiromia_natsuhi/un_worried_a3.png",
+        "c_ushiromia_natsuhi_un_serious_a1": "/character/ushiromia_natsuhi/un_serious_a1.png",
+
+        "c_ushiromia_jessica_uj_anger_a1": "/character/ushiromia_jessica/uj_anger_a1.png",
+        "c_ushiromia_jessica_uj_anger_a3": "/character/ushiromia_jessica/uj_anger_a3.png",
+        "c_ushiromia_jessica_uj_default_a1": "/character/ushiromia_jessica/uj_default_a1.png",
+        "c_ushiromia_jessica_uj_default_a2": "/character/ushiromia_jessica/uj_default_a2.png",
+        "c_ushiromia_jessica_uj_crying_a3": "/character/ushiromia_jessica/uj_crying_a3.png",
+        "c_ushiromia_jessica_uj_laugh_a1": "/character/ushiromia_jessica/uj_laugh_a1.png",
+        "c_ushiromia_jessica_uj_evil_laugh_a1": "/character/ushiromia_jessica/uj_evil_laugh_a1.png",
+        "c_ushiromia_jessica_uj_serious_a1": "/character/ushiromia_jessica/uj_serious_a1.png",
+
+        "c_ushiromia_rudolf_ur_default_a1": "/character/ushiromia_rudolf/ur_default_a1.png",
+        "c_ushiromia_rudolf_ur_evil_laugh_a1": "/character/ushiromia_rudolf/ur_evil_laugh_a1.png",
+        "c_ushiromia_rudolf_ur_laugh_a1": "/character/ushiromia_rudolf/ur_laugh_a1.png",
+        "c_ushiromia_rudolf_ur_serious_a1": "/character/ushiromia_rudolf/ur_serious_a1.png",
+        "c_ushiromia_rudolf_ur_serious_a2": "/character/ushiromia_rudolf/ur_serious_a2.png",
+
+        "c_ushiromia_kyrie_uk_default_a1": "/character/ushiromia_kyrie/uk_default_a1.png",
+        "c_ushiromia_kyrie_uk_serious_a2": "/character/ushiromia_kyrie/uk_serious_a2.png",
+
+        "c_ushiromia_rosa_ur_default_a1": "/character/ushiromia_rosa/ur_default_a1.png",
+        "c_ushiromia_rosa_ur_serious_a1": "/character/ushiromia_rosa/ur_serious_a1.png",
+        "c_ushiromia_rosa_ur_troubled_a1": "/character/ushiromia_rosa/ur_troubled_a1.png",
+        "c_ushiromia_rosa_ur_anger_a2": "/character/ushiromia_rosa/ur_anger_a2.png",
+        "c_ushiromia_rosa_ur_anger_a4": "/character/ushiromia_rosa/ur_anger_a4.png",
+
+        "c_ushiromia_maria_um_laugh_a2": "/character/ushiromia_maria/um_laugh_a2.png",
+        "c_ushiromia_maria_um_default_a1": "/character/ushiromia_maria/um_default_a1.png",
+        "c_ushiromia_maria_um_puzzled_a1": "/character/ushiromia_maria/um_puzzled_a1.png",
+        "c_ushiromia_maria_um_apathy_a1": "/character/ushiromia_maria/um_apathy_a1.png",
+        "c_ushiromia_maria_um_serious_a1": "/character/ushiromia_maria/um_serious_a1.png",
+        "c_ushiromia_maria_um_anger_a1": "/character/ushiromia_maria/um_anger_a1.png",
+        "c_ushiromia_maria_um_anger_a2": "/character/ushiromia_maria/um_anger_a2.png",
+        "c_ushiromia_maria_um_anger_a3": "/character/ushiromia_maria/um_anger_a3.png",
+
+        "c_nanjo_nan_default_a1": "/character/nanji/nan_default_a1.png",
+        "c_nanjo_nan_troubled_a3": "/character/nanji/nan_troubled_a3.png",
+        "c_nanjo_nan_serious_a2": "/character/nanji/nan_serious_a2.png",
+
+        "c_genji_gen_default_a1": "/character/genji/gen_default_a1.png",
+
+        "c_gohda_goh_default_a1": "/character/gohda/goh_default_a1.png",
+
+        "c_kumasawa_kum_default_a1": "/character/kumasawa/kum_default_a1.png",
+
+        "c_kanon_kan_default_a1": "/character/kanon/kan_default_a1.png",
+
+        "c_shannon_sha_serious_a3": "/character/shannon/sha_serious_a3.png",
+        "c_shannon_sha_default_a1": "/character/shannon/sha_default_a1.png",
+
+        "c_erika_eri_default_a1": "/character/erika/eri_default_a1.png",
+        "c_erika_eri_default_a2": "/character/erika/eri_default_a2.png",
+        "c_erika_eri_evil_laugh_a2": "/character/erika/eri_evil_laugh_a2.png",
+        "c_erika_eri_evil_laugh_a3": "/character/erika/eri_evil_laugh_a3.png",
+        "c_erika_eri_evil_laugh_a4": "/character/erika/eri_evil_laugh_a4.png",
+        "c_erika_eri_evil_laugh_a5": "/character/erika/eri_evil_laugh_a5.png",
+        "c_erika_eri_laugh_a2": "/character/erika/eri_laugh_a2.png",
+        "c_erika_eri_laugh_a3": "/character/erika/eri_laugh_a3.png",
+        "c_erika_eri_serious_a1": "/character/erika/eri_serious_a1.png",
+        "c_erika_eri_serious_a2": "/character/erika/eri_serious_a2.png",
+
+        "c_7stakes_asmodeus_evil_laugh_a2": "/character/7stakes_asmodeus/7asm_evil_laugh_a2.png",
+
+        "c_7stakes_beelzebub_evil_laugh_a4": "/character/7stakes_beelzebub/7bee_evil_laugh_a4.png",
+
+        "c_7stakes_mammon_evil_laugh_a3": "/character/7stakes_mammon/7mam_evil_laugh_a3.png",
+
+        "c_7stakes_belphegor_default_a1": "/character/7stakes_belphegor/7bel_default_a1.png",
+
+        "c_7stakes_satan_evil_laugh_a2": "/character/7stakes_satan/7sat_evil_laugh_a2.png",
+
+        "c_7stakes_leviathan_evil_laugh_a2": "/character/7stakes_leviathan/7lev_evil_laugh_a1.png",
+
+        "c_7stakes_lucifer_default_a1": "/character/7stakes_lucifer/7luc_default_a1.png",
+
+        "b_different_spiral_1b": "/background/metaworld/different_spiral_1b.bmp",
+        "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+        "b_different_space_1b": "/background/metaworld/different_space_1b.bmp",
+        "b_different_space_1c": "/background/metaworld/different_space_1c.bmp",
+
+        "b_chapel_interior_1l": "/background/chapel/interior_1l.bmp",
+        "b_chapel_interior_1n": "/background/chapel/interior_1n.bmp",
+        "b_chapel_interior_1r": "/background/chapel/interior_1r.bmp",
+        "b_chapel_interior_2a": "/background/chapel/interior_2a.bmp",
+        "b_chapel_o1a_night": "/background/chapel/o1a_night.bmp",
+
+        "b_garden_rose_g1a": "/background/garden/rose_g1a.bmp",
+        "b_garden_rose_g1a_rain": "/background/garden/rose_g1a_rain.bmp",
+
+        "b_forest_s1b": "/background/forest/forest_s1b.bmp",
+        "b_forest_sky_1a": "/background/forest/sky_1a.bmp",
+        "b_forest_sky_5": "/background/forest/sky_5.bmp",
+
+        "b_library_1d": "/background/mainbuilding/library_1d.bmp",
+        "b_dinner_1b": "/background/mainbuilding/dinner_1b.bmp",
+        "b_2floor_p1c": "/background/mainbuilding/2floor_p1c.bmp",
+        "b_vip_2a": "/background/mainbuilding/vip_2a.bmp",
+        "b_hall_1a": "/background/mainbuilding/hall_1a.bmp",
+        "b_m_o1a_rain": "/background/mainbuilding/m_o1a_rain.bmp",
+        "b_portrait_2": "/background/mainbuilding/portrait2.bmp",
+        "b_door_1": "/background/mainbuilding/door1.bmp",
+
+        "b_guesthouse_dinner_1a": "/background/guesthouse/dinner_1a.bmp",
+        "b_guesthouse_dinner_1b": "/background/guesthouse/dinner_1b.bmp",
+        "b_guesthouse_dinner_1c": "/background/guesthouse/dinner_1c.bmp",
+        "b_2floor_r1a_rain": "/background/guesthouse/2floor_r1a_rain.bmp",
+        "b_2floor_r1b_rain": "/background/guesthouse/2floor_r1b_rain.bmp",
+        "b_tv": "/background/guesthouse/tv.bmp",
+
+        "b_sea_2a": "/background/sea/sea_2a.bmp",
+        "b_sea_2b": "/background/sea/sea_2b.bmp",
+        "b_sea_2c": "/background/sea/sea_2c.bmp",
+
+        "b_theater_2a": "/background/theater/the_2a.bmp",
+
+        "b_blood_1a": "/background/special/blood_1a.png",
+        "b_butterfly_1a": "/background/special/butterfly_1a.png",
+        "b_culprit": "/background/special/Culprit.png",
+        "b_purple_statement": "/background/special/PurpleStatement.png",
+        "b_blade6_2r": "/background/special/blade6_2r.png",
+        "b_blade8_1b": "/background/special/blade8_1b.png",
+
+        "flowers_top": "/effect/flowers_top.png",
+        "flowers_bottom": "/effect/flowers_bottom.png",
+        "e_rain": "/background/effect/rain/stillrainfront.png",
+        "clock": "/effect/clock/Clock.png",
+        "clock_c": "/effect/clock/Clock_c.png",
+        "clock_m": "/effect/clock/Clock_m.png",
+        "clock_h": "/effect/clock/Clock_h.png"
+      },
+      "audio": {
+      }
+    },
+    "scene": {
+      "background": {
+        "url": "t_dai_1",
+        "effect": []
+      },
+      "ambient": {},
+      "characters": {
+        "left_left": null,
+        "left": null,
+        "left_middle": null,
+        "middle": null,
+        "right_middle": null,
+        "right": null,
+        "right_right": null
+      },
+      "characters_meta": {
+        "left": null,
+        "middle": null,
+        "right": null
+      },
+      "text": {
+        "content": null
+      },
+      "effects": {
+        "auto_transition": 500
+      }
+    },
+    "proceeding": [
+      {
+        "background": {
+          "url": "black"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_spiral_1b"
+        },
+        "effects": {
+          "transition": "gradient-radial",
+          "transition_speed": 500,
+          "auto_transition": 300
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_laugh_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Kukuku.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-top",
+          "visual": "shake-right"
+        }
+      },
+      {
+        "text": {
+          "content": "Looks like another victory for me",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_crying_a2",
+            "z-index": 1
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "character": "Beatrice",
+          "content": "Yeah, Battler?",
+          "statement": "start",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "You have cracked open locked rooms after locked rooms, very impressive. But during the last game, you were too careless.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "continue"
+        }
+      },
+      {
+        "text": {
+          "content": "When I heard that the weapon was a frozen mackerel, even I couldn't believe my ears.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Or- were you trying to entertain me, so you thought of a joke?",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Ahhhh I didn't notice it, very sorry about that...",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a4",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Say whatever you want... As long as I don't give up, the game will still continue.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1b"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ronove_ron_default_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Tea time. Please enjoy the biscuits, mistress.",
+          "character": "Ronove",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-radial"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Next time, I will prove that magic doesn't exist...",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a5",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "You don't look cool saying that in that collar.",
+          "character": "Beatrice",
+          "style": "add"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ronove_ron_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Miss, please be more elegant.",
+          "character": "Beatrice",
+          "style": "add"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "Who would believe this? She's a witch who tortures and controls human lives.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 500
+        }
+      },
+      {
+        "characters": {
+          "left": null,
+          "middle": {
+            "url": "c_beatrice_bea_evil_a3",
+            "z-index": 1
+          },
+          "right": null
+        },
+        "text": {
+          "content": "\n\nThe golden witch who trapped the island of Rokkenjima inside a typhoon from Oct 4 to Oct 5, 1986, constantly striking the place with disasters, just like a game.",
+          "character": "narrator",
+          "style": "add"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 500
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nThat golden witch is Beatrice.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "text": {
+          "content": "That witch wants me to bow down to her.",
+          "character": "narrator",
+          "style": "replace"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nIf she can't make everyone on Rokkenjima admit that magic is real, then the witch's magic would be incomplete.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1n",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "That's why, it's my job to deny the existence of magic.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_anje_ua_default_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "I must prove that every crime can be done by humans, and end this never ending disaster, so that I can return to my home where my family is waiting for me.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nTo achieve all this. I am stuck in a strange place, fighting my way through a gameboard - the disasters of the island of Rokkenjima.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a",
+          "effect": ["grayscale"]
+        },
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a2",
+            "z-index": 2
+          },
+          "middle": {
+            "url": "c_beatrice_bea_evil_a3",
+            "z-index": 3
+          },
+          "left": {
+            "url": "c_ronove_ron_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "This battle will not end even if I keep trying to solve the riddles.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1b",
+          "effect": []
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_laugh_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "But- I can't believe you are pretty confident at this. You are even making stupid jokes.",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_laugh_a3",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "To make your host bored is really rude.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "How about- Let's have something different for the next game?",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_fearless_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Is there anything stranger than what we have now?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1c"
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "gradient-top",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "For this game there will be no magic.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "text": {
+          "content": "This is a \"mystery challenge game\" that doesn't involve magic.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "continue"
+        }
+      },
+      {
+        "text": {
+          "content": "This challenge is too simple for us. But let's play it to kill some time.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_panicked_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "How will this benefit you at all?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Don't you understand?",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a4",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You cannot blame it on magic this time.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "continue"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "visual": "shake-right"
+        }
+      },
+      {
+        "text": {
+          "content": "If you can't solve the mystery, it will prove that you are just a useless fool!",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_fearless_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "This is no good. No good at all.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_b_ub_fearless_b2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "I told you, right? I will solve all the mysteries.",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "If I know from the start that there won't be any magic involved, then this will be too damn easy for me.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "continue"
+        }
+      },
+      {
+        "text": {
+          "content": "Rack your brains and give me your best shot.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_b_ub_fearless_b2",
+            "z-index": 2
+          },
+          "middle": null,
+          "right": {
+            "url": "c_beatrice_bea_evil_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Alright~",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_garden_rose_g1a"
+        },
+        "text": {
+          "content": "There are 18 people on the chessboard-",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_fearless_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Oh, please use the <i>red truth</i>.",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "If it's coming from you, I will not trust anything other than the red truth.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_default_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Of course.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": {
+          "content": "<red>Absolute truths that do no require any proofs or arguments. The <i>red truth</i> will be valid in this game as well.</red>",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_troubled_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Please tell me... The names of those 18 people.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_library_1d"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_kinzo_uk_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<red>Head of Ushiromiya family, Kinzo.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_krauss_uk_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_natsuhi_un_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_jessica_uj_default_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "<red>The oldest son, Krauss, his wife Natsuhi and their daughter Jessica.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_forest_sky_1a"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_eva_ue_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_hideyoshi_uh_default_a1",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_george_ug_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<red>The older daughter, Eva, her husband Hideyoshi and their son George.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_dinner_1b"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_rudolf_ur_default_a1",
+            "z-index": 3
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_kyrie_uk_default_a1",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_default_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "<red>The youngest son, Rudolf, his wife Kyrie and Rudolf's son Battler.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_p1c"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_rosa_ur_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_laugh_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<red>The youngest daughter Rosa and her daughter Maria.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_vip_2a"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_nanjo_nan_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_genji_gen_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<red>The doctor Nanjo. The head of servants, Genji.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_hall_1a"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_gohda_goh_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_kumasawa_kum_default_a1",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_kanon_kan_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<red>The servants: Gohda, Kumasawa, Kanon.</red>",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_forest_sky_5"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_shannon_sha_serious_a3",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<red>In this game, Shannon will be outside of island. Hence she will not be included.</red>",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<red>She will be replaced by a girl who was lost and stumbled on Rokkenjima, Erika. A total of 18 people.</red>",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "b_forest_sky_5",
+          "effect": ["meta"]
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left-right",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters_meta": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_serious_a3",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "So situations like Kinzo dying right from the start or Rokkenjima's witch Beatrice appearing do not exist here, right?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters_meta": {
+          "right": {
+            "url": "c_beatrice_bea_serious_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Both of them will not occur.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "This time, magic and anything related do not exist.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "characters_meta": null,
+        "text": {
+          "content": "Even though this looks quite similar to previous games, in reality, things are quite different...",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nAs the beginning is different, this means that all the other \"red truths\" that have appeared before cannot be used.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_fearless_a5",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "So it's just game of mystery riddles.",
+            "character": "Battler",
+            "style": "replace",
+            "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "Interesting. I will accept your invitation to this game.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_laugh_a4",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Good. Then, it's my turn.",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_fearless_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Purge six people on this dark and stormy night.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "The Seven Stakes of Purgatory!",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1c"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left_left": {
+            "url": "c_7stakes_asmodeus_evil_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right_right": {
+            "url": "c_7stakes_beelzebub_evil_laugh_a4",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_7stakes_mammon_evil_laugh_a3",
+            "z-index": 3
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_7stakes_belphegor_default_a1",
+            "z-index": 4
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left_middle": {
+            "url": "c_7stakes_satan_evil_laugh_a2",
+            "z-index": 5
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right_middle": {
+            "url": "c_7stakes_leviathan_evil_laugh_a2",
+            "z-index": 6
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_7stakes_lucifer_default_a1",
+            "z-index": 7
+          }
+        },
+        "text": {
+          "content": "Your wish is my command, Beatrice-sama.",
+          "character": "Lucifer",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_forest_sky_5"
+        },
+        "effects": {
+          "transition": "gradient-radial",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_sea_2b"
+        },
+        "effects": {
+          "transition": "gradient-top",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_sea_2c",
+          "effect": ["rain"]
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500,
+          "transition_speed": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_m_o1a_rain",
+          "effect": ["rain"]
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_o1a_night"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500,
+          "transition_speed": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_o1a_night",
+          "effect": ["rain", "cinematic"]
+        },
+        "effects": {
+          "transition": "gradient-left-right",
+          "transition_speed": 1000,
+          "auto_transition": 2000,
+          "clock": {
+            "to": "20:00",
+            "position": "bottom-right"
+          }
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_blood_1a"
+        },
+        "effects": {
+          "visual": "shake-bottom",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1l"
+        },
+        "effects": {
+          "transition": "gradient-top",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a4",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "<purple>The people who died are Kinzo-san, Krauss-san, Genji-san, Gohda-san, Kumasawa-san and Kanon-san. A total of six people</purple>, correct?",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1r"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_panicked_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "How- Could this happen?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_jessica_uj_crying_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Kanon-kun! Kanon-kun!!",
+          "character": "Jessica",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top",
+          "visual": "shake-top"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_natsuhi_un_crying_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Father... Dear... Why...?",
+          "character": "Natsuhi",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_2a"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_erika_eri_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Good.",
+          "character": "Erika",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "Since there's a large variety of chemicals laying around, we can do some proper forensic invesigations.",
+          "character": "Erika",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_erika_eri_evil_laugh_a5",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You guys are very lucky.",
+          "character": "Erika",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Because this tragic event happened when this detective is here...",
+          "character": "Erika",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": null,
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "No. This tragic event only happened because \"there's a detective nearby\".",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_2a",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "I came here to Rokkenjima island, just to meet up with my cousins whom I haven't seen for years...",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "But nothing happened this morning... Why?",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nSuddenly, rainstorms and gusts stormed the area.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_2a",
+          "effect": ["grayscale", "cinematic"]
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left-right",
+          "transition_speed": 1000,
+          "auto_transition": 3000,
+          "clock": {
+            "to": "18:00",
+            "from": "20:00",
+            "position": "center"
+          }
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_sea_2a",
+          "effect": ["rain"]
+        },
+        "text": {
+          "content": "Rokkenjima. A 10km long island owned by the wealthy Ushiromiya family.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_forest_s1b"
+        },
+        "text": {
+          "content": "We visited this island just for our annual family meeting.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_garden_rose_g1a_rain"
+        },
+        "text": {
+          "content": "A horrifying disaster lurks, awaiting our arrival-",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nAmongst the 18 people on the island, thoughts about murder lingers around a certain person.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nI suspected nothing.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1a_rain"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_serious_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "It's raining.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1b_rain"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_george_ug_default_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "True. The weather was great this morning.",
+          "character": "George",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Grrr... Maria's rose.",
+          "character": "Maria",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1a_rain"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_jessica_uj_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "As an old proverb goes, the weather near the ocean is always changing.",
+          "character": "Jessica",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "That should probably be the mountains, right?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_jessica_uj_default_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Hey, this is coming from my experience, someone who lives on an island.",
+          "character": "Jessica",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1b_rain"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_maria_um_puzzled_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "That's not all.",
+          "character": "Maria",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "background": {
+          "url": "b_tv"
+        },
+        "text": {
+          "content": "<i>Right now massive slowspeed typhoons...</i>",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "characters": null,
+        "effects": {
+          "transition": "gradient-bottom",
+          "auto_transition": 0
+        }
+      },
+      {
+        "text": {
+          "content": "<i>Please be aware of the huge waves due to the strong gusts in the area.</i>",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1a_rain"
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_george_ug_smile_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<purple>We cannot leave the island before the wind and rain stops</purple>, right?",
+          "character": "George",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_jessica_uj_evil_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "What a shame, George-aniki.",
+          "character": "Jessica",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "You took so much effort to get here, yet Shannon-chan is not present.",
+          "character": "Jessica",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_george_ug_troubled_a4",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "No-no, I'm just...",
+          "character": "George",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_troubled_a2",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Shannon-chan?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_shannon_sha_default_a1",
+            "z-index": 2
+          },
+          "right": {
+            "url": "c_kanon_kan_default_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Don't you remember? She is a servant, just like Kanon.",
+          "character": "Jessica",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "You haven't seen her for six years, right?",
+          "character": "Jessica",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1a_rain"
+        },
+        "characters": {
+          "left": null,
+          "middle": null,
+          "right": {
+            "url": "c_ushiromia_jessica_uj_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Just make a trip to Nii-jima right now.",
+          "character": "Jessica",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_george_ug_troubled_a4",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "How are those two things related?",
+          "character": "George",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top",
+          "visual": "shake-top"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1b_rain"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_default_a1",
+            "z-index": 1
+          },
+          "right": {
+            "url": "c_ushiromia_jessica_uj_laugh_a1",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_jessica_uj_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Anyways, Maria.",
+          "character": "Jessica",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "If you're worried about your rose, why not go to the garden and take a look afterwards?",
+          "character": "Jessica",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_puzzled_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Woah, I wanna go!",
+          "character": "Maria",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1b_rain",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "Even though they haven't seen each other for six years, they are still very close.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "It will be awesome if us cousins can talk to each other like that.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "text": {
+          "content": "Compared to this...",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1a"
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_hideyoshi_uh_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_kyrie_uk_serious_a2",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_natsuhi_un_worried_a3",
+            "z-index": 3
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1c"
+        },
+        "characters": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_rudolf_ur_evil_laugh_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Anyways, brother. It's finally time for our annual family meeting. How's dad?",
+          "character": "Rudolf",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_worried_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Father has locked himself in the reading room.",
+          "character": "Krauss",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "He is intoxicated with that dark magic thing, he won't step out of the room.",
+          "character": "Krauss",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_eva_ue_amazed_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Ara.",
+          "character": "Eva",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_eva_ue_amazed_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "I say it's not a \"won't step out\".",
+          "character": "Eva",
+          "style": "add",
+          "statement": "continue"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "He \"can't step out\", right?",
+          "character": "Eva",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_evil_laugh_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "You sound like you wish father was dead, Eva.",
+          "character": "Krauss",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_eva_ue_troubled_a1",
+            "z-index": 2
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 500
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b"
+        },
+        "characters": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_rosa_ur_serious_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "That's you, brother.",
+          "character": "Rosa",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "News about you failing your businesses have reached my ears.",
+          "character": "Rosa",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "We can just ask father about the distribution of his assets.",
+          "character": "Krauss",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "But it's difficult for me to approach him these days.",
+          "character": "Krauss",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "Even though I knew that father is facing some tough times.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "But they are arguing amongst themselves right in from of the kids.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1b_rain"
+        },
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_serious_a3",
+            "z-index": 3
+          }
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_george_ug_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You look like you can't stand this anymore.",
+          "character": "George",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_serious_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "What is this family meeting? I'm here just to hang out with everyone.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_jessica_uj_serious_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "I hate this too...",
+          "character": "Jessica",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "b_2floor_r1a_rain"
+        },
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_maria_um_apathy_a1",
+            "z-index": 2
+          },
+          "middle": {
+            "url": "c_ushiromia_george_ug_serious_a2",
+            "z-index": 3
+          },
+          "right": {
+            "url": "c_ushiromia_jessica_uj_serious_a1",
+            "z-index": 1
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_george_ug_laugh_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "It will be fine, we are a family after all.",
+          "character": "George",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "No matter how we argue, we just have to wait for the typhoon to stop. And when the seagull cries, everything will calm down.",
+          "character": "George",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_serious_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "...It will be great if that's true.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "transition_speed": 500,
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "transition_speed": 500,
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_genji_gen_default_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 200,
+          "visual": "shake-left"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1a"
+        },
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_serious_a2",
+            "z-index": 3
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_genji_gen_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Krauss-sama",
+          "character": "Genji",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\n*whisper* *whisper* *whisper*",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_serious_a1",
+            "z-index": 3
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1c"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_rudolf_ur_laugh_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Father is finally coming out?",
+          "character": "Rudolf",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_serious_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "No. It seems like someone has fallen off a ship in the typhoon.",
+          "character": "Krauss",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "A girl has drifted onto the island.",
+          "character": "Krauss",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_kyrie_uk_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Poor kid.",
+          "character": "Kyrie",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_serious_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "The doctor is patching her up. Her life is not in danger.",
+          "character": "Krauss",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Seems like she managed to get here, the main house on her own.",
+          "character": "Krauss",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_troubled_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Natsuhi and I will pay her a visit on the behalf on the family.",
+          "character": "Krauss",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Let's talk about this after dinner.",
+          "character": "Krauss",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_krauss_uk_default_a1",
+            "z-index": 2
+          },
+          "right": {
+            "url": "c_ushiromia_natsuhi_un_serious_a1",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 500,
+          "auto_transition": 1000
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_gohda_goh_default_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Hey, everyone,",
+          "character": "Gohda",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 500
+        }
+      },
+      {
+        "text": {
+          "content": "would you like some tea?",
+          "character": "Gohda",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1a"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_rosa_ur_troubled_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "But.. what a poor kid. Ships cannot reach here in this weather.",
+          "character": "Rosa",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "She will be stuck on this island until tomorrow.",
+          "character": "Rosa",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_kyrie_uk_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "At this point, it will be great if nothing happens to any of us.",
+          "character": "Kyrie",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_rudolf_ur_evil_laugh_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "This rainstorm reminds me of the time when Battler was almost frightened to death screaming \"The witch is here, I'm scared!\".",
+          "character": "Rudolf",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_puzzled_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Dad, when the heck did that happen?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1a",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "Oh. I remember... That was the legend of Rokkenjima's witch.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_portrait_2",
+          "effect": []
+        },
+        "text": {
+          "content": "When I was a kid, I was always told that the Golden Witch who supported the Ushiromia family will kidnap children during nights when there are typhoons.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Witches - such ridiculous things do not exist at all",
+          "character": "Battler",
+          "style": "replace"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_serious_a1",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "visual": "shake-right",
+          "auto_transition": 2000
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_anger_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "uuuu- Witches do exist.",
+          "character": "Maria",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "It's real.",
+          "character": "Maria",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1a"
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_troubled_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Those are just rumours, right?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_anger_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "No way! Witches are real!",
+          "character": "Maria",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "visual": "shake-left"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_rosa_ur_anger_a4",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Maria, calm down and listen...",
+          "character": "Rosa",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_maria_um_anger_a3",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "uu-!!",
+          "character": "Maria",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "visual": "shake-right"
+        }
+      },
+      {
+        "text": {
+          "content": "Witches are real! uu!! uu!!",
+          "character": "Maria",
+          "style": "add",
+          "statement": "continue"
+        },
+        "effects": {
+          "visual": "shake-left"
+        }
+      },
+      {
+        "text": {
+          "content": "Beatrice exists.",
+          "character": "Maria",
+          "style": "add",
+          "statement": "continue"
+        },
+        "effects": {
+          "visual": "shake-bottom"
+        }
+      },
+      {
+        "text": {
+          "content": "Maria is calm!!",
+          "character": "Maria",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "visual": "shake-bottom"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_rosa_ur_anger_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "I told you not to...",
+          "character": "Rosa",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": null,
+        "effects": {
+          "auto_transition": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_door_1"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "The knocking on the door silenced the whole room.",
+          "character": "narrator",
+          "style": "replace"
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nEveryone has their eyes fixed on the door.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "text": {
+          "content": "It feels like there's something horrifying on the other side of the door.",
+          "character": "narrator",
+          "style": "replace"
+        }
+      },
+      {
+        "text": {
+          "content": "Someone with an unclear identity, just like-",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "text": {
+          "content": " a witch.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "white"
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-horizontal-outside",
+          "transition_speed": 2000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b"
+        },
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_laugh_a2",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-horizontal-outside",
+          "transition_speed": 2000,
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_laugh_a3",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "My name is Erika Furudo.",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b",
+          "effect": ["cinematic"]
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left-right",
+          "transition_speed": 1000,
+          "clock": {
+            "from": "18:45",
+            "to": "20:10",
+            "position": "center"
+          },
+          "auto_transition": 4000
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b",
+          "effect": ["cinematic"]
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_guesthouse_dinner_1b",
+          "effect": []
+        },
+        "effects": {
+          "transition": "gradient-left-right",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_2a"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_blood_1a"
+        },
+        "characters": null,
+        "effects": {
+          "visual": "shake-right",
+          "auto_transition": 2000
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_2a"
+        },
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_laugh_a3",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<purple>It's hard to imagine the chef dining with the master.</purple>",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a4",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "<purple>I knew it. There's indeed someone else in the room apart from victims.</purple>",
+          "character": "Erika",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "<purple> And that person is a woman.</purple> Lots of evidence pointing to that.",
+          "character": "Erika",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_blood_1a"
+        },
+        "characters": null,
+        "text": {
+          "content": "This whole thing doesn't feel real to me. It's not because the victims are normal people with normal lives. It's not because the whole thing is weird either.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "This girl is too weird. Because of her, I became numb to this whole thing.",
+          "character": "narrator",
+          "style": "replace"
+        }
+      },
+      {
+        "text": {
+          "content": "Her elegant feel has completely vanished.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1l",
+          "effect": ["grayscale"]
+        },
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "This is her true form, huh...",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "A witch who feels happy when someone dies.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1l",
+          "effect": []
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a5",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<purple>The master key was taken away.</purple>",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Judging by the condition of the corpse... Doctor Nanjo.",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_nanjo_nan_troubled_a3",
+            "z-index": 2
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<purple>These sacrifices died instantly, right?</purple>",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_nanjo_nan_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Yes... as you all can see here.",
+          "character": "Nanjo",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "<purple> Even if someone else examined the bodies, no one will make a mistake.</purple>",
+          "character": "Nanjo",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1n"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_jessica_uj_anger_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You're lying!",
+          "character": "Jessica",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "visual": "shake-left"
+        }
+      },
+      {
+        "text": {
+          "content": "Kanon-kun... Kanon-kun was...",
+          "character": "Jessica",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "<purple>Kanon-san was already dead.</purple>",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_jessica_uj_anger_a3",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You are so full of yourself, acting like you own the place.",
+          "character": "Jessica",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Who the hell do you think you are?",
+          "character": "Jessica",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a4",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "I'm a detective.",
+          "character": "Erika",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "I have the right to gather evidence at the crime scene.",
+          "character": "Erika",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1n",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "This guy... She is obsessed with-",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "These kinds of things...",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "b_theater_2a",
+          "effect": []
+        },
+        "characters": {
+          "left": null
+        },
+        "text": {
+          "content": "It looks exactly like... A parent whose child is about to perform a play on the stage.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nStanding next to the stage, smiling...",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1n"
+        },
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_jessica_uj_anger_a3",
+            "z-index": 1
+          },
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a4",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_rudolf_ur_serious_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Jessica-chan, calm down!",
+          "character": "Rudolf",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_rudolf_ur_default_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Sorry, Erika-san, it's a bit messed up right now, can you leave us alone?",
+          "character": "Rudolf",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "The suspect who gets in the detective's way during the inspection of the crime scene is the killer. This situation only appears in lousy detective fictions.",
+          "character": "Erika",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "But this is exactly what I am thinking right now.",
+          "character": "Erika",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1n"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Erika-san!",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "text": {
+          "content": "I am very sorry! But we are all confused and messed up right now!",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a1",
+            "z-index": 1
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 500
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "What we can do is not to disrupt the scene before the police arrives.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_serious_a2",
+            "z-index": 1
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 1000
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_serious_a1",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "Okay then.",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_rudolf_ur_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Battler is right.",
+          "character": "Rudolf",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "Let's head back to the main room and contact the police.",
+          "character": "Rudolf",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_chapel_interior_1r"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-right",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_natsuhi_un_crying_a2",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_kyrie_uk_serious_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Natsuhi-neesan, please hold onto me.",
+          "character": "Kyrie",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 1000
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_default_a2",
+            "z-index": 1
+          }
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 1000
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_erika_eri_evil_laugh_a3",
+            "z-index": 1
+          }
+        },
+        "text": {
+          "content": "I have finished my investigation. I've got what I wanted.",
+          "character": "Erika",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "effects": {
+          "transition": "gradient-top-left",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_butterfly_1a"
+        },
+        "effects": {
+          "transition": "gradient-top-left",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "effects": {
+          "transition": "gradient-top-left",
+          "transition_speed": 1000,
+          "auto_transition": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "effects": {
+          "transition": "gradient-radial",
+          "transition_speed": 500,
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_fearless_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "So that's it. This is what happened during day one.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-top"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a2",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "You know who is the murderer, Battler?",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_ub_serious_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Not red... Not blue either... What's that \"Purple logic\" thing?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_culprit"
+        },
+        "text": {
+          "content": "For this game, we are only guessing who is the murderer.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "I don't plan on involving blue or red battles.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "continue"
+        }
+      },
+      {
+        "text": {
+          "content": "I only ask for one thing: Who did it?",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 200
+        }
+      },
+      {
+        "background": {
+          "url": "b_purple_statement"
+        },
+        "text": {
+          "content": "\n\n\n\n\n\n\n\n\n\n\n\n",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "text": {
+          "content": "<i>Purple statements</i> is to make things simple, the rule is only applicable for this round.",
+          "character": "Beatrice",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_evil_a2",
+            "z-index": 2
+          }
+        },
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_apathy_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Well, you just need to know that this is an important statement.",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a",
+          "effect": ["grayscale"]
+        },
+        "text": {
+          "content": "<i>Red truth</i> is the absolute truth that does not require any additional explanation from the witch.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000
+        }
+      },
+      {
+        "text": {
+          "content": "\n\nOn the opposite side, <i>blue truth</i> is to deny the witch, and to determine that crimes are committed by human.",
+          "character": "narrator",
+          "style": "add"
+        }
+      },
+      {
+        "background": {
+          "url": "black",
+          "effect": []
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_blade8_1b"
+        },
+        "text": {
+          "content": "If she can't use <i>red truth</i> to reject my <i>blue truth</i>, then it will be Beatrice's loss.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-bottom-right",
+          "visual": "shake-right"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_blade6_2r"
+        },
+        "text": {
+          "content": "On the other hand, if I fail to discover any <i>blue truth</i>, then I will lose.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-top-left",
+          "visual": "shake-left"
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "text": null,
+        "characters": null,
+        "effects": {
+          "transition": "fade-in",
+          "auto_transition": 0
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a",
+          "effect": ["grayscale"]
+        },
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_apathy_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "We have been fighting like this since the very beginning.",
+          "character": "narrator",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "Indeed, this time we can know that the murderer is human, so <i>blue truth</i> will not be necessary.",
+          "character": "narrator",
+          "style": "replace"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a",
+          "effect": []
+        },
+        "text": null,
+        "effects": {
+          "transition": "fade-in",
+          "transition_speed": 1000,
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Can I say that <i>purple statement</i> is the same thing as <i>red truth</i>?",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-left"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_laugh_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Yup! You can say that the <i>purple statement</i> shares the same power with <i>red truth</i>.",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_apathy_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "But. Only one exception.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_beatrice_bea_fearless_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "The murderer can use <i>purple statement</i> to lie.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_ushiromia_battler_ub_serious_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "I see.",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "So that means those who are not the murderer cannot lie, right?",
+          "character": "Battler",
+          "style": "add",
+          "statement": "continue"
+        }
+      },
+      {
+        "text": {
+          "content": "That's awesome",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1b"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-left",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_fearless_a4",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "I see.",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "I didn't expect you to give up your witch advantage, you seemed so relaxed.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_beatrice_bea_evil_a1",
+            "z-index": 2
+          }
+        },
+        "text": {
+          "content": "Ohoho, I told you before.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "text": {
+          "content": "This is a test for you.",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_fearless_a1",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "That's not right, it's the opposite, Beatrice",
+          "character": "Battler",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "middle": {
+            "url": "c_ushiromia_battler_ub_fearless_a2",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "This is a test for you as well.",
+          "character": "Battler",
+          "style": "add",
+          "statement": "end"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "background": {
+          "url": "b_different_space_1a"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "transition": "gradient-top",
+          "auto_transition": 0
+        }
+      },
+      {
+        "characters": {
+          "left": {
+            "url": "c_ushiromia_battler_b_ub_fearless_b2",
+            "z-index": 1
+          },
+          "middle": null
+        },
+        "text": {
+          "content": "This time, let me show you that you are nothing without magic.",
+          "character": "Battler",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "gradient-right"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_frown_a2",
+            "z-index": 3
+          }
+        },
+        "text": null,
+        "effects": {
+          "transition": "gradient-top",
+          "auto_transition": 1000
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_evil_a3",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Ohohoho... Ahahaha.",
+          "character": "Beatrice",
+          "style": "replace",
+          "statement": "start"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "characters": {
+          "right": {
+            "url": "c_beatrice_bea_evil_a4",
+            "z-index": 3
+          }
+        },
+        "text": {
+          "content": "Good one!",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "continue"
+        },
+        "effects": {
+          "transition": "fade-in"
+        }
+      },
+      {
+        "text": {
+          "content": "That's my lifelong rival!",
+          "character": "Beatrice",
+          "style": "add",
+          "statement": "end"
+        }
+      },
+      {
+        "text": {
+          "content": "Come over and challenge me, Battler!",
+          "character": "Beatrice",
+          "style": "replace"
+        },
+        "effects": {
+          "transition": "fade-in",
+          "visual": "shake-right"
+        }
+      },
+      {
+        "text": null,
+        "effects": {
+          "auto_transition": 1000
+        }
+      },
+      {
+        "background": {
+          "url": "black"
+        },
+        "characters": null,
+        "text": null,
+        "effects": {
+          "auto_transition": 2000
+        }
+      }
+    ]
+  }

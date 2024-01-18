@@ -69,7 +69,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimKrauss.png":
+		"PortraitVictimKinzo.png":
 		{
 			"frame": {"x":0,"y":288,"w":112,"h":144},
 			"rotated": false,
@@ -77,7 +77,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimKumasawa.png":
+		"PortraitVictimKrauss.png":
 		{
 			"frame": {"x":112,"y":288,"w":112,"h":144},
 			"rotated": false,
@@ -85,7 +85,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimKyrie.png":
+		"PortraitVictimKumasawa.png":
 		{
 			"frame": {"x":224,"y":288,"w":112,"h":144},
 			"rotated": false,
@@ -93,7 +93,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimMaria.png":
+		"PortraitVictimKyrie.png":
 		{
 			"frame": {"x":336,"y":288,"w":112,"h":144},
 			"rotated": false,
@@ -101,7 +101,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimNanjo.png":
+		"PortraitVictimMaria.png":
 		{
 			"frame": {"x":448,"y":0,"w":112,"h":144},
 			"rotated": false,
@@ -109,7 +109,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimNatsuhi.png":
+		"PortraitVictimNanjo.png":
 		{
 			"frame": {"x":448,"y":144,"w":112,"h":144},
 			"rotated": false,
@@ -117,7 +117,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimRosa.png":
+		"PortraitVictimNatsuhi.png":
 		{
 			"frame": {"x":448,"y":288,"w":112,"h":144},
 			"rotated": false,
@@ -125,7 +125,7 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimRudolf.png":
+		"PortraitVictimRosa.png":
 		{
 			"frame": {"x":560,"y":0,"w":112,"h":144},
 			"rotated": false,
@@ -133,9 +133,17 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
 			"sourceSize": {"w":112,"h":144}
 		},
-		"PortraitVictimShannon.png":
+		"PortraitVictimRudolf.png":
 		{
 			"frame": {"x":560,"y":144,"w":112,"h":144},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},
+			"sourceSize": {"w":112,"h":144}
+		},
+		"PortraitVictimShannon.png":
+		{
+			"frame": {"x":560,"y":288,"w":112,"h":144},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":112,"h":144},

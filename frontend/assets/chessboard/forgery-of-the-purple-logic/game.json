@@ -1,0 +1,207 @@
+{
+    "resources": {
+        "atlases": {
+            "ui_portrait": "/ui/Portrait.png",
+            "ui_portrait_dead": "/ui/PortraitDead.png",
+            "ui_victim_portrait": "/ui/PortraitVictim.png",
+            "ui_element": "/ui/UI.png"
+        },
+        "images": {
+            "bernkastel": "/character/erika/eri_evil_laugh_a4.png",
+            "bernkastel_selected": "/character/erika/eri_evil_laugh_a6.png",
+            "battler": "/character/ushiromia_battler/ub_serious_a3.png",
+            "battler_solved": "/character/ushiromia_battler/ub_fearless_b2.png",
+            "battler_wrong": "/character/ushiromia_battler/ub_troubled_b1.png",
+    
+            "purple_nanjo": "/character/nanji/nan_troubled_a3.png",
+            "purple_natsuhi": "/character/ushiromia_natsuhi/un_serious_a1.png",
+            "purple_jessica": "/character/ushiromia_jessica/uj_serious_a1.png",
+            "purple_george": "/character/ushiromia_george/ug_serious_a3.png",
+            "purple_battler": "/character/ushiromia_battler/ub_serious_a1.png",
+            "purple_maria": "/character/ushiromia_maria/um_evil_a2.png",
+            "purple_eva": "/character/ushiromia_eva/ue_serious_a1.png",
+            "purple_hideyoshi": "/character/ushiromia_hideyoshi/uh_serious_a2.png",
+            "purple_rudolf": "/character/ushiromia_rudolf/ur_serious_a1.png",
+            "purple_kyrie": "/character/ushiromia_kyrie/uk_serious_a2.png",
+            "purple_rosa": "/character/ushiromia_rosa/ur_troubled_a1.png",
+            "purple_erika": "/character/erika/eri_default_a2.png",
+    
+            "b_different_space_2d": "/background/mainbuilding/library_1c_portal.bmp",
+            "b_different_space_1a": "/background/metaworld/different_space_1a.bmp",
+
+            "e_broken_glass": "/effect/broken_glass.png",
+    
+            "ui_menu": "/ui/menu.png",
+            "ui_chapter_select": "/ui/chapter-select.png",
+            "ui_flowers": "/ui/hana_back.png"
+        },
+        "audio": {
+            "main": "/bgm/meitantei_ha_shitteiru.ogg",
+
+            "page": "/system/page.wav",
+            "click01": "/system/mouse_click_01.wav",
+            "click07": "/system/mouse_click_07.wav",
+            "ahaha": "/effect/ahaha.wav",
+            "confirm_culprits": "/effect/barrier_tenkai_3.wav",
+            "culprit_select_screen": "/effect/ZS4.wav"
+        },
+        "fonts": {
+            "ITC Bookman Medium": "/font/BookmanStd-Medium.woff2",
+            "ITC Bookman Light": "/font/BookmanStd-Light.woff2"
+        }
+    },
+    "twilights": [
+        {
+            "name": "First twilight",
+            "url": "/chessboard/forgery-of-the-purple-logic/twilight/1_twilight.json",
+            "deaths": ["kinzo", "krauss", "genji", "gohda","kumasawa", "kanon"]
+        }
+    ],
+    "characters": {
+        "krauss": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "natsuhi": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "jessica": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "kinzo": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "right": true
+                }
+            }
+        },
+        "nanjo": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "erika": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "eva": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "top": true
+                }
+            }
+        },
+        "hideyoshi": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "george": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "rudolf": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "top": true
+                }
+            }
+        },
+        "kyrie": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "battler": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "genji": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {}
+            }
+        },
+        "rosa": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "right": true,
+                    "top": true
+                }
+            }
+        },
+        "maria": {
+            "relation": {
+                "color": "#a11e46",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "kanon": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "gohda": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        },
+        "kumasawa": {
+            "relation": {
+                "color": "#2c1378",
+                "sides": {
+                    "left": true
+                }
+            }
+        }
+    },
+    "culprit_board": [
+        [null, "krauss", "natsuhi", "jessica"],
+        ["kinzo", "eva", "hideyoshi", "george"],
+        ["nanjo", "rudolf", "kyrie", "battler"],
+        ["erika", "rosa", null, "maria"],
+        ["genji", "kanon", "gohda", "kumasawa"]
+    ],
+    "solution": ["battler", "kyrie", "rudolf"]
+}

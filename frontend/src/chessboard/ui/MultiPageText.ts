@@ -193,7 +193,7 @@ export class MultiPageText extends Element {
         style = this.getTextStyle(style);
         return tokens.map((textToken) => {
             const createjsText = new Text(
-                textToken.text,
+                textToken.text.replace(/<i>/g, '').replace(/<\/i>/g, ''),
                 `${style.font_size}px ${style.font}`
             );
             createjsText.color = textToken.color;
