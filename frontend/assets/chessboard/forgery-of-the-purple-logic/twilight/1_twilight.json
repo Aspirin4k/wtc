@@ -223,7 +223,7 @@
         "se_barrier_hit": "/effect/barrier_tenkai_3.wav",
         "se_battler_confident": "/effect/A1_17270.WAV",
 
-        "a_rain": "/ambient/rain4_Long.WAV",
+        "a_rain": "/ambient/Rain4_Long.WAV",
 
         "bgm_different_world1": "/bgm/599 million ruins.ogg",
         "bgm_different_world2": "/bgm/Dread of the grave -rhythm ver-.ogg",
