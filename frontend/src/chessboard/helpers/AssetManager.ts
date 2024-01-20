@@ -161,12 +161,17 @@ class AssetManager {
             const audio = new Audio(getStaticURL(urls[short_name]));
 
             audio.addEventListener('canplaythrough', () => {
+                LoggerFactory.getLogger().info('Loaded audio: ' + short_name)
                 this.assets_load_sessions[session_id].current_assets_loaded++;
                 onSingleLoad && onSingleLoad();
                 if (this.isSessionCompleted(session_id)) {
                     this.notifyListeners(session_id);
                 }
             });
+
+            audio.addEventListener('error', (e) => {
+                LoggerFactory.getLogger().info('Failed to load audio: ' + short_name, {e})
+            })
 
             this.audio[short_name] = audio;
         })

@@ -876,8 +876,9 @@
       },
       "text": {
         "content": "<red>All doors can only be locked or unlocked with a master key.</red>",
-        "character": "narrator",
-        "style": "replace"
+        "character": "Bernkastel",
+        "style": "replace",
+        "statement": "start"
       },
       "effects": {
         "transition": "fade-in",
@@ -887,8 +888,9 @@
     {
       "text": {
         "content": "\n\n<red>Of course, it is possible to lock or unlock the doors from inside the room even without a master key.</red>",
-        "character": "narrator",
-        "style": "add"
+        "character": "Bernkastel",
+        "style": "add",
+        "statement": "end"
       }
     },
     {

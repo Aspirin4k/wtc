@@ -599,7 +599,7 @@
       },
       "text": {
         "content": "B-But have no fear...!",
-        "characters": "Gohda",
+        "character": "Gohda",
         "style": "replace",
         "statement": "start"
       },
@@ -610,7 +610,7 @@
     {
       "text": {
         "content": " After Madam began to suspect us, we started keeping an eye on each other!",
-        "characters": "Gohda",
+        "character": "Gohda",
         "style": "add",
         "statement": "end"
       }

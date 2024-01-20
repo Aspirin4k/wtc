@@ -56,11 +56,11 @@ export class Clock {
                 const handMinutes = face.getChildByName('minutes');
                 this.tweenHandMinutes = Tween
                     .get(handMinutes)
-                    .to({rotation: handMinutes.rotation + (toMinutes - fromMinutes) * 6}, 2000, Ease.cubicInOut);
+                    .to({rotation: handMinutes.rotation + (toMinutes - fromMinutes) * 6}, 5000, Ease.cubicInOut);
                 const handHours = face.getChildByName('hours');
                 this.tweenHandHours = Tween
                     .get(handHours)
-                    .to({rotation: handHours.rotation + (toMinutes - fromMinutes) / 2}, 2000, Ease.cubicInOut);
+                    .to({rotation: handHours.rotation + (toMinutes - fromMinutes) / 2}, 5000, Ease.cubicInOut);
             });
 
         return face;

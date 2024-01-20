@@ -151,10 +151,11 @@
         "b_different_space_1b": "/background/metaworld/different_space_1b.bmp",
         "b_different_space_1c": "/background/metaworld/different_space_1c.bmp",
 
-        "b_chapel_interior_1l": "/background/chapel/interior_1l.bmp",
-        "b_chapel_interior_1n": "/background/chapel/interior_1n.bmp",
-        "b_chapel_interior_1r": "/background/chapel/interior_1r.bmp",
-        "b_chapel_interior_2a": "/background/chapel/interior_2a.bmp",
+        "b_chapel": "/background/chapel/interior_1n.bmp",
+        "b_chapel_interior_1l": "/background/mainbuilding/library_1a_rain.bmp",
+        "b_chapel_interior_1n": "/background/mainbuilding/library_1b_rain.bmp",
+        "b_chapel_interior_1r": "/background/mainbuilding/library_1c_rain.bmp",
+        "b_chapel_interior_2a": "/background/mainbuilding/library_1d_rain.bmp",
         "b_chapel_o1a_night": "/background/chapel/o1a_night.bmp",
 
         "b_garden_rose_g1a": "/background/garden/rose_g1a.bmp",
@@ -202,6 +203,35 @@
         "clock_h": "/effect/clock/Clock_h.png"
       },
       "audio": {
+        "se_teleport": "/effect/Z1.wav",
+        "se_teleport2": "/effect/teleport_1.wav",
+        "se_ahaha": "/effect/ahaha.wav",
+        "se_hit": "/effect/A5_04107.WAV",
+        "se_hit_2": "/effect/A5_04138.WAV",
+        "se_hit_3": "/effect/A5_04105.WAV",
+        "se_red_statement": "/effect/barrier_tenkai_2.wav",
+        "se_instant_movement": "/effect/instant_movement_6.wav",
+        "se_thunder": "/effect/thunder_3.wav",
+        "se_impact": "/effect/02se_umi.wav",
+        "se_impact_2": "/effect/A5_02047.WAV",
+        "se_clock": "/effect/A5_08234.WAV",
+        "se_tease": "/effect/B5.WAV",
+        "se_knock": "/effect/A5_07212.WAV",
+        "se_door_long": "/effect/A5_07201.WAV",
+        "se_door": "/effect/A5_01023.WAV",
+        "se_horror": "/effect/07_se_umi.wav",
+        "se_barrier_hit": "/effect/barrier_tenkai_3.wav",
+        "se_battler_confident": "/effect/A1_17270.WAV",
+
+        "a_rain": "/ambient/rain4_Long.WAV",
+
+        "bgm_different_world1": "/bgm/599 million ruins.ogg",
+        "bgm_different_world2": "/bgm/Dread of the grave -rhythm ver-.ogg",
+        "bgm_murder": "/bgm/rinshi_mu.ogg",
+        "bgm_horror": "/bgm/rensa_kairo_mu.ogg",
+        "bgm_children": "/bgm/kururi.ogg",
+        "bgm_adults": "/bgm/09_suspicion.ogg",
+        "bgm_solving_mystery": "/bgm/hankou_no_yokokujou_yomiage.ogg"
       }
     },
     "scene": {
@@ -238,6 +268,8 @@
         },
         "effects": {
           "transition": "fade-in",
+          "sound": "se_teleport",
+          "bgm": "bgm_different_world1",
           "auto_transition": 0
         }
       },
@@ -346,7 +378,8 @@
           "statement": "start"
         },
         "effects": {
-          "transition": "fade-in"
+          "transition": "fade-in",
+          "sound": "se_ahaha"
         }
       },
       {
@@ -528,7 +561,7 @@
       },
       {
         "background": {
-          "url": "b_chapel_interior_1n",
+          "url": "b_chapel",
           "effect": ["grayscale"]
         },
         "text": {
@@ -783,7 +816,8 @@
         },
         "effects": {
           "transition": "fade-in",
-          "visual": "shake-right"
+          "visual": "shake-right",
+          "sound": "se_hit"
         }
       },
       {
@@ -824,7 +858,8 @@
           "statement": "start"
         },
         "effects": {
-          "transition": "fade-in"
+          "transition": "fade-in",
+          "sound": "se_battler_confident"
         }
       },
       {
@@ -936,13 +971,14 @@
         },
         "characters": null,
         "text": {
-          "content": "<red>Absolute truths that do no require any proofs or arguments. The <i>red truth</i> will be valid in this game as well.</red>",
+          "content": "<red>Absolute truths that do no require any proofs or arguments. The \"red truth\" will be valid in this game as well.</red>",
           "character": "Beatrice",
           "style": "add",
           "statement": "end"
         },
         "effects": {
-          "transition": "fade-in"
+          "transition": "fade-in",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -985,7 +1021,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-top"
+          "transition": "gradient-top",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1027,7 +1064,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1089,7 +1127,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1149,7 +1188,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-left"
+          "transition": "gradient-left",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1197,7 +1237,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1245,7 +1286,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-left"
+          "transition": "gradient-left",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1305,7 +1347,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1342,7 +1385,8 @@
           "statement": "start"
         },
         "effects": {
-          "transition": "gradient-left"
+          "transition": "gradient-left",
+          "sound": "se_red_statement"
         }
       },
       {
@@ -1534,6 +1578,7 @@
         },
         "effects": {
           "transition": "gradient-right",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1546,6 +1591,7 @@
         },
         "effects": {
           "transition": "gradient-left",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1558,6 +1604,7 @@
         },
         "effects": {
           "transition": "gradient-right",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1570,6 +1617,7 @@
         },
         "effects": {
           "transition": "gradient-left",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1582,6 +1630,7 @@
         },
         "effects": {
           "transition": "gradient-right",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1594,6 +1643,7 @@
         },
         "effects": {
           "transition": "gradient-left",
+          "sound": "se_instant_movement",
           "auto_transition": 0
         }
       },
@@ -1610,7 +1660,8 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_instant_movement"
         }
       },
       {
@@ -1621,6 +1672,7 @@
         "text": null,
         "effects": {
           "transition": "fade-in",
+          "bgm": "bgm_murder",
           "auto_transition": 500
         }
       },
@@ -1637,9 +1689,13 @@
         "background": {
           "url": "b_sea_2b"
         },
+        "ambient": {
+          "rain": "a_rain"
+        },
         "effects": {
           "transition": "gradient-top",
-          "auto_transition": 500
+          "auto_transition": 500,
+          "sound": "se_thunder"
         }
       },
       {
@@ -1680,7 +1736,8 @@
         "effects": {
           "transition": "fade-in",
           "auto_transition": 500,
-          "transition_speed": 1000
+          "transition_speed": 1000,
+          "sound": "se_clock"
         }
       },
       {
@@ -1691,7 +1748,7 @@
         "effects": {
           "transition": "gradient-left-right",
           "transition_speed": 1000,
-          "auto_transition": 2000,
+          "auto_transition": 4000,
           "clock": {
             "to": "20:00",
             "position": "bottom-right"
@@ -1703,9 +1760,12 @@
           "url": "black",
           "effect": []
         },
+        "ambient": {
+          "rain": null
+        },
         "effects": {
           "transition": "fade-in",
-          "transition_speed": 1000,
+          "transition_speed": 2000,
           "auto_transition": 200
         }
       },
@@ -1715,7 +1775,8 @@
         },
         "effects": {
           "visual": "shake-bottom",
-          "auto_transition": 500
+          "auto_transition": 500,
+          "sound": "se_impact"
         }
       },
       {
@@ -1919,7 +1980,8 @@
         "effects": {
           "transition": "gradient-left-right",
           "transition_speed": 1000,
-          "auto_transition": 3000,
+          "auto_transition": 6000,
+          "sound": "se_clock",
           "clock": {
             "to": "18:00",
             "from": "20:00",
@@ -1936,13 +1998,17 @@
         "effects": {
           "transition": "fade-in",
           "transition_speed": 1000,
-          "auto_transition": 500
+          "auto_transition": 500,
+          "bgm": null
         }
       },
       {
         "background": {
           "url": "b_sea_2a",
           "effect": ["rain"]
+        },
+        "ambient": {
+          "rain": "a_rain"
         },
         "text": {
           "content": "Rokkenjima. A 10km long island owned by the wealthy Ushiromiya family.",
@@ -2001,12 +2067,16 @@
         "text": null,
         "effects": {
           "transition": "gradient-left",
-          "auto_transition": 200
+          "auto_transition": 200,
+          "bgm": "bgm_children"
         }
       },
       {
         "background": {
           "url": "b_2floor_r1a_rain"
+        },
+        "ambient": {
+          "rain": null
         },
         "effects": {
           "transition": "gradient-left",
@@ -2337,6 +2407,7 @@
           "style": "replace"
         },
         "effects": {
+          "sound": "se_tease",
           "transition": "gradient-top",
           "visual": "shake-top"
         }
@@ -2444,7 +2515,8 @@
         },
         "effects": {
           "transition": "fade-in",
-          "transition_speed": 1000
+          "transition_speed": 1000,
+          "bgm": null
         }
       },
       {
@@ -2454,7 +2526,8 @@
         "text": null,
         "effects": {
           "transition": "gradient-left",
-          "auto_transition": 0
+          "auto_transition": 0,
+          "bgm": "bgm_adults"
         }
       },
       {
@@ -2869,6 +2942,7 @@
         "effects": {
           "transition": "gradient-right",
           "auto_transition": 200,
+          "sound": "se_door",
           "visual": "shake-left"
         }
       },
@@ -3194,7 +3268,9 @@
           "style": "replace"
         },
         "effects": {
-          "transition": "gradient-right"
+          "transition": "gradient-right",
+          "sound": "se_tease",
+          "visual": "shake-top"
         }
       },
       {
@@ -3258,7 +3334,9 @@
         },
         "effects": {
           "visual": "shake-right",
-          "auto_transition": 2000
+          "auto_transition": 2000,
+          "sound": "se_impact_2",
+          "bgm": null
         }
       },
       {
@@ -3275,7 +3353,9 @@
           "statement": "start"
         },
         "effects": {
-          "transition": "fade-in"
+          "transition": "fade-in",
+          "sound": "se_horror",
+          "bgm": "bgm_horror"
         }
       },
       {
@@ -3326,7 +3406,8 @@
         },
         "effects": {
           "transition": "fade-in",
-          "visual": "shake-left"
+          "visual": "shake-left",
+          "sound": "se_hit_2"
         }
       },
       {
@@ -3360,7 +3441,8 @@
         },
         "effects": {
           "transition": "fade-in",
-          "visual": "shake-right"
+          "visual": "shake-right",
+          "sound": "se_hit"
         }
       },
       {
@@ -3371,7 +3453,8 @@
           "statement": "continue"
         },
         "effects": {
-          "visual": "shake-left"
+          "visual": "shake-left",
+          "sound": "se_hit_3"
         }
       },
       {
@@ -3382,7 +3465,8 @@
           "statement": "continue"
         },
         "effects": {
-          "visual": "shake-bottom"
+          "visual": "shake-bottom",
+          "sound": "se_hit_2"
         }
       },
       {
@@ -3393,7 +3477,8 @@
           "statement": "end"
         },
         "effects": {
-          "visual": "shake-bottom"
+          "visual": "shake-bottom",
+          "sound": "se_hit"
         }
       },
       {
@@ -3415,7 +3500,8 @@
       {
         "text": null,
         "effects": {
-          "auto_transition": 1000
+          "auto_transition": 1000,
+          "sound": "se_knock"
         }
       },
       {
@@ -3473,6 +3559,12 @@
         }
       },
       {
+        "effects": {
+          "auto_transition": 0,
+          "sound": "se_door_long"
+        }
+      },
+      {
         "background": {
           "url": "white"
         },
@@ -3524,12 +3616,13 @@
         "effects": {
           "transition": "gradient-left-right",
           "transition_speed": 1000,
+          "sound": "se_clock",
           "clock": {
             "from": "18:45",
             "to": "20:10",
             "position": "center"
           },
-          "auto_transition": 4000
+          "auto_transition": 6000
         }
       },
       {
@@ -3551,7 +3644,8 @@
         "effects": {
           "transition": "gradient-left-right",
           "transition_speed": 1000,
-          "auto_transition": 0
+          "auto_transition": 0,
+          "bgm": null
         }
       },
       {
@@ -3561,7 +3655,8 @@
         "effects": {
           "transition": "fade-in",
           "transition_speed": 1000,
-          "auto_transition": 0
+          "auto_transition": 0,
+          "bgm": "bgm_solving_mystery"
         }
       },
       {
@@ -3571,7 +3666,8 @@
         "characters": null,
         "effects": {
           "visual": "shake-right",
-          "auto_transition": 2000
+          "auto_transition": 2000,
+          "sound": "se_impact_2"
         }
       },
       {
@@ -4260,7 +4356,9 @@
         "effects": {
           "transition": "gradient-radial",
           "transition_speed": 500,
-          "auto_transition": 0
+          "auto_transition": 0,
+          "sound": "se_teleport",
+          "bgm": "bgm_different_world1"
         }
       },
       {
@@ -4471,7 +4569,8 @@
         },
         "effects": {
           "transition": "gradient-bottom-right",
-          "visual": "shake-right"
+          "visual": "shake-right",
+          "sound": "se_barrier_hit"
         }
       },
       {
@@ -4496,7 +4595,8 @@
         },
         "effects": {
           "transition": "gradient-top-left",
-          "visual": "shake-left"
+          "visual": "shake-left",
+          "sound": "se_barrier_hit"
         }
       },
       {
@@ -4751,7 +4851,8 @@
         "text": null,
         "effects": {
           "transition": "gradient-top",
-          "auto_transition": 0
+          "auto_transition": 0,
+          "bgm": "bgm_different_world2"
         }
       },
       {
@@ -4798,7 +4899,8 @@
           "statement": "start"
         },
         "effects": {
-          "transition": "fade-in"
+          "transition": "fade-in",
+          "sound": "se_ahaha"
         }
       },
       {
@@ -4850,7 +4952,8 @@
         "characters": null,
         "text": null,
         "effects": {
-          "auto_transition": 2000
+          "auto_transition": 2000,
+          "sound": "se_impact_2"
         }
       }
     ]

@@ -97,7 +97,7 @@ export class Scene implements SceneInterface {
         );
 
         // const proceedLength = Math.max(0, this.twilight.proceeding.length - 20);
-        // for (let i = 0; i < proceedLength; i++) {
+        // for (let i = 0; i < 330; i++) {
         //     this.game_state.proceedNovel();
         // }
 
