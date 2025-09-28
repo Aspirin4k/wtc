@@ -108,7 +108,7 @@ func (s *ServiceLocator) GetVKTransformer() *vk.Transformer {
 
 func (s *ServiceLocator) GetVKClient() *vk.Client {
 	if nil == s.vkClient {
-		vkUrl := utils.GetEnv("VK_API_URL", "https://api.vk.com")
+		vkUrl := utils.GetEnv("VK_API_URL", "https://api.vk.ru")
 		vkVersion := utils.GetEnv("VK_API_VERSION", "5.81")
 		vkToken := utils.GetEnv("VK_API_TOKEN", "")
 		s.vkClient = vk.New(vkUrl, vkToken, vkVersion)
